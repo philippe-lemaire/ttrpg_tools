@@ -1,0 +1,24 @@
+{% extends "base_knave.html" %}
+{% block title %}
+Knave - {{table_name}} Table
+{% endblock %}
+{% block content %}
+<h1>{{table_name}}</h1>
+<h2 class="mt-4">Random roll</h2>
+<p>You rolled "{{random_choice}}".</p>
+
+<h2 class="mt-4">The whole {{table_name}} table </h2>
+<div class="table-responsive">
+<table class="table table-stripped table-hover">
+
+    {% for item1, item2 in table %}
+    <tr>
+        <td>{{forloop.counter}}</td>
+        <td>{{item1}}</td>
+        <td>{{forloop.counter|add:"50"}}</td>
+        <td>{{item2}}</td>
+    </tr>
+    {% endfor %}
+</table>
+</div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends "base_knave.html" %}{% load static %}
+{% block title %}
+Knave - Spell List
+{% endblock %}
+{% block content %}
+<h1>Spell List</h1>
+<img src="{% static 'knave_generators/spells.png' %}" class="img-fluid" alt"spells being casted in battle"/>
+
+<h2 class="mt-4">One random spell out of a hat</h2>
+
+<div class="card">
+  <h5 class="card-header">{{rolled_spell_name}}</h5>
+  <div class="card-body">
+    <p class="card-text">{{rolled_spell_desc}}</p>
+  </div>
+</div>
+
+
+<h2 class="mt-4">The whole list</h2>
+<table class="table table-hover">
+{% for name, desc in spelldict.items %}
+<tr>
+    <td>{{name}}</td>
+    <td>{{desc}} </td>
+
+
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
