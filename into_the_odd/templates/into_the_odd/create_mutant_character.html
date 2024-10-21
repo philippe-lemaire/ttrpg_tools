@@ -1,0 +1,56 @@
+{% extends "base_ito.html" %}
+
+{% block title %}
+Mutant Character Generator
+{% endblock %}
+
+{% block content %}
+
+<h1>Mutant Character</h1>
+
+<div class="card mb-2">
+  <div class="card-body">
+    <h5 class="card-title">{{character.name}}</h5>
+
+    <p>{{character.gender}} {{type}}</p>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+            <tr>
+                <th>STR</th>
+                <th>DEX</th>
+                <th>WIL</th>
+                <th>HP</th>
+            </tr>
+            <tr>
+                <td>{{character.STR}}</td>
+                <td>{{character.DEX}}</td>
+                <td>{{character.WIL}}</td>
+                <td>{{character.HP}}</td>
+            </tr>
+            </table>
+
+        </div>
+        <div class="col">
+            <table class="table">
+
+                    <tr>
+                        <th>Mutation and Items</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            <ul>
+                            {% for item in character.starter_package %}<li>{{item|safe}}</li>{% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+            </table>
+        </div><!--col-->
+    </div><!-- row-->
+  </div>
+</div>
+
+
+
+
+{% endblock %}

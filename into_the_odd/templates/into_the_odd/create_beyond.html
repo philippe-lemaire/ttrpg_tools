@@ -1,0 +1,23 @@
+{% extends "base_ito.html" %}
+
+{% block title %}
+What’s Beyond the Darkness?
+{% endblock %}
+
+{% block content %}
+
+<h1>What’s Beyond the Darkness?</h1>
+
+<table class="table table-striped">
+    <tr>
+        <th>Feature</th>
+        <th>Hazard</th>
+        <th>Spoils</th>
+    </tr>
+    <tr>
+        <td>{{beyond.feature}}</td>
+        <td>{{beyond.hazard}}</td>
+        <td>{{beyond.spoil}}</td>
+    </tr>
+</table>
+{% endblock %}

@@ -25,4 +25,10 @@ urlpatterns = [
     path("knave/", include("knave_generators.urls")),
     path("mausritter/", include("mausritter.urls")),
     path("monolith/", include("monolith.urls")),
+    path(
+        "into_the_odd/",
+        include(
+            "into_the_odd.urls",
+        ),
+    ),
 ]

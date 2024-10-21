@@ -1,0 +1,31 @@
+{% extends "base_eb.html" %}
+
+{% block title %}
+Electric Bastionland - Spark Tables
+{% endblock %}
+
+{% block content %}
+<h1>Electric Bastionland - Spark Tables</h1>
+
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+{% if spark %}
+
+
+<table class="table">
+  <thead class="thead-light">
+  <tr>
+    <th>{{spark_1_name}}</th>
+    <th>{{spark_2_name}}</th>
+  </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{left}}</td>
+      <td>{{right}}</td>
+    </tr>
+  </tbody>
+</table>
+{% endif %}
+{% endblock content%}

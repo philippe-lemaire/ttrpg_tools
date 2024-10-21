@@ -1,0 +1,24 @@
+{% extends "base_ito.html" %}
+
+{% block title %}
+A Bastion Street
+{% endblock %}
+
+{% block content %}
+
+<h1>What’s this street like?</h1>
+
+<table class="table table-striped">
+    <thead>
+        <th>Point of interest</th>
+        <th>Atmosphere</th>
+        <th>Link to the Underground</th>
+    </thead>
+    <tr>
+        <td>{{ street.point_of_interest }}</td>
+        <td>{{ street.atmosphere }}</td>
+        <td>{{ street.link }}</td>
+    </tr>
+</table>
+
+{% endblock %}

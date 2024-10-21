@@ -1,0 +1,25 @@
+{% extends "base_ito.html" %}
+
+{% block title %}
+Borough Council Decision
+{% endblock %}
+
+{% block content %}
+
+<h1>Borough Council Decision</h1>
+
+<h2>The Council decided…</h2>
+
+<blockquote class="blockquote">
+    <p class="mb-0">{{council.action}}</p>
+</blockquote>
+
+<h2>The General Public reaction was…</h2>
+
+
+<blockquote class="blockquote">
+    <p class="mb-0">{{council.public_reaction}}</p>
+</blockquote>
+
+
+{% endblock %}

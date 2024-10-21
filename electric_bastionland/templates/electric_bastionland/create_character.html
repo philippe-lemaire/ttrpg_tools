@@ -1,0 +1,66 @@
+{% extends "base_eb.html" %}
+{% block title %}
+Electric Bastionland - Character Generator
+{% endblock %}
+
+{% block content %}
+<h1>Electric Bastionland Character Generator</h1>
+
+<div class="card mb-2">
+  <div class="card-body">
+    <h5 class="card-title">{{character.name}}</h5>
+    <p>{{character.failed_career.name}}</p>
+    <p class="text-muted">{{character.failed_career.description|safe}}</p>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+            <tr>
+                <th>STR</th>
+                <th>DEX</th>
+                <th>CHA</th>
+                <th>HP</th>
+                <th>£</th>
+            </tr>
+            <tr>
+                <td>{{character.STR}}</td>
+                <td>{{character.DEX}}</td>
+                <td>{{character.CHA}}</td>
+                <td>{{character.HP}}</td>
+                <td>{{character.pounds}}</td>
+            </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <th>{{character.failed_career.pound.question|safe}}</th>
+                </tr>
+                <tr>
+                    <td>{{character.answer_pound|safe}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col">
+            <table class="table">
+
+                    <tr>
+                        <th>You get</th>
+                    </tr>
+                    <tr>
+                        <td>
+                            {{character.failed_career.you_get|safe}}
+                        </td>
+                    </tr>
+            </table>
+                        <table class="table">
+                <tr>
+                    <th>{{character.failed_career.hp.question|safe}}</th>
+                </tr>
+                <tr>
+                    <td>{{character.answer_hp|safe}}</td>
+                </tr>
+            </table>
+        </div><!--col-->
+    </div><!-- row-->
+  </div>
+</div>
+
+{% endblock content%}

@@ -51,6 +51,7 @@ INSTALLED_APPS = [
     "knave_generators",
     "mausritter",
     "monolith",
+    "into_the_odd",
 ]
 
 MIDDLEWARE = [

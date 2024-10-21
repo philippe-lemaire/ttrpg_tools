@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+    {% block subbar %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{% url 'into_the_odd:index' %}">
+                Into the Odd
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Characters</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+
+                            <a class="dropdown-item" href="{% url 'into_the_odd:create_character' %}">Create a
+                                Character</a>
+                            <a class="dropdown-item" href="{% url 'into_the_odd:create_mutant_character' %}">Create a
+                                Mutant Character</a>
+                            <a class="dropdown-item" href="{% url 'into_the_odd:create_unhuman_character' %}">Create a
+                                Unhuman Character</a>
+                            <a class="dropdown-item" href="{% url 'into_the_odd:create_simple_folk_character' %}">Create a
+                                Simple Folk Character</a>
+                                <a class="dropdown-item" href="{% url 'into_the_odd:create_lackeys' %}">Create
+                                3 lackeys</a>
+                            <a class="dropdown-item" href="{% url 'into_the_odd:create_npc' %}">Create an Non-Player
+                                Character</a>
+
+                            <a class="dropdown-item" href="{% url 'into_the_odd:astral_cult' %}">Astral Cult</a>
+                        </div>
+                    </li>
+
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Places</a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <a class="dropdown-item" href="{% url 'into_the_odd:council_decision' %}">Council decision</a>
+                            <a class="dropdown-item" href="{% url 'into_the_odd:create_island' %}">Island</a>
+                            <a class="dropdown-item" href="{% url 'into_the_odd:create_street' %}">Street</a>
+                            <a class="dropdown-item" href="{% url 'into_the_odd:create_route' %}">Route</a>
+                            <a class="dropdown-item" href="{% url 'into_the_odd:create_business' %}">Business</a>
+                            <a class="dropdown-item" href="{% url 'into_the_odd:create_beyond' %}">Beyond the Darkness</a>
+                        </div>
+                    </li>
+                    <a class="nav-link" href="{% url 'into_the_odd:create_creature' %}">A weird Creature</a>
+                    <a class="nav-link" href="{% url 'into_the_odd:i_eat_the_stuff' %}">I eat the stuff</a>
+                    <a class="nav-link" href="{% url 'into_the_odd:is_this_thing_an_arcanum' %}">Is this thing an
+                        arcanum?</a>
+
+                </ul>
+            </div>
+
+
+    </nav>
+    <!--messages-->
+    {% endblock subbar %}

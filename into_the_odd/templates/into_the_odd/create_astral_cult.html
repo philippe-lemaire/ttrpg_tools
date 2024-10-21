@@ -1,0 +1,28 @@
+{% extends "base_ito.html" %}
+
+{% block title %}
+Astral Cults
+{% endblock %}
+
+{% block content %}
+
+<h1>3 Astral Cults</h1>
+
+<table class="table table-striped">
+    <thead>
+        <th>Description</th>
+        <th>Collective</th>
+        <th>Symbol</th>
+        <th>Standing</th>
+
+    </thead>
+    {% for cult in cults %}
+    <tr>
+        <td>{{cult.description}}</td>
+        <td>{{cult.collective}}</td>
+        <td>{{cult.symbol}}</td>
+        <td>{{cult.standing}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}

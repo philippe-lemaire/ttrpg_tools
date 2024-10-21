@@ -1,0 +1,23 @@
+{% extends "base_ito.html" %}
+
+{% block title %}
+Is This Thing an Arcanum?
+{% endblock %}
+
+{% block content %}
+
+<h1>Is This Thing an Arcanum?</h1>
+
+<table class="table table-striped">
+    <tr>
+        <th>Form</th>
+        <th>Is it an Arcanum</th>
+        <th>Its Power</th>
+    </tr>
+    <tr>
+        <td>{{thing.form}}</td>
+        <td>{{thing.arcanum}}</td>
+        <td>{{thing.power}}</td>
+    </tr>
+</table>
+{% endblock %}

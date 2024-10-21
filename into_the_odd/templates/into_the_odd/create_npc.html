@@ -1,0 +1,41 @@
+{% extends "base_ito.html" %}
+
+{% block title %}
+NPC
+{% endblock %}
+
+{% block content %}
+
+<h1>Who's over there?</h1>
+<table class="table">
+    <tr>
+        <th>Name</th>
+        <td>{{npc.name}}</td>
+    </tr>
+    <tr>
+        <th>Gender</th>
+        <td>{{npc.gender}}</td>
+    </tr>
+    <tr>
+        <th>Mannerism</th>
+        <td>{{npc.manner}}</td>
+    </tr>
+    <tr>
+        <th>Occupation</th>
+        <td>{{npc.occupation}}</td>
+    </tr>
+    <tr>
+        <th>Capability</th>
+        <td>{{npc.capability}}</td>
+    </tr>
+    <tr>
+        <th>Connection to PCs</th>
+        <td>{{npc.connection}}</td>
+    </tr>
+    <tr>
+        <th>What happened to them?</th>
+        <td>{{npc.event}}</td>
+    </tr>
+</table>
+
+{% endblock %}
