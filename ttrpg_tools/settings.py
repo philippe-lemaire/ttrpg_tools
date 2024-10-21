@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     "tinymce",
     "knave_generators",
     "mausritter",
+    "monolith",
 ]
 
 MIDDLEWARE = [

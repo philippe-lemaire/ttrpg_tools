@@ -1,0 +1,19 @@
+{% extends "base_monolith.html" %}
+{% load static %}
+{% block title %}Monolith - Weird Space Stuff{% endblock title %}
+{% block content %}
+<h1>{{h1}}</h1>
+
+<table class="table">
+    <thead>
+        <th>d66</th>
+        <th></th>
+    </thead>
+{% for item in table %}
+<tr>
+    <th>{{item.number}}</th>
+    <td><b>{{item.name}}:</b> {{item.description}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endblock content %}

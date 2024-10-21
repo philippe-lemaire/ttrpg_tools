@@ -1,0 +1,74 @@
+{% extends "base_monolith.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Monolith - Character Gen{% endblock title %}
+{% block content %}
+<h1>A Monolith Character</h1>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{char.first_name}} {{char.last_name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{char.background}}</h6>
+    <p>{{char.profile|safe}}</p>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+            <tr>
+                <th>STR</th>
+                <th>DEX</th>
+                <th>WIL</th>
+                <th>HP</th>
+            </tr>
+            <tr>
+                <td>{{char.STR}}</td>
+                <td>{{char.DEX}}</td>
+                <td>{{char.WIL}}</td>
+                <td>{{char.HP}}</td>
+            </tr>
+            </table>
+            <table class="table">
+                <tr>
+                    <th>{{char.dossier_name}}</th><td>{{char.dossier_option|safe}}</td>
+                </tr>
+                <tr>
+                    <th>{{char.dossier_subpart_name}}</th>
+                    <td>{{char.dossier_subpart_option|safe}}</td>
+                </tr>
+                <tr>
+                    <th>{{char.dossier_question}}</th><td>{{char.dossier_answer|safe}}</td>
+                </tr>
+                <tr>
+                    <th>Vice</th>
+                    <td>{{char.vice}}</td>
+                </tr>
+            </table>
+        </div>
+        <div class="col">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col" colspan="2">Finishing touches</th>
+                    </tr>
+                </thead>
+                {% for key, value in char.finishing_touches.items %}
+                    <tr>
+                        <th>{{key|title}}</th>
+                        <td>{{value}}</td>
+                    </tr>
+                {% endfor %}
+                    <tr>
+                        <th>Starting gear</th>
+                        <td>
+                            <ul>
+                            {% for item in char.gear %}<li>{{item|safe}}</li>{% endfor %}
+                            {% for item in char.common_gear %}<li>{{item|safe}}</li>{% endfor %}
+                            </ul>
+                        </td>
+                    </tr>
+            </table>
+        </div><!--col-->
+    </div><!-- row-->
+  </div>
+</div>
+
+{% endblock content %}
