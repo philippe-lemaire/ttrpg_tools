@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     "monolith",
     "into_the_odd",
     "electric_bastionland",
+    "cairn",
 ]
 
 MIDDLEWARE = [

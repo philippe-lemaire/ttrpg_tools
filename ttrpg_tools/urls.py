@@ -31,5 +31,6 @@ urlpatterns = [
             "into_the_odd.urls",
         ),
     ),
-    path("electric-bastionland", include("electric_bastionland.urls")),
+    path("electric-bastionland/", include("electric_bastionland.urls")),
+    path("cairn/", include("cairn.urls")),
 ]
