@@ -1,5 +1,5 @@
 from .failed_careers import failed_carreers
-from generators.game_logic import roll
+from into_the_odd.game_logic import roll
 from random import choice
 
 

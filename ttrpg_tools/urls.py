@@ -26,9 +26,10 @@ urlpatterns = [
     path("mausritter/", include("mausritter.urls")),
     path("monolith/", include("monolith.urls")),
     path(
-        "into_the_odd/",
+        "into-the-odd/",
         include(
             "into_the_odd.urls",
         ),
     ),
+    path("electric-bastionland", include("electric_bastionland.urls")),
 ]

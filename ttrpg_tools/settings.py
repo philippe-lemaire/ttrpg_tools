@@ -52,6 +52,7 @@ INSTALLED_APPS = [
     "mausritter",
     "monolith",
     "into_the_odd",
+    "electric_bastionland",
 ]
 
 MIDDLEWARE = [
