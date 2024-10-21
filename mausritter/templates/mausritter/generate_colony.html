@@ -1,0 +1,45 @@
+{% extends "base_mausritter.html" %}
+
+
+{% block content %}
+<h1>Colonie de souris</h1>
+{% load static %}
+<img src="{% static 'mausritter/tavern.png' %}" />
+
+<h2>{{colony.name}}</h2>
+<table class="table table-striped">
+    <tr>
+        <td><b>Population</b></td>
+        <td>{{colony.inhabitants}}</td>
+    </tr>
+    <tr>
+        <td><b>Taille</b></td>
+        <td>{{colony.size}}</td>
+    </tr>
+    <tr>
+        <td><b>Gouvernement</b></td>
+        <td>{{colony.governance}}</td>
+    </tr>
+    <tr>
+        <td><b>Particularité</b></td>
+        <td>{{colony.element_of_note}}</td>
+    </tr>
+    <tr>
+        <td><b>Industrie</b></td>
+        <td>{{colony.industry}}</td>
+    </tr>
+    <tr>
+        <td><b>Événement</b></td>
+        <td>{{colony.event}}</td>
+    </tr>
+    <tr>
+        <td><b>Taverne</b></td>
+        <td>{{colony.tavern_name}}</td>
+    </tr>
+    <tr>
+        <td><b>Spécialité culinaire</b></td>
+        <td>{{colony.tavern_specialty}}</td>
+    </tr>
+</table>
+
+{% endblock %}

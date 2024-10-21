@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     "crispy_bootstrap4",
     "tinymce",
     "knave_generators",
+    "mausritter",
 ]
 
 MIDDLEWARE = [

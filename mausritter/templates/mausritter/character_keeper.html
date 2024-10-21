@@ -1,0 +1,27 @@
+{% extends "base_mausritter.html" %}
+
+
+{% block content %}
+<h1>Feuilles de personnage et inventaire en ligne</h1>
+
+
+{% load static %}
+<img src="{% static 'mausritter/player_sheets.png' %}" alt="Feuilles de personnage">
+
+<p>Jouer avec son groupe autour d’une bonne vieille table, c’est l’idéal.</p>
+
+<p>Mais parfois, notre groupe est constituée de personnes ne pouvant pas se réunir en un lieu.</p>
+
+<p>Pour tenter de reproduire au maximum la gestion de l’inventaire avec des petits cartons posés sur la feuille de
+    personnage, je vous ai préparé
+    une présentation Google Slides à copier dans votre Drive et à partager ensuite avec vos joueurs : </p>
+
+<p><a class="btn btn-primary"
+        href="https://docs.google.com/presentation/d/19A5Pmisd0KAbaKB-sKlFcZmiR0ItaeycTJ_741z3B5k/edit?usp=sharing"
+        target="_blank">Voir le document</a>
+
+
+</p>
+
+
+{% endblock %}

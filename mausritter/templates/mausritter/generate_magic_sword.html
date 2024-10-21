@@ -1,0 +1,47 @@
+{% extends "base_mausritter.html" %}
+
+
+{% block content %}
+{% if sword.cursed %}
+<h1>Vous trouvez un épée maudite</h1>
+{% else %}
+<h1>Vous trouvez un épée magique</h1>
+{% endif %}
+
+{% load static %}
+<img src="{% static 'mausritter/swords/'%}{{sword.image_num}}.png" alt="chat au sommet d'une ville souris">
+
+<table class="table table-striped">
+    <tr>
+        <td><b>Matière</b></td>
+        <td>{{sword.material | capfirst}}</td>
+    </tr>
+    <tr>
+        <td><b>Classe d’arme</b></td>
+        <td>{{sword.weapon_class_name}} <i>{{sword.weapon_class_description}}</i></td>
+    </tr>
+    <tr>
+        {% if sword.cursed %}
+        <td><b><strike>Effet</strike></b></td>
+        <td><b><strike>{{sword.effect_condition | capfirst}} :</b> {{sword.effect_text}}</strike>
+            <br>
+            <i>(inactif tant que la malédiction n'est pas levée)</i>
+        </td>
+        {% else %}
+        <td><b>Effet</b></td>
+        <td><b>{{sword.effect_condition | capfirst}} :</b> {{sword.effect_text}}</td>
+        {% endif %}
+    </tr>
+    {% if sword.cursed %}
+    <tr>
+        <td><b>Malédiction</b></td>
+        <td>{{sword.curse | capfirst}}</td>
+    </tr>
+    <tr>
+        <td><b>Lever la malédiction</b></td>
+        <td>{{sword.curse_lifted_by | capfirst }}</td>
+    </tr>
+    {% endif %}
+</table>
+
+{% endblock %}

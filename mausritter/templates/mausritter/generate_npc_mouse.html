@@ -1,0 +1,51 @@
+{% extends "base_mausritter.html" %}
+
+
+{% block content %}
+<h1>Une souris non joueuse</h1>
+
+<table class="table table-striped">
+    <tr>
+        <td><b>Nom</b></td>
+        <td>{{npc.name}}</td>
+
+
+    </tr>
+    <tr>
+        <td><b>Relation à une Souris Joueuse</b></td>
+        <td>{{npc.relationship}}</td>
+
+    </tr>
+    <tr>
+        <td><b>Apparence</b></td>
+        <td>{{npc.appearance}}</td>
+
+
+    </tr>
+    <tr>
+        <td><b>Signe particulier</b></td>
+        <td>{{npc.quirk}}</td>
+    </tr>
+    <tr>
+        <td><b>Désir</b></td>
+        <td>{{npc.wants}}</td>
+    </tr>
+    <tr>
+        <td><b>Rang</b></td>
+        <td>{{npc.social_position}}</td>
+
+    </tr>
+    <tr>
+        <td><b>Rémunération</b></td>
+        <td>{{npc.payment}}</td>
+    </tr>
+    <tr>
+        <td><b>Signe de naissance</b></td>
+        <td>{{npc.sign}}</td>
+    </tr>
+    <tr>
+        <td><b>Comportement</b></td>
+        <td>{{npc.dispositions}}</td>
+    </tr>
+</table>
+{% endblock %}

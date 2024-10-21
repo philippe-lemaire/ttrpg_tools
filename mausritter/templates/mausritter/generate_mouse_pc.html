@@ -1,0 +1,74 @@
+{% extends "base_mausritter.html" %}
+
+
+{% block content %}
+{% load static%}
+<img src="{% static 'mausritter/npc.png' %}" alt="Une petite souris">
+
+<h1>Une brave souris aventurière</h1>
+
+
+<table class="table table-striped">
+    <tr>
+        <td><b>Nom</b></td>
+        <td>{{pc.name}}</td>
+    </tr>
+    <tr>
+        <td><b>Ancienne occupation</b></td>
+        <td>{{pc.background}}</td>
+
+    </tr>
+    <tr>
+        <td><b>Signe</b></td>
+        <td>{{pc.sign}}</td>
+
+    </tr>
+    <tr>
+        <td><b>Personnalité</b></td>
+        <td>{{pc.disposition}}</td>
+
+    </tr>
+    <tr>
+        <td><b>Pelage</b></td>
+        <td>{{pc.fur}}</td>
+
+    </tr>
+    <tr>
+        <td><b>Détail physique</b></td>
+        <td>{{pc.physical_trait}}</td>
+
+    </tr>
+    <tr>
+        <td><b>FOR</b></td>
+        <td>{{pc.STR}}</td>
+    </tr>
+    <tr>
+        <td><b>DEX</b></td>
+        <td>{{pc.DEX}}</td>
+    </tr>
+    <tr>
+        <td><b>VOL</b></td>
+        <td>{{pc.WIL}}</td>
+    </tr>
+    <tr>
+        <td><b>PV</b></td>
+        <td>{{pc.HP}}</td>
+    </tr>
+    <tr>
+        <td><b>Pépins</b></td>
+        <td>{{pc.pips}}</td>
+    </tr>
+    <tr>
+        <td><b>Équipement</b></td>
+        <td>
+            <ul>
+                {% for item in pc.inventory %}
+                <li>{{item}}</li>
+                {% endfor %}
+                <li>Une arme au choix</li>
+            </ul>
+        </td>
+    </tr>
+
+</table>
+{% endblock %}

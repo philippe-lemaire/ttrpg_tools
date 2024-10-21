@@ -1,0 +1,30 @@
+{% extends "base_mausritter.html" %}
+
+
+{% block content %}
+<h1>Découvrir un sort</h1>
+
+
+{% load static %}
+<img src="{% static 'mausritter/discover_spell.png' %}" alt="chat au sommet d'une ville souris">
+
+
+
+<table class="table table-striped">
+    <tr>
+        <th colspan="2">Sort</th>
+    </tr>
+    <tr>
+        <th>Nom</th>
+        <td>{{spell.name}}</td>
+    <tr>
+        <th>Effect</th>
+        <td>{{spell.effect}}</td>
+    </tr>
+    <tr>
+        <th>Condition de recharge</th>
+        <td>{{spell.recharge}}</td>
+    </tr>
+
+</table>
+{% endblock %}

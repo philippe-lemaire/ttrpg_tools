@@ -23,4 +23,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", TemplateView.as_view(template_name="index.html"), name="index"),
     path("knave/", include("knave_generators.urls")),
+    path("mausritter/", include("mausritter.urls")),
 ]

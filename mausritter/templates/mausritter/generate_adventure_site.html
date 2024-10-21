@@ -1,0 +1,14 @@
+{% extends "base_mausritter.html" %}
+
+
+{% block content %}
+<h1>Lieu d'aventure</h1>
+
+{% load static %}
+<img src="{% static 'mausritter/adventure_site.png' %}" alt="chat au sommet d'une ville souris">
+
+
+<p>Vous trouvez <b>{{site.past}}</b>, qui fut ruiné par <b>{{site.fall}}</b>.</p>
+<p><b>{{site.find}}</b> cherche(nt) ou protège(nt) <b>{{site.doing}}</b>.</p>
+<p>Caché au plus profond, il y a <b>{{site.secret}}</b>.</p>
+{% endblock %}
