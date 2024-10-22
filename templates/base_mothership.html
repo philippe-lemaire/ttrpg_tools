@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+    {% block subbar %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <!--new nav here-->
+
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav mr-auto">
+       <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Characters
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{% url 'mothership:create_character' %}">Create Character</a>
+            <a class="dropdown-item" href="#">Contractors</a>
+          </div>
+        </li>
+
+        <!--
+        <li class="nav-item">
+          <a class="nav-link" href="#">Features</a>
+        </li>
+
+          <li class="nav-item">
+          <a class="nav-link" href="#">Pricing</a>
+        </li>-->
+
+      </ul>
+
+        </div>
+    </nav>
+
+    {% endblock subbar %}

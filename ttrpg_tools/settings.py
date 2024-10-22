@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     "into_the_odd",
     "electric_bastionland",
     "cairn",
+    "mothership",
 ]
 
 MIDDLEWARE = [
