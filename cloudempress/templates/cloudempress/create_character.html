@@ -1,0 +1,138 @@
+{% extends "base_mothership.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cloud Empress - Character Gen{% endblock title %}
+{% block content %}
+<h1>A Cloud Empress Character</h1>
+{% if not character %}
+<h2>Stats</h2>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{strength}}</button><br>
+        STR
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{speed}}</button><br>
+      SPEED
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{intellect}}</button><br>
+      INTELLECT
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{combat}}</button><br>
+      COMBAT
+    </div>
+  </div>
+</div>
+<h2>Saves</h2>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{sanity}}</button><br>
+        SANITY
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{fear}}</button><br>
+      FEAR
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{body}}</button><br>
+      BODY
+    </div>
+  </div>
+</div>
+{% endif %}
+
+{% if character %}
+<h2>Class</h2>
+<p>{{character.class_|upper}}</p>
+<h2>STATS</h2>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{character.strength}}</button><br>
+        STR
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{character.speed}}</button><br>
+      SPEED
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{character.intellect}}</button><br>
+      INTELLECT
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{character.combat}}</button><br>
+      COMBAT
+    </div>
+  </div>
+</div>
+<h2>SAVES</h2>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{character.sanity}}</button><br>
+        SANITY
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{character.fear}}</button><br>
+      FEAR
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{character.body}}</button><br>
+      BODY
+    </div>
+  </div>
+</div>
+<h2>STATUS REPORT</h2>
+<div class="container text-center">
+  <div class="row">
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{character.health}} / {{character.max_health}}</button><br>
+        HEALTH
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{character.wounds}} / {{character.max_wounds}}</button><br>
+      WOUNDS
+    </div>
+    <div class="col">
+      <button type="button" class="btn border-dark p-3 rounded-circle btn-lg">{{character.stress}} / {{character.minimum_stress}}</button><br>
+      STRESS
+    </div>
+  </div>
+</div>
+<h2>Trauma Response</h2>
+<p>{{character.trauma_response}}</p>
+{% endif %}
+
+
+{% if form %}
+<h2>Choose your class</h2>
+<div class="container">
+  <div class="row">
+{% for name, description in classes_descriptions.items %}
+    <div class="card m-1"  style="width: 18rem;">
+      <div class="card-header">
+        {{name|upper}}
+      </div>
+      <div class="card-body">
+        <h5 class="card-title">Stats and Saves adjustments</h5>
+        <p class="card-text">{{description.0|safe}}</p>
+        <h5 class="card-title">Trauma response</h5>
+        <p class="card-text">{{description.1|safe}}</p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% crispy form form.helper %}
+{% endif %}
+
+
+
+
+
+{% endblock content %}

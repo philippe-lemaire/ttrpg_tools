@@ -34,4 +34,5 @@ urlpatterns = [
     path("electric-bastionland/", include("electric_bastionland.urls")),
     path("cairn/", include("cairn.urls")),
     path("mothership/", include("mothership.urls")),
+    path("cloud-empress/", include("cloudempress.urls")),
 ]

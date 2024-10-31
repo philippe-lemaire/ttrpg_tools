@@ -55,6 +55,7 @@ INSTALLED_APPS = [
     "electric_bastionland",
     "cairn",
     "mothership",
+    "cloudempress",
 ]
 
 MIDDLEWARE = [
