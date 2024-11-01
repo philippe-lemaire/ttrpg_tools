@@ -4,7 +4,7 @@ from crispy_forms.layout import Submit, Layout
 
 
 class LevelForm(forms.Form):
-    choices = [(k, k) for k in range(1, 6)]
+    choices = [(k, k) for k in range(6)]
     level = forms.ChoiceField(choices=choices)
 
     def __init__(self, *args, **kwargs):

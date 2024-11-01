@@ -99,6 +99,11 @@ def roll_settlement(request):
     return render(request, "cloudempress/settlement.html", context)
 
 
+def roll_mystling(request):
+    context = {"mystling": Mystling()}
+    return render(request, "cloudempress/mystling.html", context)
+
+
 def roll_cavern(request):
     form = LevelForm(request.POST or None)
     template_name = "cloudempress/cavern.html"

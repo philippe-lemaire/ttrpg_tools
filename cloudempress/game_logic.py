@@ -63,7 +63,8 @@ class Mystling:
 
 class Cavern:
     def __init__(self, level=0) -> None:
-        self.description = cavern_dict.get(roll("d20") + level)
+        self.number = roll("d20") + level
+        self.description = cavern_dict.get(self.number)
 
     def __repr__(self) -> str:
         return self.description

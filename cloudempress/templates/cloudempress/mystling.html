@@ -1,0 +1,31 @@
+{% extends "base_cloudempress.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cloud Empress - Unseen City Mystling{% endblock title %}
+{% block content %}
+<h1>A subterranean Mystling</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Size & Shape</th>
+      <th scope="col">Head</th>
+      <th scope="col">Features</th>
+      <th scope="col">Want</th>
+      <th scope="col">Have</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{mystling.size_and_shape}}</td>
+      <td>{{mystling.head}}</td>
+      <td>{{mystling.features}}</td>
+      <td>{{mystling.want}}</td>
+      <td>{{mystling.have}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+{% endblock content %}
