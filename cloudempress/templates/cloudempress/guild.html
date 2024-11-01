@@ -1,0 +1,31 @@
+{% extends "cloudempress/base_cloudempress.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cloud Empress - Unseen City Guild{% endblock title %}
+{% block content %}
+<h1>A Subterranean Guild</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Mostly</th>
+      <th scope="col">Map Quality</th>
+      <th scope="col">Superstition</th>
+      <th scope="col">Job</th>
+      <th scope="col">Pay</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{guild.mostly}}</td>
+      <td>{{guild.map_quality}}</td>
+      <td>{{guild.superstition}}</td>
+      <td>{{guild.job}}</td>
+      <td>{{guild.pay}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+{% endblock content %}

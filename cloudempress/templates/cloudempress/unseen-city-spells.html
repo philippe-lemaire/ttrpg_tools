@@ -1,0 +1,36 @@
+{% extends "cloudempress/base_cloudempress.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cloud Empress - Unseen City Spells{% endblock title %}
+{% block content %}
+<h1>Unseen City Spells</h1>
+
+<table class="table mt-2">
+  <thead>
+    <tr>
+      <th scope="col">2d5</th>
+      <th scope="col">Name</th>
+      <th scope="col">Chalk Needed</th>
+      <th scope="col">Effect</th>
+      <th scope="col">After Effect</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for k, spell in spells.items %}
+      {% if k == roll %}
+    <tr class="table-active">
+      {% else %}
+   <tr>
+      {% endif %}
+
+      <th>{{k}}</th>
+      <td>{{spell.name}}</td>
+      <td>{{spell.chalk_needed}}</td>
+      <td>{{spell.effect}}</td>
+      <td>{{spell.after_effect}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<p><em>Highlighted row: result of a 2d5 roll.</em></p>
+{% endblock content %}

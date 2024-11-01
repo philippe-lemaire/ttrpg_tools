@@ -12,7 +12,9 @@ from .game_logic import (
     Cavern,
     roll_mine,
     roll_exit,
+    Encounter,
 )
+from .unseen_city_tables import spell_dict
 
 # TODO : create this modules own character and forms
 # Create your views here.
@@ -106,6 +108,11 @@ def roll_settlement(request):
     return render(request, "cloudempress/settlement.html", context)
 
 
+def roll_guild(request):
+    context = {"guild": Guild()}
+    return render(request, "cloudempress/guild.html", context)
+
+
 def roll_forgotten_mine(request):
     context = {"forgotten_mine": roll_mine()}
     return render(request, "cloudempress/forgotten_mine.html", context)
@@ -133,3 +140,12 @@ def roll_cavern(request):
 
             return render(request, template_name, context)
     return render(request, template_name, {"form": form})
+
+
+def roll_encounter(request):
+    return render(request, "cloudempress/encounter.html", {"encounter": Encounter()})
+
+
+def spells_view(request):
+    context = {"roll": roll("2d5"), "spells": spell_dict}
+    return render(request, "cloudempress/unseen-city-spells.html", context)

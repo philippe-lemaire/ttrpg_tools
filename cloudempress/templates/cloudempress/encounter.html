@@ -1,0 +1,22 @@
+{% extends "cloudempress/base_cloudempress.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cloud Empress - Unseen City Cavern{% endblock title %}
+{% block content %}
+<h1>A subterranean Encounter</h1>
+
+
+<br><br>
+
+
+
+<div class="card">
+  <h5 class="card-header">{{encounter.kind}}</h5>
+  <div class="card-body">
+    <p class="card-text">If uncertain about reaction, use this attitude: {{encounter.attitude}}</p>
+  </div>
+</div>
+
+
+
+{% endblock content %}

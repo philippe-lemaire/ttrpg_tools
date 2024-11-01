@@ -1,3 +1,6 @@
+from dataclasses import dataclass
+
+
 byway_environment = {
     0: (
         "Footpath worn into the cave oor.",
@@ -271,3 +274,102 @@ exits = {
     98: "The Emperor’s Palace. Closes behind",
     99: "Deep within <em>[Mothership module facility]</em>. Spell to reopen",
 }
+
+encounter_table = {
+    25: "Nothing",
+    40: "2d10 Guild members",
+    50: "1d10 Explorers from surface",
+    60: "1d10 Holo-bandits",
+    70: "2d10 Mystling travelers",
+    80: "1d100 Hibernating juvenile Imago",
+    84: "1d10 Bathounds",
+    88: "1d5 Robo Spiderlings",
+    91: "1d10 Monks of the Sunset Imago",
+    94: "2d10 Adult Imago",
+    97: "Razor Wyrm, the tunneling mecha-pede. Roll extra Byway+Cavern",
+    99: "Mystling doubles of the Cloud Empress & her bodyguard Skull",
+}
+
+attitude_table = {
+    1: "Naïve (Lost)",
+    2: "Nefarious",
+    4: "Navigating",
+    5: "Singing",
+    6: "Stand-offish",
+    7: "Sneaking",
+    8: "Stalking",
+    9: "Ambushing",
+}
+
+
+spell_data = [
+    (
+        "Chill out",
+        "3",
+        "Targets all nearby non-mechanical foes, pacifying them.",
+        "Next time the caster rests, they become too cold to sleep.",
+    ),
+    (
+        "Turn to fungus",
+        "2",
+        "Targets a nearby organic being and transforms them into a perfect mycelial facsimile.",
+        "The caster’s joints become rubbery and soft. Strength Checks are rolled with Disadvantage for 3 days.",
+    ),
+    (
+        "Accelerate Growth",
+        "1 ",
+        "Targets a nearby plant, causing it to grow to full size in 24 hours.",
+        "The caster permanently shrinks in height by 1d50 cm.",
+    ),
+    (
+        "Craft Cubes",
+        "2",
+        "Targets adjacent inorganic matter, transmuting it into stackable 1 meter cubes.",
+        "Caster’s vision becomes pixelated for 1d100 hours. Reality Saves at Disadvantage.",
+    ),
+    (
+        "Bind Gate",
+        "1",
+        "Targets a nearby Gate, linking it to a known location. For twice the chalk cost, it can lead to an unknown location.",
+        "Caster’s body ages 1d5 years.",
+    ),
+    (
+        "Cast Mini False Sun",
+        "1",
+        "Targets a nearby location with a fist-sized sun. All nearby take 2d10 DMG per round.",
+        "For 3 days, the caster must pass a Body Save or Burns deal 1d5 DMG and prevent sleep.",
+    ),
+    (
+        "Echolocate ",
+        "1",
+        "Targets the caster or a nearby character, enlarging their ears and giving them the ability to navigate by sound.",
+        "The target’s ears return to their original size over two week. Loud noises give them Disadvantage all the while.",
+    ),
+    (
+        "Turn to Stone",
+        "2",
+        "Targets an adjacent living creature, transmuting its esh to Dancing Marble.",
+        "The caster becomes cold and listless for ve days and has Disadvantage on Heart Checks.",
+    ),
+    (
+        "Splitting Chasm",
+        "2",
+        "A rift shears open beneath the targets, swallowing them 1d5 Levels Deeper into the City.",
+        "Caster cannot Rest until they descend two Levels Deeper.",
+    ),
+]
+
+
+@dataclass
+class Spell:
+    name: str
+    chalk_needed: str
+    effect: str
+    after_effect: str
+
+
+spell_dict = {k: Spell(*data) for k, data in zip(range(2, 11), spell_data)}
+
+
+if __name__ == "__main__":
+    print(spell_dict)

@@ -86,6 +86,19 @@ def roll_exit():
     return exits.get(k)
 
 
+class Encounter:
+    def __init__(self) -> None:
+        r = roll_d100()
+        k = get_key(r, encounter_table)
+        self.kind = encounter_table.get(k)
+        if r <= 25:
+            self.attitude = None
+        else:
+            r = roll_d10()
+            k = get_key(r, attitude_table)
+            self.attitude = attitude_table.get(k)
+
+
 if __name__ == "__main__":
     s = Settlement()
     g = Guild()
