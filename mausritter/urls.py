@@ -29,7 +29,7 @@ urlpatterns = [
     path("trouver_des_tresors/", views.roll_treasure, name="roll_treasure"),
     path(
         "feuilles_de_personnage_en_ligne/",
-        TemplateView.as_view(template_name="toolbox/character_keeper.html"),
+        TemplateView.as_view(template_name="mausritter/character_keeper.html"),
         name="character_keeper",
     ),
     path("lancer_un_sort/", views.roll_spell, name="roll_spell"),

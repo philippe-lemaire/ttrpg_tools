@@ -1,4 +1,4 @@
-{% extends "base_mausritter.html" %}
+{% extends "mausritter/base_mausritter.html" %}
 
 {% block content %}
 <h1>Idées d'aventure</h1>
@@ -9,16 +9,16 @@
 
 <h2>Aventure classique</h2>
 <p><b>{{straight_seed.creature}}</b> vous approche.</p>
-<p>Le problème : <b>{{straight_seed.problem}}</b></p>
-<p>Mais attention : <b>{{straight_seed.complication}}</b>.
+<p>Le problème : <b>{{straight_seed.problem}}</b></p>
+<p>Mais attention : <b>{{straight_seed.complication}}</b>.
 </p>
 
 <br><br>
 
 <h2>Aventure étrange</h2>
 <p><b>{{mixed_seed.creature}}</b> vous approche.</p>
-<p>Le problème : <b>{{mixed_seed.problem}}</b></p>
-<p>Mais attention : <b>{{mixed_seed.complication}}</b>.
+<p>Le problème : <b>{{mixed_seed.problem}}</b></p>
+<p>Mais attention : <b>{{mixed_seed.complication}}</b>.
 </p>
 
 {% endblock %}
