@@ -1,0 +1,24 @@
+{% extends "mothership/base_mothership.html" %}
+{% load static %}
+{% block title %}Gradient Descent{% endblock title %}
+{% block content %}
+<h1>Gradient Descent</h1>
+<p><em>Highlighted row is the rolled item.</em></p>
+<table class="table table-sm">
+    <thead>
+        <th>d100</th>
+        <th></th>
+    </thead>
+{% for k, item in table.items %}
+{% if k == key %}
+<tr class="table-secondary">
+{% else %}
+<tr>
+{% endif %}
+    <th>{{k}}</th>
+    <td>{{item|safe}}</td>
+</tr>
+{% endfor %}
+</table>
+
+{% endblock content %}

@@ -15,7 +15,17 @@
             <a class="dropdown-item" href="#">Contractors</a>
           </div>
         </li>
-
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Gradient Descent
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{% url 'gradientdescent:roll_encounters' %}">Encounters</a>
+            <a class="dropdown-item" href="{% url 'gradientdescent:monarchs' %}">Monarchs</a>
+            <a class="dropdown-item" href="{% url 'gradientdescent:d100_tables' "artifacts"  %}">Artifacts</a>
+            <a class="dropdown-item" href="{% url 'gradientdescent:d100_tables' "random_search"  %}">Random Search</a>
+          </div>
+        </li>
         <!--
         <li class="nav-item">
           <a class="nav-link" href="#">Features</a>

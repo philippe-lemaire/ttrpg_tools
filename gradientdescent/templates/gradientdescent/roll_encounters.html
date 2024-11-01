@@ -1,0 +1,39 @@
+{% extends "mothership/base_mothership.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Gradient Descent - Roll Encounters{% endblock title %}
+{% block content %}
+
+<h1>Roll encounters</h1>
+
+<h2>Which Floor?</h2>
+{% crispy form form.helper %}
+
+{% if encounter_present %}
+<h2>Encounter</h2>
+<table class="table table-sm">
+    <tr>
+        <th>Encounter</th>
+        <td>{{encounter}}</td>
+    </tr>
+    <tr>
+        <th>Distance*</th>
+        <td>{{distance}}</td>
+    </tr>
+    <tr>
+        <th>Reaction</th>
+        <td>{{reaction}}</td>
+    </tr>
+    <tr>
+        <th>State**</th>
+        <td>{{status}}</td>
+    </tr>
+</table>
+
+
+<p><em>Distance: From 0 to 9. Low value means close, high value means further away.</em></p>
+<p><em>State: From 0 to 99. Low value means weak and needing help, high value means strong and well equipped.</em></p>
+{% else %}
+<h2>No encounter</h2>
+{% endif %}
+{% endblock content%}

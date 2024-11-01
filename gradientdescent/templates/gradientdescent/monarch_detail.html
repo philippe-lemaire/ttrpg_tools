@@ -1,0 +1,16 @@
+{% extends "mothership/base_mothership.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Gradient Descent - Check up on Monarch{% endblock title %}
+{% block content %}
+
+<h1>Check up on Monarch</h1>
+
+<h2>Campaign name</h2>
+<p>{{monarch.campaign_name|title}}</p>
+
+<h2>Monarch's Stress</h2>
+{% crispy form form.helper %}
+
+
+{% endblock content %}

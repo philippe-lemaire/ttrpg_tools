@@ -1,0 +1,24 @@
+{% extends "mothership/base_mothership.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Gradient Descent - Choose your Campaign{% endblock title %}
+{% block content %}
+
+<h1>On going campaigns</h1>
+<div class="row">
+{% for m in monarchs %}
+
+    <div class="card m-2" style="width: 24rem;">
+        <div class="card-body">
+            <h5 class="card-title">{{m.campaign_name}}</h5>
+            <p class="card-text">This Monarch currently has {{m.current_stress}} stress.</p>
+            <a class="card-link" href="{% url 'gradientdescent:checkout_monarch' m.campaign_name %}">Checkout this Monarch</a>
+        </div>
+    </div>
+{% endfor %}
+</div>
+
+
+
+
+{% endblock content %}
