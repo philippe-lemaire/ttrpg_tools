@@ -3,7 +3,7 @@ from django.views.generic import TemplateView
 from mothership.character import Character, classes_descriptions_d
 from .roll import roll, roll_pc_stats_and_saves
 from mothership.forms import ClassesForm
-from .game_logic import get_byways
+from .game_logic import get_byways, Settlement, Guild, Mystling
 
 # TODO : create this modules own character and forms
 # Create your views here.
@@ -91,3 +91,8 @@ def create_byways(request):
     byways = get_byways(8)
     context = {"byways": byways}
     return render(request, template_name="cloudempress/byway.html", context=context)
+
+
+def roll_settlement(request):
+    context = {"settlement": Settlement()}
+    return render(request, "cloudempress/settlement.html", context)

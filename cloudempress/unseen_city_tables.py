@@ -50,3 +50,124 @@ illuminations = (
     "Large cyborg pill bugs with headlights build a stone structure.",
     "A river glimmers with inviting cyan pulsations, like a heartbeat.",
 )
+
+
+settlement_sizes = (
+    "Long-term Encampment",
+    "Clusters of Homes",
+    "Lively Village Commons",
+    "Complex Cultural Edifices",
+    "Bustling town",
+)
+
+settlement_citizens = (
+    "Concentrate on survival",
+    "Cater ot explorer types for trade",
+    "Keen to progress",
+    "Unethical problem solving",
+    "Shun outsiders",
+)
+
+settlement_leaders = (
+    "Seeking to recruit town members",
+    "Eager for Intel on other settlements",
+    "Uninterested in outsider opinions",
+    "Labor alongside their fellows",
+    "Recently died",
+)
+
+settlement_tech = (
+    "Adept cave-farm techniques",
+    "False sun burns bright overhead",
+    "Revived Robo snidely assists",
+    "Maze of chalk machinery",
+    "Scavenged tools",
+)
+
+settlement_sites_former_use = (
+    "Orbital bombardment silo",
+    "Black ops R&D labs and habitat",
+    "Slash and burn fungal forest",
+    "Servers for a vast intelligence",
+    "Water treatment",
+)
+
+guilds_mostly = (
+    "Cloudlings",
+    "Unseen Citizens",
+    "Farmelings",
+    "Mystling group",
+    "A healthy mix",
+)
+
+guilds_map_quality = (
+    "Out of date",
+    "Worn path to Settlement",
+    "Direction out",
+    "Perfect for five points from Post",
+    "To Another Post",
+)
+
+guilds_superstition = (
+    "Spit-handshake",
+    "Trust no one who has no toes",
+    "Wear six rings",
+    "Hold breath entering doors",
+    "Tends small plant",
+)
+
+guilds_job = (
+    "Map to new Post",
+    "Barter passage past Mystlings",
+    "Guide Lordling",
+    "Remove deadly obstacle in path",
+    "Find Lost Team",
+)
+
+guilds_pay = (
+    "Map to Surface",
+    "Advanced medical care",
+    "Map to Gate",
+    "Guild member application fees",
+    "Chalk deposit",
+)
+
+mystling_size_and_shape = (
+    "Human norm",
+    "Gourd-sized",
+    "Insectile lower body",
+    "Tree-like",
+    "Multi-limbed torso",
+)
+
+mystling_head = (
+    "Human norm",
+    "Mantis-like eyes",
+    "Large leathery prehensile ears",
+    "U-shaped skull",
+    "Squid-like mounth parts",
+)
+
+mystling_features = (
+    "Human norm",
+    "Bioluminescent",
+    "Horns or antlers instead of hair",
+    "Chameleon Skin",
+    "Polyp-fungal growths",
+)
+
+mystling_want = (
+    "Directions",
+    "Human connection",
+    "Your stuff. Trade of Theft?",
+    "Chalk",
+    "You for dinner. Invite or Threat?",
+)
+
+mystling_have = (
+    "A meal to share",
+    "Old tech that needs repair",
+    "Small collection of spells",
+    "Deadly weapons",
+    "Their clothes and an illness",
+)

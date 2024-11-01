@@ -1,0 +1,31 @@
+{% extends "base_cloudempress.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cloud Empress - Unseen City Settlement{% endblock title %}
+{% block content %}
+<h1>A subterranean Settlement</h1>
+
+
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Size</th>
+      <th scope="col">Citizens</th>
+      <th scope="col">Leaders</th>
+      <th scope="col">Tech</th>
+      <th scope="col">Former use</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>{{settlement.size}}</td>
+      <td>{{settlement.citizens}}</td>
+      <td>{{settlement.leaders}}</td>
+      <td>{{settlement.tech}}</td>
+      <td>{{settlement.sites_former_use}}</td>
+    </tr>
+
+  </tbody>
+</table>
+
+{% endblock content %}
