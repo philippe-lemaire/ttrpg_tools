@@ -4,7 +4,7 @@ from mothership.character import Character, classes_descriptions_d
 from .roll import roll, roll_pc_stats_and_saves
 from mothership.forms import ClassesForm
 from .forms import LevelForm
-from .game_logic import get_byways, Settlement, Guild, Mystling, Cavern
+from .game_logic import roll_byway, Settlement, Guild, Mystling, Cavern
 
 # TODO : create this modules own character and forms
 # Create your views here.
@@ -88,9 +88,8 @@ def create_character_step_2(request):
     )
 
 
-def create_byways(request):
-    byways = get_byways(8)
-    context = {"byways": byways}
+def create_byway(request):
+    context = {"byway": roll_byway()}
     return render(request, template_name="cloudempress/byway.html", context=context)
 
 

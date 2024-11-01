@@ -4,25 +4,28 @@ from .roll import roll_d10, roll
 from random import choice
 
 
-def get_byways(n):
-    envs = set()
-    byways = []
-    for _ in range(n):
-        tens = roll_d10()
-        ones = roll_d10()
-        environments = byway_environment.get(tens)
-        if tens == ones or environments[0] in envs:
-            environment = environments[1]
-        else:
-            environment = environments[0]
-            envs.add(environment)
-        if ones % 2 == 1:
-            byways.append(f"{environment} Pitch dark.")
-        else:
-            # roll on illuminations
-            illumination = choice(illuminations)
-            byways.append(f"{environment} Illuminated by {illumination.lower()}")
-    return byways
+class Byway:
+    def __init__(self, environment, alternate_environment=None) -> None:
+        self.environment = environment
+        self.alternate_environment = alternate_environment
+
+
+def roll_byway():
+    tens = roll_d10()
+    ones = roll_d10()
+    environments = byway_environment.get(tens)
+    if tens == ones:
+        byway = Byway(environment=environments[0])
+    else:
+        byway = Byway(
+            environment=environments[0], alternate_environment=environments[1]
+        )
+    if ones % 2 == 1:
+        byway.illumination = "Pitch dark."
+    else:
+        # roll on illuminations
+        byway.illumination = choice(illuminations)
+    return byway
 
 
 class Settlement:

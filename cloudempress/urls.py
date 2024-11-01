@@ -11,7 +11,7 @@ urlpatterns = [
         views.create_character_step_2,
         name="create_character_step_2",
     ),
-    path("create-byway", views.create_byways, name="create_byway"),
+    path("create-byway", views.create_byway, name="create_byway"),
     path("roll-settlement", views.roll_settlement, name="roll_settlement"),
     path("roll-cavern", views.roll_cavern, name="roll_cavern"),
     path("roll-mystling", views.roll_mystling, name="roll_mystling"),
