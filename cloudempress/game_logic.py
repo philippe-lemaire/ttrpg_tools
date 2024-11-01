@@ -1,6 +1,6 @@
 from .unseen_city_tables import *
 
-from .roll import roll_d10
+from .roll import roll_d10, roll
 from random import choice
 
 
@@ -59,6 +59,14 @@ class Mystling:
 
     def __repr__(self) -> str:
         return f"A {self.size_and_shape} Mystling. Its head is {self.head}. Its features are {self.features}. It wants {self.want}. It has {self.have}."
+
+
+class Cavern:
+    def __init__(self, level=0) -> None:
+        self.description = cavern_dict.get(roll("d20") + level)
+
+    def __repr__(self) -> str:
+        return self.description
 
 
 if __name__ == "__main__":

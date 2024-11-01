@@ -3,7 +3,8 @@ from django.views.generic import TemplateView
 from mothership.character import Character, classes_descriptions_d
 from .roll import roll, roll_pc_stats_and_saves
 from mothership.forms import ClassesForm
-from .game_logic import get_byways, Settlement, Guild, Mystling
+from .forms import LevelForm
+from .game_logic import get_byways, Settlement, Guild, Mystling, Cavern
 
 # TODO : create this modules own character and forms
 # Create your views here.
@@ -96,3 +97,17 @@ def create_byways(request):
 def roll_settlement(request):
     context = {"settlement": Settlement()}
     return render(request, "cloudempress/settlement.html", context)
+
+
+def roll_cavern(request):
+    form = LevelForm(request.POST or None)
+    template_name = "cloudempress/cavern.html"
+    if request.method == "POST":
+        # catch level in the form
+        if form.is_valid():
+            level = form.cleaned_data["level"]
+            level = int(level)
+            context = {"cavern": Cavern(level=level), "form": form}
+
+            return render(request, template_name, context)
+    return render(request, template_name, {"form": form})

@@ -13,4 +13,5 @@ urlpatterns = [
     ),
     path("create-byway", views.create_byways, name="create_byway"),
     path("roll-settlement", views.roll_settlement, name="roll_settlement"),
+    path("roll-cavern", views.roll_cavern, name="roll_cavern"),
 ]

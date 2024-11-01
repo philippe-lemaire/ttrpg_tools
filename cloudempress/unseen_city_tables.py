@@ -171,3 +171,67 @@ mystling_have = (
     "Deadly weapons",
     "Their clothes and an illness",
 )
+
+
+cavern_dict = {
+    1: """<u>Farmerling Mine</u>: Roll on the Forgotten Mines Table. Farmerlings pry up shattered concrete and sift
+through their ndings. One additional Byway descends Deeper. Another follows a string of solar-powered lights
+ascending to a village; <b>roll on the Exit from the Unseen City table (pg. 9)</b>.""",
+    2: """<b>Carved Marble Palace:</b> Ornamental fountains trickle, misting the lifelike statues of beautiful men.
+Column-lled aisles connect at right angles to the decadent throne room of the False Queen. She showers PCs
+with palatial hospitality, if they agree to enact her will.""",
+    3: """<u>Geothermal Power Station</u>: Spitting pipes and orange sodium-vapor lamps lead to rooms where whistling
+steam engines shriek. Roll 1d10. On 7-9, the machine is about to blow, cutting energy from the nearest
+Settlement. There is a Gate here (pg. 12) and one additional Byway leads Deeper.""",
+    4: """<b>Desert of the Broken Sun</b>: A churning false sun bakes stone walls dry. While traversing this underground
+desert, an additional Provision must be consumed to avoid the eects of hunger. Body Save, or become painfully
+sunburnt for 1d5 days.""",
+    5: """<u>Mystling Village</u>: Roll on Mystling and Settlement tables (pg.11) to create this community. Mystlings are
+Unseen Citizens; some have never seen a Farmerling.""",
+    6: """<u>Exhausted Mine</u>: Roll on the Forgotten Mines table. Liftless pits, buckling rafters, and the odor of rotten
+eggs. Anything useful left? One additional Byway heads Deeper.""",
+    7: """<u>Subway Depot</u>: On the tracks, train cars like hollow bones house exiled Mystlings (nearby Settlement).
+Sellswords “protect” a Lordling from the meager pleas of a skinny Mystling. All connecting Byways are subway
+tunnels, one additional Byway leads Deeper.""",
+    8: """<u>Housing Megacomplex</u>: Roll on the Settlements Table (pg. 11). Glowing violet insects the size of carriages
+(Holo-bandits, pg.10) guard the tower blocks’ courtyards.""",
+    9: """<b>Fungal Forest</b>: Wet and moldy like an old sponge, the air swims with spores. A dense green canopy glows,
+turning purple deeper within. The Children of the Spore leave trails for the lost. An additional Byway leads
+Deeper into another Fungal Forest.""",
+    10: """<b>Galak’s Peak</b> (Adventure Location): The upper tip of a skyscraper-sized snail’s shell pierces the cavern oor. No Byways.""",
+    11: """<u>Riverside Guildhouse Post</u>: This Guildhouse oers boats to travel the Unseen City’s deadly rivers. Roll
+1d5. On 1-2, a river Byway passes this many Caverns before arriving at another Riverside Guildhouse Post. On
+3-5, the river disappears underground.""",
+    12: """<u>Exiled Mystling Magician Hut</u>: Roll on the Mystling table (pg.11). They help the unmagical obtain what
+they want, yet only once. Those they bewitch must face the consequences of their desires.""",
+    13: """<u>Gate Church</u>: Roll on the Settlement Table (pg. 11). A grand circle entrance emulating the Gates seen
+throughout the Byways. Gate Priests reward conrmed Gate locations, and oer even more for an escort to a
+Gate.""",
+    14: """<u>Excavated Mining Pit</u>: Storeys of rotted planks, ladders and rails descend, giving way to branching, fruitless shafts deep into the earth like gouged out roots. One Byway leads 1d5 Levels Deeper.""",
+    15: """<u>Wet, freshly bored tunnels</u>: Imago blood or oil teases the nostrils. 1d10 Guild members run in terror from
+either 3d10 Imago or the tunnel-boring Razor Wyrm.""",
+    16: """<b>Sunken Cathedral</b>: Firelight aglow in the rose window, towers and saints carved into the bedrock, and a
+morose chanting song echoes from within.""",
+    17: """<u>Hibernating Imago Den</u>: Tremors of the walls are the sleeping brown carapaces of 3d100 Hibernating
+juvenile Imago, in clusters. Wake if chalk is exposed.""",
+    18: """<u>Dangerous Mystling Lair</u>: A fence of masks block the path. Past a lychgate built of bones and skulls, a
+freshly painted white house glimmers in the light of a sunken repit. Roll on the Mystling table (pg. 11).""",
+    19: """<u>Unseen Citizen Hall</u>: 1d10 Holo-bandits set re to an arriving caravan, attempting to steal a massive
+mining haul. Roll on the Guild and Settlement tables (pg. 11) and combine the results to create an Unseen
+Citizen Hall.""",
+    20: """<u>Active Mystling Mine</u>: The creaking drone of lift shafts, and the ringing of hammers and pickaxes echoes
+up from deep in the tunnels. Roll on the Mystling table (pg. 11). An attentive, protective escort accompanies the
+PCs during their transit through the mines. An additional Byway leads Deeper.""",
+    21: """<u>Smelting Works</u>: Acrid fumes zzle forth from amber brilliance. A False Sun has been pulled from above,
+used for smelting ore. Roll on the Settlement table (pg. 11).""",
+    22: """<u>Smuggler’s Den</u>: Roll on Guilds table (pg. 11). A crowd shouts around the edges of a sinkhole covered with
+a grimy chain-link fence. Within, a tall Farmerling takes betting cards on how many live Rat Grubs their trained
+Bathound can catch unharmed in a minute.""",
+    23: """<u>Mystling Vault</u>: Poor souls locked away for untold time. Roll on the Mystling (pg. 11) and Environment
+tables (pg. 6) for this Cavern and following Byways. An additional Byway leads Deeper.""",
+    24: """<u>Abandoned Imago Temple</u>: Was this built for the great bugs or by them? Should the PCs rest here, Imago
+descend upon the Temple while they sleep.""",
+    25: """<b>The Lid of the World</b>: The Fellowship of the Sunset Imago welcomes travelers to rest within their walls.
+They serve hot soup, oer medical aid, and space to rest, free of charge. Once a year, they open the doors to the
+Lid for explorers to venture into the Heart of the World.""",
+}

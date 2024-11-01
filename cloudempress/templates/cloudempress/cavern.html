@@ -1,0 +1,23 @@
+{% extends "base_cloudempress.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cloud Empress - Unseen City Cavern{% endblock title %}
+{% block content %}
+<h1>A subterranean Cavern</h1>
+
+{% crispy form form.helper %}
+<br><br>
+{% if cavern %}
+<p>{{cavern|safe}}</p>
+
+<p><b>Note</b>:
+  <ul>
+    <li><b>Bold Caverns</b> are unique. If the result is rolled a second time, the Byway links back to this Cavern. If it's rolled any additional
+times, roll on the Exit table instead.</li>
+    <li><u>Underlined Caverns</u> repeat. Many ask you to roll on 5d5 tables. See other roll links in the Cloud Empress menu at the top of the page.</li>
+  </ul></p>
+
+
+{% endif %}
+
+{% endblock content %}
