@@ -235,3 +235,23 @@ descend upon the Temple while they sleep.""",
 They serve hot soup, oer medical aid, and space to rest, free of charge. Once a year, they open the doors to the
 Lid for explorers to venture into the Heart of the World.""",
 }
+
+cavern_departing_byways = {
+    1: "1 Byway departs, ending at a cave-in.",
+    5: "1 Byway departs to another Cavern.",
+    9: "2 Byways depart to different Caverns.",
+    10: "1 Byway leads Higher; 1 Byway departs to another Cavern.",
+}
+
+forgotten_mines = (
+    "Luminous Coralstone",
+    "Singing Crystals",
+    "Dancing patterns undulated in Marble",
+    "Lines of copper wiring",
+    "Shipping containers of space ore rusted shut",
+    "A derelict’s steel plating",
+    "Crumbled concrete ruins over old tech",
+    "Ancient computers",
+    "Chalked remains of the unknown dead",
+    "An Imago tomb",
+)

@@ -1,6 +1,6 @@
 from .unseen_city_tables import *
 
-from .roll import roll_d10, roll
+from .roll import roll_d10, roll, get_key
 from random import choice
 
 
@@ -66,11 +66,18 @@ class Mystling:
 
 class Cavern:
     def __init__(self, level=0) -> None:
-        self.number = roll("d20") + level
-        self.description = cavern_dict.get(self.number)
+        self.z = roll("d20") + level
+        self.description = cavern_dict.get(self.z)
+        self.departing_byways = cavern_departing_byways.get(
+            get_key(roll_d10(), cavern_departing_byways)
+        )
 
     def __repr__(self) -> str:
         return self.description
+
+
+def roll_mine():
+    return choice(forgotten_mines)
 
 
 if __name__ == "__main__":

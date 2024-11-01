@@ -4,7 +4,7 @@ from mothership.character import Character, classes_descriptions_d
 from .roll import roll, roll_pc_stats_and_saves
 from mothership.forms import ClassesForm
 from .forms import LevelForm
-from .game_logic import roll_byway, Settlement, Guild, Mystling, Cavern
+from .game_logic import roll_byway, Settlement, Guild, Mystling, Cavern, roll_mine
 
 # TODO : create this modules own character and forms
 # Create your views here.
@@ -98,6 +98,11 @@ def roll_settlement(request):
     return render(request, "cloudempress/settlement.html", context)
 
 
+def roll_forgotten_mine(request):
+    context = {"forgotten_mine": roll_mine()}
+    return render(request, "cloudempress/forgotten_mine.html", context)
+
+
 def roll_mystling(request):
     context = {"mystling": Mystling()}
     return render(request, "cloudempress/mystling.html", context)
@@ -111,7 +116,7 @@ def roll_cavern(request):
         if form.is_valid():
             level = form.cleaned_data["level"]
             level = int(level)
-            context = {"cavern": Cavern(level=level), "form": form}
+            context = {"cavern": Cavern(level=level), "form": form, "level": level}
 
             return render(request, template_name, context)
     return render(request, template_name, {"form": form})
