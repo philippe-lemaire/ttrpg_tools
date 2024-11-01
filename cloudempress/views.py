@@ -4,7 +4,15 @@ from mothership.character import Character, classes_descriptions_d
 from .roll import roll, roll_pc_stats_and_saves
 from mothership.forms import ClassesForm
 from .forms import LevelForm
-from .game_logic import roll_byway, Settlement, Guild, Mystling, Cavern, roll_mine
+from .game_logic import (
+    roll_byway,
+    Settlement,
+    Guild,
+    Mystling,
+    Cavern,
+    roll_mine,
+    roll_exit,
+)
 
 # TODO : create this modules own character and forms
 # Create your views here.
@@ -106,6 +114,11 @@ def roll_forgotten_mine(request):
 def roll_mystling(request):
     context = {"mystling": Mystling()}
     return render(request, "cloudempress/mystling.html", context)
+
+
+def get_exit(request):
+    context = {"exit": roll_exit()}
+    return render(request, "cloudempress/exit.html", context)
 
 
 def roll_cavern(request):

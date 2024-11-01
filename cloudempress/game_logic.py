@@ -1,6 +1,6 @@
 from .unseen_city_tables import *
 
-from .roll import roll_d10, roll, get_key
+from .roll import roll_d10, roll, get_key, roll_d100
 from random import choice
 
 
@@ -78,6 +78,12 @@ class Cavern:
 
 def roll_mine():
     return choice(forgotten_mines)
+
+
+def roll_exit():
+    r = roll_d100()
+    k = get_key(r, exits)
+    return exits.get(k)
 
 
 if __name__ == "__main__":

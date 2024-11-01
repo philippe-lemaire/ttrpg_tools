@@ -15,5 +15,6 @@ urlpatterns = [
     path("roll-settlement", views.roll_settlement, name="roll_settlement"),
     path("roll-cavern", views.roll_cavern, name="roll_cavern"),
     path("roll-mystling", views.roll_mystling, name="roll_mystling"),
+    path("roll-exit", views.get_exit, name="roll_exit"),
     path("roll-forgotten-mine", views.roll_forgotten_mine, name="roll_forgotten_mine"),
 ]

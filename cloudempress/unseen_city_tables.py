@@ -255,3 +255,19 @@ forgotten_mines = (
     "Chalked remains of the unknown dead",
     "An Imago tomb",
 )
+
+exits = {
+    0: "Same Hex as Entrance",
+    39: "1d5 Hexes distant from Entrance",
+    64: "1d5+5 Hexes distant from Entrance",
+    69: "The Breadbasket",
+    74: "The Weeds",
+    79: "The Thickwood",
+    84: "The Rustbucket",
+    89: "The Deadlands",
+    92: "An Unknown Land",
+    95: "5d10 Imago feed upon corpses",
+    97: "Cloud City. Spell to reopen",
+    98: "The Emperor’s Palace. Closes behind",
+    99: "Deep within <em>[Mothership module facility]</em>. Spell to reopen",
+}

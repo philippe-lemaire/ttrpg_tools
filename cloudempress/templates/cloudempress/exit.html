@@ -1,0 +1,10 @@
+{% extends "cloudempress/base_cloudempress.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cloud Empress - Unseen City Mystling{% endblock title %}
+{% block content %}
+<h1>You found an exit</h1>
+
+{{exit|safe}}.
+
+{% endblock content %}
