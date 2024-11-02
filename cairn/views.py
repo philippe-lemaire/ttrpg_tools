@@ -2,6 +2,8 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .character import Character
 from .forms import BackgroundForm
+from .game_logic import dungeon_events
+from .roll import roll
 
 
 # Create your views here.
@@ -28,3 +30,9 @@ def generate_with_background(request):
         template_name="cairn/generate_with_background.html",
         context={"form": form},
     )
+
+
+def dungeon_events_view(request):
+    context = {"dungeon_events": dungeon_events, "roll": roll("1d6")}
+    template_name = "cairn/dungeon_events.html"
+    return render(request, template_name, context)
