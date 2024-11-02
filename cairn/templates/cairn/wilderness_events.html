@@ -1,0 +1,33 @@
+{% extends "cairn/base_cairn.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cairn - Wilderness Events{% endblock title %}
+{% block content %}
+<h1>Wilderness Events</h1>
+
+<table class="table">
+  <caption>Highlighted line is the event rolled</caption>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Kind</th>
+      <th scope="col">Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for i, event in wilderness_events.items %}
+    {% if i == roll %}
+    <tr class="table-active">
+    {% else %}
+    <tr>
+    {% endif %}
+      <th scope="row">{{i}}</th>
+      <td>{{event.kind}}</td>
+      <td>{{event.description}}</td>
+    </tr>
+   {% endfor %}
+  </tbody>
+</table>
+
+
+{% endblock content %}

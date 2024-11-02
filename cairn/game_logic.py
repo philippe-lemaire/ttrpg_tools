@@ -30,3 +30,35 @@ dungeon_events_data = (
 )
 
 dungeon_events = {k: Event(t, d) for (k, (t, d)) in enumerate(dungeon_events_data, 1)}
+
+wilderness_events_data = (
+    (
+        "Encounter",
+        "Roll on an encounter table for that terrain type or location.  Don’t forget to roll for NPC reactions if applicable.",
+    ),
+    (
+        "Sign",
+        "The party discovers a clue, spoor, or indication of a nearby encounter, locality, hidden feature, or information about a nearby area.",
+    ),
+    (
+        "Environment",
+        "A shift in weather or terrain.",
+    ),
+    (
+        "Loss",
+        "The party is faced with a choice that costs them a resource (rations, tools, etc), time, or effort.",
+    ),
+    (
+        "Exhaustion",
+        "The party encounters a barrier, forcing effort, care or delays.  This might mean spending extra time (and an additional Wilderness Action) or adding Fatigue to the PC’s inventory to represent their difficulties.",
+    ),
+    (
+        "Discovery",
+        "The party finds food, treasure, or other useful resources.  The Warden can instead choose to reveal the primary feature of the area.",
+    ),
+)
+
+
+wilderness_events = {
+    k: Event(t, d) for (k, (t, d)) in enumerate(wilderness_events_data, 1)
+}

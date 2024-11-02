@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .character import Character
 from .forms import BackgroundForm
-from .game_logic import dungeon_events
+from .game_logic import dungeon_events, wilderness_events
 from .roll import roll
 
 
@@ -35,4 +35,10 @@ def generate_with_background(request):
 def dungeon_events_view(request):
     context = {"dungeon_events": dungeon_events, "roll": roll("1d6")}
     template_name = "cairn/dungeon_events.html"
+    return render(request, template_name, context)
+
+
+def wilderness_events_view(request):
+    context = {"wilderness_events": wilderness_events, "roll": roll("1d6")}
+    template_name = "cairn/wilderness_events.html"
     return render(request, template_name, context)
