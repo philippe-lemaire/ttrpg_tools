@@ -3,15 +3,25 @@
 {% load static %}
 {% block title %}Cairn - Wilderness Events{% endblock title %}
 {% block content %}
-<h1>Wilderness Events</h1>
+<h1>Wilderness Exploration Cycle</h1>
+
+<ol class="m-2 list-group list-group-numbered">
+  <li class="list-group-item">The Warden describes the current point or region on the map and how the
+path, weather, terrain, or party status might affect travel speed. The party
+plots or adjusts a given course towards their destination.</li>
+  <li class="list-group-item">Each character chooses a single Wilderness Action (pg. 79). The Warden
+narrates the results and then rolls on the Wilderness Events table. The party
+responds to the results.</li>
+  <li class="list-group-item">The players and the Warden record any loss of resources and new conditions
+(i.e. torch use, deprivation, etc), and the cycle repeats.</li>
+</ol>
 
 <table class="table">
   <caption>Highlighted line is the event rolled</caption>
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Kind</th>
-      <th scope="col">Description</th>
+      <th colspan="2" scope="col">Wilderness Events</th>
     </tr>
   </thead>
   <tbody>
@@ -29,5 +39,54 @@
   </tbody>
 </table>
 
+
+<h2>Wilderness Actions</h2>
+
+<h3 class="mt-2">Travel</h3>
+
+<ul>
+  <li>Travel begins. Obvious locations, features, and terrain of nearby areas are
+  revealed according to their distance. This action is typically taken by the
+  entire party as one.</li>
+  <li>The party rolls 1d6 to see if they get lost along the way. This risk can increase
+  or decrease, depending on Path Difficulty (pg. 75), maps, party skills, and
+  guides.</li>
+  <li>If lost, the party may need to spend a Wilderness Action to recover their way.
+  Otherwise, the party reaches the next point along their route.
+  </li>
+</ul>
+
+<ul class="list-group">
+  <li class="list-group-item list-group-item-light">Remember to compare the results of getting lost to the relevant Path Difficulty.</li>
+</ul>
+
+<h3 class="mt-2">Explore</h3>
+
+<ul>
+  <li>One or more party members search a large area, searching for hidden
+  features, scouting ahead, or treading carefully.</li>
+  <li>A Location (shelter, village, cave, etc.) or Feature (geyser, underground river,
+  beached ship, etc.) is discovered.</li>
+  <li>The Travel action is still required to leave the current area, even if it has been
+  completely explored.</li>
+  Supply
+  <li>One or more party members may hunt, fish, or forage for food, collecting
+  1d4 Rations (3 uses each). The chance of a greater bounty increases with
+  each additional participant (e.g. 1d4 becomes 1d6, up to a maximum of 1d12).
+  Relevant experience or equipment may also increase the bounty.</li>
+  <li>The party may encounter homes and small villages, spending gold and a full
+  Watch (pg. 74) to resupply.</li>
+</ul>
+
+<h3 class="mt-2">Make Camp</h3>
+
+<ul>
+  <li>The party stops to set up camp in the wilds. Each party member (and their
+  mounts) consumes a Ration.</li>
+  <li>A lookout rotation is set so that the party can sleep unmolested. A smaller
+  party may need to risk sleeping unguarded or switch off sleeping over multiple
+  days.</li>
+  <li>Party members that were able to rest remove all Fatigue from their inventory.</li>
+</ul>
 
 {% endblock content %}

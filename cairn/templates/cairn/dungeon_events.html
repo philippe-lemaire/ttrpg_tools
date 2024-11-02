@@ -1,17 +1,27 @@
 {% extends "cairn/base_cairn.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
-{% block title %}Cairn - Dungeon Events{% endblock title %}
+{% block title %}Cairn - Dungeon Exploration Procedure{% endblock title %}
 {% block content %}
-<h1>Dungeon Events</h1>
+<h1>Dungeon Exploration Procedure</h1>
+
+
+Exploring a dungeon is always dangerous, and time must always be weighed
+against the risk of awakening the location’s denizens, natural hazards, and worse.
+When the party:
+<ul>
+<li>Spends more than one dungeon cycle in a single room or location.</li>
+<li>Moves quickly or haphazardly through a room.</li>
+<li>Moves into a new area, level, or zone.</li>
+<li>Creates a loud disturbance.</li>
+</ul>
 
 <table class="table">
   <caption>Highlighted line is the event rolled</caption>
   <thead>
     <tr>
       <th scope="col">#</th>
-      <th scope="col">Kind</th>
-      <th scope="col">Description</th>
+      <th colspan="2" scope="col">Dungeon Events</th>
     </tr>
   </thead>
   <tbody>
