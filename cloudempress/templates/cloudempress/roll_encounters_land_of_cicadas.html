@@ -1,0 +1,22 @@
+{% extends "cloudempress/base_cloudempress.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cloud Empress- Roll Encounters{% endblock title %}
+{% block content %}
+
+<h1>Roll encounters</h1>
+
+<h2>Which Region?</h2>
+{% crispy form form.helper %}
+
+{% if encounter_rolled %}
+<h2>Encounter</h2>
+<div class="card">
+  <h5 class="card-header">{{encounter}}</h5>
+  <div class="card-body">
+    <p class="card-text">If uncertain about reaction, use this attitude: {{mood}}</p>
+  </div>
+</div>
+{% endif %}
+
+{% endblock content%}

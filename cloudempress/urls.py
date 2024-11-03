@@ -18,6 +18,15 @@ urlpatterns = [
     path("roll-guild", views.roll_guild, name="roll_guild"),
     path("roll-exit", views.get_exit, name="roll_exit"),
     path("roll-forgotten-mine", views.roll_forgotten_mine, name="roll_forgotten_mine"),
-    path("roll-encounter", views.roll_encounter, name="roll_encounter"),
+    path(
+        "roll-encounter-unseen-city",
+        views.roll_encounter_unseen_city,
+        name="roll_encounter",
+    ),
     path("unseen-city-spells", views.spells_view, name="spells"),
+    path(
+        "roll-encounter-land-of-cicadas",
+        views.roll_encounter_land_of_cicadas,
+        name="roll_encounter_land_of_cicadas",
+    ),
 ]

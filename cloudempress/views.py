@@ -1,9 +1,12 @@
+from random import choice
+
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from mothership.character import Character, classes_descriptions_d
-from .roll import roll, roll_pc_stats_and_saves
+from .roll import roll, roll_pc_stats_and_saves, roll_d100, get_key
 from mothership.forms import ClassesForm
-from .forms import LevelForm
+from .forms import LevelForm, RegionSelectForm
+from .land_of_cicada_encounters import cloud_empress_encounters, moods
 from .game_logic import (
     roll_byway,
     Settlement,
@@ -14,6 +17,7 @@ from .game_logic import (
     roll_exit,
     Encounter,
 )
+
 from .unseen_city_tables import spell_dict
 
 # TODO : create this modules own character and forms
@@ -142,10 +146,30 @@ def roll_cavern(request):
     return render(request, template_name, {"form": form})
 
 
-def roll_encounter(request):
+def roll_encounter_unseen_city(request):
     return render(request, "cloudempress/encounter.html", {"encounter": Encounter()})
 
 
 def spells_view(request):
     context = {"roll": roll("2d5"), "spells": spell_dict}
     return render(request, "cloudempress/unseen-city-spells.html", context)
+
+
+def roll_encounter_land_of_cicadas(request):
+    template_name = "cloudempress/roll_encounters_land_of_cicadas.html"
+    form = RegionSelectForm(request.POST or None)
+    context = {"form": form}
+
+    if request.method == "POST":
+        if form.is_valid():
+            region = form.cleaned_data["region"]
+            n = roll_d100()
+            encounter_table = cloud_empress_encounters.get(region)
+            k = get_key(n, encounter_table)
+            encounter = encounter_table[k]
+            context["encounter"] = encounter
+            context["mood"] = choice(moods)
+            context["encounter_rolled"] = True
+    else:
+        context["encounter_rolled"] = False
+    return render(request, template_name, context)
