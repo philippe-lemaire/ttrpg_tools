@@ -1087,7 +1087,7 @@ class Route:
         self.alternative = random.choice(routes)
 
     def __repr__(self):
-        return f"The shortest route to that part of town is {self.shortest}\nAn alternative is {self.alternative}"
+        return f"The shortest route to that part of town is {self.shortest}.<br>An alternative is {self.alternative}."
 
 
 class Business:

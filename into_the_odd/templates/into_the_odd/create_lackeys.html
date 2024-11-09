@@ -8,51 +8,36 @@
 
 <h1>3 lackeys</h1>
 
-
+<div class="container">
+  <div class="row">
 {% for companion in lackeys %}
 
-<div class="card mb-2">
-  <div class="card-body">
-    <h5 class="card-title">{{companion.name}}</h5>
-    <p>{{companion.gender}} {{type}}</p>
-    <div class="row">
-        <div class="col">
-            <table class="table">
-            <tr>
-                <th>STR</th>
-                <th>DEX</th>
-                <th>WIL</th>
-                <th>HP</th>
-            </tr>
-            <tr>
-                <td>{{companion.STR}}</td>
-                <td>{{companion.DEX}}</td>
-                <td>{{companion.WIL}}</td>
-                <td>{{companion.HP}}</td>
-            </tr>
-            </table>
+    <div class="col-sm">
 
-        </div>
-        <div class="col">
-            <table class="table">
+        <div class="card mt-2 mb-2" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title">{{companion.name}}</h5>
 
-                    <tr>
-                        <th>Starting gear</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
+            <p>{{companion.gender}} {{type}}</p>
+            <div class="row">
+              <h6>Stats</h6>
+              <p>STR {{companion.STR}}, DEX {{companion.DEX}}, WIL {{companion.WIL}}, {{companion.HP}} HP</p>
+              <h6>Starting gear</h6>
+              <p>{{companion.starter_package}}</p>
 
-                                {{companion.starter_package}}
+            </div><!-- row-->
+          </div><!--card-body-->
+        </div><!--card-->
+    </div>
+  {% endfor %}
 
-                            </p>
-                        </td>
-                    </tr>
-            </table>
-        </div><!--col-->
-    </div><!-- row-->
   </div>
 </div>
-{% endfor %}
+
+
+
+
+
+
 
 {% endblock %}
