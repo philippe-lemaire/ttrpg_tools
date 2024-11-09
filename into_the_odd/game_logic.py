@@ -263,29 +263,29 @@ starter_package_table = {
 
 mutant_starter_package_table = {
     10: [
-        "mutation mutation mutation Crossbow (d6 B)",
+        "mutation mutation mutation Crossbow (d6 B)",
         "mutation mutation Pistol (d6)",
-        "mutation mutation Maul (d8 B)",
+        "mutation mutation Maul (d8 B)",
     ],
     13: [
         "mutation mutation mutation Mace (d6)",
         "mutation mutation Knife (d6)",
-        "mutation mutation Bow (d6 B)",
+        "mutation mutation Bow (d6 B)",
     ],
     15: [
-        "mutation mutation Longaxe (d8 B) Crude Armour",
+        "mutation mutation Longaxe (d8 B) Crude Armour",
         "mutation mutation Club (d6) Shield",
         "mutation mutation Mace (d6) Shield",
     ],
     17: [
-        "mutation mutation Bow (d6 B) Acid",
+        "mutation mutation Bow (d6 B) Acid",
         "mutation mutation Knife (d6) Poison",
         "mutation mutation Axe (d6) Hooch",
     ],
     19: [
         "mutation Club (d6) Wire",
-        "mutation Staff (d6 B) Glue",
-        "mutation Spear (d8 B) Lantern",
+        "mutation Staff (d6 B) Glue",
+        "mutation Spear (d8 B) Lantern",
     ],
     20: ["mutation Brick (d6)", "mutation Spike (d6)", "mutation Rope"],
 }
@@ -510,9 +510,9 @@ class UnhumanCharacter(Character):
 
 simple_folk_starter_package_table = {
     7: [
-        "Bow (d6 B), Crude Armour Trinket Trinket Trinket",
+        "Bow (d6 B), Crude Armour Trinket Trinket Trinket",
         "Rod (d6), Eyepatch Trinket Trinket Trinket",
-        "Sling (d6), One Leg Trinket Trinket Trinket",
+        "Sling (d6), One Leg Trinket Trinket Trinket",
     ],
     8: [
         "Bow (d6 B), Trinket Trinket",

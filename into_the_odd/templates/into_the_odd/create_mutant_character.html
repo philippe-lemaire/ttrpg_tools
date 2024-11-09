@@ -8,47 +8,21 @@ Mutant Character Generator
 
 <h1>Mutant Character</h1>
 
-<div class="card mb-2">
+<div class="card mt-2 mb-2" style="width: 36rem;">
   <div class="card-body">
     <h5 class="card-title">{{character.name}}</h5>
 
     <p>{{character.gender}} {{type}}</p>
     <div class="row">
-        <div class="col">
-            <table class="table">
-            <tr>
-                <th>STR</th>
-                <th>DEX</th>
-                <th>WIL</th>
-                <th>HP</th>
-            </tr>
-            <tr>
-                <td>{{character.STR}}</td>
-                <td>{{character.DEX}}</td>
-                <td>{{character.WIL}}</td>
-                <td>{{character.HP}}</td>
-            </tr>
-            </table>
-
-        </div>
-        <div class="col">
-            <table class="table">
-
-                    <tr>
-                        <th>Mutation and Items</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <ul>
-                            {% for item in character.starter_package %}<li>{{item|safe}}</li>{% endfor %}
-                            </ul>
-                        </td>
-                    </tr>
-            </table>
-        </div><!--col-->
+      <h6>Stats</h6>
+      <p>STR {{character.STR}}, DEX {{character.DEX}}, WIL {{character.WIL}}, {{character.HP}} HP</p>
+      <h6>Starting gear</h6>
+      <ul class="">
+      {% for item in character.starter_package %}<li class="list-group-item">{{item|safe}}</li>{% endfor %}
+      </ul>
     </div><!-- row-->
-  </div>
-</div>
+  </div><!--card-body-->
+</div><!--card-->
 
 
 
