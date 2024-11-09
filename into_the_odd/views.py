@@ -12,7 +12,7 @@ class IntoTheOddIndexView(generic.TemplateView):
 def create_character(request):
     context = {
         "character": game_logic.Character(),
-        "companion": game_logic.Companion(),
+        "companions": [game_logic.Companion() for _ in range(2)],
         "type": "Adventurer",
     }
     return render(

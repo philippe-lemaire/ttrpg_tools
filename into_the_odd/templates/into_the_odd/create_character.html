@@ -1,100 +1,56 @@
 {% extends "into_the_odd/base_ito.html" %}
 
 {% block title %}
-Character Generator
+Into the Odd Character Generator
 {% endblock %}
 
 {% block content %}
 
 <h1>Player Character and Companion</h1>
-<h2>Player Character</h2>
 
-<div class="card mb-2">
-  <div class="card-body">
-    <h5 class="card-title">{{character.name}}</h5>
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <h2>Player Character</h2>
 
-    <p>{{character.gender}} {{type}}</p>
-    <div class="row">
-        <div class="col">
-            <table class="table">
-            <tr>
-                <th>STR</th>
-                <th>DEX</th>
-                <th>WIL</th>
-                <th>HP</th>
-            </tr>
-            <tr>
-                <td>{{character.STR}}</td>
-                <td>{{character.DEX}}</td>
-                <td>{{character.WIL}}</td>
-                <td>{{character.HP}}</td>
-            </tr>
-            </table>
+      <div class="card mt-2 mb-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{character.name}}</h5>
 
-        </div>
-        <div class="col">
-            <table class="table">
+          <p>{{character.gender}} {{type}}</p>
+          <div class="row">
+            <h6>Stats</h6>
+            <p>STR {{character.STR}}, DEX {{character.DEX}}, WIL {{character.WIL}}, {{character.HP}} HP</p>
+            <h6>Starting gear</h6>
+            <ul class="">
+            {% for item in character.starter_package %}<li class="list-group-item">{{item|safe}}</li>{% endfor %}
+            </ul>
+          </div><!-- row-->
+        </div><!--card-body-->
+      </div><!--card-->
+    </div><!--col-sm-->
+    {% for companion in companions %}
+    <div class="col">
 
-                    <tr>
-                        <th>Starting gear</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <ul>
-                            {% for item in character.starter_package %}<li>{{item|safe}}</li>{% endfor %}
-                            </ul>
-                        </td>
-                    </tr>
-            </table>
-        </div><!--col-->
-    </div><!-- row-->
-  </div>
-</div>
+      <h2>Companion</h2>
 
+      <div class="card mt-2 mb-2" style="width: 18rem;">
+        <div class="card-body">
+          <h5 class="card-title">{{companion.name}}</h5>
 
-<h2>Companion</h2>
+          <p>{{companion.gender}} {{type}}</p>
+          <div class="row">
+            <h6>Stats</h6>
+            <p>STR {{companion.STR}}, DEX {{companion.DEX}}, WIL {{companion.WIL}}, {{companion.HP}} HP</p>
+            <h6>Starting gear</h6>
+            <p>{{companion.starter_package}}</p>
 
-<div class="card mb-2">
-  <div class="card-body">
-    <h5 class="card-title">{{companion.name}}</h5>
-    <p>{{companion.gender}} companion</p>
-    <div class="row">
-        <div class="col">
-            <table class="table">
-            <tr>
-                <th>STR</th>
-                <th>DEX</th>
-                <th>WIL</th>
-                <th>HP</th>
-            </tr>
-            <tr>
-                <td>{{companion.STR}}</td>
-                <td>{{companion.DEX}}</td>
-                <td>{{companion.WIL}}</td>
-                <td>{{companion.HP}}</td>
-            </tr>
-            </table>
-
-        </div>
-        <div class="col">
-            <table class="table">
-
-                    <tr>
-                        <th>Starting gear</th>
-                    </tr>
-                    <tr>
-                        <td>
-                            <p>
-
-                                {{companion.starter_package}}
-
-                            </p>
-                        </td>
-                    </tr>
-            </table>
-        </div><!--col-->
-    </div><!-- row-->
-  </div>
-</div>
+          </div><!-- row-->
+        </div><!--card-body-->
+      </div><!--card-->
+    </div><!--col-sm-->
+    {% endfor %}
+  </div><!--row-->
+</div><!--container-->
 
 {% endblock %}
