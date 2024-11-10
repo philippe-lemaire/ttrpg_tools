@@ -1,0 +1,27 @@
+{% extends "liminal_horror/base_liminal_horror.html" %}
+
+{% load static %}
+{% block title %}Liminal Horror - Character Gen{% endblock title %}
+{% block content %}
+<h1>A Liminal Horror Character for The Bloom</h1>
+
+<div class="card mt-5" style="width: 36em;">
+  <div class="card-body">
+    <h5 class="card-title">Archetype: {{char.archetype.name}}</h5>
+    <p>{{char.archetype.description|safe}}</p>
+    <div class="row">
+      <p><b>STR:</b> {{char.STR}}, <b>DEX:</b> {{char.DEX}}, <b>CTRL:</b> {{char.CTRL}}</p>
+      <p><b>HP:</b> {{char.HP}}, <b>Age:</b> {{char.age}}</p>
+    </div>
+    <div class="row">
+
+            <h5 class="card-title">Starting gear</h5>
+            <dl class="">
+            {% for item in char.gear %}<dd>{{item|safe|title}}</dd>{% endfor %}
+            </dl>
+
+    </div><!-- row-->
+  </div>
+</div>
+
+{% endblock content %}
