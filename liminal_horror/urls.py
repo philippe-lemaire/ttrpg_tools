@@ -11,4 +11,5 @@ urlpatterns = [
         views.bloom_character_creation_view,
         name="bloom_character_generator",
     ),
+    path("bloom-fallout", views.bloom_fallout_view, name="bloom_fallout"),
 ]

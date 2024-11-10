@@ -1,0 +1,22 @@
+{% extends "liminal_horror/base_liminal_horror.html" %}
+
+{% load static %}
+{% block title %}Liminal Horror - Fallout{% endblock title %}
+{% block content %}
+<h1>A Liminal Horror Fallout for The Bloom</h1>
+
+<p>Fallout represents the spreading fungal infection, the process by which a victim becomes a Host (p.14).
+Unless marked, Fallout entries can only be taken once per character.
+Fallout takes up an inventory slot and can only be removed under extenuating circumstances or death.</p>
+
+
+<div class="card mt-5">
+  <div class="card-header">
+    Fallout
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{fallout|safe}}</h5>
+  </div>
+</div>
+
+{% endblock content %}
