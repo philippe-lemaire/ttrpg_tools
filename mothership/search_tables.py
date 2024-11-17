@@ -66,5 +66,40 @@ warped_beyond_regognition_tables = {
         99: "Figurine of a spacer saint",
     },
 }
+another_bug_hunt_tables = {
+    "Carcinid trait": {
+        0: "Holds a conical tin cup, and prefers to drink rather than fight or work.",
+        4: "Carapace decorated with delicate scrimshaw.",
+        8: "Carapace decorated with perforations resembling a cheese grater",
+        12: "Enlarged pedipalps drip with venom. Treat as stun baton.",
+        16: "Pedipalps are thin and whiplike. Treat as a tranq pistol.",
+        20: "Mouth foams with pus-yellow bubbles as if rabid. Treat as a foam gun.",
+        24: "Carapace and legs constructed partially out of rebar, with steel rods exposed.",
+        28: "Enhanced sensory system: grafted on human eyes, ears, noses, and tongues.",
+        32: "Claws covered in a thick, fuzzy mass that absorbs blood.",
+        36: "One claw is enlarged, while its opposite is small and oddly human.",
+        40: "Carapace is painted black and spotted with diamonds, decorated like star charts.",
+        44: "Completely molted, soft and dripping with rapidly thickening resin. AP: 0.",
+        48: "Partially molted, with the raw tissue beneath the carapace exposed. AP: 10.",
+        52: "Claws are thin and belted with chainsaw-like edges linked to an engine.",
+        56: "Carapace is decorated with nails and hooks.",
+        60: "Claws long, thin, and held in a praying-mantis configuration.",
+        64: "Wearing a quilt of human skin, hairs still twitching.",
+        68: "Body covered in eyes, many of which are not standard on carcinids.",
+        72: "Body is housed, hermit-crab-like, in a trio of merged vaccsuits.",
+        76: "Wears a headdress made from an open human book, pages frozen with resin.",
+        80: "Carapace has integrated plastics, including exposed, lung-like food bags.",
+        84: "An angle grinder saw replaces one claw.",
+        88: "Confused looking and feral carcinid with poor hygiene.",
+        92: "Body is decorated with marine rank insignia.",
+        96: "Long legs loaded with spring-like muscles; Long Range leap for a 3d10 DMG attack.",
+        98: "Has a prosthetic leg made of wood.",
+        99: "Entirely robotic apart from its nerves, and covered in metal plating.",
+    }
+}
 
-MODULES = {"Warped Beyond Recognition": warped_beyond_regognition_tables}
+
+MODULES = {
+    "Another Bug Hunt": another_bug_hunt_tables,
+    "Warped Beyond Recognition": warped_beyond_regognition_tables,
+}
