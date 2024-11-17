@@ -26,6 +26,15 @@
             <a class="dropdown-item" href="{% url 'gradientdescent:d100_tables' "random_search"  %}">Random Search</a>
           </div>
         </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Search Tables (per module)
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="{% url 'mothership:search_tables' %}">Search Tables</a>
+
+          </div>
+        </li>
         <!--
         <li class="nav-item">
           <a class="nav-link" href="#">Features</a>

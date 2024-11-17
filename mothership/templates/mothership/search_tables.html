@@ -1,0 +1,18 @@
+{% extends "mothership/base_mothership.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Mothership - Search Tables{% endblock title %}
+{% block content %}
+<h1>Mothership Search Tables</h1>
+
+
+{% crispy form form.helper %}
+
+{%if results %}
+{% for s, r in results.items %}
+<h2>{{s}}</h2>
+<p>{{r}}</p>
+{% endfor %}
+{% endif %}
+
+{% endblock content %}

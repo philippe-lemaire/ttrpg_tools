@@ -11,4 +11,5 @@ urlpatterns = [
         views.create_character_step_2,
         name="create_character_step_2",
     ),
+    path("search-tables", views.search_tables, name="search_tables"),
 ]

@@ -1,9 +1,9 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .character import Character, classes_descriptions_d
-from .roll import roll, roll_pc_stats_and_saves
-from .forms import ClassesForm
-
+from .roll import roll, roll_pc_stats_and_saves, roll_d100, get_key
+from .forms import ClassesForm, ModuleSelectionForm
+from .search_tables import MODULES
 
 # Create your views here.
 
@@ -83,4 +83,22 @@ def create_character_step_2(request):
         request,
         template_name="mothership/create_character.html",
         context={"form": form},
+    )
+
+
+def search_tables(request):
+    form = ModuleSelectionForm(request.POST or None)
+    context = {"form": form}
+    if request.method == "POST":
+        if form.is_valid():
+            # do the rolls and create results dict
+            module = MODULES.get(form.cleaned_data["module_choice"])
+            results = [
+                module[table].get(get_key(roll_d100(), module[table]))
+                for table in module
+            ]
+            context["results"] = {k: v for k, v in zip(module.keys(), results)}
+
+    return render(
+        request, template_name="mothership/search_tables.html", context=context
     )
