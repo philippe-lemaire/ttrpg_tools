@@ -93,11 +93,14 @@ def search_tables(request):
         if form.is_valid():
             # do the rolls and create results dict
             module = MODULES.get(form.cleaned_data["module_choice"])
+            rolls = [roll_d100() for t in module]
             results = [
-                module[table].get(get_key(roll_d100(), module[table]))
-                for table in module
+                module[table].get(get_key(r, module[table]))
+                for r, table in zip(rolls, module.keys())
             ]
-            context["results"] = {k: v for k, v in zip(module.keys(), results)}
+            context["results"] = {
+                k: (ro, re) for k, ro, re in zip(module.keys(), rolls, results)
+            }
 
     return render(
         request, template_name="mothership/search_tables.html", context=context

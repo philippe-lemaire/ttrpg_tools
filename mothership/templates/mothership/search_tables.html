@@ -11,7 +11,7 @@
 {%if results %}
 {% for s, r in results.items %}
 <h2>{{s}}</h2>
-<p>{{r}}</p>
+<p><b>Rolled {{r.0}}</b>: {{r.1}}</p>
 {% endfor %}
 {% endif %}
 
