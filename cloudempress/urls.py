@@ -29,4 +29,9 @@ urlpatterns = [
         views.roll_encounter_land_of_cicadas,
         name="roll_encounter_land_of_cicadas",
     ),
+    path(
+        "roll-hunt-and-gather-land-of-cicadas",
+        views.roll_hunt_and_gather_land_of_cicadas,
+        name="roll_hunt_and_gather_land_of_cicadas",
+    ),
 ]

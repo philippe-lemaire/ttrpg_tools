@@ -1,0 +1,36 @@
+{% extends "cloudempress/base_cloudempress.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cloud Empress- Roll Hunt and Gather Result{% endblock title %}
+{% block content %}
+
+<h1>Roll Hunt and Gather Result</h1>
+
+<h2>Which Region?</h2>
+{% crispy form form.helper %}
+
+{% if result %}
+<h2>Result</h2>
+<div class="card">
+  <h5 class="card-header">You found</h5>
+  <div class="card-body">
+    <table class="table">
+      <tr>
+        <td>Provisions</td>
+        <td>{{result.provisions|capfirst}}</td>
+      </tr>
+      <tr>
+        <td>Good Food and Drink</td>
+        <td>{{result.good_food_and_drink|capfirst}}</td>
+      </tr>
+      <tr>
+        <td>Shelter</td>
+        <td>{{result.shelter|capfirst}}</td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+{% endif %}
+
+{% endblock content%}

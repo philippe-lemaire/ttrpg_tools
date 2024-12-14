@@ -37,7 +37,7 @@ def doubles_value(n):
 
 
 def roll_d10():
-    return randint(0, 9)
+    return roll("1d10")
 
 
 def get_key(n, d):

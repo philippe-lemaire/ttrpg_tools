@@ -5,8 +5,9 @@ from django.views.generic import TemplateView
 from mothership.character import Character, classes_descriptions_d
 from .roll import roll, roll_pc_stats_and_saves, roll_d100, get_key
 from mothership.forms import ClassesForm
-from .forms import LevelForm, RegionSelectForm
+from .forms import LevelForm, RegionSelectForm, RegionSelectFormHuntAndGather
 from .land_of_cicada_encounters import cloud_empress_encounters, moods
+from .land_of_cicadas_hunt_and_gather import Hunt_and_gather_result
 from .game_logic import (
     roll_byway,
     Settlement,
@@ -172,4 +173,18 @@ def roll_encounter_land_of_cicadas(request):
             context["encounter_rolled"] = True
     else:
         context["encounter_rolled"] = False
+    return render(request, template_name, context)
+
+
+def roll_hunt_and_gather_land_of_cicadas(request):
+    template_name = "cloudempress/roll_hunt_and_gather_land_of_cicadas.html"
+    form = RegionSelectFormHuntAndGather(request.POST or None)
+    context = {"form": form}
+
+    if request.method == "POST":
+        if form.is_valid():
+            region = form.cleaned_data["region"]
+            context["result"] = Hunt_and_gather_result(region)
+    else:
+        context["result"] = None
     return render(request, template_name, context)

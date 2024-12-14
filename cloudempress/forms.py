@@ -42,3 +42,23 @@ class RegionSelectForm(forms.Form):
                 css_class="m-1 btn-secondary",
             )
         )
+
+
+class RegionSelectFormHuntAndGather(forms.Form):
+    choices = [(r, r) for r in regions]
+    region = forms.ChoiceField(choices=choices)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = "post"
+
+        self.helper.form_action = "cloudempress:roll_hunt_and_gather_land_of_cicadas"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Roll Hunt and Gather Result",
+                css_class="m-1 btn-secondary",
+            )
+        )
