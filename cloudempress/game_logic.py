@@ -1,7 +1,7 @@
 from .unseen_city_tables import *
 
 from .roll import roll_d10, roll, get_key, roll_d100
-from random import choice
+from random import choice, randint
 
 
 class Byway:
@@ -11,8 +11,8 @@ class Byway:
 
 
 def roll_byway():
-    tens = roll_d10()
-    ones = roll_d10()
+    tens = randint(0, 9)
+    ones = randint(0, 9)
     environments = byway_environment.get(tens)
     if tens == ones:
         byway = Byway(environment=environments[0])
