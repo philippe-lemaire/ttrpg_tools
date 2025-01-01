@@ -58,6 +58,7 @@ INSTALLED_APPS = [
     "gradientdescent",
     "cloudempress",
     "liminal_horror",
+    "addg",
 ]
 
 MIDDLEWARE = [
