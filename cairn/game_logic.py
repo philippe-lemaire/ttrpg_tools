@@ -13,7 +13,7 @@ dungeon_events_data = (
         "Encounter",
         "Roll on an encounter table. Possibly hostile. (See Reactions (pg. 63).)",
     ),
-    ("Sign", "A clue, spoor, track, abandoned lair, scent, victim, etc isdiscovered."),
+    ("Sign", "A clue, spoor, track, abandoned lair, scent, victim, etc is discovered."),
     (
         "Environment",
         "Surroundings shift or escalate. Water rises, ceilings collapse, a ritual nears completion, etc.",
