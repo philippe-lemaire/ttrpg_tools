@@ -38,4 +38,5 @@ urlpatterns = [
     path("mothership/gradient-descent/", include("gradientdescent.urls")),
     path("cloud-empress/", include("cloudempress.urls")),
     path("assassins-demons-and-dying-gods/", include("addg.urls")),
+    path("grimwild/", include("grimwild.urls")),
 ]

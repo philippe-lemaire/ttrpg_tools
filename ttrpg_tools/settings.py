@@ -59,6 +59,7 @@ INSTALLED_APPS = [
     "cloudempress",
     "liminal_horror",
     "addg",
+    "grimwild",
 ]
 
 MIDDLEWARE = [

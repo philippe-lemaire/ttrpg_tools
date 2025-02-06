@@ -1,0 +1,44 @@
+{% extends "grimwild/base_grimwild.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Grimwild{% endblock title %}
+{% block content %}
+<h1>Welcome to the Grimwild Roll Tool</h1>
+
+<p>Grimwild Roll Tool</p>
+
+{% crispy form form.helper %}
+
+<h2>Results</h2>
+<table class="table">
+<tr>
+  <td>Dice</td>
+  <td class="m-3">{% for d in dice_result %}
+    {% if d == 6 %}
+    <span class="p-3 text-success-emphasis bg-success-subtle border border-success-subtle rounded-3">{{d}}</span>
+    {% elif d > 3 %}
+    <span class="p-3 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-3">{{d}}</span>
+    {% else %}
+    <span class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">{{d}}</span>
+    {% endif %}
+    {% endfor %}
+  </td>
+</tr>
+<tr>
+  <td>Thorns</td>
+  <td>{% for t in thorns_result %}
+    {% if t >= 7 %}
+    <span class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">{{t}}</span>
+    {% else %}
+    <span class="p-3 text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-3">{{t}}</span>
+    {% endif %}
+    {% endfor %}
+  </td>
+</tr>
+<tr>
+  <td>Outcome</td>
+  <td>{{outcome}}</td>
+</tr>
+
+</table>
+{% endblock content %}
