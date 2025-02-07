@@ -9,36 +9,42 @@
 
 {% crispy form form.helper %}
 
-<h2>Results</h2>
-<table class="table">
-<tr>
-  <td>Dice</td>
-  <td class="m-3">{% for d in dice_result %}
-    {% if d == 6 %}
-    <span class="p-3 text-success-emphasis bg-success-subtle border border-success-subtle rounded-3">{{d}}</span>
-    {% elif d > 3 %}
-    <span class="p-3 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-3">{{d}}</span>
-    {% else %}
-    <span class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">{{d}}</span>
-    {% endif %}
-    {% endfor %}
-  </td>
-</tr>
-<tr>
-  <td>Thorns</td>
-  <td>{% for t in thorns_result %}
-    {% if t >= 7 %}
-    <span class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">{{t}}</span>
-    {% else %}
-    <span class="p-3 text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-3">{{t}}</span>
-    {% endif %}
-    {% endfor %}
-  </td>
-</tr>
-<tr>
-  <td>Outcome</td>
-  <td>{{outcome}}</td>
-</tr>
 
-</table>
+{% if outcome %}
+<h2>Results</h2>
+<div class="table-responsive">
+  <table class="table">
+    <tr>
+      <td>Dice</td>
+      <td>{% for d in dice_result %}
+        {% if d == 6 %}
+        <span class="p-2 text-success-emphasis bg-success-subtle border border-success-subtle rounded-3">{{d}}</span>
+        {% elif d > 3 %}
+        <span class="p-2 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-3">{{d}}</span>
+        {% else %}
+        <span class="p-2 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">{{d}}</span>
+        {% endif %}
+        {% endfor %}
+      </td>
+    </tr>
+  {% if thorns_result %}
+    <tr>
+      <td>Thorns</td>
+      <td>{% for t in thorns_result %}
+        {% if t >= 7 %}
+        <span class="p-2 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">{{t}}</span>
+        {% else %}
+        <span class="p-2 text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-3">{{t}}</span>
+        {% endif %}
+        {% endfor %}
+      </td>
+    </tr>
+  {% endif %}
+    <tr>
+      <td>Outcome</td>
+      <td>{{outcome}}</td>
+    </tr>
+  </table>
+</div>
+{% endif %}
 {% endblock content %}
