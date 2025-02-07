@@ -1,0 +1,32 @@
+{% extends "grimwild/base_grimwild.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Grimwild{% endblock title %}
+{% block content %}
+<h1>Welcome to the Grimwild Roll Pool</h1>
+
+<p>Grimwild Roll Pool</p>
+
+{% crispy form form.helper %}
+
+<h2>Results</h2>
+<table class="table">
+<tr>
+  <td>Dice</td>
+  <td class="m-3">{% for d in dice_result %}
+
+    {% if d > 3 %}
+    <span class="p-3 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-3">{{d}}</span>
+    {% else %}
+    <span class="p-3 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">{{d}}</span>
+    {% endif %}
+    {% endfor %}
+  </td>
+</tr>
+<tr>
+  <td>Outcome</td>
+  <td>{{outcome}}</td>
+</tr>
+
+</table>
+{% endblock content %}

@@ -22,3 +22,10 @@ def grimwild_roll(dice, thorns):
 
     outcome = outcomes[i]
     return dice_result, thorns_result, outcome
+
+
+def grimwild_pool(dice):
+    dice_result = [randint(1, 6) for _ in range(dice)]
+    dice_result.sort()
+    outcome = len([d for d in dice_result if d > 3])
+    return dice_result, outcome

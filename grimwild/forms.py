@@ -17,7 +17,26 @@ class RollForm(forms.Form):
         self.helper.add_input(
             Submit(
                 "submit",
-                "Generate",
+                "Roll",
+                css_class="m-1 btn-secondary",
+            )
+        )
+
+
+class PoolForm(forms.Form):
+    dice = forms.IntegerField(min_value=0, max_value=10, initial=4)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = "post"
+
+        self.helper.form_action = "grimwild:grimwild_pool"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Roll Pool",
                 css_class="m-1 btn-secondary",
             )
         )
