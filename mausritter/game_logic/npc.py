@@ -181,16 +181,16 @@ class NPC_Mouse:
             1: ["Regard mélancolique", "Toilettage constant", "Liberté", "Parent"],
             2: [
                 "Habits clairs et rapiécés",
-                "Obsédé par la météo",
+                "Obsédée par la météo",
                 "Sécurité",
                 "Frère/Sœur",
             ],
-            3: ["Couronne de marguerites", " Très énergique", "Fuite", "Cousin"],
+            3: ["Couronne de marguerites", " Très énergique", "Fuite", "Cousine"],
             4: [
                 "Vêtements sales",
-                "A voyagé, très instruit",
+                "A voyagé, très instruite",
                 "Excitation",
-                "Cousin au 2ème degré",
+                "Cousine au 2ème degré",
             ],
             5: [
                 "Grand chapeau souple",
@@ -204,7 +204,7 @@ class NPC_Mouse:
                 "Sens",
                 "lien de parenté, mais ne le sait pas",
             ],
-            7: ["Bâton de marche", "Honte d'anciens crimes", "Santé", "Marié"],
+            7: ["Bâton de marche", "Honte d'anciens crimes", "Santé", "Mariée"],
             8: [
                 "Porte une épée rouillée",
                 "Aime la compétition",
@@ -215,7 +215,7 @@ class NPC_Mouse:
                 "Fourrure rebelle",
                 "Ivrogne flamboyant",
                 "Protection",
-                "Amoureux, à sens unique",
+                "Amour, à sens unique",
             ],
             10: ["Très, très vieux", "Très poli", "Amour", "Pote de bistro"],
             11: ["Queue bandée", "Honnête sans réserve", "Protéger", "A une dette"],
@@ -229,25 +229,25 @@ class NPC_Mouse:
                 "Oreille manquante",
                 "Discours rapide, décousu",
                 "Amitié",
-                "Ennemis jurés",
+                "Ennemies jurées",
             ],
             14: [
                 "Longues moustaches",
                 "Serviteur secret d'un chat",
                 "Repos",
-                "Frères de Guilde",
+                "Sœurs de Guilde",
             ],
             15: [
                 "Cligne des yeux",
-                "Elevé par des rats",
+                "Elevée par des rats",
                 "Connaissance",
-                "Amis d'enfance",
+                "Amies d'enfance",
             ],
             16: [
                 "Lourde cape noire",
-                "Exilé de chez lui",
+                "Exilée de chez elle",
                 "Sauvagerie",
-                "L'un a volé à l'autre",
+                "L'une a volé à l'autre",
             ],
             17: [
                 "Cicactrices de guerre",
@@ -267,7 +267,7 @@ class NPC_Mouse:
                 "Servir",
                 "Ont servi le même seigneur",
             ],
-            20: ["Fourrure tressée", "Moustaches agitées", "Fun", "Parfait inconnu"],
+            20: ["Fourrure tressée", "Moustaches agitées", "Fun", "Parfaite inconnue"],
         }
         self.appearance = details.get(roll("d20"))[0]
         self.quirk = details.get(roll("d20"))[1]

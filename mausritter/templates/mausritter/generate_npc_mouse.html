@@ -4,48 +4,34 @@
 {% block content %}
 <h1>Une souris non joueuse</h1>
 
-<table class="table table-striped">
-    <tr>
-        <td><b>Nom</b></td>
-        <td>{{npc.name}}</td>
 
+<div class="card" style="width: 36rem;">
+  <div class="card-header">
+    Une Souris non joueuse
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{npc.name}}</h5>
+    <p class="card-text">
+      Sa relation  avec une souris du groupe : <b>{{npc.relationship|lower}}</b>.
+      </p>
+      <p class="card-text">En la regardant, on remarque : <b>{{npc.appearance|lower}}</b> et son petit truc <b>{{npc.quirk|lower}}.</b></p>
+      <p class="card-text">Son plus cher désir : <b>{{npc.wants|lower}}</b>.</p>
+      <p class="card-text">Son rang : <b>{{npc.social_position}}</b>.</p>
+      <p class="card-text">Elle exige pour son travail : <b>{{npc.payment}}</b>.</p>
+      <p class="card-text">Née sous le signe <b>{{npc.sign}}</b>.</p>
+      <p class="card-text">Son style : <b>{{npc.dispositions}}</b></p>
 
-    </tr>
-    <tr>
-        <td><b>Relation à une Souris Joueuse</b></td>
-        <td>{{npc.relationship}}</td>
+    <p class="card-text">
+      <b>Inventaire</b></td>
+        <ul>
+          <li>{{npc.pips}} Pépins</li>
+            {% for item in npc.inventory %}
+            <li>{{item}}</li>
+            {% endfor %}
+            <li>Une arme au choix</li>
+        </ul>
+    </p>
+  </div>
+</div>
 
-    </tr>
-    <tr>
-        <td><b>Apparence</b></td>
-        <td>{{npc.appearance}}</td>
-
-
-    </tr>
-    <tr>
-        <td><b>Signe particulier</b></td>
-        <td>{{npc.quirk}}</td>
-    </tr>
-    <tr>
-        <td><b>Désir</b></td>
-        <td>{{npc.wants}}</td>
-    </tr>
-    <tr>
-        <td><b>Rang</b></td>
-        <td>{{npc.social_position}}</td>
-
-    </tr>
-    <tr>
-        <td><b>Rémunération</b></td>
-        <td>{{npc.payment}}</td>
-    </tr>
-    <tr>
-        <td><b>Signe de naissance</b></td>
-        <td>{{npc.sign}}</td>
-    </tr>
-    <tr>
-        <td><b>Comportement</b></td>
-        <td>{{npc.dispositions}}</td>
-    </tr>
-</table>
 {% endblock %}
