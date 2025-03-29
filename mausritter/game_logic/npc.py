@@ -126,7 +126,14 @@ last_names = [
     "Tunnelier",
     "Voltigeur",
 ]
-signs = ["Étoile", "Roue", "Gland", "Tempête", "Lune", "Mère"]
+signs = [
+    "de l’Étoile",
+    "de la Roue",
+    "du Gland",
+    "de la Tempête",
+    "de la Lune",
+    "de la Mère",
+]
 dispositions = [
     "Brave/Imprudente",
     "Travailleuse/Sans imagination",

@@ -2,73 +2,51 @@
 
 
 {% block content %}
-{% load static%}
-<img src="{% static 'mausritter/npc.png' %}" alt="Une petite souris">
-
-<h1>Une brave souris aventurière</h1>
 
 
-<table class="table table-striped">
-    <tr>
-        <td><b>Nom</b></td>
-        <td>{{pc.name}}</td>
-    </tr>
-    <tr>
-        <td><b>Ancienne occupation</b></td>
-        <td>{{pc.background}}</td>
+<div class="card" style="width: 36rem;">
+  <div class="card-header">
+    Une brave souris aventurière
 
-    </tr>
-    <tr>
-        <td><b>Signe</b></td>
-        <td>{{pc.sign}}</td>
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{pc.name}}</h5>
+    <p class="card-text">
+      Ancienne <b>{{pc.background}}</b>, née sous le signe <b>{{pc.sign}}</b>, elle est <b>{{pc.disposition|lower}}</b>.<br/>
+      Son pelage est <b>{{pc.fur|lower}}</b> et on remarque sur elle un détail : <b>{{pc.physical_trait|lower}}</b>.
+    </p>
+    <p class="card-text">
+      <table class="table table-sm table-responsive-sm" style="width: 22rem;">
+        <thead>
+          <tr>
+            <th scope="col">PV</th>
+            <th scope="col">FOR</th>
+            <th scope="col">DEX</th>
+            <th scope="col">VOL</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{pc.HP}}</td>
+            <td>{{pc.STR}}</td>
+            <td>{{pc.DEX}}</td>
+            <td>{{pc.WIL}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+    <p class="card-text"></p>
+    <p class="card-text">
+      <b>Inventaire</b></td>
+        <ul>
+          <li>{{pc.pips}} Pépins</li>
+            {% for item in pc.inventory %}
+            <li>{{item}}</li>
+            {% endfor %}
+            <li>Une arme au choix</li>
+        </ul>
+    </p>
+  </div>
+</div>
 
-    </tr>
-    <tr>
-        <td><b>Personnalité</b></td>
-        <td>{{pc.disposition}}</td>
-
-    </tr>
-    <tr>
-        <td><b>Pelage</b></td>
-        <td>{{pc.fur}}</td>
-
-    </tr>
-    <tr>
-        <td><b>Détail physique</b></td>
-        <td>{{pc.physical_trait}}</td>
-
-    </tr>
-    <tr>
-        <td><b>FOR</b></td>
-        <td>{{pc.STR}}</td>
-    </tr>
-    <tr>
-        <td><b>DEX</b></td>
-        <td>{{pc.DEX}}</td>
-    </tr>
-    <tr>
-        <td><b>VOL</b></td>
-        <td>{{pc.WIL}}</td>
-    </tr>
-    <tr>
-        <td><b>PV</b></td>
-        <td>{{pc.HP}}</td>
-    </tr>
-    <tr>
-        <td><b>Pépins</b></td>
-        <td>{{pc.pips}}</td>
-    </tr>
-    <tr>
-        <td><b>Équipement</b></td>
-        <td>
-            <ul>
-                {% for item in pc.inventory %}
-                <li>{{item}}</li>
-                {% endfor %}
-                <li>Une arme au choix</li>
-            </ul>
-        </td>
-    </tr>
-
-</table>
 {% endblock %}
