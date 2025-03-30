@@ -5,17 +5,24 @@ Liste des Sorts Mausritter
 {% block content %}
 <h1>Sorts</h1>
 
-
-
-{% for spell in spells %}
-
-{{spell.name}}
-
-<p>{{spell.effect}}</p>
-
-<p>{{spell.recharge}}</p>
-
-
-{% endfor %}
-
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">2d8</th>
+      <th scope="col">Sort</th>
+      <th scope="col">Effet</th>
+      <th scope="col">Recharge</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for spell in spells %}
+    <tr>
+      <th scope="row">{{forloop.counter|add:1}}</th>
+      <td>{{spell.name}}</td>
+      <td>{{spell.effect}}</td>
+      <td>{{spell.recharge}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
 {% endblock %}
