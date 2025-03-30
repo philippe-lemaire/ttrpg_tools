@@ -8,12 +8,13 @@ from .models import Creature
 
 from .game_logic.colony import generate_colony_obj
 from .game_logic.adventure_site import generate_adventure_site_obj
-from .game_logic.npc import NPC_Mouse
+from .game_logic.npc import NPC_Mouse, hireling_stats, Hireling
 from .game_logic.seeds import generate_seed_obj
 from .game_logic.spells import generate_spell_obj, get_spell_list
 from .game_logic.magic_sword import generate_magic_sword_obj
 from .game_logic.pc import generate_mouse_pc_obj
 from .game_logic.roll import roll_spell as rs
+
 from .forms import TreasureForm, RollSpellForm
 from .game_logic.treasure import generate_treasure_list
 
@@ -132,4 +133,13 @@ def spell_list_view(request):
     spells = get_spell_list()
     return render(
         request, template_name="mausritter/spell_list.html", context={"spells": spells}
+    )
+
+
+def hirelings_view(request):
+
+    return render(
+        request,
+        template_name="mausritter/hirelings.html",
+        context={"hireling_stats": hireling_stats, "hireling": Hireling()},
     )

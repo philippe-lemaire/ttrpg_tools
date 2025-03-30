@@ -1,0 +1,75 @@
+{% extends "mausritter/base_mausritter.html" %}
+{% load static %}
+
+
+{% block content %}
+<h1>Employés</h1>
+
+<p>Dans une colonie souris, tu peux passer une journée
+pour trouver des souris à la recherche d’un boulot.</p>
+<p>Fais une sauvegarde de VOL ou paye 20p. En cas de
+succès, lance pour savoir combien tu trouves de souris
+dans la catégorie souhaitée.</p>
+<p>Un employé typique a 1d6 PV et 2d6 en FOR, DEX
+et VOL. Il a 6 cases d’inventaire, 2 de pattes et 4 de
+bagages.
+</p>
+
+<h2>Employés par métier</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">Employé</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Salaire Quotidien</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for stat in hireling_stats %}
+    <tr>
+      {% for t in stat %}
+      <td>{{t}}</td>
+      {% endfor %}
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+
+<h2>Exemple d'Employé</h2>
+
+
+<img src="{% static 'mausritter/hireling.png' %}" alt="Fiche de PNJ Employé">
+
+<div class="card" style="width: 36rem;">
+  <div class="card-header">
+    Une souris employée
+  </div>
+  <div class="card-body">
+    <h5 class="card-title">{{hireling.name}}</h5>
+    <p class="card-text">
+      Apparence : {{hireling.appearance|lower}}.
+    </p>
+    <p class="card-text">Tempérament : {{hireling.quirk}}</p>
+    <p class="card-text">
+      <table class="table table-sm table-responsive-sm" style="width: 22rem;">
+        <thead>
+          <tr>
+            <th scope="col">FOR</th>
+            <th scope="col">DEX</th>
+            <th scope="col">VOL</th>
+            <th scope="col">PV</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>{{hireling.STR}}</td>
+            <td>{{hireling.DEX}}</td>
+            <td>{{hireling.WIL}}</td>
+            <td>{{hireling.HP}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </p>
+  </div>
+</div>
+{% endblock %}

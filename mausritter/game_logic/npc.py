@@ -147,7 +147,6 @@ dispositions = [
 class NPC_Mouse:
     def __init__(self):
         # name
-
         self.first_name = random.choice(first_names)
         self.last_name = random.choice(last_names)
         self.name = f"{self.first_name} {self.last_name}"
@@ -276,6 +275,64 @@ class NPC_Mouse:
 
     def __repr__(self):
         return f"Nom : {self.first_name} {self.last_name}.\nApparence: {self.appearance}.\nParticularité : {self.quirk}.\nDésir : {self.wants}.\nRang : {self.social_position}. Prix des services : {self.payment}.\nSigne : {self.sign}. Disposition : {self.dispositions}.\nRelation : {self.relationship}."
+
+
+hireling_stats = (
+    ("Porteur de torche", "d6", "1p"),
+    (
+        "Ouvrier",
+        "d6",
+        "2p",
+    ),
+    (
+        "Tunnelier",
+        "d4",
+        "5p",
+    ),
+    (
+        "Forgeron",
+        "d2",
+        "8p",
+    ),
+    (
+        "Guide local",
+        "d4",
+        "10p",
+    ),
+    (
+        "Soldat",
+        "d6",
+        "10p",
+    ),
+    (
+        "Érudit",
+        "d2",
+        "20p",
+    ),
+    (
+        "Chevalier",
+        "d3",
+        "25p",
+    ),
+    (
+        "Interprète",
+        "d2",
+        "30p",
+    ),
+)
+
+
+class Hireling(NPC_Mouse):
+    def __init__(self):
+        super(Hireling, self).__init__()
+        self.name = random.choice(first_names)
+        self.STR = roll("2d6")
+        self.DEX = roll("2d6")
+        self.WIL = roll("2d6")
+        self.HP = roll("1d6")
+
+    def __repr__(self):
+        return f"Recrue appelée {self.name} avec {self.HP} PV, FOR {self.STR}, DEX {self.DEX}, VOL {self.WIL}. {self.quirk}"
 
 
 if __name__ == "__main__":
