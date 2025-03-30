@@ -33,6 +33,7 @@ urlpatterns = [
         name="character_keeper",
     ),
     path("lancer_un_sort/", views.roll_spell, name="roll_spell"),
+    path("liste-des-sorts/", views.spell_list_view, name="spell_list"),
     path("creatures/", views.CreatureListView.as_view(), name="creature_index"),
     path(
         "creatures/<int:pk>",

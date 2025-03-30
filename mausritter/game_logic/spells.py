@@ -94,3 +94,7 @@ class Spell:
 def generate_spell_obj():
     name, effect, recharge = spells.get(roll("2d8"))
     return Spell(name, effect, recharge)
+
+
+def get_spell_list():
+    return [Spell(*data) for data in spells.values()]

@@ -10,7 +10,7 @@ from .game_logic.colony import generate_colony_obj
 from .game_logic.adventure_site import generate_adventure_site_obj
 from .game_logic.npc import NPC_Mouse
 from .game_logic.seeds import generate_seed_obj
-from .game_logic.spells import generate_spell_obj
+from .game_logic.spells import generate_spell_obj, get_spell_list
 from .game_logic.magic_sword import generate_magic_sword_obj
 from .game_logic.pc import generate_mouse_pc_obj
 from .game_logic.roll import roll_spell as rs
@@ -126,3 +126,10 @@ class CreatureDetailView(generic.DetailView):
         # Add in a QuerySet of all the books
         context["roll"] = random.randint(1, 6)
         return context
+
+
+def spell_list_view(request):
+    spells = get_spell_list()
+    return render(
+        request, template_name="mausritter/spell_list.html", context={"spells": spells}
+    )

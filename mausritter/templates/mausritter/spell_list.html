@@ -1,0 +1,21 @@
+{% extends "mausritter/base_mausritter.html" %}
+{% block title %}
+Liste des Sorts Mausritter
+{% endblock %}
+{% block content %}
+<h1>Sorts</h1>
+
+
+
+{% for spell in spells %}
+
+{{spell.name}}
+
+<p>{{spell.effect}}</p>
+
+<p>{{spell.recharge}}</p>
+
+
+{% endfor %}
+
+{% endblock %}
