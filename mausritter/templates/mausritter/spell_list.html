@@ -17,8 +17,8 @@ Liste des Sorts Mausritter
   <tbody>
     {% for spell in spells %}
     <tr>
-      <th scope="row">{{forloop.counter|add:1}}</th>
-      <td>{{spell.name}}</td>
+      <td>{{forloop.counter|add:1}}</td>
+      <th scope="row">{{spell.name}}</th>
       <td>{{spell.effect}}</td>
       <td>{{spell.recharge}}</td>
     </tr>
