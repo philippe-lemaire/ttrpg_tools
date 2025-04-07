@@ -154,8 +154,115 @@ archetype_data_hungry_hollow = (
     ),
 )
 
+archetype_data_base_game = (
+    (
+        "Factory Worker",
+        "",
+        "Industrial apron (+1 Armor), safety harness, thermos.",
+    ),
+    (
+        "Bus Driver",
+        "",
+        "Lunchbox, comprehensive road map, taser (d6, non-lethal).",
+    ),
+    (
+        "Mechanic",
+        "",
+        "Adjustable wrench (d6), portable toolbox, electrical tape, brake cleaner.",
+    ),
+    (
+        "Garbage Collector",
+        "",
+        "Cut resistant gloves (+1 Armor), hi-vis vest, reach extender, safety glasses.",
+    ),
+    (
+        "Emergency Medical Technician (EMT)",
+        "",
+        "Medkit, trauma shears, stethoscope, WAG bag.",
+    ),
+    (
+        "Store Clerk",
+        "",
+        "Box cutter (d6), walkie talkies, name tag, incredibly comfortable shoes.",
+    ),
+    (
+        "Artist",
+        "",
+        "Artistic tool of choice, notebook, camera, small but passionate fan base.",
+    ),
+    (
+        "Athlete",
+        "",
+        "Equipment from sport of choice, sweatband, powdered sports drink.",
+    ),
+    (
+        "Skater",
+        "",
+        "Skateboard, video camera, bolt cutters.",
+    ),
+    (
+        "Keyboard Warrior",
+        "",
+        "Laptop w/ bag, online following, fake credentials, energy drinks.",
+    ),
+    (
+        "Volunteer Firefighter",
+        "",
+        "Collapsible ladder (bulky), axe (d6), fire extinguisher, flashlight.",
+    ),
+    (
+        "Bicycle Courier",
+        "",
+        "Bike, helmet (+1 Armor), messenger bag, unopened package, multitool.",
+    ),
+    (
+        "Bartender",
+        "",
+        "Barknife (d6), bottle of liquor, cigarettes, confiscated fake IDs.",
+    ),
+    (
+        "Therapist",
+        "",
+        "Memo recorder, notebook and pen, business cards, small revolver (d6).",
+    ),
+    (
+        "Administrative Assistant",
+        "",
+        "Extensive contacts, corporate credit card, expandable briefcase, taser (d6 DEX).",
+    ),
+    (
+        "Actor",
+        "",
+        "Audition binder, portable charging brick, spare cosmetic supplies, change of clothes.",
+    ),
+    (
+        "Engineer",
+        "",
+        "Laptop w/ design software, waterproof field notebook, wireless router, seldom used PPE.",
+    ),
+    (
+        "Social Worker",
+        "",
+        "Laptop w/ bag, ID badge, pocket knife (d6), notebook and pen.",
+    ),
+    (
+        "Teacher",
+        "",
+        "Coffee mug, scissors, large bag,",
+    ),
+    (
+        "Contractor",
+        "",
+        "Stocked toolbelt, utility knife (d6), heavy duty flashlight, drill.",
+    ),
+)
+
 
 ARCHETYPES = {
+    "Base game": [
+        Archetype(name, des, take.split(", "))
+        for name, des, take in archetype_data_base_game
+    ],
     "The Bloom": [
         Archetype(name, des, take.split(", "))
         for name, des, take in archetype_data_the_bloom
