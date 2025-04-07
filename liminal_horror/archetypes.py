@@ -8,7 +8,7 @@ class Archetype:
     take: list
 
 
-archetype_data = (
+archetype_data_the_bloom = (
     (
         "True Crime",
         "Everyone with a microphone has a podcast these days, and your metrics have taken a dive. The mystery surrounding Coldwater has been floating around the back channels, but you’re just the person to get to the truth of the matter.",
@@ -111,10 +111,57 @@ archetype_data = (
     ),
 )
 
-ARCHETYPES = [
-    Archetype(name, des, take.split(", ")) for name, des, take in archetype_data
-]
+archetype_data_hungry_hollow = (
+    (
+        "Burned",
+        "The Bureau interfered with your life, and you want to find enough evidence to bring them to justice. During an operation they may have contributed to the death or loss of a loved one, instituted a cover up that destabilized your life, or attempted to capture you. ",
+        "An old photograph, leather jacket (+1 Armor), revolver (d6).",
+    ),
+    (
+        "Final Girl",
+        "Your life has already been touched by the paranatural. You survived, but others didn’t. There’s no going back to your old life now, there are too many questions left. ",
+        "Fallout, bloodstained jacket, machete (d6).",
+    ),
+    (
+        "Career Criminal",
+        "You’ve done a lot of jobs, many of them successful. You like to think of yourself as a jack-of-all-trades but that’s probably not what the Feds think. ",
+        "Burner phone, lockpicking kit, unregistered firearm (d6).",
+    ),
+    (
+        "Without a Trace",
+        "She’s gone. You’ve been searching, but no-one seems to know anything. However, she wasn’t the only one to disappear under mysterious circumstances. Your quest for answers has brought you to face horrors beyond imagining. ",
+        "File of evidence, “borrowed” handgun (d6), deteriorated video message from that night.",
+    ),
+    (
+        "Breadcrumbs",
+        "Your quest for the truth has led you to dark places, breaking norms, and pushing past laws. Your search has brought you to the Archivist’s attention, and now they’re providing you an opportunity to peek behind the veil. ",
+        "Leather jacket (+1 Armor), old photograph, service revolver (d6).",
+    ),
+    (
+        "Relic-Touched",
+        "A resonant artifact is in your possession. Not only do you have access to its power, but being its keeper puts a target on your back.  Sometimes being on the offensive is a better tactic. ",
+        "Resonant Artifact (p. 104), stylish leather jacket (+1 Armor).",
+    ),
+    (
+        "Too Old",
+        "The fight against the horrors that lie in the shadows is never ending, and you’ve been doing this a long time. It’s time to find someone to pass the torch to. ",
+        "Old Ring (+1 Stability), hidden cane sword (d8), detailed journal.",
+    ),
+    (
+        "Sleeper Agent",
+        "You are secretly a Bureau agent. One of the above Archetypes acts as your cover. How committed are you? How close are you to turning double agent? ",
+        "Palm pistol (d6, discrete), garrote (d8, brutal), cyanide pill.",
+    ),
+)
 
 
-if __name__ == "__main__":
-    print(ARCHETYPES[-1])
+ARCHETYPES = {
+    "The Bloom": [
+        Archetype(name, des, take.split(", "))
+        for name, des, take in archetype_data_the_bloom
+    ],
+    "Hungry Hollow": [
+        Archetype(name, des, take.split(", "))
+        for name, des, take in archetype_data_hungry_hollow
+    ],
+}

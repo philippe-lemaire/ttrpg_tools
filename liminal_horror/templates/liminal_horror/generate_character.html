@@ -1,9 +1,11 @@
 {% extends "liminal_horror/base_liminal_horror.html" %}
-
+{% load crispy_forms_tags %}
 {% load static %}
 {% block title %}Liminal Horror - Character Gen{% endblock title %}
 {% block content %}
-<h1>A Liminal Horror Character for The Bloom</h1>
+
+<h1>A Liminal Horror Character for {{module}}</h1>
+{% crispy form form.helper %}
 
 <div class="card mt-2" style="width: 36em;">
   <div class="card-body">
