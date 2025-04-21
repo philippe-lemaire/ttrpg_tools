@@ -42,3 +42,10 @@ def wilderness_events_view(request):
     context = {"wilderness_events": wilderness_events, "roll": roll("1d6")}
     template_name = "cairn/wilderness_events.html"
     return render(request, template_name, context)
+
+
+def reaction_roll_view(request):
+    # spread a 2d6 roll onto the 5 results 0 to 4
+    context = {"r": roll("2d6") // 3}
+    template_name = "cairn/reaction_roll.html"
+    return render(request, template_name, context)

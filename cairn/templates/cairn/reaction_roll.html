@@ -1,0 +1,79 @@
+{% extends "cairn/base_cairn.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Cairn - Reaction Roll{% endblock title %}
+{% block content %}
+<h1>Reaction Roll</h1>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col col-md-8">
+
+        <p>When the PCs encounter an NPC whose reaction to the party is not obvious,<br/>
+          the Warden may roll 2d6 and consult the following table:</p>
+
+        <table class="table table-striped">
+          <thead>
+            <tr class="table-dark">
+              <th scope="col" colspan="5"  style="text-align:center">Reactions</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><b>2</td>
+              <td><b>3 - 5</b></td>
+              <td><b>6 - 8</b></td>
+              <td><b>9 - 11</b></td>
+              <td><b>12</b></td>
+            </tr>
+            <tr>
+              {% if r == 0 %}
+              <td class="table-danger">
+              {% else %}
+              <td>
+              {% endif %}
+              Hostile</td>
+              {% if r == 1 %}
+              <td class="table-warning">
+              {% else %}
+              <td>
+              {% endif %}
+              Wary</td>
+
+              {% if r == 2 %}
+              <td class="table-info">
+              {% else %}
+              <td>
+              {% endif %}
+              Curious</td>
+
+              {% if r == 3 %}
+              <td class="table-success">
+              {% else %}
+              <td>
+              {% endif %}
+              Kind</td>
+
+              {% if r == 4 %}
+              <td class="table-success">
+              {% else %}
+              <td>
+              {% endif %}
+              Helpful</td>
+            </tr>
+          </tbody>
+        </table>
+        <p><em>Cell highlighted is the rolled result.</em></p>
+      </div>
+      <div class="col col-md-4">
+
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+{% endblock content %}

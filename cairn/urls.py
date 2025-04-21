@@ -10,4 +10,5 @@ urlpatterns = [
     path("choice", views.generate_with_background, name="generate_with_background"),
     path("dungeon-events", views.dungeon_events_view, name="dungeon_events"),
     path("wilderness-events", views.wilderness_events_view, name="wilderness_events"),
+    path("reaction-roll", views.reaction_roll_view, name="reaction_roll"),
 ]
