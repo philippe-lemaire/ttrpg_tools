@@ -1,17 +1,17 @@
 from random import randint, choice
+from .game_data import LIMINAL_HORROR_MODULES
 
-
-bloom_fallouts = {
-    1: "<b>Sporocarp</b>: Your nails yellow and your skin begins to crack and harden in places, mottling in color. +1 armor.",
-    2: "<b>Bioluminescence</b>: There’s a chemical reaction going on inside of you. In darkness, the skin of your hands produces a weak light.",
-    3: "<b>Mycelia Hair</b>: Your hair begins to fall out, quickly replaced by wispy white strands. You are much more sensitive to environmental changes (temperature, wind direction, pressure, etc). Roll d4 and add it to your CTRL (max 18).",
-    4: "<b>Coagulation</b>: You don’t bleed. Mycelic fibers stitch together your wounds. Heal d2 STR damage per day, up to max.",
-    5: "<b>Psilocybin</b>: Your vision waivers. Hallucinations manifest. Ghosts wander at the periphery. +1 Stability.",
-    6: "<b>Become One</b>: Something is calling to you, a compulsion to join with the mass. It feels the pull to you as well. Facilitator</b>: PC has +1 Stability whenever in the presence of the Flesh Hydra (p.15).",
-    7: "<b>Impulse</b>: You can feel them communicating. A tingle on the skin, a spike of anxiety. Every dawn there are more voices.",
-    8: "<b>Twisted Strands</b>: Strands of mycelia twist under your skin, bulging like varicose veins. Digging into muscle, they act as extra ligaments. Roll d4 and add it to your STR (max 18).",
-    9: "<b>Deadened Nerves</b>: Something inside is allowing you to push past your physical limits, but everything comes at a cost. You are no longer affected by Fatigue or Deprivation.",
-}
+bloom_fallouts = (
+    "<b>Sporocarp</b>: Your nails yellow and your skin begins to crack and harden in places, mottling in color. +1 armor.",
+    "<b>Bioluminescence</b>: There’s a chemical reaction going on inside of you. In darkness, the skin of your hands produces a weak light.",
+    "<b>Mycelia Hair</b>: Your hair begins to fall out, quickly replaced by wispy white strands. You are much more sensitive to environmental changes (temperature, wind direction, pressure, etc). Roll d4 and add it to your CTRL (max 18).",
+    "<b>Coagulation</b>: You don’t bleed. Mycelic fibers stitch together your wounds. Heal d2 STR damage per day, up to max.",
+    "<b>Psilocybin</b>: Your vision waivers. Hallucinations manifest. Ghosts wander at the periphery. +1 Stability.",
+    "<b>Become One</b>: Something is calling to you, a compulsion to join with the mass. It feels the pull to you as well. Facilitator</b>: PC has +1 Stability whenever in the presence of the Flesh Hydra (p.15).",
+    "<b>Impulse</b>: You can feel them communicating. A tingle on the skin, a spike of anxiety. Every dawn there are more voices.",
+    "<b>Twisted Strands</b>: Strands of mycelia twist under your skin, bulging like varicose veins. Digging into muscle, they act as extra ligaments. Roll d4 and add it to your STR (max 18).",
+    "<b>Deadened Nerves</b>: Something inside is allowing you to push past your physical limits, but everything comes at a cost. You are no longer affected by Fatigue or Deprivation.",
+)
 
 legacy_fallouts = (
     """<b>Have you been replaced?</b> You’ve seen what they can do -their magics and their deceptions. What would stop them from taking you? Maybe you aren’t who you think you are? How would you even know?<br>
@@ -74,14 +74,51 @@ You become the primary target of otherworldly and attacks made against you are E
 You have been branded for sacrifice, anointed for doom. If your next critical save against damage is a failure, you die horribly. If it is a success, you roll 3d6 + the number of times you’ve taken Doomed. If the total is higher than your max HP, take the new result.""",
 )
 
+hungry_hollow_fallouts = (
+    "<b>Fleshy Wax</b>: Your blood begins to thicken with a waxy substance. This fortifies your body against harm while making you less nimble. Reduce your DEX by d4 and increase your STR by d4.",
+    "<b>Carrion Eater</b>: You hunger for raw meat. Consuming raw flesh instantly replenishes your HP, even when in a risky situation.",
+    "<b>Failed Implantation</b> <em>(this Fallout requires proximity to a Parasite Bee that is trying to implant itself)</em>: The Bee’s implantation was unsuccessful, but its steady drip of neurotoxin continues, fortifying your body against foreign influence. Increase your CTRL by d4.",
+    "<b>Hivemind</b>: A mass begins to grow at the base of your skull.  This growth acts as a conduit to the Hive Mind. You can hear their whispers and Apiarist Workers assume you are one of them at first.",
+    "<b>Become One</b>: Something calls to you, and you feel a compulsion to join with the Hive. It is drawn to you as well.  Facilitator: PC has +1 Stability whenever in the presence of Brea or the God-Queen (p. 14).",
+    "<b>Deadened Nerves</b>: Something inside you lets you push past your physical limits, but everything comes at a cost. You are no longer affected by Fatigue or Deprivation.",
+    "<b>Scarred</b>: Every Wound you inflict on another mirrors itself upon your body, leaving a scar. The first time it happens, make a CTRL Save. If you pass, increase your max STR by d4.  table (this can be taken multiple times per character).",
+)
+
+fallouts = (legacy_fallouts, bloom_fallouts, hungry_hollow_fallouts)
+
+fallouts_data = dict(zip(LIMINAL_HORROR_MODULES, fallouts))
+
+fallouts_paragraphs = (
+    """Some moments change an investigator forever. Players roll or choose from the
+the Fallout table when the Investigator suffers Critical Stress.<br><b>Unless marked, the
+Fallout can only be chosen once per table</b>.<br>Each Fallout takes up an Inventory
+Slot. It cannot be removed.""",
+    """Fallout represents the spreading fungal infection, the process by which a victim becomes a Host (p.14).
+<br>Unless marked, Fallout entries can only be taken once per character.<br>
+Fallout takes up an inventory slot and can only be removed under extenuating circumstances or death.""",
+    """Fallout represents the spreading influence of <b>Trigona, God-Queen of the Flesh
+Hive</b>.<br>Fallout entries can only be taken once per Investigator.<br>Each time a <em>Fallout</em>
+is taken, it takes up an inventory slot and can only be removed under
+extenuating circumstances or death.""",
+)
+
+FALLOUT_PARAGRAPH_DATA = dict(zip(LIMINAL_HORROR_MODULES, fallouts_paragraphs))
+
 
 class Fallout:
-    def __init__(self):
-        r = randint(1, 10)
-        if r <= 9:
-            self.description = bloom_fallouts[r]
-        else:
-            self.description = choice(legacy_fallouts)
+    def __init__(self, module):
+        self.description = choice(fallouts_data[module])
+        # check if chance of getting base game fallout is rolled
+
+        if module == LIMINAL_HORROR_MODULES[1]:
+            r = randint(1, 10)
+            if r == 10:
+                self.description = choice(legacy_fallouts)
+
+        elif module == LIMINAL_HORROR_MODULES[2]:
+            r = randint(1, 8)
+            if r == 8:
+                self.description = choice(legacy_fallouts)
 
     def __repr__(self) -> str:
         return self.description

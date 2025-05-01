@@ -1,4 +1,5 @@
 from dataclasses import dataclass
+from .game_data import LIMINAL_HORROR_MODULES
 
 
 @dataclass
@@ -256,19 +257,18 @@ archetype_data_base_game = (
         "Stocked toolbelt, utility knife (d6), heavy duty flashlight, drill.",
     ),
 )
+archetypes_tuple = (
+    archetype_data_base_game,
+    archetype_data_the_bloom,
+    archetype_data_hungry_hollow,
+)
+archetype_data = dict(zip(LIMINAL_HORROR_MODULES, archetypes_tuple))
 
 
 ARCHETYPES = {
-    "Base game": [
+    module: [
         Archetype(name, des, take.split(", "))
-        for name, des, take in archetype_data_base_game
-    ],
-    "The Bloom": [
-        Archetype(name, des, take.split(", "))
-        for name, des, take in archetype_data_the_bloom
-    ],
-    "Hungry Hollow": [
-        Archetype(name, des, take.split(", "))
-        for name, des, take in archetype_data_hungry_hollow
-    ],
+        for name, des, take in archetype_data[module]
+    ]
+    for module in LIMINAL_HORROR_MODULES
 }

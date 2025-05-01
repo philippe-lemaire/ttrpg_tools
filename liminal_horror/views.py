@@ -1,7 +1,8 @@
 from django.shortcuts import render
+from django.urls import reverse
 from django.views.generic import TemplateView
 from .character import Character
-from .fallout import Fallout
+from .fallout import Fallout, FALLOUT_PARAGRAPH_DATA
 from .forms import ModuleForm
 
 # Create your views here.
@@ -18,11 +19,24 @@ def generate_character(request):
     if request.method == "POST":
         if form.is_valid():
             module = form.cleaned_data["module"]
-        context.update({"char": Character(module=module), "module": module})
-    return render(request, template_name, context=context)
+            context.update({"char": Character(module=module), "module": module})
+    return render(request, template_name, context)
 
 
-def bloom_fallout_view(request):
-    context = {"fallout": Fallout()}
+def fallout_view(request):
+    form = ModuleForm(request.POST or None)
+    # add the correct url to post to for the form
+    form.helper.form_action = reverse("liminal_horror:fallout")
+
+    context = {"form": form}
     template_name = "liminal_horror/fallout.html"
+
+    if request.method == "POST":
+        if form.is_valid():
+            module = form.cleaned_data["module"]
+            fo = Fallout(module)
+            context["explaination"] = FALLOUT_PARAGRAPH_DATA.get(module)
+            context["fallout"] = fo
+            context["module"] = module
+
     return render(request, template_name, context)
