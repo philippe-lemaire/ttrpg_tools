@@ -145,7 +145,7 @@ nature_flora = {
         "Vibrant",
         "Brittle",
         "Thorny",
-        "Reeds",
+        "Sturdy",
         "Resinous",
     ],
     "spark_2": [
@@ -159,7 +159,7 @@ nature_flora = {
         "Vines",
         "Conifers",
         "Saplings",
-        "Sturdy",
+        "Reeds",
         "Roots",
     ],
 }
@@ -178,7 +178,7 @@ nature_fauna = {
         "Placid",
         "Beautiful",
         "Mighty",
-        "Fowl",
+        "Hostile",
         "Aloof",
     ],
     "spark_2": [
@@ -192,7 +192,7 @@ nature_fauna = {
         "Reptiles",
         "Hawks",
         "Mustelids",
-        "Hostile",
+        "Fowl",
         "Bears",
     ],
 }
@@ -211,7 +211,7 @@ nature_feature = {
         "Veiled",
         "Hot",
         "Drowned",
-        "Arch",
+        "Desecrated",
         "Isolated",
     ],
     "spark_2": [
@@ -225,7 +225,7 @@ nature_feature = {
         "Pond",
         "Waterfall",
         "Spring",
-        "Desecrated",
+        "Arch",
         "Henge",
     ],
 }
@@ -244,7 +244,7 @@ nature_wonder = {
         "Strength",
         "Plants",
         "Pain",
-        "Water",
+        "Regret",
         "Time",
     ],
     "spark_2": [
@@ -258,7 +258,7 @@ nature_wonder = {
         "Colours",
         "Temptation",
         "Wind",
-        "Regret",
+        "Water",
         "Shadows",
     ],
 }
@@ -277,7 +277,7 @@ nature_otherworld = {
         "Living",
         "Burning",
         "Sludge",
-        "Island",
+        "White",
         "Sweet",
     ],
     "spark_2": [
@@ -291,7 +291,7 @@ nature_otherworld = {
         "Jungle",
         "Dunes",
         "Tunnels",
-        "White",
+        "Island",
         "Mountain",
     ],
 }
