@@ -60,6 +60,7 @@ INSTALLED_APPS = [
     "liminal_horror",
     "addg",
     "grimwild",
+    "mythic_bastionland",
 ]
 
 MIDDLEWARE = [
