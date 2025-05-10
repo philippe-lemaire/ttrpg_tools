@@ -10,22 +10,34 @@ Mythic Bastionland - Spark Tables
 
 {% load crispy_forms_tags %}
 {% crispy form form.helper %}
-{% if spark %}
+{% if sparks %}
+
+<div class="row">
+  {% for spark in sparks %}
+  <div class="card m-2" style="width: 22rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{spark.title}}</h5>
+      <p class="card-text">
+        <table class="table table-borderless">
+          <thead class="thead-light">
+          <tr>
+            <th>{{spark.spark_1_name}}</th>
+            <th>{{spark.spark_2_name}}</th>
+          </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>{{spark.left}}</td>
+              <td>{{spark.right}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </p>
+    </div>
+  </div>
+  {% endfor %}
+</div>
 
 
-<table class="table">
-  <thead class="thead-light">
-  <tr>
-    <th>{{spark_1_name}}</th>
-    <th>{{spark_2_name}}</th>
-  </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>{{left}}</td>
-      <td>{{right}}</td>
-    </tr>
-  </tbody>
-</table>
 {% endif %}
 {% endblock content%}

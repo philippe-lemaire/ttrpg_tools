@@ -1,14 +1,14 @@
 from django import forms
 from django.urls import reverse
 from crispy_forms.helper import FormHelper
-from .spark_tables import spark_tables
+from .spark_tables import spark_tables_by_theme
 from crispy_forms.layout import Submit
 
-spark_table_choices = [(table_name, table_name) for table_name in spark_tables.keys()]
 
-
-class SparkForm(forms.Form):
-    table = forms.ChoiceField(choices=spark_table_choices)
+class SparkThemeForm(forms.Form):
+    theme = forms.ChoiceField(
+        choices=[(choice, choice) for choice in spark_tables_by_theme.keys()]
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
