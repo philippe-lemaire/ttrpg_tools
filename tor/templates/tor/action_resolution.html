@@ -37,7 +37,7 @@ The One Ring - Action Resolution
           <table class="table table-sm table-borderless">
             <thead>
               <tr>
-                <th scope="col">Feat Die</th>
+                <th scope="col">Feat Dice</th>
                 <th scope="col">Sucess Dice</th>
                 <th scope="col">Total</th>
                 {% if tn_met %}
@@ -48,7 +48,10 @@ The One Ring - Action Resolution
             <tbody>
               <tr>
                 <td>
-                  <button type="button" class="btn btn-light">{{feat_dice.0}}</button>
+                  <button type="button" class="btn btn-primary">{{feat_dice.0}}</button>
+                  {% if feat_dice.1 %}
+                  <button type="button" class="btn btn-secondary">{{feat_dice.1}}</button>
+                  {% endif %}
                 </td>
                 <td>
                   {% for d in success_dice %}
