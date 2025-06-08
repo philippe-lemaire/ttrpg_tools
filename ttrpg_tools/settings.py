@@ -61,6 +61,7 @@ INSTALLED_APPS = [
     "addg",
     "grimwild",
     "mythic_bastionland",
+    "tor",
 ]
 
 MIDDLEWARE = [

@@ -40,4 +40,5 @@ urlpatterns = [
     path("assassins-demons-and-dying-gods/", include("addg.urls")),
     path("grimwild/", include("grimwild.urls")),
     path("mythic-bastionland/", include("mythic_bastionland.urls")),
+    path("the-one-ring/", include("tor.urls")),
 ]

@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+    {% block subbar %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="#">Create a character</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'mythic_bastionland:spark_tables' %}">Action Resolution</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    {% endblock subbar %}
