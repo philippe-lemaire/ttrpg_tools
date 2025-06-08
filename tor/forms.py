@@ -7,7 +7,7 @@ from crispy_forms.layout import Submit
 
 class ActionResolutionForm(forms.Form):
     rating = forms.IntegerField(max_value=6, min_value=0, initial=0)
-    target_number = forms.IntegerField(max_value=18, min_value=10, initial=15)
+    target_number = forms.IntegerField(max_value=25, min_value=8, initial=15)
     favored = forms.BooleanField(required=False, initial=False)
     ill_favored = forms.BooleanField(required=False, initial=False)
     weary = forms.BooleanField(required=False, initial=False)
