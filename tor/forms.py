@@ -23,6 +23,6 @@ class ActionResolutionForm(forms.Form):
             Submit(
                 "submit",
                 "Roll",
-                css_class="m-1 btn-info",
+                css_class="btn btn-primary mt-3",
             )
         )

@@ -1,4 +1,5 @@
 {% extends "tor/base_tor.html" %}
+{% load crispy_forms_tags %}
 
 {% block title %}
 The One Ring - Action Resolution
@@ -8,20 +9,63 @@ The One Ring - Action Resolution
 <h1>The One Ring - Action Resolution</h1>
 
 
-{% load crispy_forms_tags %}
-{% crispy form form.helper %}
 
-{% if roll_done %}
-{{tn_met}}
+<div class="container text-center mt-5">
+  <div class="row">
+    <div class="col-3">
+      <div class="card">
+        <div class="card-body">
+          <h5 class="card-title">Action Resolution Form</h5>
+          <p class="card-text">{% crispy form form.helper %}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+    {% if roll_done %}
+      <div class="card">
+        <div class="card-header">
+          Action Result
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Result</h5>
+          {% if tn_met %}
+          <p class="card-text">You passed! ✅</p>
+          {% else %}
+          <p class="card-text">You failed! ❌</p>
+          {% endif %}
 
-<p>total: {{total}}</p>
+          <table class="table table-sm table-borderless">
+            <thead>
+              <tr>
+                <th scope="col">Feat Die</th>
+                <th scope="col">Sucess Dice</th>
+                <th scope="col">Total</th>
+                {% if tn_met %}
+                <th scope="col">Successes</th>
+                {% endif %}
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><button type="button" class="btn btn-light">{{feat_dice.0}}</button></td>
+                <td>
+                  {% for d in success_dice %}
+                  <button type="button" class="btn btn-light">{{d}}</button>
+                  {% endfor %}
+                </td>
+                <td>{{total}}</td>
+                {% if tn_met %}
+                <td>{{successes}}</td>
+                {% endif %}
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+      {% endif %}
 
-<p>Feat Die: {{feat_dice}}</p>
-
-<p>Success dice: {{success_dice}}</p>
-
-<p>Extra Successes: {{successes}}</p>
-
-{% endif %}
+    </div>
+  </div>
+</div>
 
 {% endblock content%}

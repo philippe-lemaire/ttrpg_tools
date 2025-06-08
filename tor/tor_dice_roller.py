@@ -1,7 +1,7 @@
 from random import randint
 
-eye = "Sauron's Eye"
-gandalf = "Gandalf's Rune"
+eye = "👁️"
+gandalf = "🧙‍♂️"
 
 
 class FeatDie:
