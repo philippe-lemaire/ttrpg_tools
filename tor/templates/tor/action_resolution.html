@@ -1,0 +1,27 @@
+{% extends "tor/base_tor.html" %}
+
+{% block title %}
+The One Ring - Action Resolution
+{% endblock %}
+
+{% block content %}
+<h1>The One Ring - Action Resolution</h1>
+
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
+{% if roll_done %}
+{{tn_met}}
+
+<p>total: {{total}}</p>
+
+<p>Feat Die: {{feat_dice}}</p>
+
+<p>Success dice: {{success_dice}}</p>
+
+<p>Extra Successes: {{successes}}</p>
+
+{% endif %}
+
+{% endblock content%}
