@@ -47,10 +47,20 @@ The One Ring - Action Resolution
             </thead>
             <tbody>
               <tr>
-                <td><button type="button" class="btn btn-light">{{feat_dice.0}}</button></td>
+                <td>
+                  <button type="button" class="btn btn-light">{{feat_dice.0}}</button>
+                </td>
                 <td>
                   {% for d in success_dice %}
-                  <button type="button" class="btn btn-light">{{d}}</button>
+                  {% if not weary %}
+                  <button type="button" class="btn btn-success">{{d}}</button>
+                  {% else %}
+                    {% if d.value > 3 %}
+                    <button type="button" class="btn btn-success">{{d}}</button>
+                    {% else %}
+                    <button type="button" class="btn btn-secondary">{{d}}</button>
+                    {% endif %}
+                  {% endif %}
                   {% endfor %}
                 </td>
                 <td>{{total}}</td>
