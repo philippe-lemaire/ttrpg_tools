@@ -37,6 +37,7 @@ def action_resolution_view(request):
                     "feat_dice": feat_dice,
                     "success_dice": success_dice,
                     "roll_done": True,
+                    "weary": weary,
                 }
             )
     return render(request, template_name, context)
