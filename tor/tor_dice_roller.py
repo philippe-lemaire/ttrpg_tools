@@ -52,12 +52,8 @@ def roller(
     # remove best FeatDie if ill_favored
     if ill_favored and not favored:
         feat_dice.sort()
-        removed = feat_dice.pop()
-        print(f"Removed {removed} because of the roll is ill favored.")
     if favored and not ill_favored:
-        feat_dice.sort()
-        removed = feat_dice.pop(0)
-        print(f"Removed {removed} because of the roll is favored.")
+        feat_dice.sort(reverse=True)
 
     # compute the final result
     total = feat_dice[0].value
