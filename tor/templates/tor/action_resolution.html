@@ -83,8 +83,9 @@ The One Ring - Action Resolution
                   {% if gandalf %}
                   <p><em>Gandalf Rune: you automatically succeed.</em></p>
                   {% endif %}
+                  {% if weary %}<p><em>Weary: only Success Dice 4 and above count.</em></p>{% endif %}
                   {% if successes %}
-                  <p><em>Successes count the roll itself plus extra successes from 6s</em></p>
+                  <p><em>Successes: 1 for the passed roll + each Success Die landing on 6.</em></p>
                   {% endif %}
               </tr>
                 </td>
