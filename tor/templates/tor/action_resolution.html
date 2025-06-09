@@ -15,7 +15,7 @@ The One Ring - Action Resolution
     <div class="col">
       <div class="card mt-2">
         <div class="card-body">
-          <h5 class="card-title">Action Resolution Form</h5>
+          <h5 class="card-title">Set up your roll</h5>
           <p class="card-text">{% crispy form form.helper %}</p>
         </div>
       </div>
@@ -24,7 +24,7 @@ The One Ring - Action Resolution
     {% if roll_done %}
       <div class="card mt-2">
         <div class="card-header">
-          Action Result
+          Roll Result
         </div>
         <div class="card-body">
           <h5 class="card-title">
@@ -71,6 +71,24 @@ The One Ring - Action Resolution
                 <td>{{successes}}</td>
                 {% endif %}
               </tr>
+              <tr>
+                <!--Explanations-->
+                <td colspan="4">
+                  <p></p>
+                  {% if favoured and not ill_favoured %}<p><em>Favoured: the best Feat Die counts.</em></p>{% endif %}
+                  {% if ill_favoured and not favoured %}<p><em>Ill-favoured: the worst Feat Die counts.</em></p>{% endif %}
+                  {% if eye and miserable %}
+                  <p><em>Miserable: you automatically fail a roll if Feat Die is an Eye.</em></p>
+                  {% endif %}
+                  {% if gandalf %}
+                  <p><em>Gandalf Rune: you automatically succeed.</em></p>
+                  {% endif %}
+                  {% if successes %}
+                  <p><em>Successes count the roll itself plus extra successes from 6s</em></p>
+                  {% endif %}
+              </tr>
+                </td>
+
             </tbody>
           </table>
         </div>

@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .forms import ActionResolutionForm
-from .tor_dice_roller import roller
+from .tor_dice_roller import roller, eye, gandalf
 
 
 # Create your views here.
@@ -17,15 +17,15 @@ def action_resolution_view(request):
         if form.is_valid():
             rating = form.cleaned_data["rating"]
             target_number = form.cleaned_data["target_number"]
-            favored = form.cleaned_data["favored"]
-            ill_favored = form.cleaned_data["ill_favored"]
+            favoured = form.cleaned_data["favoured"]
+            ill_favoured = form.cleaned_data["ill_favoured"]
             weary = form.cleaned_data["weary"]
             miserable = form.cleaned_data["miserable"]
             tn_met, successes, total, feat_dice, success_dice = roller(
                 rating=rating,
                 target_number=target_number,
-                favored=favored,
-                ill_favored=ill_favored,
+                favoured=favoured,
+                ill_favoured=ill_favoured,
                 weary=weary,
                 miserable=miserable,
             )
@@ -38,6 +38,11 @@ def action_resolution_view(request):
                     "success_dice": success_dice,
                     "roll_done": True,
                     "weary": weary,
+                    "miserable": miserable,
+                    "favoured": favoured,
+                    "ill_favoured": ill_favoured,
+                    "eye": feat_dice[0].value == eye,
+                    "gandalf": feat_dice[0].value == gandalf,
                 }
             )
     return render(request, template_name, context)

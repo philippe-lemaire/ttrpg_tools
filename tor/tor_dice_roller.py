@@ -40,24 +40,24 @@ class SuccessDie:
 def roller(
     rating,
     target_number,
-    favored=False,
-    ill_favored=False,
+    favoured=False,
+    ill_favoured=False,
     weary=False,
     miserable=False,
 ):
     feat_dice = [FeatDie()]
     success_dice = [SuccessDie() for d in range(int(rating))]
-    if favored ^ ill_favored:
+    if favoured ^ ill_favoured:
         feat_dice.append(FeatDie())
-    # remove best FeatDie if ill_favored
-    if ill_favored and not favored:
+    # remove best FeatDie if ill_favoured
+    if ill_favoured and not favoured:
         feat_dice.sort()
-    if favored and not ill_favored:
+    if favoured and not ill_favoured:
         feat_dice.sort(reverse=True)
 
     # compute the final result
     total = feat_dice[0].value
-    successes = sum(s.success for s in success_dice)
+    successes = sum(s.success for s in success_dice) + 1
     if total == eye:
         total = 0
         if miserable:
@@ -79,8 +79,8 @@ if __name__ == "__main__":
     print(
         roller(
             rating=2,
-            favored=False,
-            ill_favored=True,
+            favoured=False,
+            ill_favoured=True,
             miserable=False,
             target_number=15,
             weary=True,
