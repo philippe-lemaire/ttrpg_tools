@@ -74,9 +74,12 @@ The One Ring - Action Resolution
               <tr>
                 <!--Explanations-->
                 <td colspan="4">
-                  <p></p>
+                  {% if favoured or ill_favoured or miserable or weary or gandalf or eye %}
+                  <h6 class="card-title mt-5">Explanations</h6>
+                  {% endif %}
                   {% if favoured and not ill_favoured %}<p><em>Favoured: the best Feat Die counts.</em></p>{% endif %}
                   {% if ill_favoured and not favoured %}<p><em>Ill-favoured: the worst Feat Die counts.</em></p>{% endif %}
+                  {% if ill_favoured and favoured %}<p><em>Favoured and Ill-favoured counteract each other.</em></p>{% endif %}
                   {% if eye and miserable %}
                   <p><em>Miserable: you automatically fail a roll if Feat Die is an Eye.</em></p>
                   {% endif %}
