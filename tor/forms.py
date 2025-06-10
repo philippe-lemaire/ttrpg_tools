@@ -26,3 +26,22 @@ class ActionResolutionForm(forms.Form):
                 css_class="btn btn-primary mt-3",
             )
         )
+
+
+class TreasureForm(forms.Form):
+    choices = [(1, "Lesser"), (2, "Greater"), (3, "Marvellous")]
+    rating = forms.ChoiceField(choices=choices)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("tor:treasure")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Roll",
+                css_class="btn btn-primary mt-3",
+            )
+        )
