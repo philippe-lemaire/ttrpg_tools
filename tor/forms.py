@@ -6,7 +6,9 @@ from crispy_forms.layout import Submit
 
 
 class ActionResolutionForm(forms.Form):
-    rating = forms.IntegerField(max_value=6, min_value=0, initial=0)
+    rating = forms.IntegerField(
+        max_value=8, min_value=0, initial=0, label="Success Dice (rating + bonus dice)"
+    )
     target_number = forms.IntegerField(max_value=25, min_value=8, initial=15)
     favoured = forms.BooleanField(required=False, initial=False)
     ill_favoured = forms.BooleanField(required=False, initial=False)
