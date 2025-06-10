@@ -1,0 +1,66 @@
+{% extends "tor/base_tor.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+The One Ring - Treasure
+{% endblock %}
+
+{% block content %}
+<h1>The One Ring - Treasure</h1>
+
+
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col-3">
+      <div class="card mt-2">
+        <div class="card-body">
+          <h5 class="card-title">Set up your roll</h5>
+          <p class="card-text">{% crispy form form.helper %}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+    {% if roll_done %}
+      <div class="card mt-2">
+        <div class="card-header">
+          Roll Result
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">Treasure Value per Player-Hero</h5>
+          <p class="card-text">{{treasure_value}}</p>
+          <h5 class="card-title">
+         Magical Treasure
+          </h5>
+          <table class="table table-sm borderless-table">
+            <tr>
+              <th>#</th>
+              <th>Dice</th>
+              <th>Nature</th>
+              <th>Desc</th>
+              <th>Shadow</th>
+            </tr>
+            {% for t in magical_treasure %}
+
+            <tr>
+              <td>{{forloop.counter}}</td>
+              <td><button type="button" class="btn btn-primary">{{t.featdie}}</button>
+                {% if t.successdie %}<button type="button" class="btn btn-success">{{t.successdie}}</button>
+              {% endif %}
+            </td>
+              <td>{{t.nature}}</td>
+              <td>{{t.description}}</td>
+              <td>{{t.shadow}}</td>
+            </tr>
+
+            {% endfor %}
+          </table>
+        </div>
+      </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>
+
+{% endblock content%}
