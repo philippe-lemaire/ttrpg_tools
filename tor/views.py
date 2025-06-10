@@ -55,7 +55,7 @@ def treasure_hoard_view(request):
     context = {"form": form}
     if request.method == "POST":
         if form.is_valid():
-            rating = int(form.cleaned_data["rating"])
+            rating = int(form.cleaned_data["hoard_rating"])
             treasure_value = sum(SuccessDie().value for _ in range(rating))
             magical_treasure = [
                 MagicalTreasure(die=FeatDie()) for _ in range(rating * 2)

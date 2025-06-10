@@ -32,7 +32,7 @@ class ActionResolutionForm(forms.Form):
 
 class TreasureForm(forms.Form):
     choices = [(1, "Lesser"), (2, "Greater"), (3, "Marvellous")]
-    rating = forms.ChoiceField(choices=choices)
+    hoard_rating = forms.ChoiceField(choices=choices)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

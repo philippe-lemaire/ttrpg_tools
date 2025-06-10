@@ -35,7 +35,7 @@ The One Ring - Treasure
           <table class="table table-sm borderless-table">
             <tr>
               <th>#</th>
-              <th>Dice</th>
+              <th>Feat Die</th>
               <th>Nature</th>
               <th>Desc</th>
               <th>Shadow</th>
@@ -45,13 +45,16 @@ The One Ring - Treasure
             <tr>
               <td>{{forloop.counter}}</td>
               <td><button type="button" class="btn btn-primary">{{t.featdie}}</button>
-                {% if t.successdie %}<button type="button" class="btn btn-success">{{t.successdie}}</button>
-              {% endif %}
             </td>
               <td>{{t.nature}}</td>
-              <td>{{t.description}}</td>
+              <td>{{t.description}}<br>
+              {% for blessing in t.blessings %}
+               <em><b>{{blessing.skill}}</b> {{blessing.type}}</em><br>
+              {% endfor %}
+              </td>
               <td>{{t.shadow}}</td>
             </tr>
+
 
             {% endfor %}
           </table>
