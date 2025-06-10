@@ -1,5 +1,5 @@
 from .tor_dice_roller import gandalf, eye, SuccessDie
-from random import choice
+from random import choice, sample
 
 blessings = {
     "AWE": "(ring, cloak, circlet, collar, belt, weapon sheath, staff, war-­horn)",
@@ -24,8 +24,8 @@ blessings = {
 
 
 class Blessing:
-    def __init__(self):
-        self.skill = choice(list(blessings.keys()))
+    def __init__(self, skill):
+        self.skill = skill
         self.type = blessings.get(self.skill)
 
 
@@ -44,13 +44,14 @@ class MagicalTreasure:
                 self.description = "An enchanted object graced by a Blessing"
                 if die.value == eye:
                     self.shadow = "Gain 1 Shadow (Greed)"
-                self.blessings = (Blessing(),)
+                self.blessings = (Blessing(choice(list(blessings.keys()))),)
             elif sd <= 5:
                 self.nature = "Wondrous Item"
                 self.description = "An enchanted object possessing two Blessings"
                 if die.value == eye:
                     self.shadow = "Gain 2 Shadow (Greed)"
-                self.blessings = (Blessing(), Blessing())
+                rolled_kills = sample(list(blessings.keys()), 2)
+                self.blessings = (Blessing(s) for s in rolled_kills)
             else:
                 self.nature = "Famous Weapon or Armour"
                 self.description = "A Weapon or suit of armour of superior make"
