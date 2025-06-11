@@ -11,55 +11,50 @@ The One Ring - Treasure
 
 
 <div class="container mt-5">
-  <div class="row">
-    <div class="col">
-      <div class="card mt-2">
-        <div class="card-body">
-          <h5 class="card-title">Set up your roll</h5>
-          <p class="card-text">{% crispy form form.helper %}</p>
-        </div>
-      </div>
+  <div class="card mt-2">
+    <div class="card-body">
+      <h5 class="card-title">Set up your roll</h5>
+      <p class="card-text">{% crispy form form.helper %}</p>
     </div>
-    <div class="col">
-    {% if roll_done %}
-      <div class="card mt-2">
-        <div class="card-header">
-          Roll Result
-        </div>
-        <div class="card-body">
-          <h5 class="card-title">Treasure Value per Player-Hero</h5>
-          <p class="card-text">{{treasure_value}}</p>
-        </div>
-      </div>
-
-      {% for t in magical_treasure %}
-      <div class="card mt-2">
-         <div class="card-header">
-          Magical Treasure Roll: <em>Feat Die = {{t.featdie}}</em>
-        </div>
-        <div class="card-body">
-          {% if t.nature %}
-          <h5 class="card-title">
-          {{t.nature}}
-          </h5>
-          <p class="card-text"><b>Decription:</b> {{t.description}}</p>
-          {% if suggest_magical_treasure %}
-              {% for blessing in t.blessings %}
-              <p class="card-text"><b>Blessing: <em>{{blessing.skill}}</b> {{blessing.type}}</em></p>
-              {% endfor %}
-          {% endif %}
+  </div>
 
 
-          <p>{{t.shadow}}</p>
-          {% endif %}
+{% if roll_done %}
+  <div class="card mt-2">
+    <div class="card-header">
+      Roll Result
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Treasure Value per Player-Hero</h5>
+      <p class="card-text">{{treasure_value}}</p>
+    </div>
+  </div>
 
-        </div>
-      </div>
-      {% endfor %}
+  {% for t in magical_treasure %}
+  <div class="card mt-2">
+      <div class="card-header">
+      Magical Treasure Roll: <em>Feat Die = {{t.featdie}}</em>
+    </div>
+    <div class="card-body">
+      {% if t.nature %}
+      <h5 class="card-title">
+      {{t.nature}}
+      </h5>
+      <p class="card-text"><b>Decription:</b> {{t.description}}</p>
+      {% if suggest_magical_treasure %}
+          {% for blessing in t.blessings %}
+          <p class="card-text"><b>Blessing: <em>{{blessing.skill}}</b> {{blessing.type}}</em></p>
+          {% endfor %}
       {% endif %}
 
-    </div><!-- div col-->
-  </div><!-- div row -->
+
+      <p>{{t.shadow}}</p>
+      {% endif %}
+
+    </div>
+  </div>
+  {% endfor %}
+  {% endif %}
 </div><!-- div container-->
 
 {% endblock content%}
