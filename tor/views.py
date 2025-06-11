@@ -60,11 +60,14 @@ def treasure_hoard_view(request):
             magical_treasure = [
                 MagicalTreasure(die=FeatDie()) for _ in range(rating * 2)
             ]
+            suggest_magical_treasure = form.cleaned_data["suggest_magical_treasure"]
+
             context.update(
                 {
                     "treasure_value": treasure_value,
                     "magical_treasure": magical_treasure,
                     "roll_done": True,
+                    "suggest_magical_treasure": suggest_magical_treasure,
                 }
             )
     return render(request, template_name, context)
