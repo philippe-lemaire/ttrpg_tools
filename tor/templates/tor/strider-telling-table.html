@@ -26,8 +26,23 @@ The One Ring - Strider Mode - Telling Table
     </div>
     <div class="card-body">
       <h5 class="card-title">Telling Table Answers</h5>
-      <p class="card-text">{{yes}}</p>
-      <p><button type="button" class="btn btn-primary">{{die}}</button></p>
+
+      <table class="table table-borderless">
+        <tr>
+          <th style="width: 9rem;">Feat Die</th>
+          <th>Result</th>
+        </tr>
+
+        <tr>
+          {% if yes %}
+          <td><button type="button" class="btn btn-success">{{die}}</button></td>
+          <td>YES</td>
+          {% else %}
+          <td><button type="button" class="btn btn-danger">{{die}}</button></td>
+          <td>NO</td>
+          {% endif %}
+        </tr>
+      </table>
     </div>
   </div>
 {% endif %}
