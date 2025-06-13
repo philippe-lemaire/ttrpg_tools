@@ -50,3 +50,28 @@ class TreasureForm(forms.Form):
                 css_class="btn btn-primary mt-3",
             )
         )
+
+
+class StriderTellingTableForm(forms.Form):
+    choices = [
+        (1, "Certain"),
+        (2, "Likely"),
+        (3, "Middling"),
+        (4, "Doubtful"),
+        (5, "Unthinkable"),
+    ]
+    chance = forms.ChoiceField(choices=choices)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("tor:strider_telling_table")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Ask the Telling Table",
+                css_class="btn btn-primary mt-3",
+            )
+        )
