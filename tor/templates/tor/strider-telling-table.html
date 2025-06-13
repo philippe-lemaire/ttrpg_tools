@@ -1,0 +1,51 @@
+{% extends "tor/base_tor.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+The One Ring - Strider Mode - Telling Table
+{% endblock %}
+
+{% block content %}
+<h1>The One Ring - Strider Mode - Telling Table</h1>
+
+
+
+<div class="container mt-5">
+  <div class="card mt-2">
+    <div class="card-body">
+      <h5 class="card-title">Set up your roll</h5>
+      <p class="card-text">{% crispy form form.helper %}</p>
+    </div>
+  </div>
+
+
+{% if roll_done %}
+  <div class="card mt-2">
+    <div class="card-header">
+      Roll Result
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Telling Table Answers</h5>
+
+      <table class="table table-borderless">
+        <tr>
+          <th style="width: 9rem;">Feat Die</th>
+          <th>Result</th>
+        </tr>
+
+        <tr>
+          {% if yes %}
+          <td><button type="button" class="btn btn-success">{{die}}</button></td>
+          <td>YES</td>
+          {% else %}
+          <td><button type="button" class="btn btn-danger">{{die}}</button></td>
+          <td>NO</td>
+          {% endif %}
+        </tr>
+      </table>
+    </div>
+  </div>
+{% endif %}
+</div><!-- div container-->
+
+{% endblock content%}
