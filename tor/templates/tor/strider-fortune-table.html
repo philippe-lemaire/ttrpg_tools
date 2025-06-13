@@ -2,11 +2,11 @@
 {% load crispy_forms_tags %}
 
 {% block title %}
-The One Ring - Strider Mode - Telling Table
+The One Ring - Strider Mode - Fortune Table
 {% endblock %}
 
 {% block content %}
-<h1>The One Ring - Strider Mode - Telling Table</h1>
+<h1>The One Ring - Strider Mode - Fortune Table</h1>
 
 <div class="container mt-5">
   <div class="card mt-2">
@@ -22,22 +22,16 @@ The One Ring - Strider Mode - Telling Table
       Roll Result
     </div>
     <div class="card-body">
-      <h5 class="card-title">Telling Table Answers</h5>
+      <h5 class="card-title">Fortune Table Answers</h5>
 
       <table class="table table-borderless">
         <tr>
           <th style="width: 9rem;">Feat Die</th>
           <th>Result</th>
         </tr>
-
         <tr>
-          {% if yes %}
-          <td><button type="button" class="btn btn-success">{{die}}</button></td>
-          <td>YES</td>
-          {% else %}
-          <td><button type="button" class="btn btn-danger">{{die}}</button></td>
-          <td>NO</td>
-          {% endif %}
+          <td><button type="button" class="btn btn-secondary">{{die}}</button></td>
+          <td>{{result|safe}}</td>
         </tr>
       </table>
     </div>
