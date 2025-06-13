@@ -1,8 +1,14 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .forms import ActionResolutionForm, TreasureForm, StriderTellingTableForm
+from .forms import (
+    ActionResolutionForm,
+    TreasureForm,
+    StriderTellingTableForm,
+    FortuneTableForm,
+)
 from .tor_dice_roller import roller, eye, gandalf, SuccessDie, FeatDie
 from .magical_treasure import MagicalTreasure
+from .fortune_tables import fortune_table, ill_fortune_table
 
 
 # Create your views here.
@@ -80,7 +86,6 @@ def strider_telling_table_view(request):
     if request.method == "POST":
         if form.is_valid():
             chance = int(form.cleaned_data["chance"])
-            # view logic here
             die = FeatDie()
             if die.value == eye:
                 yes = False
@@ -93,4 +98,20 @@ def strider_telling_table_view(request):
             else:
                 yes = die.value >= 2 * chance or die.value == gandalf
             context.update({"yes": yes, "die": die, "roll_done": True})
+    return render(request, template_name, context)
+
+
+def fortune_tables_view(request):
+    form = FortuneTableForm(request.POST or None)
+    template_name = "tor/strider-fortune-table.html"
+    context = {"form": form}
+    if request.method == "POST":
+        if form.is_valid():
+            die = FeatDie()
+            table = form.cleaned_data["table"]
+            if table == "1":
+                result = fortune_table.get(die.value)
+            else:
+                result = ill_fortune_table.get(die.value)
+            context.update({"roll_done": True, "result": result, "die": die})
     return render(request, template_name, context)

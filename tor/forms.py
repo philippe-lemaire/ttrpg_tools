@@ -75,3 +75,22 @@ class StriderTellingTableForm(forms.Form):
                 css_class="btn btn-primary mt-3",
             )
         )
+
+
+class FortuneTableForm(forms.Form):
+    choices = [(1, "Fortune"), (2, "Ill-Fortune")]
+    table = forms.ChoiceField(choices=choices, label="Chose your table")
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("tor:strider_fortune_table")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Ask the Fortune Tables",
+                css_class="btn btn-primary mt-3",
+            )
+        )

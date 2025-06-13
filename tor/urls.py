@@ -12,4 +12,9 @@ urlpatterns = [
         views.strider_telling_table_view,
         name="strider_telling_table",
     ),
+    path(
+        "strider-mode/fortune-tables",
+        views.fortune_tables_view,
+        name="strider_fortune_table",
+    ),
 ]
