@@ -9,6 +9,7 @@ from .forms import (
 from .tor_dice_roller import roller, eye, gandalf, SuccessDie, FeatDie
 from .magical_treasure import MagicalTreasure
 from .fortune_tables import fortune_table, ill_fortune_table
+from .nameless_things import NamelessThing
 
 
 # Create your views here.
@@ -114,4 +115,10 @@ def fortune_tables_view(request):
             else:
                 result = ill_fortune_table.get(die.value)
             context.update({"roll_done": True, "result": result, "die": die})
+    return render(request, template_name, context)
+
+
+def nameless_thing_view(request):
+    context = {"thing": NamelessThing()}
+    template_name = "tor/nameless_thing.html"
     return render(request, template_name, context)

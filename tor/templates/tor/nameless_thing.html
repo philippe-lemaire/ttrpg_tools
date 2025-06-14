@@ -1,0 +1,56 @@
+{% extends "tor/base_tor.html" %}
+{% load static %}
+{% block title %}The One Ring - Nameless Thing{% endblock title %}
+{% block content %}
+<h1>A Nameless Thing</h1>
+
+<div class="card">
+  <div class="card-header">
+    This thing is referred to as <b>{{thing.referred_to_as}}</b>.
+  </div>
+  <div class="card-body">
+       <h5 class="card-title">Description</h5>
+    <p class="card-text">It can be described as <b>{{thing.description}}</b>.</p>
+    <p class="card-text">Before you see it, you <b>{{thing.before_you_see_it}}</b>.</p>
+    <p class="card-text">What you see first <b>{{thing.what_you_see_first}}</b>.</p>
+    <p class="card-text"><b>Rumour: </b>{{thing.rumour}}</p>
+    <p class="card-text"><b>Where the Thing is remembered:</b> {{thing.remembered}}</p>
+
+    <h5 class="card-title">Stat block</h5>
+
+    <table class="table">
+      <tr>
+        <th>Endurance</th>
+        <th>Might</th>
+        <th>Hate</th>
+        <th>Armour</th>
+        <th>Attribute level</th>
+      </tr>
+      <tr>
+        <td>{{thing.endurance}}</td>
+        <td>{{thing.might}}</td>
+        <td>{{thing.hate}}</td>
+        <td>{{thing.armour}}</td>
+        <td>{{thing.hate}}</td>
+      </tr>
+    </table>
+    <p class="card-text"><b>Combat proficiencies:</b></p>
+    <ul>
+      {% for att in thing.attack_forms %}
+      <li><b>{{att.0}}:</b> {{thing.combat_proficiency}}, ({{att.1}}/{{att.2}}), {{att.3}}</li>
+      {% endfor %}
+    </ul>
+
+
+
+    <p class="card-text"><b>Fell abilities</b></p>
+    <ul>
+      {% for ability in thing.fell_abilities %}
+      <li><b><em>{{ability.0}}</em>.</b> {{ability.1}}</li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+
+
+{% endblock content%}
