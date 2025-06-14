@@ -175,6 +175,15 @@ def get_number_of_fell_abilities(die):
     return 2
 
 
+def get_parry(die):
+    if die.value == eye:
+        return "+4"
+    if die.value == gandalf or die.value >= 8:
+        return "—"
+    v = die.value + die.value % 2
+    return f"+{4 - v//2}"
+
+
 attack_forms = [
     [
         "Crush (hooves, paws)",
@@ -259,6 +268,7 @@ class NamelessThing:
         self.rumour = choice(rumour)
         self.remembered = choice(remembered)
         self.hate = get_hate(FeatDie())
+        self.parry = get_parry(FeatDie())
         self.armour = get_armour(FeatDie())
         self.endurance = get_endurance(FeatDie())
         self.might = get_might(FeatDie())
