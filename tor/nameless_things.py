@@ -26,12 +26,12 @@ refered_to_part_2 = (
 )
 
 refered_by = (
-    "by Men",
-    "by Elves",
-    "by Dwarves",
-    "by Orcs",
-    "by the Wise",
-    "in ancient lore",
+    "by <b>Men</b>",
+    "by <b>Elves</b>",
+    "by <b>Dwarves</b>",
+    "by <b>Orcs</b>",
+    "by <b>the Wise</b>",
+    "in <b>ancient lore</b>",
 )
 
 described_as = (
@@ -259,9 +259,8 @@ fell_abilities = [
 
 class NamelessThing:
     def __init__(self):
-        self.referred_to_as = (
-            f"{choice(referred_to_as)} {choice(refered_to_part_2)} {choice(refered_by)}"
-        )
+        self.referred_to_as = choice(referred_to_as)
+        self.referred_by = choice(refered_by)
         self.description = f"{choice(described_as)} {choice(described_as_part_2)}"
         self.before_you_see_it = choice(before_you_see_it)
         self.what_you_see_first = choice(what_you_see_first)

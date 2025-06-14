@@ -6,7 +6,7 @@
 
 <div class="card">
   <div class="card-header">
-    This thing is referred to as <b>{{thing.referred_to_as}}</b>.
+    This thing is referred to as <b>{{thing.referred_to_as}}</b> {{thing.referred_by|safe}}.
   </div>
   <div class="card-body">
        <h5 class="card-title">Description</h5>
@@ -16,16 +16,22 @@
     <p class="card-text"><b>Rumour: </b>{{thing.rumour}}</p>
     <p class="card-text"><b>Where the Thing is remembered:</b> {{thing.remembered}}</p>
 
-    <h5 class="card-title">Stat block</h5>
-
-    <table class="table">
+    <table class="table table-borderless">
+      <tr>
+        <th colspan="4">{{thing.referred_to_as}}</th>
+        <th>Attribute Level</th>
+      </tr>
+      <tr>
+        <td colspan="4"></td>
+        <td>{{thing.hate}}</td>
+      </tr>
       <tr>
         <th>Endurance</th>
         <th>Might</th>
         <th>Hate</th>
         <th>Parry</th>
         <th>Armour</th>
-        <th>Attribute level</th>
+
       </tr>
       <tr>
         <td>{{thing.endurance}}</td>
@@ -33,13 +39,13 @@
         <td>{{thing.hate}}</td>
         <td>{{thing.parry}}</td>
         <td>{{thing.armour}}</td>
-        <td>{{thing.hate}}</td>
+
       </tr>
     </table>
     <p class="card-text"><b>Combat proficiencies:</b></p>
     <ul>
       {% for att in thing.attack_forms %}
-      <li><b>{{att.0}}:</b> {{thing.combat_proficiency}}, ({{att.1}}/{{att.2}}), {{att.3}}</li>
+      <li><b>{{att.0}} {{thing.combat_proficiency}} ({{att.1}}/{{att.2}}, {{att.3}})</b></li>
       {% endfor %}
     </ul>
 
