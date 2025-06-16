@@ -23,19 +23,18 @@ The One Ring - Strider Mode - Journey Roll
     </div>
     <div class="card-body">
       <h5 class="card-title">Event Roll Result</h5>
-
       <table class="table table-borderless">
         <tr>
-          <th style="width: 9rem;">Feat Die</th>
-          <th>Event type</th>
-          <th>     Consequences     </th>
-          <th>Fatigue gain</th>
+          <th style="width: 9rem;">Feat Die</th><td><button type="button" class="btn btn-primary">{{dice.0}}</button>
+          <button type="button" class="btn btn-secondary">{{dice.1}}</button></td>
         </tr>
         <tr>
-          <td><button type="button" class="btn btn-secondary">{{die}}</button></td>
-          {% for part in event %}
-          <td>{{part|safe}}</td>
-          {% endfor %}
+          <th>Event type</th><td>{{event.0|safe}}</td></tr>
+        <tr>
+          <th>Consequences</th><td>{{event.1|safe}}</td>
+        </tr>
+        <tr></tr>
+          <th>Fatigue gain</th><td>{{event.2|safe}}</td>
         </tr>
       </table>
     </div>
