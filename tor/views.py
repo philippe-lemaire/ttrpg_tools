@@ -143,6 +143,14 @@ def strider_solo_journey_view(request):
                 rating=0, target_number=15, favoured=favoured, ill_favoured=ill_favoured
             )
             die = dice[0]
-            k, event = roll_journey_event(die)
-            context.update({"roll_done": True, "k": k, "event": event, "dice": dice})
+            k, event, outcome = roll_journey_event(die)
+            context.update(
+                {
+                    "roll_done": True,
+                    "k": k,
+                    "event": event,
+                    "outcome": outcome,
+                    "dice": dice,
+                }
+            )
     return render(request, template_name, context)
