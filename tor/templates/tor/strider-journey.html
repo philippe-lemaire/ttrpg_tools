@@ -26,7 +26,10 @@ The One Ring - Strider Mode - Journey Roll
       <table class="table table-borderless">
         <tr>
           <th style="width: 9rem;">Feat Die</th><td><button type="button" class="btn btn-primary">{{dice.0}}</button>
-          <button type="button" class="btn btn-secondary">{{dice.1}}</button></td>
+            {% if dice.1 %}
+          <button type="button" class="btn btn-secondary">{{dice.1}}</button>
+            {% endif %}
+        </td>
         </tr>
         <tr>
           <th>Event type</th><td>{{event.0|safe}}</td></tr>
