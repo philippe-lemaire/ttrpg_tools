@@ -18,4 +18,9 @@ urlpatterns = [
         name="strider_fortune_table",
     ),
     path("nameless-things", views.nameless_thing_view, name="nameless_thing"),
+    path(
+        "strider-mode/solo-journey",
+        views.strider_solo_journey_view,
+        name="strider_solo_journey",
+    ),
 ]
