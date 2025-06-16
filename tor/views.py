@@ -144,5 +144,5 @@ def strider_solo_journey_view(request):
             )
             die = dice[0]
             k, event = roll_journey_event(die)
-            context.update({"roll_done": True, "k": k, "event": event, "die": die})
+            context.update({"roll_done": True, "k": k, "event": event, "dice": dice})
     return render(request, template_name, context)
