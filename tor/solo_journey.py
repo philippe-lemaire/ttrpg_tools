@@ -212,6 +212,7 @@ joyful_sight_details = [
 
 details_table = {
     eye: terrible_misfortunes,
+    1: despair_details,
     3: ill_choices_details,
     7: mishap_details,
     9: shortcut_details,
