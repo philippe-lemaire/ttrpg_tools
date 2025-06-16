@@ -5,11 +5,13 @@ from .forms import (
     TreasureForm,
     StriderTellingTableForm,
     FortuneTableForm,
+    StriderJourneyEventsForm,
 )
 from .tor_dice_roller import roller, eye, gandalf, SuccessDie, FeatDie
 from .magical_treasure import MagicalTreasure
 from .fortune_tables import fortune_table, ill_fortune_table
 from .nameless_things import NamelessThing
+from .solo_journey import roll_journey_event
 
 
 # Create your views here.
@@ -121,4 +123,26 @@ def fortune_tables_view(request):
 def nameless_thing_view(request):
     context = {"thing": NamelessThing()}
     template_name = "tor/nameless_thing.html"
+    return render(request, template_name, context)
+
+
+def strider_solo_journey_view(request):
+    form = StriderJourneyEventsForm(request.POST or None)
+    template_name = "tor/strider-journey.html"
+    context = {"form": form}
+    if request.method == "POST":
+        if form.is_valid():
+            land = form.cleaned_data["land"]
+            favoured = False
+            ill_favoured = False
+            if land == "1":
+                favoured = True
+            elif land == "3":
+                ill_favoured = True
+            _, _, _, dice, _ = roller(
+                rating=0, target_number=15, favoured=favoured, ill_favoured=ill_favoured
+            )
+            die = dice[0]
+            k, event = roll_journey_event(die)
+            context.update({"roll_done": True, "k": k, "event": event, "die": die})
     return render(request, template_name, context)

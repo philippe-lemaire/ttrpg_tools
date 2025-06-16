@@ -28,8 +28,6 @@ def roll_d10():
 
 def get_key(n, d):
     """gets the nearest valid key in a dict with integer keys"""
-    if n > max(list(d.keys())[1:]):
-        raise KeyError(f"{n} is higher than all the keys in {d}.")
     while n not in d:
         n += 1
     return n

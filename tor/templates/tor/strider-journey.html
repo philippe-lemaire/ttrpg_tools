@@ -1,0 +1,46 @@
+{% extends "tor/base_tor.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+The One Ring - Strider Mode - Journey Roll
+{% endblock %}
+
+{% block content %}
+<h1>The One Ring - Strider Mode - Journey Roll</h1>
+
+<div class="container mt-5">
+  <div class="card mt-2">
+    <div class="card-body">
+      <h5 class="card-title">Set up your roll</h5>
+      <p class="card-text">{% crispy form form.helper %}</p>
+    </div>
+  </div>
+
+{% if roll_done %}
+  <div class="card mt-2">
+    <div class="card-header">
+      Roll Result
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Event Roll Result</h5>
+
+      <table class="table table-borderless">
+        <tr>
+          <th style="width: 9rem;">Feat Die</th>
+          <th>Event type</th>
+          <th>     Consequences     </th>
+          <th>Fatigue gain</th>
+        </tr>
+        <tr>
+          <td><button type="button" class="btn btn-secondary">{{die}}</button></td>
+          {% for part in event %}
+          <td>{{part|safe}}</td>
+          {% endfor %}
+        </tr>
+      </table>
+    </div>
+  </div>
+{% endif %}
+</div><!-- div container-->
+
+{% endblock content%}
