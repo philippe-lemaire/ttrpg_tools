@@ -32,15 +32,15 @@ The One Ring - Strider Mode - Journey Roll
         </td>
         </tr>
         <tr>
-          <th>Event type</th><td>{{event.0|safe}}</td></tr>
+          <th>Event type</th><td>{{event.type|safe}}: {{event.detail}}</td></tr>
         <tr>
-          <th>Outcome</th><td>{{outcome|safe}}</td>
+          <th>Outcome</th><td>{{event.outcome|safe}}</td>
         </tr>
         <tr>
-          <th>Consequences</th><td>{{event.1|safe}}</td>
+          <th>Consequences</th><td>{{event.consequences|safe}}</td>
         </tr>
         <tr></tr>
-          <th>Fatigue gain</th><td>{{event.2|safe}}</td>
+          <th>Fatigue gain</th><td>{{event.fatigue|safe}}</td>
         </tr>
       </table>
     </div>

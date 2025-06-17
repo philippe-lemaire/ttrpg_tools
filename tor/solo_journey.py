@@ -3,25 +3,25 @@ from gradientdescent.dice import get_key
 from random import choice
 
 solo_events = {
-    eye: ["Terrible Misfortune", "If the roll fails, you are Wounded.", 3],
-    1: ["Despair", "If the roll fails, gain 2 Shadow points [Dread).", 2],
-    3: ["Ill Choices", "If the roll fails, gain 1 Shadow point [Dread).", 2],
-    7: [
+    eye: ("Terrible Misfortune", "If the roll fails, you are Wounded.", 3),
+    1: ("Despair", "If the roll fails, gain 2 Shadow points (Dread).", 2),
+    3: ("Ill Choices", "If the roll fails, gain 1 Shadow point (Dread).", 2),
+    7: (
         "Mishap",
         "If the roll fails, add 1 day to the length of the journey, and gain 1 additional Fatigue.",
         2,
-    ],
-    9: [
+    ),
+    9: (
         "Short Cut",
         "If the roll succeeds, reduce the length of the journey by 1 day.",
         1,
-    ],
-    10: [
+    ),
+    10: (
         "Chance-­meeting",
         "If the roll succeeds, no Fatigue is gained, and you may improvise an encounter favouring your Player-­hero.",
         1,
-    ],
-    gandalf: ["Joyful Sight", "If the roll succeeds regain 1 Hope.", 0],
+    ),
+    gandalf: ("Joyful Sight", "If the roll succeeds regain 1 Hope.", 0),
 }
 
 terrible_misfortunes = [
@@ -221,11 +221,8 @@ details_table = {
 }
 
 
-def roll_journey_event(die):
-    k = get_key(die.value, solo_events)
-    event = solo_events.get(k)
-    detail = choice(details_table.get(k))
-    outcome = detail[1]
-    event[0] = f"{event[0]}: {detail[0]}"
-
-    return k, event, outcome
+class Event:
+    def __init__(self, die):
+        k = get_key(die.value, solo_events)
+        self.type, self.consequences, self.fatigue = solo_events.get(k)
+        self.detail, self.outcome = choice(details_table.get(k))

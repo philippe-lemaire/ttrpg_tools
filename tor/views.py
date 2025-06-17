@@ -11,7 +11,7 @@ from .tor_dice_roller import roller, eye, gandalf, SuccessDie, FeatDie
 from .magical_treasure import MagicalTreasure
 from .fortune_tables import fortune_table, ill_fortune_table
 from .nameless_things import NamelessThing
-from .solo_journey import roll_journey_event
+from .solo_journey import Event
 
 
 # Create your views here.
@@ -143,13 +143,11 @@ def strider_solo_journey_view(request):
                 rating=0, target_number=15, favoured=favoured, ill_favoured=ill_favoured
             )
             die = dice[0]
-            k, event, outcome = roll_journey_event(die)
+            event = Event(die)
             context.update(
                 {
                     "roll_done": True,
-                    "k": k,
                     "event": event,
-                    "outcome": outcome,
                     "dice": dice,
                 }
             )
