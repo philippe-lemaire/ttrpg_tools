@@ -163,9 +163,7 @@ def strider_revelation_episode_view(request):
     if request.method == "POST":
         if form.is_valid():
             die = FeatDie()
-            # TODO: gamelogic
-            result = None
             context.update(
-                {"roll_done": True, "result": result, "episodes": episodes, "die": die}
+                {"roll_done": True, "result": episodes.get(die.value), "die": die}
             )
     return render(request, template_name, context)
