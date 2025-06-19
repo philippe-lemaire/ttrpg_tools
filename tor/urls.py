@@ -23,4 +23,9 @@ urlpatterns = [
         views.strider_solo_journey_view,
         name="strider_solo_journey",
     ),
+    path(
+        "strider-mode/revelation-episode",
+        views.strider_revelation_episode_view,
+        name="strider_revelation_episode",
+    ),
 ]

@@ -1,0 +1,40 @@
+{% extends "tor/base_tor.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+The One Ring - Strider Mode - Revelation Episode
+{% endblock %}
+
+{% block content %}
+<h1>The One Ring - Strider Mode - Revelation Episode</h1>
+
+<div class="container mt-5">
+{% crispy form form.helper %}
+</div>
+
+{% if roll_done %}
+  <div class="card mt-2">
+    <div class="card-header">
+      Roll Result
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Revelation Episode Table</h5>
+      <table class="table">
+        <tr>
+          <th>Feat Die</th>
+          <th>Episode</th>
+        </tr>
+        {% for k, i in episodes.items %}
+        <tr>
+          <td>{{k}}</td>
+          <td>{{i}}</td>
+        </tr>
+        {% endfor %}
+      </table>
+    </div>
+  </div>
+
+{% endif %}
+</div><!-- div container-->
+
+{% endblock content%}
