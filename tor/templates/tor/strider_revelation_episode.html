@@ -1,0 +1,89 @@
+{% extends "tor/base_tor.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+The One Ring - Strider Mode - Revelation Episode
+{% endblock %}
+
+{% block content %}
+<h1>The One Ring - Strider Mode - Revelation Episode</h1>
+
+<div class="container mt-5">
+  <div class="row">
+    <div class="col">
+      <h5>Hunt Threshold Region Table</h5>
+      <table class="table">
+        <tr>
+          <th>The Region traversed is a…</th>
+          <th>Hunt Threshold</th>
+        </tr>
+        <tr>
+          <td>Border Land</td>
+          <td>18</td>
+        </tr>
+        <tr>
+          <td>Wild Land</td>
+          <td>16</td>
+        </tr>
+        <tr>
+          <td>Dark Land</td>
+          <td>14</td>
+        </tr>
+      </table>
+    </div><!--col-->
+    <div class="col-8">
+      <h5>Hunt Modifiers Table</h5>
+        <table class="table">
+          <tr>
+            <th>Hunt Modifier</th>
+            <th>Description</th>
+          </tr>
+          <tr>
+            <td>+4</td>
+            <td>The Player-hero is protected by the blessing of a Wizard, or another powerful character</td>
+          </tr>
+          <tr>
+            <td>+2</td>
+            <td>The Player-hero is travelling under a false name, treading paths that are seldom trodden, or otherwise taking actions to be discreet and unobtrusive
+        </td>
+          </tr>
+          <tr>
+            <td>-2</td>
+            <td>The Player-hero has gained great renown in the area thanks to some exceptional deed
+        </td>
+          </tr>
+            <tr>
+            <td>-4</td>
+            <td> The Enemy is actively looking for the Player-hero, or their mission or goal is known to them
+        </td>
+          </tr>
+        </table>
+      </div><!--col-->
+  </div> <!--row-->
+</div> <!--Container-->
+
+
+<p>{% crispy form form.helper %}</p>
+
+{% if roll_done %}
+  <div class="card mt-2">
+    <div class="card-header">
+      Roll Result
+    </div>
+    <div class="card-body">
+      <table class="table table-borderless">
+        <tr>
+          <th>Feat Die</th>
+          <td><button type="button" class="btn btn-primary">{{die}}</button></td>
+        </tr>
+        <tr>
+          <th>Episode</th>
+          <td>{{result}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+{% endif %}
+</div><!-- div container-->
+
+{% endblock content%}

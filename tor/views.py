@@ -6,12 +6,14 @@ from .forms import (
     StriderTellingTableForm,
     FortuneTableForm,
     StriderJourneyEventsForm,
+    RevelationEpisodeForm,
 )
 from .tor_dice_roller import roller, eye, gandalf, SuccessDie, FeatDie
 from .magical_treasure import MagicalTreasure
 from .fortune_tables import fortune_table, ill_fortune_table
 from .nameless_things import NamelessThing
 from .solo_journey import Event
+from .revelation_episodes_data import episodes
 
 
 # Create your views here.
@@ -150,5 +152,18 @@ def strider_solo_journey_view(request):
                     "event": event,
                     "dice": dice,
                 }
+            )
+    return render(request, template_name, context)
+
+
+def strider_revelation_episode_view(request):
+    form = RevelationEpisodeForm(request.POST or None)
+    template_name = "tor/strider_revelation_episode.html"
+    context = {"form": form}
+    if request.method == "POST":
+        if form.is_valid():
+            die = FeatDie()
+            context.update(
+                {"roll_done": True, "result": episodes.get(die.value), "die": die}
             )
     return render(request, template_name, context)

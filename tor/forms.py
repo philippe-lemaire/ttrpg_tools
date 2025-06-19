@@ -120,3 +120,20 @@ class StriderJourneyEventsForm(forms.Form):
                 css_class="btn btn-primary mt-3",
             )
         )
+
+
+class RevelationEpisodeForm(forms.Form):
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("tor:strider_revelation_episode")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Roll Revelation Episode",
+                css_class="btn btn-primary mt-3",
+            )
+        )
