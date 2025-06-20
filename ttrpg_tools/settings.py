@@ -62,6 +62,7 @@ INSTALLED_APPS = [
     "grimwild",
     "mythic_bastionland",
     "tor",
+    "shadowdark",
 ]
 
 MIDDLEWARE = [
