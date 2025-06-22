@@ -2,9 +2,10 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from .npc_names import gen_npc_name, gen_npc_name_by_syllables
 from .chargen import roll_stats
-from .forms import ClassChoiceForm
+from .forms import ClassChoiceForm, WizardSpellCastingForm
 from .chargen import PC_Character
 from .game_facts import talents_dict
+from .magic import cast_wizard
 
 # Create your views here.
 
@@ -89,3 +90,26 @@ def level_up_PC(request):
             "talents": talents,
         },
     )
+
+
+def cast_wizard_spell_view(request):
+    form = WizardSpellCastingForm(request.POST or None)
+    template_name = "shadowdark/cast_wizard_spell.html"
+    context = {"form": form}
+    if form.is_valid():
+        bonus = form.cleaned_data["bonus"]
+        spell_tier = form.cleaned_data["spell_tier"]
+        crit, mishap, r, total, success, outcome = cast_wizard(bonus, spell_tier)
+        context.update(
+            {
+                "roll_done": True,
+                "crit": crit,
+                "mishap": mishap,
+                "r": r,
+                "total": total,
+                "success": success,
+                "outcome": outcome,
+                "bonus": bonus,
+            }
+        )
+    return render(request, template_name, context)
