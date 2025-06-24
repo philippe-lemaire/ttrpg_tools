@@ -1,0 +1,35 @@
+{% extends "shadowdark/base_shadowdark.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+PC Stats
+{% endblock %}
+{% block content %}
+
+
+
+<h2>You just rolled these stats, now deal with it</h2>
+
+<table class="table table-striped">
+    {% for stat_name, value in stats.items %}
+    <tr>
+        <th>{{stat_name}}</th>
+        <td>{{value}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+{% if best <= 10 %} <h2>What a shitty character you rolled.</h2>
+
+    <a href="{% url 'shadowdark:get_stats' %}" class="btn btn-primary btn-lg active" role="button"
+        aria-pressed="true">Roll again</a>
+
+    <br><br>
+    {% endif %}
+
+    <h2>Choose your ABC</h2>
+
+    {% crispy form %}
+
+    {% endblock %}

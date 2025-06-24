@@ -41,4 +41,5 @@ urlpatterns = [
     path("grimwild/", include("grimwild.urls")),
     path("mythic-bastionland/", include("mythic_bastionland.urls")),
     path("the-one-ring/", include("tor.urls")),
+    path("shadowdark", include("shadowdark.urls")),
 ]

@@ -1,0 +1,30 @@
+{% extends "shadowdark/base_shadowdark.html" %}
+{% block title %}
+ShadowDark - Cast a Wizard Spell
+{% endblock %}
+{% block content %}
+<h1>Cast a Wizard Spell</h1>
+
+{% load crispy_forms_tags %}
+<div class="mt-5 w-50">
+{% crispy form form.helper %}
+</div>
+{% if roll_done %}
+
+<div class="card mt-5 w-50">
+  <div class="card-body">
+    <h5 class="card-title">Result</h5>
+    <p class="card-text">{{outcome|safe}}</p>
+    <p class="card-text"><button type="button" class="btn btn-primary">{{r}}</button> +
+      <button type="button" class="btn btn-secondary">{{bonus}}</button> =
+      {% if success %}
+      <button type="button" class="btn btn-success">{{total}}</button>
+      {% else %}
+      <button type="button" class="btn btn-danger">{{total}}</button>
+      {% endif %}
+    </p>
+  </div>
+</div>
+
+{% endif %}
+{% endblock content %}
