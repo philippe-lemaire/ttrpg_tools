@@ -256,6 +256,17 @@ fell_abilities = [
     ),
 ]
 
+allways_have_fell_abilities = [
+    (
+        "Hate Sunlight",
+        "The thing loses 1 Hate at the start of each round it is exposed to the full light of the sun.",
+    ),
+    (
+        "Hideous Toughness",
+        "The creature is unaffected by unarmed attacks. Additionally, when an attack inflicts damage to the creature that would cause it to go to zero Endurance, it causes a Piercing Blow instead.  Then, if the creature is still alive its Endurance score is set back at half its maximum rating.",
+    ),
+]
+
 
 class NamelessThing:
     def __init__(self):
@@ -279,7 +290,10 @@ class NamelessThing:
         for att in self.attack_forms:
             att[1] = str(eval(att[1].replace("Attribute Level", str(self.hate))))
 
-        self.fell_abilities = sample(fell_abilities, self.number_of_fell_abilities)
+        self.fell_abilities = (
+            sample(fell_abilities, self.number_of_fell_abilities)
+            + allways_have_fell_abilities
+        )
 
     def __repr__(self):
         return self.referred_to_as + self.description
