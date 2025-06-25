@@ -116,6 +116,8 @@ def cast_wizard_spell_view(request):
                 "success": success,
                 "outcome": outcome,
                 "bonus": bonus,
+                "advantage": advantage,
+                "disadvantage": disadvantage,
             }
         )
     return render(request, template_name, context)

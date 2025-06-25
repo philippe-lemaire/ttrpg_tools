@@ -27,6 +27,9 @@ ShadowDark - Cast a Spell
       <button type="button" class="btn btn-danger">{{total}}</button>
       {% endif %}
     </p>
+ {% if advantage and not disadvantage or disadvantage and not advantage %}
+    <p><em>You rolled {{rolls.0}} and {{rolls.1}}.</em></p>
+  {% endif %}
   </div>
 </div>
 
