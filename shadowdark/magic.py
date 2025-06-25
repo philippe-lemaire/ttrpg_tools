@@ -57,9 +57,16 @@ def roll_mishap(spell_tier):
     return choice(mishaps.get(table))
 
 
-def cast_a_spell(bonus, spell_tier, class_):
+def cast_a_spell(bonus, spell_tier, class_, advantage=False, disadvantage=False):
     """Take bonus to cast and spell tier and return crit, mishap, natural roll, total value, success, outcome"""
-    r = roll("1d20")
+    rolls = [roll("1d20") for _ in range(2)]
+    if advantage and not disadvantage:
+        r = max(rolls)
+    elif disadvantage and not advantage:
+        r = min(rolls)
+    else:
+        _ = rolls.pop()
+        r = rolls[0]
     crit = False
     mishap = False
     if r == 20:
@@ -82,4 +89,4 @@ def cast_a_spell(bonus, spell_tier, class_):
         outcome = "You cast the spell, good job!"
     else:
         outcome = "You failed to cast the spell! You can't cast it again until you complete a rest."
-    return crit, mishap, r, total, success, outcome
+    return crit, mishap, r, total, success, outcome, rolls

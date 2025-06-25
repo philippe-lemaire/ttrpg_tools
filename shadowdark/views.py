@@ -100,8 +100,10 @@ def cast_wizard_spell_view(request):
         bonus = form.cleaned_data["bonus"]
         spell_tier = form.cleaned_data["spell_tier"]
         class_ = form.cleaned_data["class_"]
-        crit, mishap, r, total, success, outcome = cast_a_spell(
-            bonus, spell_tier, class_
+        advantage = form.cleaned_data["advantage"]
+        disadvantage = form.cleaned_data["disadvantage"]
+        crit, mishap, r, total, success, outcome, rolls = cast_a_spell(
+            bonus, spell_tier, class_, advantage, disadvantage
         )
         context.update(
             {
@@ -109,6 +111,7 @@ def cast_wizard_spell_view(request):
                 "crit": crit,
                 "mishap": mishap,
                 "r": r,
+                "rolls": rolls,
                 "total": total,
                 "success": success,
                 "outcome": outcome,
