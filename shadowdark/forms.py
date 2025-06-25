@@ -26,14 +26,17 @@ class ClassChoiceForm(forms.Form):
         self.helper.add_input(Submit("submit", "Create PC"))
 
 
-class WizardSpellCastingForm(forms.Form):
+class SpellCastingForm(forms.Form):
     bonus = forms.IntegerField(min_value=-5, max_value=10)
     spell_tier = forms.IntegerField(min_value=1, max_value=5)
+    class_ = forms.ChoiceField(
+        choices=[("wizard", "Wizard"), ("priest", "Priest")], label="Spell Caster Class"
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.helper = FormHelper(self)
-        self.helper.form_action = reverse("shadowdark:cast_wizard_spell")
+        self.helper.form_action = reverse("shadowdark:cast_a_spell")
         self.helper.form_method = "post"
 
         self.helper.add_input(
