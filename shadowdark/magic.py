@@ -57,7 +57,7 @@ def roll_mishap(spell_tier):
     return choice(mishaps.get(table))
 
 
-def cast_wizard(bonus, spell_tier):
+def cast_a_spell(bonus, spell_tier, class_):
     """Take bonus to cast and spell tier and return crit, mishap, natural roll, total value, success, outcome"""
     r = roll("1d20")
     crit = False
@@ -72,8 +72,12 @@ def cast_wizard(bonus, spell_tier):
         success = False
     if crit:
         outcome = "<b>Critical Success!</b> Double one numeric value of the Spell."
-    elif mishap:
+    elif mishap and class_ == "wizard":
         outcome = "<b>Mishap!</b>" + "<br/>" + roll_mishap(spell_tier)
+    elif mishap and class_ == "priest":
+        outcome = """<b>Mishap!</b> Your deity is greatly displeased and revokes its power.
+        You can’t cast that spell again until you complete ritualistic
+        penance to your deity and successfully complete a rest."""
     elif success:
         outcome = "You cast the spell, good job!"
     else:
