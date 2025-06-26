@@ -21,84 +21,57 @@
 
 <body>
 <header>
-
-    {% block navbar %}
-
-
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <!--new nav here-->
-     <a class="navbar-brand m-1" href="/">Base</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-  <div class="collapse navbar-collapse" id="navbarNavDropdown">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'knave_generators:knave_index' %}">Knave 2e</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'mausritter:index' %}">Mausritter</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'monolith:index' %}">Monolith</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'into_the_odd:index' %}">Into the Odd</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'electric_bastionland:index' %}">Electric Bastionland</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'mythic_bastionland:index' %}">Mythic Bastionland</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'cairn:index' %}">Cairn 2e</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'addg:index' %}">ADDG</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'liminal_horror:index' %}">Liminal Horror</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'mothership:index' %}">Mothership</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'cloudempress:index' %}">Cloud Empress</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'grimwild:index' %}">Grimwild</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'tor:index' %}">The One Ring</a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'shadowdark:index' %}">ShadowDark</a>
-      </li>
-<!--
-        <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>-->
-
-    </ul>
-    <ul class="navbar-nav">
-      <li class="nav-item">
-          <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
-      </li>
-      {% if request.user.is_authenticated %}
-      <li class="nav-item">
-        <a class="nav-link" href="{% url 'admin:logout' %}">Déconnexion</a>
-    </li>
-    {% endif %}
-    </ul>
-  </div>
-    </nav>
-
-
-
-    {% endblock %}
-    {% block subbar %}{% endblock subbar %}
+{% block navbar %}
+<!--newnav-->
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <a class="nav-link active" href="/">Home</a>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Odd likes</a>
+    <div class="dropdown-menu">
+        <a class="dropdown-item" href="{% url 'mausritter:index' %}">Mausritter</a>
+        <a class="dropdown-item" href="{% url 'monolith:index' %}">Monolith</a>
+        <a class="dropdown-item" href="{% url 'into_the_odd:index' %}">Into the Odd</a>
+        <a class="dropdown-item" href="{% url 'electric_bastionland:index' %}">Electric Bastionland</a>
+        <a class="dropdown-item" href="{% url 'mythic_bastionland:index' %}">Mythic Bastionland</a>
+        <a class="dropdown-item" href="{% url 'cairn:index' %}">Cairn 2e</a>
+        <a class="dropdown-item" href="{% url 'addg:index' %}">ADDG</a>
+        <a class="dropdown-item" href="{% url 'liminal_horror:index' %}">Liminal Horror</a>
+    </div>
+  </li>
+   <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Panic Engine</a>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="{% url 'mothership:index' %}">Mothership</a>
+      <a class="dropdown-item" href="{% url 'cloudempress:index' %}">Cloud Empress</a>
+    </div>
+  </li>
+  <li class="nav-item dropdown">
+    <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">OSR D20</a>
+    <div class="dropdown-menu">
+    <a class="dropdown-item" href="{% url 'knave_generators:knave_index' %}">Knave 2e</a>
+    <a class="dropdown-item" href="{% url 'shadowdark:index' %}">ShadowDark</a>
+    </div>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'grimwild:index' %}">Grimwild</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'tor:index' %}">The One Ring</a>
+  </li>
+  <li class="nav-item">
+      <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
+  </li>
+  {% if request.user.is_authenticated %}
+  <li class="nav-item">
+    <a class="nav-link" href="{% url 'admin:logout' %}">Déconnexion</a>
+  </li>
+  {% endif %}
+</ul>
+<!--end newnav-->
+  {% endblock %}
+  {% block subbar %}{% endblock subbar %}
   </header>
     <main role="main" class="container">
 
