@@ -9,8 +9,13 @@
 <h2>Which Floor?</h2>
 {% crispy form form.helper %}
 
+{% if roll %}
+<p>Roll: <button type="button" class="btn btn-secondary">{{roll}}</button></p>
+{% endif %}
+
 {% if encounter_present %}
 <h2>Encounter</h2>
+
 <table class="table table-sm">
     <tr>
         <th>Encounter</th>

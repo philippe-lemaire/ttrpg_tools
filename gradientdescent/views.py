@@ -36,6 +36,7 @@ def roll_encounters_view(request):
             encounter_roll = roll_d100()
             encounter_present = check_doubles(encounter_roll)
             context["encounter_present"] = encounter_present
+            context["roll"] = encounter_roll
             if encounter_present:
                 n = roll_d10()
                 distance = doubles_value(encounter_roll)
