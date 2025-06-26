@@ -18,11 +18,11 @@
       <td>Dice</td>
       <td>{% for d in dice_result %}
         {% if d == 6 %}
-        <span class="p-2 text-success-emphasis bg-success-subtle border border-success-subtle rounded-3">{{d}}</span>
+         <button type="button" class="btn btn-outline-success">{{d}}</button>
         {% elif d > 3 %}
-        <span class="p-2 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-3">{{d}}</span>
+        <button type="button" class="btn btn-outline-warning">{{d}}</button>
         {% else %}
-        <span class="p-2 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">{{d}}</span>
+        <button type="button" class="btn btn-outline-danger">{{d}}</button>
         {% endif %}
         {% endfor %}
       </td>
@@ -32,9 +32,10 @@
       <td>Thorns</td>
       <td>{% for t in thorns_result %}
         {% if t >= 7 %}
-        <span class="p-2 text-danger-emphasis bg-danger-subtle border border-danger-subtle rounded-3">{{t}}</span>
+        <button type="button" class="btn btn-outline-danger">{{t}}</button>
+
         {% else %}
-        <span class="p-2 text-secondary-emphasis bg-secondary-subtle border border-secondary-subtle rounded-3">{{t}}</span>
+        <button type="button" class="btn btn-outline-secondary">{{t}}</button>
         {% endif %}
         {% endfor %}
       </td>

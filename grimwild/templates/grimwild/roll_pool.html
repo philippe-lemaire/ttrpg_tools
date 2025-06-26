@@ -17,9 +17,9 @@
   <td>Dice</td>
   <td>{% for d in dice_result %}
     {% if d < 4 %}
-    <span class="p-2 text-warning-emphasis bg-warning-subtle border border-warning-subtle rounded-3">{{d}}</span>
+    <button type="button" class="btn btn-outline-danger">{{d}}</button>
     {% else %}
-    <span class="p-2 text-success-emphasis bg-success-subtle border border-success-subtle rounded-3">{{d}}</span>
+    <button type="button" class="btn btn-outline-success">{{d}}</button>
     {% endif %}
     {% endfor %}
   </td>

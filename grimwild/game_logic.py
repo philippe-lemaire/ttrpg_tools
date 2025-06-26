@@ -6,7 +6,7 @@ def grimwild_roll(dice, thorns):
     thorns_result = [randint(1, 8) for _ in range(thorns)]
     dice_result.sort()
     thorns_result.sort()
-    outcomes = ["disaster", "grim", "messy", "perfect", "critical"]
+    outcomes = ["Disaster", "Grim", "Messy", "Perfect", "Critical"]
     cuts = len([t for t in thorns_result if t >= 7])
     # check if critical
     if dice_result.count(6) >= 2:
