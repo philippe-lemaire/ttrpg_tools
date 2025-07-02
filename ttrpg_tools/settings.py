@@ -63,6 +63,7 @@ INSTALLED_APPS = [
     "mythic_bastionland",
     "tor",
     "shadowdark",
+    "ose",
 ]
 
 MIDDLEWARE = [
