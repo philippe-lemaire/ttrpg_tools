@@ -28,7 +28,7 @@ ShadowDark - Cast a Spell
       {% endif %}
     </p>
  {% if advantage and not disadvantage or disadvantage and not advantage %}
-    <p><em>You rolled {{rolls.0}} and {{rolls.1}}.</em></p>
+    <p><em>{% if advantage %}Advantage: {% else %} Disadvantage: {% endif %}You rolled {{rolls.0}} and {{rolls.1}}.</em></p>
   {% endif %}
   </div>
 </div>
