@@ -1,0 +1,52 @@
+{% extends "ose/base_ose.html" %}
+{% block title %}
+OSE Monsters
+{% endblock %}
+{% block content %}
+
+<h1>Monsters</h1>
+
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Filter by hit dice
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="{% url 'ose:monster_list' %}">All monsters</a>
+        {% for hit_dice in hit_dice_values %}
+        <a class="dropdown-item" href="{% url 'ose:monster_by_hit_dice' hit_dice %}"> {{hit_dice}}-HD monsters</a>
+        {% endfor %}
+    </div>
+</div>
+<br>
+
+<table class="table table-striped">
+    <tr>
+        <th>Name</th>
+        <th>Hit Dice</th>
+        <th>AC</th>
+        <th>THACO</th>
+        <th>Alignment</th>
+        <th>Source</th>
+    </tr>
+
+    {% for monster in monster_list %}
+    <tr>
+        <td>
+            <a href="{% url 'ose:monster_detail' monster.pk %}">{{ monster.name }}</a>
+        </td>
+        <td>{{ monster.hit_dice }}</td>
+        <td>{% if monster.ac %}{{ monster.ac }}{% endif %}</td>
+        <td>{{ monster.thac0 }}</td>
+        <td>{{ monster.alignment }}</td>
+        <td>{{ monster.source }}</td>
+    </tr>
+
+
+
+
+
+    {% endfor %}
+</table>
+{% endblock %}

@@ -1,0 +1,35 @@
+{% extends "ose/base_ose.html" %}
+{% block title %}
+OSE Monsters Hoards
+{% endblock %}
+{% block content %}
+
+
+<div class="dropdown show">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown"
+        aria-haspopup="true" aria-expanded="false">
+        Hoard Types
+    </a>
+
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        {% for type_name in types.keys%}
+        <a class="dropdown-item" href="{% url 'ose:hoard_result' type_name %}"> {{type_name}}</a>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% if rolled_hoard %}
+<h2>Result for {{type_called}}</h2>
+<ul>
+    {% for item in rolled_hoard%}
+    <li>{{item}}</li>
+    {% empty %}
+    <li>Nothing…</li>
+    {% endfor %}
+</ul>
+
+{% endif %}
+
+
+{% endblock %}

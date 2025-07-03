@@ -1,0 +1,17 @@
+{% extends "ose/base_ose.html" %}
+{% block title %}
+OSE Magic Items
+{% endblock %}
+{% block content %}
+
+<h1>Magic Item</h1>
+<h2>{{item}}</h2>
+
+<ol>
+    {% for potion in item.layers %}
+    <li>{{potion}}</li>
+    {% endfor %}
+</ol>
+
+
+{% endblock %}
