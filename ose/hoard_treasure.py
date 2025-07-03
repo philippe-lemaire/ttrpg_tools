@@ -254,6 +254,7 @@ def roll_gems(s):
         n = gems.count(item)
         cleaned_gems.append(f"{n} {item[2:]}")
     cleaned_gems.append(f"For a total value of {total} gp")
+    cleaned_gems.insert(0, "Gems")
     return cleaned_gems
 
 
@@ -275,6 +276,7 @@ def roll_jewellery(s):
         n = jewels.count(item)
         cleaned_jewels.append(f"{n} {item[2:]}")
     cleaned_jewels.append(f"For a total value of {total} gp")
+    cleaned_jewels.insert(0, "Jewels")
     return cleaned_jewels
 
 
@@ -859,6 +861,7 @@ def roll_spell(s):
     for _ in range(n):
         spell = random.choice(spells)
         rolled.append(f"Scroll of {spell}")
+    rolled.insert(0, "Scrolls")
     return rolled
 
 
@@ -888,7 +891,6 @@ def roll_scroll_or_map():
         100: "Treasure Map: XII",
     }
     rolled = random.randint(1, 100)
-    rolled = 2
     result = get_closest_key(rolled, scroll_map_table)
     if "Spell" in result:
         result = roll_spell(result)
@@ -1026,6 +1028,7 @@ def roll_magic_items(s, level):
             rolled_items.append(roll_weapon())
         else:
             rolled_items.append(item)
+    rolled_items.insert(0, "Magic Items")
     return rolled_items
 
 
@@ -1058,5 +1061,15 @@ def expand_result(rolled_items, level):
             cleaned_items.append(roll_magic_items(item, level))
         else:
             cleaned_items.append(item)
+    # make it an html ul list
+    lis = []
+    for item in cleaned_items:
+        if isinstance(item, str):
+            lis.append(f"<li>{item}</li>")
+        elif isinstance(item, list):
+            lis.append(f"<li>{item[0]}</li>")
+            sublis = [f"<li>{k}</li>" for k in item[1:]]
+            lis.append(f"<ul>{''.join(sublis)}</ul>")
 
-    return cleaned_items
+    ul = "<ul>" + "".join(lis) + "</ul>"
+    return ul

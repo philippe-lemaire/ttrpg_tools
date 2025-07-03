@@ -21,15 +21,6 @@ OSE Monsters Hoards
 
 {% if rolled_hoard %}
 <h2>Result for {{type_called}}</h2>
-<ul>
-    {% for item in rolled_hoard%}
-    <li>{{item}}</li>
-    {% empty %}
-    <li>Nothing…</li>
-    {% endfor %}
-</ul>
-
+{{rolled_hoard|safe}}
 {% endif %}
-
-
 {% endblock %}
