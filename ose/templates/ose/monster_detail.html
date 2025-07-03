@@ -1,0 +1,71 @@
+{% extends "ose/base_ose.html" %}
+{% block title %}
+OSE Monsters- {{ monster.name }}
+{% endblock %}
+{% block content %}
+<h1>{{ monster.name }}</h1>
+
+
+<p>{{ monster.description }}</p>
+
+<table class="table table-striped">
+    <tr>
+        <th scope="row">Armour class</th>
+        <td>{{ monster.ac }}</td>
+    </tr>
+    <tr>
+        <th scope="row">Hit Dice</th>
+        <td>{{ monster.hit_dice }}</td>
+    </tr>
+    <tr>
+        <th scope="row">Attacks</th>
+        <td>{{ monster.attacks }}</td>
+    </tr>
+    <tr>
+        <th scope="row">THAC0</th>
+        <td>{{ monster.thac0 }}</td>
+    </tr>
+    <tr>
+        <th scope="row">Movement</th>
+        <td>{{ monster.movement }}</td>
+    </tr>
+    <tr>
+        <th scope="row">Saving Throws</th>
+        <td>{{ monster.saving_throws }}</td>
+    </tr>
+    <tr>
+        <th scope="row">Morale</th>
+        <td>{{ monster.morale }}</td>
+    </tr>
+    <tr>
+        <th scope="row">Alignment</th>
+        <td>{{ monster.alignment }}</td>
+    </tr>
+    <tr>
+        <th scope="row">XP</th>
+        <td>{{ monster.xp }}</td>
+    </tr>
+    <tr>
+        <th scope="row">Number appearing</th>
+        <td>{{ monster.number_appearing }}</td>
+    </tr>
+    {% if monster.treasure_type %}
+    <tr>
+        <th scope="row">Treasure Type</th>
+        <td><a href="{% url 'ose:hoard_result' 'type_'|add:monster.treasure_type|lower %}">
+                {{ monster.treasure_type}}</a>
+        </td>
+    </tr>
+    {% endif %}
+</table>
+
+{% if monster.extra_info != 'None' %}
+
+<p>{{ monster.extra_info|safe }}</p>
+
+<p>Source: {{ monster.source }}</p>
+
+{% endif %}
+
+
+{% endblock %}

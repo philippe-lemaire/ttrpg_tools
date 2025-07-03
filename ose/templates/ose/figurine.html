@@ -1,0 +1,14 @@
+{% extends "ose/base_ose.html" %}
+{% block title %}
+OSE Magic Items
+{% endblock %}
+{% block content %}
+
+<h1>Figurine of Wondrous Power</h1>
+<h2>Description</h2>
+{{figurine.rules|safe}}
+
+<p>Figurine type rolled : <b>{{figurine.form}}</b>.</p>
+<h2>Stat Blocks</h2>
+{{figurine.get_html_stat_blocks|safe}}
+{% endblock %}
