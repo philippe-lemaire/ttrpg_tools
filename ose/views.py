@@ -76,7 +76,9 @@ def adventuring_party_view(request):
 
             treasure = expand_result(roll_hoard("type_u"), level=1)
 
-            treasure.extend(expand_result(roll_hoard("type_v"), level=1))
+            treasure = treasure + expand_result(roll_hoard("type_v"), level=1)
+
+            treasure = treasure.replace("</ul><ul>", "")
 
             context = {
                 "form": form,

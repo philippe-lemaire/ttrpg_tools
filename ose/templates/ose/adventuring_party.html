@@ -40,15 +40,6 @@
     </div>
 </div>
 <h2>Carried treasure</h2>
-<ul></ul>
-{% for item in treasure %}
-
-<li>{{item}}</li>
-
-
-{% endfor%}
-</ul>
-
-
+{{treasure|safe}}
 {% endif %}
 {% endblock %}
