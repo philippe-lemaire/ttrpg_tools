@@ -49,12 +49,14 @@ OSE Monsters- {{ monster.name }}
         <th scope="row">Number appearing</th>
         <td>{{ monster.number_appearing }}</td>
     </tr>
+    {% if monster.treasure_type %}
     <tr>
         <th scope="row">Treasure Type</th>
         <td><a href="{% url 'ose:hoard_result' 'type_'|add:monster.treasure_type|lower %}">
                 {{ monster.treasure_type}}</a>
         </td>
     </tr>
+    {% endif %}
 </table>
 
 {% if monster.extra_info != 'None' %}

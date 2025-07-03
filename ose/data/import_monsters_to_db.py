@@ -6,14 +6,14 @@ from datetime import datetime
 
 # setting paths to datafile and db
 data_file = "ose_monsters.csv"
-db_path = "../db.sqlite3"
+db_path = "../../db.sqlite3"
 
 # create a back up before importing
 now = datetime.now()
 shutil.copyfile(db_path, f"../back_up_{now}_db.sqlite3")
 
 # setting the name of the table and the query
-table = "monsters_monster"
+table = "ose_monster"
 
 # creating a connection
 con = sqlite3.connect(db_path)
