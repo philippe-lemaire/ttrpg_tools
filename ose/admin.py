@@ -11,4 +11,3 @@ class MonsterAdmin(admin.ModelAdmin):
 
 
 admin.site.register(Monster, MonsterAdmin)
-c
