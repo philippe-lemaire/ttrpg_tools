@@ -73,9 +73,9 @@ def adventuring_party_view(request):
             level = form.cleaned_data["level"]
             party = roll_adventuring_party(level)
 
-            treasure = expand_result(roll_hoard("type_u"), level=1)
+            treasure = expand_result(roll_hoard("U"), level=1)
 
-            treasure = treasure + expand_result(roll_hoard("type_v"), level=1)
+            treasure = treasure + expand_result(roll_hoard("V"), level=1)
 
             treasure = treasure.replace("</ul><ul>", "")
 
