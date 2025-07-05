@@ -56,10 +56,6 @@ def hoard_result(
     request,
     type_,
 ):
-
-    if " " in type_:
-        type_ = type_.split()[0]
-
     context = {"rolled_hoard": expand_result(roll_hoard(type_), level=1)}
     context["types"] = types
     context["type_called"] = type_

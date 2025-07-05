@@ -19,7 +19,13 @@ Old School Essentials Monster {{ monster.name }}
       <b>ML</b> {{monster.morale}}, <b>AL</b> {{monster.alignment}},
       <b>XP</b> {{monster.xp}}, <b>NA</b> {{monster.number_appearing}},
     {% if monster.treasure_type %}<b>TT</b>
-    <a class="card-link" href="{% url 'ose:hoard_result' 'type_'|add:monster.treasure_type|lower %}">{{ monster.treasure_type}}</a>
+      {% if '(' in monster.treasure_type %}
+      <!-- X (Y)-->
+      <a class="card-link" href="{% url 'ose:hoard_result' monster.treasure_type.0 %}">{{monster.treasure_type.0}}</a>
+      (<a href="{% url 'ose:hoard_result' monster.treasure_type.3%}">{{monster.treasure_type.3}}</a>)
+      {% else %}
+      <a class="card-link" href="{% url 'ose:hoard_result' monster.treasure_type %}">{{ monster.treasure_type}}</a>
+      {% endif %}
     {% endif %}
   </p>
   {% if monster.extra_info != 'None' %}
