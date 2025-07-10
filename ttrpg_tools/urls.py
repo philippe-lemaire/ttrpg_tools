@@ -43,4 +43,5 @@ urlpatterns = [
     path("the-one-ring/", include("tor.urls")),
     path("shadowdark/", include("shadowdark.urls")),
     path("old-school-essentials/", include("ose.urls")),
+    path("break!!/", include("break.urls")),
 ]

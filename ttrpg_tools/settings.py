@@ -64,6 +64,7 @@ INSTALLED_APPS = [
     "tor",
     "shadowdark",
     "ose",
+    "break",
 ]
 
 MIDDLEWARE = [
