@@ -1,0 +1,34 @@
+{% extends "break/base_break.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Break!! - Character Gen{% endblock title %}
+{% block content %}
+
+<h1>Choose your Calling</h1>
+
+{% crispy form form.helper %}
+
+{% if character %}
+<div class="card">
+  <div class="card-header">
+    {{character.calling.name|upper}}
+  </div>
+  <h5 class="card-title">Aptitutes</h5>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">MIGHT: {{character.might}}</li>
+    <li class="list-group-item">DEFT: {{character.deft}}</li>
+    <li class="list-group-item">GRIT: {{character.grit}}</li>
+    <li class="list-group-item">INSIGHT: {{character.insight}}</li>
+    <li class="list-group-item">AURA: {{character.aura}}</li>
+  </ul>
+ <h5 class="card-title">Abilities</h5>
+ <ul class="list-group list-group-flush">
+  {% for ability in character.abilities %}
+    <li class="list-group-item">{{ability}}</li>
+  {% endfor %}
+ </ul>
+</div>
+{% endif %}
+
+
+{% endblock content%}
