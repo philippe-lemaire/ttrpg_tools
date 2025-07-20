@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+
+{% block title %}
+Spellburn and Battlescars | My Characters
+{% endblock %}
+
+{% block content %}
+<h1>My Characters</h1>
+<br>
+<div class="container">
+    <div class="row">
+        {% for char in characters %}
+        <div class="col-sm">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <h5 class="card-title">
+                        <a href="{% url 'characters:character_detail' char.pk %}">
+                            {{char.name}}</a>
+                    </h5>
+                    <h6 class="card-subtitle mb-2 text-muted">{{char.archetype}}</h6>
+                    <p class="card-text">Former {{char.background}}</p>
+                    <table class="table">
+                        <tr>
+                            <th>♥️</th>
+
+                            <th>💪</th>
+                            <th>🧠</th>
+                            <th>🍀</th>
+                        </tr>
+                        <tr>
+                            <td>{{char.hp}}</td>
+
+                            <td>{{char.body}}</td>
+                            <td>{{char.mind}}</td>
+                            <td>{{char.luck}}</td>
+                        </tr>
+
+                    </table>
+                    <a class='btn btn-danger float-right' role="button"
+                        href="{% url 'characters:delete_character' char.pk %}">
+                        Delete</a>
+                </div>
+            </div>
+            <br>
+        </div>
+        <br>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+<br>
+
+
+<a class="btn btn-primary" role="button" href="{% url 'characters:create_character' %}">Create a new character</a>
+{% endblock %}

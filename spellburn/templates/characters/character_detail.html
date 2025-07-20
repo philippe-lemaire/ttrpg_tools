@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+
+{% block title %}
+Spellburn and Battlescars | {{character.name}}
+{% endblock %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-6">
+            <h1>{{character.name}}, the {{character.archetype}}</h1>
+
+
+            <p>Former {{character.background}}</p>
+            <h4>Ability scores</h4>
+            <table class="table">
+                <tr>
+                    <th>♥️</th>
+                    <th>🛡️</th>
+                    <th>💪</th>
+                    <th>🧠</th>
+                    <th>🍀</th>
+                </tr>
+                <tr>
+                    <td>{{character.hp}}/{{character.hp}}</td>
+                    <td>{{character.armor}}</td>
+                    <td>{{character.body}}/{{character.body}}</td>
+                    <td>{{character.mind}}/{{character.mind}}</td>
+                    <td>{{character.luck}}</td>
+                </tr>
+
+            </table>
+            <h4>Origin:</h4>
+
+            <p>{{character.origin|safe}}</p>
+
+            <h4>Special abilities</h4>
+            <p>{{triggers}}</p>
+            <table class="table">
+                {% for ability in abilities%}
+                <tr>
+                    {% if forloop.counter0 in character.abilities %}
+                    <td>✅</td>
+                    {% else%}
+                    <td>☐</td>
+                    {% endif %}
+                    <td>
+                        {{ability}}
+                    </td>
+                </tr>
+                {%endfor%}
+            </table>
+
+            <table class="table">
+                <tr>
+                    <th>Inventory</th>
+                    <th></th>
+                </tr>
+                {% for item in inventory %}
+                <tr>
+                    <td>{{forloop.counter}}: </td>
+                    <td> {{item}}</td>
+
+                </tr>
+                {% endfor %}
+            </table>
+            <h5><b>GP:</b> {{character.gold}}</h5>
+        </div>
+    </div>
+</div>
+
+<a class='btn btn-danger float-right' role="button" href="{% url 'characters:delete_character' character.pk %}">⚰️
+    Delete</a>
+
+
+{% endblock %}

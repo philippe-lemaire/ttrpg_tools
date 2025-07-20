@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+Spellburn and Battlescars | Mishaps
+{% endblock %}
+
+{% block content %}
+<h1>Mishaps Table</h1>
+
+<p>The GM can and should adapt these results according to the spell and
+    character’s Background, adding color to the mechanical effects.</p>
+<img src="{% static 'characters/mishap.png' %}" alt="spell caster with a giant eye globe as head" />
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>SUM</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    {% for sum, mishap in mishaps.items %}
+
+    <tr>
+        <td>{{sum}}</td>
+        <td>{{mishap}}</td>
+    </tr>
+    {% endfor %}
+</table>
+
+
+
+{% endblock%}
