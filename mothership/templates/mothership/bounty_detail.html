@@ -1,0 +1,30 @@
+{% extends "mothership/base_mothership.html" %}
+{% load static %}
+{% block title %}Mothership - Wages of Sin - Bounty{% endblock title %}
+{% block content %}
+<h1>Bounty for {{bounty.target}}</h1>
+
+
+<div class="card">
+  <h5 class="card-header"><a href="{% url 'mothership:bounty_detail' bounty.pk %}">{{bounty.target}} BL: {{bounty.bounty_level}}</a></h5>
+  <div class="card-body">
+    <p>Wanted: {{bounty.wanted}}</p>
+    <p>Location: {{bounty.location}}</p>
+    <p class="card-text"><em>{{bounty.advert}}</em></p>
+    <p class="card-text">Client: {{bounty.client}}</p>
+    <p>Reward: {{bounty.reward}}</p>
+    <p>Bonus: {{bounty.bonus}}</p>
+    <h2>Briefing</h2> <p>{{bounty.briefing}}</p>
+    <p>Point of collection: {{bounty.point_of_collection}}</p>
+    <p>Last known location: {{bounty.last_known_location}}</p>
+    <p>Known associates {{bounty.known_associates}}</p>
+
+    {% if request.user.is_authenticated %}
+    <h2>Warden Info</h2>
+    <p>{{bounty.warden_info}}</p>
+    {% endif %}
+  </div>
+</div>
+
+
+{% endblock content %}

@@ -12,4 +12,10 @@ urlpatterns = [
         name="create_character_step_2",
     ),
     path("search-tables", views.search_tables, name="search_tables"),
+    path("wages-of-sin/bounties", views.BountyListView.as_view(), name="bounties"),
+    path(
+        "wages-of-sin/bounties/<int:pk>",
+        views.BountyDetailView.as_view(),
+        name="bounty_detail",
+    ),
 ]

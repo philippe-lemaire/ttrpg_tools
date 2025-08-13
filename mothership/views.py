@@ -1,9 +1,10 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
 from .character import Character, classes_descriptions_d
 from .roll import roll, roll_pc_stats_and_saves, roll_d100, get_key
 from .forms import ClassesForm, ModuleSelectionForm
 from .search_tables import MODULES
+from .models import Bounty
 
 # Create your views here.
 
@@ -105,3 +106,12 @@ def search_tables(request):
     return render(
         request, template_name="mothership/search_tables.html", context=context
     )
+
+
+class BountyListView(ListView):
+    model = Bounty
+    ordering = "location"
+
+
+class BountyDetailView(DetailView):
+    model = Bounty
