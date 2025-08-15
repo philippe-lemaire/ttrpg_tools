@@ -2,13 +2,13 @@
 {% load static %}
 {% block title %}Mothership - Wages of Sin - Bounty{% endblock title %}
 {% block content %}
-<h1>Bounty for {{bounty.target}}</h1>
-<p>Location: {{bounty.location}}</p>
+
 
 
 <div class="container">
   <div class="row">
     <div class="col-sm-8"> <!-- General info div -->
+      <h1>Bounty for {{bounty.target}}</h1>
       <p><em>{{bounty.advert}}</em></p>
       <h2>Briefing</h2>
       <p>{{bounty.briefing|safe}}</p>
@@ -18,7 +18,7 @@
       {% endif %}
     </div> <!--General info div-->
     <div class="col-sm-4"><!-- details div -->
-      <ul class="list-unstyled">
+      <ul class="list-unstyled mt-5">
         <li><b>Target: {{bounty.target}}</b></li>
         <li>Bounty Level: {{bounty.bounty_level}}</li>
         <li>Crime: {{bounty.crime}}</li>
@@ -30,6 +30,7 @@
       </ul>
       <ul class="list-unstyled">
         <li><b>Locations</b></li>
+        <li>General location: {{bounty.location}}</li>
         <li>Point of collection: {{bounty.point_of_collection}}</li>
         <li>Last known location: {{bounty.last_known_location}}</li>
       </ul>
