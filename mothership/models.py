@@ -1,4 +1,5 @@
 from django.db import models
+from tinymce.models import HTMLField
 
 
 # Create your models here.
@@ -16,8 +17,8 @@ class Bounty(models.Model):
     point_of_collection = models.CharField(blank=True, max_length=250)
     last_known_location = models.CharField(blank=True, max_length=250)
     advert = models.TextField(blank=True)
-    briefing = models.TextField(blank=True)
-    warden_info = models.TextField(blank=True)
+    briefing = HTMLField(blank=True, max_length=10000)
+    warden_info = HTMLField(blank=True, max_length=10000)
     publish = models.BooleanField(default=False)
 
     def __str__(self):
