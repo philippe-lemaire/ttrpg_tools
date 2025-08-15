@@ -12,17 +12,20 @@
 <h2>Location: {{location.grouper}}</h2>
 
   {% for bounty in location.list %}
-  <div class="card m-3">
-    <h5 class="card-header"><a href="{% url 'mothership:bounty_detail' bounty.pk %}">{{bounty.target}} BL: {{bounty.bounty_level}}</a></h5>
+  <div class="card mt-5 mb-5">
+    <h5 class="card-header"><a href="{% url 'mothership:bounty_detail' bounty.pk %}">{{bounty.target}}</a></h5>
     <div class="card-body">
-      <p>Wanted: {{bounty.wanted}}</p>
-      <p>Location: {{bounty.location}}</p>
-      <p class="card-text"><em>{{bounty.advert}}</em></p>
-      <p>Reward: {{bounty.reward}}</p>
-      <p>Bonus: {{bounty.bonus}}</p>
-      <p class="card-text">Client: {{bounty.client}}</p>
+
+      <ul class="list-unstyled">
+      <li><em>{{bounty.advert}}</em></li>
+      <li>Wanted: {{bounty.wanted}}. </li>
+      <li>Reward: {{bounty.reward}}. Bonus: {{bounty.bonus}}</li>
+      </ul>
+      <a href="{% url 'mothership:bounty_detail' bounty.pk %}" class="btn btn-primary">Details</a>
     </div>
   </div>
+
+</div>
   {% endfor %}
 {% endfor %}
 {% endblock content %}
