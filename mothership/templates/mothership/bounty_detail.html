@@ -20,7 +20,9 @@
     <div class="col-sm-4"><!-- details div -->
       <ul class="list-unstyled mt-5">
         <li><b>Target: {{bounty.target}}</b></li>
+        {% if request.user.is_authenticated %}
         <li>Bounty Level: {{bounty.bounty_level}}</li>
+        {% endif %}
         <li>Crime: {{bounty.crime}}</li>
         <li>Wanted: {{bounty.wanted}}</li>
         <li>Client: {{bounty.client}}</li>

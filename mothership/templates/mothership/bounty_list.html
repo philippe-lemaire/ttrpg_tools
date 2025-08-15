@@ -20,6 +20,9 @@
       <li><em>{{bounty.advert}}</em></li>
       <li>Wanted: {{bounty.wanted}}. </li>
       <li>Reward: {{bounty.reward}}. Bonus: {{bounty.bonus}}</li>
+      {% if request.user.is_authenticated %}
+      <li>Bounty Level: {{bounty.bounty_level}}</li>
+      {% endif %}
       </ul>
       <a href="{% url 'mothership:bounty_detail' bounty.pk %}" class="btn btn-primary">Details</a>
     </div>

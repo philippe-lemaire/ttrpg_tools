@@ -22,4 +22,4 @@ class Bounty(models.Model):
     publish = models.BooleanField(default=False)
 
     def __str__(self):
-        return f"Bounty for {self.target}. BL: {self.bounty_level}."
+        return f"Bounty for {self.target.title()}."
