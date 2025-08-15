@@ -13,7 +13,7 @@
 
   {% for bounty in location.list %}
   <div class="card mt-5 mb-5">
-    <h5 class="card-header"><a href="{% url 'mothership:bounty_detail' bounty.pk %}">{{bounty.target}}</a></h5>
+    <h5 class="card-header"><a href="{% url 'mothership:bounty_detail' bounty.pk %}">{{bounty.target|title}}</a></h5>
     <div class="card-body">
 
       <ul class="list-unstyled">
