@@ -9,7 +9,7 @@
 
 {% for location in location_list %}
 
-<h2>Location: {{location.grouper}}</h2>
+<h2>Location: {{location.grouper|title}}</h2>
 
   {% for bounty in location.list %}
   <div class="card mt-5 mb-5">
