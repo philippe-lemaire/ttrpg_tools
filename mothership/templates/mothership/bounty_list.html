@@ -4,21 +4,25 @@
 {% block content %}
 <h1>Bounties Board</h1>
 
-{% for bounty in bounty_list %}
-<div class="card m-3">
-  <h5 class="card-header"><a href="{% url 'mothership:bounty_detail' bounty.pk %}">{{bounty.target}} BL: {{bounty.bounty_level}}</a></h5>
-  <div class="card-body">
-    <p>Wanted: {{bounty.wanted}}</p>
-    <p>Location: {{bounty.location}}</p>
-    <p class="card-text"><em>{{bounty.advert}}</em></p>
-    <p>Reward: {{bounty.reward}}</p>
-    <p>Bonus: {{bounty.bonus}}</p>
-    <p class="card-text">Client: {{bounty.client}}</p>
+
+{% regroup bounty_list by location as location_list %}
+
+{% for location in location_list %}
+
+<h2>Location: {{location.grouper}}</h2>
+
+  {% for bounty in location.list %}
+  <div class="card m-3">
+    <h5 class="card-header"><a href="{% url 'mothership:bounty_detail' bounty.pk %}">{{bounty.target}} BL: {{bounty.bounty_level}}</a></h5>
+    <div class="card-body">
+      <p>Wanted: {{bounty.wanted}}</p>
+      <p>Location: {{bounty.location}}</p>
+      <p class="card-text"><em>{{bounty.advert}}</em></p>
+      <p>Reward: {{bounty.reward}}</p>
+      <p>Bonus: {{bounty.bonus}}</p>
+      <p class="card-text">Client: {{bounty.client}}</p>
+    </div>
   </div>
-</div>
-
+  {% endfor %}
 {% endfor %}
-
-
-
 {% endblock content %}
