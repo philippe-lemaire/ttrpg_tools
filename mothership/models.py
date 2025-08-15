@@ -18,6 +18,7 @@ class Bounty(models.Model):
     advert = models.TextField(blank=True)
     briefing = models.TextField(blank=True)
     warden_info = models.TextField(blank=True)
+    publish = models.BooleanField(default=False)
 
     def __str__(self):
         return f"Bounty for {self.target}. BL: {self.bounty_level}."
