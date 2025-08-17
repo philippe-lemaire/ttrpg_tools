@@ -110,13 +110,14 @@ def search_tables(request):
 
 class BountyListView(ListView):
     model = Bounty
-    ordering = "location"
 
     def get_context_data(self, **kwargs):
         # Call the base implementation first to get a context
         context = super().get_context_data(**kwargs)
         # filter on bounties that have publish set to True
-        context["bounty_list"] = Bounty.objects.filter(publish=True)
+        context["bounty_list"] = Bounty.objects.filter(publish=True).order_by(
+            "location"
+        )
         return context
 
 
