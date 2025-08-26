@@ -18,7 +18,7 @@ class Bounty(models.Model):
     last_known_location = models.CharField(blank=True, max_length=250)
     advert = models.TextField(blank=True)
     briefing = HTMLField(blank=True, max_length=10000)
-    warden_info = HTMLField(blank=True, max_length=10000)
+    warden_info = HTMLField(blank=True, max_length=20000)
     publish = models.BooleanField(default=False)
 
     def __str__(self):
