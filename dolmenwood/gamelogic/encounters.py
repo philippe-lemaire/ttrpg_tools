@@ -451,6 +451,9 @@ class Encounter:
             self.being = region_table[region][roll("1d20")]
         self.roll_quantity()
         self.activity = activities.get(roll("1d20"))
+        self.surprise = roll("1d6") <= 2
+        self.distance = f"{roll('2d6') * 30}’"
+        self.reaction = roll("2d6")
 
     def __repr__(self):
         return self.being

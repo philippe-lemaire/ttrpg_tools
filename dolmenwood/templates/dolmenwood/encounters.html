@@ -9,13 +9,51 @@
 {% crispy form form.helper %}
 
 
-<div class="card" style="width: 18rem;">
+<div class="card">
   <div class="card-body">
     <h5 class="card-title">Encounter rolled</h5>
     <h6 class="card-subtitle mb-2 text-body-secondary">Type: {{type}}</h6>
     <p class="card-text">{{encounter}}</p>
     <p class="card-text">Activity: {{encounter.activity}}</p>
+    <p class="card-text">Surprise: {{encounter.surprise}}</p>
+    <p class="card-text">Distance: {{encounter.distance}}</p>
+    <p class="card-text">Reaction: {{encounter.reaction}}</p>
   </div>
 </div>
 
+<br>
+
+<h3>Reaction</h3>
+<p>If reaction to the party is uncertain, use this table, modified by speaking PC's Charisma Modifier.</p>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">2d6</th>
+      <th scope="col">Reaction</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">2 or less</th>
+      <td>Attacks</td>
+      </tr>
+    <tr>
+      <th scope="row">3-5</th>
+      <td>Hostile, may attack</td>
+
+    </tr>
+    <tr>
+      <th scope="row">6-8</th>
+      <td>Uncertain, wary</td>
+    </tr>
+    <tr>
+      <th scope="row">9-11</th>
+      <td>Indifferent, may negotiate</td>
+    </tr>
+    <tr>
+      <th scope="row">12</th>
+      <td>Eager, friendly</td>
+    </tr>
+  </tbody>
+</table>
 {% endblock content %}
