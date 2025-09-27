@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+    {% block subbar %}
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Treasure & Magic Items
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'ose:hoards' %}">Hoards</a>
+
+
+        </div>
+      </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Monsters & Adversaries
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'ose:monster_list' %}">Monsters TODO</a>
+          <a class="dropdown-item" href="{% url 'ose:adventuring_party' %}">Adventuring Party TODO</a>
+          <a class="dropdown-item" href="{% url 'dolmenwood:roll_encounters' %}">Encounters</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+    {% endblock subbar %}

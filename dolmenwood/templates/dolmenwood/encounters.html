@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Dolmenwood - Encounters{% endblock title %}
+{% block content %}
+<h1>Dolmenwood Encounter Roller</h1>
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
+
+<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">Encounter rolled</h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">Type: {{type}}</h6>
+    <p class="card-text">{{encounter}}</p>
+    <p class="card-text">Activity: {{encounter.activity}}</p>
+  </div>
+</div>
+
+{% endblock content %}

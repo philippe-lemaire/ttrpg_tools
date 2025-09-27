@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     "shadowdark",
     "ose",
     "break",
+    "dolmenwood",
 ]
 
 MIDDLEWARE = [

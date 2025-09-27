@@ -1,0 +1,48 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Dolmenwood - Character Gen{% endblock title %}
+{% block content %}
+<h1>A Dolmenwood Character</h1>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{char.first_name}} {{char.last_name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{char.background}}</h6>
+    <p>{{char.profile|safe}}</p>
+    <div class="row">
+        <div class="col">
+            <table class="table">
+            <tr>
+                <th>Strength</th>
+                <th>Dexterity</th>
+                <th>Constitution</th>
+                <th>Intelligence</th>
+                <th>Wisdom</th>
+                <th>Charisma</th>
+            </tr>
+            <tr>
+                <td>{{char.Strength}}</td>
+                <td>{{char.Dexterity}}</td>
+                <td>{{char.Constitution}}</td>
+                <td>{{char.Intelligence}}</td>
+                <td>{{char.Wisdom}}</td>
+                <td>{{char.Charisma}}</td>
+            </tr>
+            <tr>
+                <td>{{char.Strength_mod}}</td>
+                <td>{{char.Dexterity_mod}}</td>
+                <td>{{char.Constitution_mod}}</td>
+                <td>{{char.Intelligence_mod}}</td>
+                <td>{{char.Wisdom_mod}}</td>
+                <td>{{char.Charisma_mod}}</td>
+            </tr>
+            </table>
+
+        </div>
+
+    </div><!-- row-->
+  </div>
+</div>
+
+{% endblock content %}
