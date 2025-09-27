@@ -8,6 +8,7 @@
 {% load crispy_forms_tags %}
 {% crispy form form.helper %}
 
+{% if encounter %}
 
 <div class="card">
   <div class="card-body">
@@ -56,4 +57,5 @@
     </tr>
   </tbody>
 </table>
+{% endif %}
 {% endblock content %}
