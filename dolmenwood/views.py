@@ -3,6 +3,7 @@ from .gamelogic.character import Character
 from django.views.generic import TemplateView
 from .forms import EncounterForm
 from .gamelogic.encounters import type_roller, Encounter
+from .gamelogic.adventuring_party import AdventuringParty
 
 
 def create_character(request):
@@ -27,4 +28,10 @@ def roll_encounter(request):
             print(region)
             context["type"] = type_
             context["encounter"] = Encounter(type_, region)
+    return render(request, template_name, context)
+
+
+def adventuring_party(request):
+    context = {"party": AdventuringParty()}
+    template_name = "dolmenwood/adventuring_party.html"
     return render(request, template_name, context)

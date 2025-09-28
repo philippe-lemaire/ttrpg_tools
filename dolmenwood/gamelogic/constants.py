@@ -19,3 +19,5 @@ ENCOUNTER_CIRCUMSTANCES = (
     "Nighttime: Fire",
     "Nighttime: No Fire",
 )
+
+ALIGNMENTS = ("Lawful", "Neutral", "Chaotic")

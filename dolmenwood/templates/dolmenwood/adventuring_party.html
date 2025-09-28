@@ -1,0 +1,30 @@
+{% extends "dolmenwood/base_dolmenwood.html" %}
+
+{% load static %}
+
+{% block content %}
+<h1>Dolmenwood Adventuring party</h1>
+
+<h2>Party</h2>
+<div class="container">
+    <div class="row">
+        {% for character in party.characters %}
+        <div class="card m-2" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{character}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">level {{character.level}}, AL {{party.alignment}}</h6>
+                <p class="card-text"><b>HP:</b> {{character.hp}}</p>
+            </div>
+        </div>
+
+        {% endfor %}
+    </div>
+</div>
+
+<h2>Party Quest</h2>
+<p>{{party.quest}}</p>
+
+<h2>Carried treasure</h2>
+<p>{{party.treasure}}</p>
+
+{% endblock %}
