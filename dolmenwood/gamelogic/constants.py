@@ -11,6 +11,7 @@ REGIONS = (
     "Table Downs",
     "Tithelands",
     "Valley of Wise Beasts",
+    "Fairy Roads",
 )
 
 ENCOUNTER_CIRCUMSTANCES = (

@@ -358,6 +358,29 @@ region_dicts = (
         19: "Wodewose (1d6)",
         20: "Woodgrue (3d6)",
     },
+    # fairy roads
+    {
+        1: "Adventuring Party",
+        2: "Barrowbogey (2d6)",
+        3: "Centaur—Sylvan (2d6)",
+        4: "Drune—Braithmaid (1d3) 14",
+        5: "Drune—Cottager (1d3)",
+        6: "Elf—Courtier (1d3)",
+        7: "Elf—Knight (1d8)",
+        8: "Elf—Wanderer (1d6)",
+        9: "Fairy Horse (1)",
+        10: "Goblin (2d6)",
+        11: "Grimalkin (1d4)",
+        12: "Lost Soul ‡ (1d4)",
+        13: "Redcap (2d6)",
+        14: "Redcap (2d6)",
+        15: "Scrabey (1d6)",
+        16: "Shape-Stealer (1d6)",
+        17: "Snail, Giant—Psionic (1)",
+        18: "Sprite (2d6)",
+        19: "Witch (1d6)",
+        20: "Woodgrue (3d6)",
+    },
 )
 
 region_table = {r: d for r, d in zip(REGIONS, region_dicts)}
@@ -448,6 +471,8 @@ class Encounter:
         if self.type_ != "Regional":
             self.being = table[self.type_][roll("1d20")]
         else:
+            self.being = region_table[region][roll("1d20")]
+        if region == REGIONS[-1]:  # fairy roads case
             self.being = region_table[region][roll("1d20")]
         self.roll_quantity()
         self.activity = activities.get(roll("1d20"))
