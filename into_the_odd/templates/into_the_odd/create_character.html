@@ -17,15 +17,12 @@ Into the Odd Character Generator
         <div class="card-body">
           <h5 class="card-title">{{character.name}}</h5>
 
-          <p>{{character.gender}} {{type}}</p>
-          <div class="row">
-            <h6>Stats</h6>
-            <p>STR {{character.STR}}, DEX {{character.DEX}}, WIL {{character.WIL}}, {{character.HP}} HP</p>
-            <h6>Starting gear</h6>
-            <ul class="">
-            {% for item in character.starter_package %}<li class="list-group-item">{{item|safe}}</li>{% endfor %}
-            </ul>
-          </div><!-- row-->
+          <p><em>{{character.gender}} {{type}}</em></p>
+          <p>STR {{character.STR}}, DEX {{character.DEX}}, WIL {{character.WIL}}, {{character.HP}} HP</p>
+          <h6><b>Starting gear</b></h6>
+          <ul class="">
+          {% for item in character.starter_package %}<li>{{item|safe}}</li>{% endfor %}
+          </ul>
         </div><!--card-body-->
       </div><!--card-->
     </div><!--col-sm-->
@@ -37,15 +34,10 @@ Into the Odd Character Generator
       <div class="card mt-2 mb-2" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">{{companion.name}}</h5>
-
-          <p>{{companion.gender}} {{type}}</p>
-          <div class="row">
-            <h6>Stats</h6>
-            <p>STR {{companion.STR}}, DEX {{companion.DEX}}, WIL {{companion.WIL}}, {{companion.HP}} HP</p>
-            <h6>Starting gear</h6>
-            <p>{{companion.starter_package}}</p>
-
-          </div><!-- row-->
+          <p><em>{{companion.gender}} {{type}}</em></p>
+          <p>STR {{companion.STR}}, DEX {{companion.DEX}}, WIL {{companion.WIL}}, {{companion.HP}} HP</p>
+          <h6>Starting gear</h6>
+          <p>{{companion.starter_package}}</p>
         </div><!--card-body-->
       </div><!--card-->
     </div><!--col-sm-->
