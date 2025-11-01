@@ -6,7 +6,7 @@ Into the Odd Character Generator
 
 {% block content %}
 
-<h1>Into the Odd Character Generator</h1>
+<h1>Into the Odd Character {{type}} Generator</h1>
 
 <div class="container mt-5">
   <div class="row">
@@ -17,12 +17,16 @@ Into the Odd Character Generator
         <div class="card-body">
           <h5 class="card-title">{{character.name}}</h5>
 
-          <p><em>{{character.gender}} {{type}}</em></p>
+          <p><em>{{character.gender}} {{type}} {{character.unhuman_type}}</em></p>
           <p>STR {{character.STR}}, DEX {{character.DEX}}, WIL {{character.WIL}}, {{character.HP}} HP</p>
-          <h6><b>Starting gear</b></h6>
+          <h6><b>Starting gear / ability</b></h6>
           <ul class="">
           {% for item in character.starter_package %}<li>{{item|safe}}</li>{% endfor %}
           </ul>
+          {% if character.human_perception %}
+          <h5>What Humans think of your people</h5>
+          <p>{{character.human_perception}}</p>
+          {% endif %}
         </div><!--card-body-->
       </div><!--card-->
     </div><!--col-sm-->
@@ -38,6 +42,7 @@ Into the Odd Character Generator
           <p>STR {{companion.STR}}, DEX {{companion.DEX}}, WIL {{companion.WIL}}, {{companion.HP}} HP</p>
           <h6>Starting gear</h6>
           <p>{{companion.starter_package}}</p>
+
         </div><!--card-body-->
       </div><!--card-->
     </div><!--col-sm-->

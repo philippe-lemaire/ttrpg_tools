@@ -28,10 +28,15 @@ def create_lackeys(request):
 
 
 def create_mutant_character(request):
-    context = {"character": game_logic.MutantCharacter(), "type": "Mutant"}
+    context = {
+        "character": game_logic.MutantCharacter(),
+        "type": "Mutant",
+        "companions": [game_logic.Companion() for _ in range(2)],
+    }
     return render(
         request,
-        template_name="into_the_odd/create_mutant_character.html",
+        template_name="into_the_odd/create_character.html",
+        # template_name="into_the_odd/create_mutant_character.html",
         context=context,
     )
 
@@ -40,11 +45,12 @@ def create_unhuman_character(request):
     context = {
         "character": game_logic.UnhumanCharacter(),
         "type": "Unhuman",
+        "companions": [game_logic.Companion() for _ in range(2)],
     }
 
     return render(
         request,
-        template_name="into_the_odd/create_unhuman_character.html",
+        template_name="into_the_odd/create_character.html",
         context=context,
     )
 
@@ -52,7 +58,7 @@ def create_unhuman_character(request):
 def create_simple_folk_character(request):
     context = {
         "character": game_logic.SimpleFolkCharacter(),
-        "companion": game_logic.Companion(),
+        "companions": [game_logic.Companion() for _ in range(2)],
         "type": "Simple Folk",
     }
     return render(
