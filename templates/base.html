@@ -64,6 +64,9 @@
     <a class="nav-link" href="{% url 'tor:index' %}">The One Ring</a>
   </li>
   <li class="nav-item">
+    <a class="nav-link" href="{% url 'vaarn:index' %}">The Vaults of Vaarn</a>
+  </li>
+  <li class="nav-item">
       <a class="nav-link" href="{% url 'admin:index' %}">Admin</a>
   </li>
   {% if request.user.is_authenticated %}
