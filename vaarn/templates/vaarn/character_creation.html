@@ -2,12 +2,63 @@
 
 {% block content %}
 <h1>Vaarn Character Generator</h1>
-{% load static %}
 
-<br><br>
+<br>
 
 
-<p>{{character}}</p>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{character.name}}</h5>
+    <div class="row">
+      <p>{{character.ancestry}}</p>
+      <table class="table">
+        <tr>
+          <th>STR</th>
+          <th>DEX</th>
+          <th>CON</th>
+          <th>INT</th>
+          <th>PSY</th>
+          <th>EGO</th>
+          <th>HP</th>
+        </tr>
+        <tr>
+          <td>+{{character.STR}}</td>
+          <td>+{{character.DEX}}</td>
+          <td>+{{character.CON}}</td>
+          <td>+{{character.INT}}</td>
+          <td>+{{character.PSY}}</td>
+          <td>+{{character.EGO}}</td>
+          <td>{{character.hp}}</td>
+        </tr>
+      </table>
+    </div>
+
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <th>Starting gear</th>
+        </tr>
+        <tr>
+          <td>
+            <ul>
+              {% for item in character.inventory %}
+              <li>{{item|safe}}
+                <ul>
+                  {% for tag in item.tags %}
+                  <li>{{tag|safe}}</li>
+                  {% endfor %}
+                </ul>
+              </li>
+
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div><!-- row-->
+  </div>
+</div>
 
 
 {% endblock %}
