@@ -10,7 +10,7 @@
   <div class="card-body">
     <h5 class="card-title">{{character.name}}</h5>
     <div class="row">
-      <p>{{character.ancestry}}</p>
+      <p>{{character.ancestry}}, boon: {{character.boon}}</p>
       <table class="table">
         <tr>
           <th>STR</th>
@@ -20,6 +20,7 @@
           <th>PSY</th>
           <th>EGO</th>
           <th>HP</th>
+          <th>Healing rate</th>
         </tr>
         <tr>
           <td>+{{character.STR}}</td>
@@ -29,6 +30,7 @@
           <td>+{{character.PSY}}</td>
           <td>+{{character.EGO}}</td>
           <td>{{character.hp}}</td>
+          <td>{{character.healing_rate}}</td>
         </tr>
       </table>
     </div>
