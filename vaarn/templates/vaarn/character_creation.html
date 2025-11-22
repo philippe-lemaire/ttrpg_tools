@@ -34,6 +34,23 @@
         </tr>
       </table>
     </div>
+    {% if character.cybernetics_implant %}
+    <div class="row">
+      <table class="table">
+        <tr>
+          <th>Cybernetics Implant</th>
+          <th>Ability slot</th>
+          <th>Effect</th>
+        </tr>
+        <tr>
+          <td>{{character.cybernetics_implant.name}}</td>
+          <td>{{character.cybernetics_implant.ability}}</td>
+          <td>{{character.cybernetics_implant.effect}}</td>
+        </tr>
+      </table>
+
+    </div>
+    {% endif %}
 
     <div class="row">
 

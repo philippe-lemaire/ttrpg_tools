@@ -5,6 +5,9 @@ from .weapons import weapon_generator, rarities
 from .boons import BOONS
 from .armor import gen_armor, gen_helmet_and_shield
 from .explorer_gear import gen_gear
+from .cybernetics import gen_cybernetic_implant
+
+
 from random import randint, choice
 
 
@@ -18,11 +21,13 @@ class Character:
         self.item_slots = 10 + self.CON
         self.inventory = ["3 rations of water", "3 rations of food"]
         self.boon = choice(BOONS)
-        r = 1 if self.boon == "Advanced Weapon" else 0
+        r = 1 if self.boon == BOONS[0] else 0
         self.inventory.append(weapon_generator(rarities[r]))
         self.inventory.append(gen_armor())
         self.inventory.extend(gen_helmet_and_shield())
         self.inventory.extend(gen_gear())
+        if self.boon == BOONS[2]:
+            self.cybernetics_implant = gen_cybernetic_implant()
         # TODO add additional rolls for the other boons
         # TODO add all the traits for each 10 ancestries gasp
 
