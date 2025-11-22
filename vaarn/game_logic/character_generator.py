@@ -3,6 +3,8 @@ from .abilities import ABILITIES
 from .dice import roll_stat
 from .weapons import weapon_generator, rarities
 from .boons import BOONS
+from .armor import gen_armor, gen_helmet_and_shield
+from .explorer_gear import gen_gear
 from random import randint, choice
 
 
@@ -16,10 +18,11 @@ class Character:
         self.item_slots = 10 + self.CON
         self.inventory = ["3 rations of water", "3 rations of food"]
         self.boon = choice(BOONS)
-        # add 1 roll on basic weapon and armor tables
         r = 1 if self.boon == "Advanced Weapon" else 0
         self.inventory.append(weapon_generator(rarities[r]))
-        # TODO add 2 rolls on the explorer gear table
+        self.inventory.append(gen_armor())
+        self.inventory.extend(gen_helmet_and_shield())
+        self.inventory.extend(gen_gear())
         # TODO add additional rolls for the other boons
         # TODO add all the traits for each 10 ancestries gasp
 
