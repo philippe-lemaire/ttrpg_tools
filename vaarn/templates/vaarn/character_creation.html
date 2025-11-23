@@ -8,7 +8,8 @@
 
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">Character name{{character.name}}, {{character.ancestry}}</h5>
+    <h5 class="card-title">{{character.name}}, {{character.ancestry}}</h5>
+
     <p>Boon: {{character.boon}}</p>
     <div class="row">
       <table class="table">
@@ -51,6 +52,26 @@
 
     </div>
     {% endif %}
+
+    {% if character.looks %} <!--True Kin-->
+    <div class="row">
+      <table class="table">
+        <tr>
+          <th>Looks and other details</th>
+        </tr>
+        <tr>
+          <td>{{character.looks}}</td>
+        </tr>
+        <tr>
+          <td>
+            {{character.manner}} manner, {{character.quirk}}, {{character.caste}}
+          </td>
+
+        </tr>
+      </table>
+    </div>
+    {% endif %}
+
     {% if character.mutations %}
     <div class="row">
       <table class="table">
