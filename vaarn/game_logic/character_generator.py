@@ -22,7 +22,7 @@ class Character:
         # force true kin for template testing
         # self.ancestry = ANCESTRIES[0]
         # force cacogen for template testing
-        self.ancestry = ANCESTRIES[1]
+        # self.ancestry = ANCESTRIES[1]
         if self.ancestry == ANCESTRIES[0]:  # True Kin
             self.looks = gen_looks_true_kin()
             set_character_name_and_details_true_kin(self)
