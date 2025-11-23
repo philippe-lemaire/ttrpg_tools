@@ -38,7 +38,7 @@ class Character:
             self.inventory.append(gen_exotica())
         elif self.boon == BOONS[4]:
             self.inventory.append(gen_codex())
-        else:  # last boon Mystic Gift
+        elif self.boon == BOONS[5]:  # last boon Mystic Gift
             self.mystic_gift = gen_mystery_gift()
             self.random_gift = gen_random_gift()
 
