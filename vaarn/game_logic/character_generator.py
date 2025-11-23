@@ -29,7 +29,7 @@ class Character:
         # force synth ancestry for template testing
         # self.ancestry = ANCESTRIES[2]
         # force newbeast ancestry for template testing
-        self.ancestry = ANCESTRIES[3]  # newbeast
+        # self.ancestry = ANCESTRIES[3]  # newbeast
 
         if self.ancestry == ANCESTRIES[0]:  # True Kin
             self.looks = gen_looks_true_kin()
