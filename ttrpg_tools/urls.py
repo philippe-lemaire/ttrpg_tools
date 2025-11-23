@@ -45,4 +45,5 @@ urlpatterns = [
     path("old-school-essentials/", include("ose.urls")),
     path("break!!/", include("break.urls")),
     path("dolmenwood/", include("dolmenwood.urls")),
+    path("vaults-of-vaarn/", include("vaarn.urls")),
 ]

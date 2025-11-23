@@ -1,0 +1,106 @@
+{% extends "vaarn/base_vaarn.html" %}
+
+{% block content %}
+<h1>Vaarn Character Generator</h1>
+
+<br>
+
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">Character name{{character.name}}, {{character.ancestry}}</h5>
+    <p>Boon: {{character.boon}}</p>
+    <div class="row">
+      <table class="table">
+        <tr>
+          <th>STR</th>
+          <th>DEX</th>
+          <th>CON</th>
+          <th>INT</th>
+          <th>PSY</th>
+          <th>EGO</th>
+          <th>HP</th>
+          <th>Healing rate</th>
+        </tr>
+        <tr>
+          <td>+{{character.STR}}</td>
+          <td>+{{character.DEX}}</td>
+          <td>+{{character.CON}}</td>
+          <td>+{{character.INT}}</td>
+          <td>+{{character.PSY}}</td>
+          <td>+{{character.EGO}}</td>
+          <td>{{character.hp}}</td>
+          <td>{{character.healing_rate}}</td>
+        </tr>
+      </table>
+    </div>
+    {% if character.cybernetics_implant %}
+    <div class="row">
+      <table class="table">
+        <tr>
+          <th>Cybernetics Implant</th>
+          <th>Ability slot</th>
+          <th>Effect</th>
+        </tr>
+        <tr>
+          <td>{{character.cybernetics_implant.name}}</td>
+          <td>{{character.cybernetics_implant.ability}}</td>
+          <td>{{character.cybernetics_implant.effect}}</td>
+        </tr>
+      </table>
+
+    </div>
+    {% endif %}
+
+    {% if character.mystic_gift %}
+    <div class="row">
+      <table class="table">
+        <tr>
+          <th>Mystic Gift</th>
+          <th>Source</th>
+
+        </tr>
+        <tr>
+          <td>{{character.mystic_gift.gift}}</td>
+          <td>{{character.mystic_gift.source}}</td>
+        </tr>
+        <tr>
+          <td colspan="2"><em><b>Alternative Random Gift:</b></em> {{character.random_gift}}. Define its effect with
+            your referee and group.</th>
+        </tr>
+
+      </table>
+
+    </div>
+    {% endif %}
+
+    <div class="row">
+
+      <table class="table">
+        <tr>
+          <th>Starting gear</th>
+        </tr>
+        <tr>
+          <td>
+            <p>{{character.item_slots}} item slots.</p>
+            <ul>
+              {% for item in character.inventory %}
+              <li>{{item|safe}}
+                <ul>
+                  {% for tag in item.tags %}
+                  <li>{{tag|safe}}</li>
+                  {% endfor %}
+                </ul>
+              </li>
+
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+      </table>
+    </div><!-- row-->
+  </div>
+</div>
+
+
+{% endblock %}
