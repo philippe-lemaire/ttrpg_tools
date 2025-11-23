@@ -13,16 +13,20 @@ from .alchemy import gen_crucible
 from .mutations import get_mutations
 from .true_kin import gen_looks_true_kin, set_character_name_and_details_true_kin
 from .cacogen import gen_looks_cacogen, set_character_name_and_details_cacogen
+from .synth import get_synth_looks, set_synth_details
 from random import randint, choice
 
 
 class Character:
     def __init__(self):
+        self.inventory = ["3 rations of water", "3 rations of food"]
         self.ancestry = choice(ANCESTRIES)
         # force true kin for template testing
         # self.ancestry = ANCESTRIES[0]
         # force cacogen for template testing
         # self.ancestry = ANCESTRIES[1]
+        # force synth ancestry for template testing
+        self.ancestry = ANCESTRIES[2]
         if self.ancestry == ANCESTRIES[0]:  # True Kin
             self.looks = gen_looks_true_kin()
             set_character_name_and_details_true_kin(self)
@@ -30,12 +34,16 @@ class Character:
             self.mutations = get_mutations(3)
             self.looks = gen_looks_cacogen()
             set_character_name_and_details_cacogen(self)
+        elif self.ancestry == ANCESTRIES[2]:  # Synth
+            self.looks = get_synth_looks()
+            set_synth_details(self)
+            self.inventory.append("3 spare Synth parts")
         for ability in ABILITIES:
             setattr(self, ability, roll_stat())
 
         self.hp = randint(1, 8)
         self.item_slots = 10 + self.CON
-        self.inventory = ["3 rations of water", "3 rations of food"]
+
         self.boon = choice(BOONS)
         r = 1 if self.boon == BOONS[0] else 0
         self.inventory.append(weapon_generator(rarities[r]))
