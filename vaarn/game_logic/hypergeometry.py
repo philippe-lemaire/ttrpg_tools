@@ -107,6 +107,99 @@ equations_data = (
     ),
 )
 
+mishaps_data = (
+    (
+        "Antithesis",
+        "Births a daemonic, insanely evil copy of the reader, with their Level and HP. The copy is violently opposed to the existence of the reader - if it makes physical contact with the reader, both entities are explosively destroyed. The antithetical copy exists for [INT] combat rounds.",
+    ),
+    (
+        "Brainstorm",
+        "The reader’s muddled thoughts are actualised as polychrome lightning, which pours from their eyes and mouth. Everyone nearby takes 2d6 electrical damage, DEX save for half damage.",
+    ),
+    (
+        "Chroma-shadow",
+        "The reader’s shadow permanently shifts in hue, becoming pinkish-orange.",
+    ),
+    (
+        "Codex Collapse",
+        "The hypergeometric codex collapses in on itself, vanishing from existence",
+    ),
+    (
+        "Entropy-withered",
+        "The reader’s body twists and decays under the effect of entropic hypergeometric forces. They lose d6 maximum HP and cannot regain it.",
+    ),
+    (
+        "Giant Item",
+        "An item in the reader’s inventory is subjected to hypergeometric forces, becoming enormous. The item’s weight in slots triples. Roll d10 to determine the slot affected. The change is permanent.",
+    ),
+    (
+        "Gigantism",
+        "The reader’s body grows uncontrollably in size, swelling to fill the room they are inside. All other occupants must evacuate or be crushed. If this happens outdoors, they continue to grow for the entire duration of this mishap. The growth lasts [INT] hours, followed by a steady deflation.",
+    ),
+    (
+        "Inverted Anatomy",
+        "A hypergeometric flux places the reader’s internal organs on the outside of their body and their clothing inside. Their AV score is now 10, and they take doubled damage from all sources. This effect lasts [INT] days.",
+    ),
+    (
+        "Inverted Fate",
+        "The reader’s destiny is inverted. All failed Saves and attack rolls are successes and all successful Saves and attack rolls are failures. This effect lasts [INT] days.",
+    ),
+    (
+        "Labyrinth Pox",
+        "The reader contracts Labyrinth Pox, a hypergeometric ailment (p.xx).",
+    ),
+    (
+        "Lost Past",
+        "The reader permanently loses a chunk of their history. The PC loses a single Level, and must subtract d8 HP from their maximum. They must reduce their Ability scores by three points.",
+    ),
+    (
+        "Petrified",
+        "The reader’s body freezes under the weight of crushing hypergeometric force. The reader is unable to move or act for [INT] hours.",
+    ),
+    (
+        "Planeyfied",
+        "The reader becomes a 2D hypergeometric being. Refer to the Planeyfolk ancestry (p.xx) for special rules. This effect lasts [INT] days.",
+    ),
+    (
+        "Quantum Daemon",
+        "A paradoxical quantum daemon (p.xx) is called into existence. It is displeased about this and wishes the reader ill.",
+    ),
+    (
+        "Revelation",
+        "The reader witnesses a terrible vista in a higher-order dimension, taking d6 damage to INT, PSY, and EGO.",
+    ),
+    (
+        "Shrunken Head",
+        "The reader’s head is subjected to hypergeometric forces, becoming minute. Their body retains its size. The PC gains a Wound: Shrunken Head. They lose d6 INT, PSY and EGO and cannot wear helmets or hats.",
+    ),
+    (
+        "Space-Time Vortex",
+        "A mispronunciation creates a rupture in the fabric of space and time. The vortex begins vomiting forth inanimate debris and living creatures. Roll once on the local encounter table each combat round: the creature is ejected from the vortex at high velocity, along with rubble or other inanimate debris (DEX save to avoid).",
+    ),
+    (
+        "Spirit Hand",
+        "The reader’s left hand is permanently drawn into a hypergeometric dimension adjacent to our own. Their left arm ends in a strange blue fissure and the missing hand feels as though it is immersed in cold television static. Take d10 DEX damage. Unarmed attacks with the missing hand take on the hypergeometric damage property.",
+    ),
+    (
+        "The Yellow Door",
+        "The reader develops a yellow hypergeometric door in their forehead. The door is locked and cannot be opened. The effect is permanent.",
+    ),
+    (
+        "Tiny Item",
+        "An item in the reader’s inventory is subjected to hypergeometric forces, becoming tiny and totally useless. The item’s weight in slots is reduced to nothing. Roll d10 to determine the slot affected. The change is permanent.",
+    ),
+)
+
+
+@dataclass
+class HyperGeometryMishap:
+    name: str
+    effect: str
+
+
+def gen_hypergeometry_mishap():
+    return HyperGeometryMishap(*choice(mishaps_data))
+
 
 @dataclass
 class Equation:

@@ -1,0 +1,12 @@
+{% extends "vaarn/base_vaarn.html" %}
+
+{% block content %}
+<h1>Vaarn Hypergeometry Codex Generator</h1>
+{% load static %}
+
+<br><br>
+
+<p>{{codex.appearance}}</p>
+
+<p>Equation: {{codex.equation|safe}}</p>
+{% endblock %}

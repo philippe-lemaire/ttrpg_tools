@@ -1,0 +1,12 @@
+{% extends "vaarn/base_vaarn.html" %}
+
+{% block content %}
+<h1>Vaarn Hypergeometry Mishap</h1>
+{% load static %}
+
+<br><br>
+
+<h2>{{mishap.name}}</h2>
+
+<p>{{mishap.effect|safe}}</p>
+{% endblock %}
