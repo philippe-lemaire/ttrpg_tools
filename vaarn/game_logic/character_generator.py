@@ -7,7 +7,7 @@ from .armor import gen_armor, gen_helmet_and_shield
 from .explorer_gear import gen_gear
 from .cybernetics import gen_cybernetic_implant
 from .exotica import gen_exotica
-
+from .hypergeometry import gen_codex
 
 from random import randint, choice
 
@@ -31,6 +31,8 @@ class Character:
             self.cybernetics_implant = gen_cybernetic_implant()
         if self.boon == BOONS[3]:
             self.inventory.append(gen_exotica())
+        if self.boon == BOONS[4]:
+            self.inventory.append(gen_codex())
         # TODO add additional rolls for the other boons
         # TODO add all the traits for each 10 ancestries gasp
 
