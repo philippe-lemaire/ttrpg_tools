@@ -17,4 +17,5 @@ urlpatterns = [
         views.vaarn_hypergeometry_mishap_view,
         name="roll_mishap",
     ),
+    path("mutations", views.vaarn_get_mutation_view, name="roll_mutation"),
 ]

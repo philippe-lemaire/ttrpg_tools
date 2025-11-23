@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from .game_logic.character_generator import Character
 from .game_logic.hypergeometry import gen_hypergeometry_mishap, gen_codex
+from .game_logic.mutations import get_mutations
 
 # Create your views here.
 
@@ -25,4 +26,10 @@ def vaarn_gen_codex_view(request):
 def vaarn_hypergeometry_mishap_view(request):
     context = {"mishap": gen_hypergeometry_mishap()}
     template_name = "vaarn/mishap.html"
+    return render(request, template_name, context)
+
+
+def vaarn_get_mutation_view(request):
+    context = {"mutation": get_mutations(1).pop()}
+    template_name = "vaarn/mutations.html"
     return render(request, template_name, context)
