@@ -7,9 +7,16 @@
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-
       <li><a class="nav-link" href="{% url 'vaarn:character_generator' %}">Create a PC</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Hypergeometry</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{% url 'vaarn:roll_mishap' %}">Random Mishap</a>
+          <a class="dropdown-item" href="{% url 'vaarn:roll_codex' %}">Random Codex</a>
 
+        </div>
+      </li>
     </ul>
   </div>
 
