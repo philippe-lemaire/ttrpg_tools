@@ -14,6 +14,7 @@ from .mutations import get_mutations
 from .true_kin import gen_looks_true_kin, set_character_name_and_details_true_kin
 from .cacogen import gen_looks_cacogen, set_character_name_and_details_cacogen
 from .synth import get_synth_looks, set_synth_details
+from .newbeast import get_newbeast_looks, set_newbeast_name_and_animal
 from random import randint, choice
 
 
@@ -26,7 +27,10 @@ class Character:
         # force cacogen for template testing
         # self.ancestry = ANCESTRIES[1]
         # force synth ancestry for template testing
-        self.ancestry = ANCESTRIES[2]
+        # self.ancestry = ANCESTRIES[2]
+        # force newbeast ancestry for template testing
+        self.ancestry = ANCESTRIES[3]  # newbeast
+
         if self.ancestry == ANCESTRIES[0]:  # True Kin
             self.looks = gen_looks_true_kin()
             set_character_name_and_details_true_kin(self)
@@ -38,6 +42,10 @@ class Character:
             self.looks = get_synth_looks()
             set_synth_details(self)
             self.inventory.append("3 spare Synth parts")
+        elif self.ancestry == ANCESTRIES[3]:  # newbeast
+            self.looks = get_newbeast_looks()
+            set_newbeast_name_and_animal(self)
+
         for ability in ABILITIES:
             setattr(self, ability, roll_stat())
 
