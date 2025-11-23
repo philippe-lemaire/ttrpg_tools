@@ -10,6 +10,7 @@ from .exotica import gen_exotica
 from .hypergeometry import gen_codex
 from .mystic_gift import gen_mystery_gift, gen_random_gift
 from .alchemy import gen_crucible
+from .mutations import get_mutations
 
 from random import randint, choice
 
@@ -17,6 +18,10 @@ from random import randint, choice
 class Character:
     def __init__(self):
         self.ancestry = choice(ANCESTRIES)
+        # force cacogen for template testing
+        # self.ancestry = ANCESTRIES[1]
+        if self.ancestry == ANCESTRIES[1]:  # cacogen
+            self.mutations = get_mutations(3)
         for ability in ABILITIES:
             setattr(self, ability, roll_stat())
         self.healing_rate = randint(1, 8) + self.CON

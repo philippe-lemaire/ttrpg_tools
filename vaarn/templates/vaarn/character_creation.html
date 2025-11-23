@@ -51,7 +51,22 @@
 
     </div>
     {% endif %}
+    {% if character.mutations %}
+    <div class="row">
+      <table class="table">
+        <tr>
+          <th colspan="2">Mutations</th>
+        </tr>
+        {% for mutation in character.mutations %}
+        <tr>
+          <td>{{mutation.name}}</td>
+          <td>{{mutation.description}}</td>
+        </tr>
+        {% endfor %}
+      </table>
 
+    </div>
+    {% endif %}
     {% if character.mystic_gift %}
     <div class="row">
       <table class="table">
