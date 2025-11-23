@@ -32,7 +32,7 @@ class Character:
             set_character_name_and_details_cacogen(self)
         for ability in ABILITIES:
             setattr(self, ability, roll_stat())
-        self.healing_rate = randint(1, 8) + self.CON
+
         self.hp = randint(1, 8)
         self.item_slots = 10 + self.CON
         self.inventory = ["3 rations of water", "3 rations of food"]
