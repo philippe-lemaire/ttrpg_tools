@@ -8,6 +8,8 @@ from .explorer_gear import gen_gear
 from .cybernetics import gen_cybernetic_implant
 from .exotica import gen_exotica
 from .hypergeometry import gen_codex
+from .mystic_gift import gen_mystery_gift, gen_random_gift
+from .alchemy import gen_crucible
 
 from random import randint, choice
 
@@ -27,12 +29,19 @@ class Character:
         self.inventory.append(gen_armor())
         self.inventory.extend(gen_helmet_and_shield())
         self.inventory.extend(gen_gear())
-        if self.boon == BOONS[2]:
+        if self.boon == BOONS[1]:
+            self.inventory.append(gen_crucible())
+            self.inventory.append("1 Elixir")
+        elif self.boon == BOONS[2]:
             self.cybernetics_implant = gen_cybernetic_implant()
-        if self.boon == BOONS[3]:
+        elif self.boon == BOONS[3]:
             self.inventory.append(gen_exotica())
-        if self.boon == BOONS[4]:
+        elif self.boon == BOONS[4]:
             self.inventory.append(gen_codex())
+        else:  # last boon Mystic Gift
+            self.mystic_gift = gen_mystery_gift()
+            self.random_gift = gen_random_gift()
+
         # TODO add additional rolls for the other boons
         # TODO add all the traits for each 10 ancestries gasp
 
