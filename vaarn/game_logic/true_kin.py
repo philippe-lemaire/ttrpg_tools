@@ -255,8 +255,23 @@ castes = (
 )
 
 
-def set_character_details_true_kin(char):
+@dataclass
+class CharacterDetailsTrueKin:
+    manner: str
+    quirk: str
+    caste: str
+
+    def __repr__(self):
+        return f"{self.manner.capitalize()} manner. {self.quirk.capitalize()}. {self.caste.capitalize()}."
+
+
+def get_character_detail_true_kin():
+    manner = choice(name_manner_quirk_table)[1]
+    quirk = choice(name_manner_quirk_table)[2]
+    caste = choice(castes)
+    return CharacterDetailsTrueKin(manner, quirk, caste)
+
+
+def set_character_name_and_details_true_kin(char):
     char.name = choice(name_manner_quirk_table)[0]
-    char.manner = choice(name_manner_quirk_table)[1]
-    char.quirk = choice(name_manner_quirk_table)[2]
-    char.caste = choice(castes)
+    char.details = get_character_detail_true_kin()

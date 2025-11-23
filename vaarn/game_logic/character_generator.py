@@ -11,7 +11,8 @@ from .hypergeometry import gen_codex
 from .mystic_gift import gen_mystery_gift, gen_random_gift
 from .alchemy import gen_crucible
 from .mutations import get_mutations
-from .true_kin import gen_looks_true_kin, set_character_details_true_kin
+from .true_kin import gen_looks_true_kin, set_character_name_and_details_true_kin
+from .cacogen import gen_looks_cacogen, set_character_name_and_details_cacogen
 from random import randint, choice
 
 
@@ -19,14 +20,16 @@ class Character:
     def __init__(self):
         self.ancestry = choice(ANCESTRIES)
         # force true kin for template testing
-        self.ancestry = ANCESTRIES[0]
+        # self.ancestry = ANCESTRIES[0]
         # force cacogen for template testing
+        self.ancestry = ANCESTRIES[1]
         if self.ancestry == ANCESTRIES[0]:  # True Kin
             self.looks = gen_looks_true_kin()
-            set_character_details_true_kin(self)
-        # self.ancestry = ANCESTRIES[1]
-        if self.ancestry == ANCESTRIES[1]:  # cacogen
+            set_character_name_and_details_true_kin(self)
+        elif self.ancestry == ANCESTRIES[1]:  # cacogen
             self.mutations = get_mutations(3)
+            self.looks = gen_looks_cacogen()
+            set_character_name_and_details_cacogen(self)
         for ability in ABILITIES:
             setattr(self, ability, roll_stat())
         self.healing_rate = randint(1, 8) + self.CON
