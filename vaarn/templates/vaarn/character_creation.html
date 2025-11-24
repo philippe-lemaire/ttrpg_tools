@@ -86,6 +86,22 @@
 
     </div>
     {% endif %}
+    {% if character.bloomboon %}
+    <div class="row">
+      <table class="table">
+        <tr>
+          <th colspan="2">Bloomboons</th>
+        </tr>
+
+        <tr>
+          <td>{{character.bloomboon|safe}}</td>
+
+        </tr>
+
+      </table>
+
+    </div>
+    {% endif %}
     {% if character.mystic_gift %}
     <div class="row">
       <table class="table">
