@@ -19,17 +19,12 @@ from random import randint, choice
 
 
 class Character:
-    def __init__(self):
+    def __init__(self, ancestry=None):
         self.inventory = ["3 rations of water", "3 rations of food"]
-        self.ancestry = choice(ANCESTRIES)
-        # force true kin for template testing
-        # self.ancestry = ANCESTRIES[0]
-        # force cacogen for template testing
-        # self.ancestry = ANCESTRIES[1]
-        # force synth ancestry for template testing
-        # self.ancestry = ANCESTRIES[2]
-        # force newbeast ancestry for template testing
-        # self.ancestry = ANCESTRIES[3]  # newbeast
+        if ancestry:
+            self.ancestry = ancestry
+        else:
+            self.ancestry = choice(ANCESTRIES)
 
         if self.ancestry == ANCESTRIES[0]:  # True Kin
             self.looks = gen_looks_true_kin()

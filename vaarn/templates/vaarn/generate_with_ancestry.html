@@ -1,0 +1,10 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Vaarn - Character Gen{% endblock title %}
+{% block content %}
+
+<h1>Choose your Ancestry</h1>
+{% crispy form form.helper %}
+
+{% endblock content%}
