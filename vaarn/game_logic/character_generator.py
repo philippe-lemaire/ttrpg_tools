@@ -24,6 +24,8 @@ from random import randint, choice
 class Character:
     def __init__(self, ancestry=None):
         self.inventory = ["3 rations of water", "3 rations of food"]
+        self.hp = randint(1, 8)
+
         if ancestry:
             self.ancestry = ancestry
         else:
@@ -47,13 +49,12 @@ class Character:
             set_neobloom_name_and_details(self)
         elif self.ancestry == ANCESTRIES[5]:  # mycomorph
             set_mycomorph_name_and_details(self)
-
+        elif self.ancestry == ANCESTRIES[9]:  # lithling
+            self.hp += sum(randint(1, 8) for _ in range(9))
         for ability in ABILITIES:
             setattr(self, ability, roll_stat())
 
-        self.hp = randint(1, 8)
         self.item_slots = 10 + self.CON
-
         self.boon = choice(BOONS)
         r = 1 if self.boon == BOONS[0] else 0
         self.inventory.append(weapon_generator(rarities[r]))
