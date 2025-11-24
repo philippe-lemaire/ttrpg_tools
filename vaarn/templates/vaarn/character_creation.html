@@ -97,9 +97,21 @@
           <td>{{character.bloomboon|safe}}</td>
 
         </tr>
-
       </table>
+    </div>
+    {% endif %}
+    {% if character.spore %}
+    <div class="row">
+      <table class="table">
+        <tr>
+          <th colspan="2">Spores</th>
+        </tr>
 
+        <tr>
+          <td>{{character.spore|safe}}</td>
+
+        </tr>
+      </table>
     </div>
     {% endif %}
     {% if character.mystic_gift %}

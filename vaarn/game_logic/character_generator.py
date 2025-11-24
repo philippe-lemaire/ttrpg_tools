@@ -16,6 +16,7 @@ from .cacogen import gen_looks_cacogen, set_character_name_and_details_cacogen
 from .synth import get_synth_looks, set_synth_details
 from .newbeast import get_newbeast_looks, set_newbeast_name_and_animal
 from .neobloom import set_neobloom_name_and_details
+from .mycomorph import set_mycomorph_name_and_details
 
 from random import randint, choice
 
@@ -44,6 +45,8 @@ class Character:
             set_newbeast_name_and_animal(self)
         elif self.ancestry == ANCESTRIES[4]:  # neobloom
             set_neobloom_name_and_details(self)
+        elif self.ancestry == ANCESTRIES[5]:  # mycomorph
+            set_mycomorph_name_and_details(self)
 
         for ability in ABILITIES:
             setattr(self, ability, roll_stat())
