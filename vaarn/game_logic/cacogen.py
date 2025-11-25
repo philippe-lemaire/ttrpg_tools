@@ -144,7 +144,7 @@ class CharacterDetailsCacogen:
     excentricity: str
 
     def __repr__(self):
-        return f"{self.manner.capitalize()} manner. {self.misfortune.capitalize()}. {self.excentricity.capitalize()}."
+        return f"{self.manner.capitalize()} manner. Misfortune: {self.misfortune.capitalize()}. Excentricity: {self.excentricity.capitalize()}."
 
 
 def get_character_details_cacogen():
