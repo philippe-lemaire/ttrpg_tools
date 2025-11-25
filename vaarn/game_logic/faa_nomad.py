@@ -1,5 +1,6 @@
-from random import choice, randint
+from random import choice
 from dataclasses import dataclass
+from .special_rules import SpecialRule
 
 
 looks_table = (
@@ -225,6 +226,17 @@ quirks = (
     "Notorious Amongst Faa",
 )
 
+special_rules_data = (
+    (
+        "Desert Metabolism",
+        "Your body is adapted to long periods without water. You can recycle the moisture from your own sweat. You become Deprived from thirst after three days without drinking, and it will be three weeks before you die.",
+    ),
+    (
+        "Worm Rider",
+        "When in the deep desert, you may summon a Sandworm (p.xx) by rhythmically dancing. It will arrive within an hour, with a 2-in-6 chance of being a juvenile (p.xx). Make a DEX save to mount and ride the worm. It will carry you for d6 days in a direction of your choice before tiring.",
+    ),
+)
+
 
 @dataclass
 class CharacterDetailsFaaNomad:
@@ -247,3 +259,4 @@ def set_character_name_and_details_faa_nomad(char):
     char.name = choice(names)
     char.details = get_character_detail_faa_nomad()
     char.looks = gen_looks_faa_nomad()
+    char.special_rules = (SpecialRule(*data) for data in special_rules_data)

@@ -1,5 +1,6 @@
-from random import choice, randint
+from random import choice
 from dataclasses import dataclass
+from .special_rules import SpecialRule
 
 
 looks_table = (
@@ -269,6 +270,17 @@ flat_origins = (
     "You were a hypergeometrician, there was an accident",
 )
 
+special_rules_data = (
+    (
+        "Flat",
+        "You lack a third dimension, and resemble a living painting or paper doll. You can slip through cracks and under doors, and cannot be seen from the side. You take halved damage from bludgeoning attacks, and doubled damage from slashing or piercing attacks. ",
+    ),
+    (
+        "Attune with Matter",
+        "You struggle to hold 3D objects, and must make a DEX save to do so. However, with certain mental techniques you can draw 3D objects into your flattened reality. Given an hour of quiet concentration, you can attune yourself with an item and add it to your inventory.",
+    ),
+)
+
 
 @dataclass
 class CharacterDetailsPlaneyFolk:
@@ -291,3 +303,4 @@ def set_character_name_and_details_planeyfolk(char):
     char.name = choice(names_manners_geometry)[0]
     char.details = get_character_detail_planeyfolk()
     char.looks = gen_looks_planeyfolk()
+    char.special_rules = (SpecialRule(*data) for data in special_rules_data)

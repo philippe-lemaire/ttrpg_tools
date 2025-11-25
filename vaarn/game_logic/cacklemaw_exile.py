@@ -1,6 +1,6 @@
-from random import choice, randint
+from random import choice
 from dataclasses import dataclass
-
+from .special_rules import SpecialRule
 
 looks_table = (
     (
@@ -224,6 +224,21 @@ laughs = (
     "Puns",
 )
 
+special_rules_data = (
+    (
+        "No Quarter",
+        " You must EGO save to show mercy to a defeated foe, or to retreat from a fight.",
+    ),
+    (
+        "Biter",
+        " If you successfully hit a foe with a melee attack, you may add an extra d6 of fang damage to the roll. ",
+    ),
+    (
+        "More!",
+        " When you kill a foe with a melee attack, you may immediately make another melee attack against a nearby target.",
+    ),
+)
+
 
 @dataclass
 class CharacterDetailsCackleMawExile:
@@ -246,3 +261,4 @@ def set_character_name_and_details_cacklemaw_exile(char):
     char.name = choice(names)
     char.details = get_character_detail_caklemaw_exile()
     char.looks = gen_looks_cacklemaw_exile()
+    char.special_rules = (SpecialRule(*data) for data in special_rules_data)

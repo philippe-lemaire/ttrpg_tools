@@ -1,5 +1,6 @@
-from random import choice, randint
+from random import choice
 from dataclasses import dataclass
+from .special_rules import SpecialRule
 
 
 shape_leaves_bark_flowers_table = (
@@ -367,6 +368,22 @@ class NeobloomDetails:
         return f"{self.manner} manner, {self.voxpod} Vox-Pod, quirk: {self.quirk}"
 
 
+special_rules_data = (
+    (
+        "Photosynthesis",
+        "You regain d8 + CON HP for every hour you spend rooted in damp soil under the light of Urth’s sun. Artificial lighting does not suffice. If you do not photosynthesise for three days in a row, you will perish.",
+    ),
+    (
+        "Flammable",
+        "you take double damage from flames and heat-based attacks. Once hit, you suffer d8 burning damage per round until extinguished.",
+    ),
+    (
+        "Bloomboons",
+        "You begin play with one Bloomboon (already rolled above). When you gain a Level, you may choose to roll for a Boon instead of gaining HP and increasing your ability scores. If a repeat result is rolled, take the next Boon down.",
+    ),
+)
+
+
 def get_neobloom_details():
     data = [choice(name_manner_vox_pod_quirk_table)[k] for k in range(1, 4)]
     return NeobloomDetails(*data)
@@ -378,3 +395,4 @@ def set_neobloom_name_and_details(char):
     char.details = get_neobloom_details()
     char.looks = get_neobloom_looks()
     char.bloomboon = Bloomboon(*choice(bloomboons_data))
+    char.special_rules = (SpecialRule(*data) for data in special_rules_data)

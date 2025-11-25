@@ -1,6 +1,6 @@
 from random import choice, randint
 from dataclasses import dataclass
-
+from .special_rules import SpecialRule
 
 looks_table = (
     (
@@ -265,6 +265,18 @@ class CharacterDetailsTrueKin:
         return f"{self.manner.capitalize()} manner. {self.quirk.capitalize()}. {self.caste.capitalize()}."
 
 
+special_rules_data = (
+    (
+        "Pure of Blood",
+        "You have ADV on reaction and persuasion rolls when you encounter other true-kin. You lose this bonus if you ever become visibly mutated.",
+    ),
+    (
+        "Inheritor",
+        "When you encounter pre-Collapse security systems or guard synths, make an opposed EGO save. On success, the machine becomes convinced that you are its new master and will serve you in any way it is able. On failure the machine becomes implacably hostile.",
+    ),
+)
+
+
 def get_character_detail_true_kin():
     manner = choice(name_manner_quirk_table)[1]
     quirk = choice(name_manner_quirk_table)[2]
@@ -275,3 +287,5 @@ def get_character_detail_true_kin():
 def set_character_name_and_details_true_kin(char):
     char.name = choice(name_manner_quirk_table)[0]
     char.details = get_character_detail_true_kin()
+    char.looks = gen_looks_true_kin()
+    char.special_rules = (SpecialRule(*data) for data in special_rules_data)

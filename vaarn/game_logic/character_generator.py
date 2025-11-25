@@ -11,7 +11,7 @@ from .hypergeometry import gen_codex
 from .mystic_gift import gen_mystery_gift, gen_random_gift
 from .alchemy import gen_crucible
 from .mutations import get_mutations
-from .true_kin import gen_looks_true_kin, set_character_name_and_details_true_kin
+from .true_kin import set_character_name_and_details_true_kin
 from .cacogen import gen_looks_cacogen, set_character_name_and_details_cacogen
 from .synth import get_synth_looks, set_synth_details
 from .newbeast import get_newbeast_looks, set_newbeast_name_and_animal
@@ -36,7 +36,6 @@ class Character:
             self.ancestry = choice(ANCESTRIES)
 
         if self.ancestry == ANCESTRIES[0]:  # True Kin
-            self.looks = gen_looks_true_kin()
             set_character_name_and_details_true_kin(self)
         elif self.ancestry == ANCESTRIES[1]:  # cacogen
             self.mutations = get_mutations(3)

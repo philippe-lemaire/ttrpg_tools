@@ -1,6 +1,7 @@
 from random import choice, randint
 from dataclasses import dataclass
 from .true_kin import looks_table, TrueKinLooks
+from .special_rules import SpecialRule
 
 
 class CacogenLooks(TrueKinLooks):
@@ -153,6 +154,19 @@ def get_character_details_cacogen():
     return CharacterDetailsCacogen(manner, misfortune, excentricity)
 
 
+special_rules_data = (
+    (
+        "Corrupted Blood",
+        "During character creation, roll d100 three times for mutations (already rolled above). If the effects contradict one another, the more recent mutation takes precedence..",
+    ),
+    (
+        "Proteus",
+        "When you gain a Level you may roll for another mutation instead of increasing HP and ability scores. You have DIS on Saves to resist mutation and other metamorphic effects.",
+    ),
+)
+
+
 def set_character_name_and_details_cacogen(char):
     char.name = choice(name_manner_misfortune_extrentricity_table)[0]
     char.details = get_character_details_cacogen()
+    char.special_rules = (SpecialRule(*data) for data in special_rules_data)

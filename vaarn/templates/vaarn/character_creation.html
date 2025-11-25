@@ -51,7 +51,7 @@
     </div>
     {% endif %}
 
-    {% if character.looks %} <!--True Kin-->
+    {% if character.looks %}
     <div class="row">
       <table class="table">
         <tr>
@@ -161,6 +161,23 @@
         </tr>
       </table>
     </div><!-- row-->
+    <div class="row">
+      <table class="table">
+        <tr>
+          <th>Special Rules for the {{character.ancestry}} Ancestry</th>
+        </tr>
+        <tr>
+          <td>
+            <ul>
+              {% for rule in character.special_rules %}
+              <li>{{rule|safe}}</li>
+              {% endfor %}
+            </ul>
+          </td>
+        </tr>
+
+      </table>
+    </div>
   </div>
 </div>
 

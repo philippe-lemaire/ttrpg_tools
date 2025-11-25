@@ -1,5 +1,6 @@
-from random import choice, randint
+from random import choice
 from dataclasses import dataclass
+from .special_rules import SpecialRule
 
 body_head_colour_texture_table = (
     (
@@ -284,9 +285,26 @@ def get_mycomorph_details():
     return MycomorphDetails(*data)
 
 
+special_rules_data = (
+    (
+        "Twice Born",
+        "You are formed from fungus and the corpse of a human. You may make INT saves to recall information that your original body knew. This might include information that has otherwise been lost during the Great Collapse.",
+    ),
+    (
+        "Detritivore",
+        "You can consume organic matter in any state of decay and gain nourishment from it. You heal double HP from Short Rests if the meal you eat is rotting. You have ADV on all Saves vs poison and toxins.",
+    ),
+    (
+        "Spores",
+        "Make a CON when you release spores, which affect a number of Biological targets equal to your Level. If you fail your Save, you cannot release anymore spores that day. See spark table for details of your spores.",
+    ),
+)
+
+
 def set_mycomorph_name_and_details(char):
     names = [row[0] for row in name_manner_corpse_table]
     char.name = choice(names)
     char.details = get_mycomorph_details()
     char.looks = get_mycomorph_looks()
     char.spore = Spores(*choice(spores_data))
+    char.special_rules = (SpecialRule(*data) for data in special_rules_data)

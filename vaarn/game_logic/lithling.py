@@ -1,5 +1,6 @@
-from random import choice, randint
+from random import choice
 from dataclasses import dataclass
+from .special_rules import SpecialRule
 
 
 sizes = (
@@ -255,6 +256,17 @@ names_manners_study_quirk = (
     ),
 )
 
+special_rules_data = (
+    (
+        "Crystalline Flesh",
+        "You are made from living crystal. Your base AV is 10 + your Level (maximum 20). You do not need to eat or drink. You do not take damage from fire, cold, poison, radiation, electricity, fungal spores, or suffocation. You suffer double damage from bludgeoning attacks.",
+    ),
+    (
+        "Inevitable",
+        "During character generation, roll 10d8. This number is your starting and maximum HP. (NB: already rolled above) You cannot heal lost HP through any means, and do not add to your maximum HP when you gain a level. When your HP tally reaches zero you crumble into iridescent dust, leaving behind a pebble-sized lithling seed.",
+    ),
+)
+
 
 @dataclass
 class CharacterDetailsLithling:
@@ -277,3 +289,4 @@ def set_character_name_and_details_lithling(char):
     char.name = choice(names_manners_study_quirk)[0]
     char.details = get_character_detail_lithling()
     char.looks = gen_looks_lithling()
+    char.special_rules = (SpecialRule(*data) for data in special_rules_data)

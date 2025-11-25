@@ -1,6 +1,6 @@
-from random import choice, randint
+from random import choice
 from dataclasses import dataclass
-
+from .special_rules import SpecialRule
 
 looks_table = (
     (
@@ -257,6 +257,21 @@ power_sources = (
     "Vampirism",
 )
 
+special_rules_data = (
+    (
+        "Synthetic Flesh",
+        "You are a being of metal and plastic. You do not need to eat or breathe. You are immune to damage from suffocation, drowning, toxins, extreme temperatures, or spores. You suffer double damage from electrical weapons. When you receive Wounds, use the Synthetic Wounds table.",
+    ),
+    (
+        "Synthetic Mind",
+        "You are vulnerable to attacks that target the LogLang syntax that powers synths. These include strobing basilisk patterns, malicious infoglyphs, and ancient Titan-era language viruses. You suffer d6 INT damage per round from magnetic fields.",
+    ),
+    (
+        "Repairs",
+        "You cannot regain HP by consuming rations. You must make repairs using Synth Parts. You begin play with 3 spare Synth Parts, which stack in one item slot. A repair takes an hour and uses up one synth part. Repairs heal d8 + CON HP. If HP is full, heal one Wound. To extract parts from dead synthetic creatures, make an INT save. On a success, extract usable synth parts equal to their Level. On failure, extract one usable part.",
+    ),
+)
+
 
 @dataclass
 class SynthDetails:
@@ -273,4 +288,4 @@ def set_synth_details(char):
     data.insert(1, choice(power_sources))
     char.details = SynthDetails(*data[1:])
     char.name = data[0]
-    return None
+    char.special_rules = (SpecialRule(*data) for data in special_rules_data)

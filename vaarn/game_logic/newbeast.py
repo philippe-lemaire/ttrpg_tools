@@ -1,6 +1,6 @@
-from random import choice, randint
+from random import choice
 from dataclasses import dataclass
-
+from .special_rules import SpecialRule
 
 name_and_looks_table = (
     (
@@ -224,8 +224,20 @@ species_table = (
     "New-Scarab",
 )
 
+special_rules_data = (
+    (
+        "Beasthood",
+        "You gain ADV on saves whenever it would make sense for your animal nature to provide it. Your referee may impose DIS in circumstances where your animal nature might prove unhelpful.",
+    ),
+    (
+        "Kinship",
+        "You can speak to all creatures that share your underlying animal form, even if they would not normally be able to communicate. New-Cats can speak to true cats, cat-like monsters, mimics pretending to be cats, etc. They do not always like you.",
+    ),
+)
+
 
 def set_newbeast_name_and_animal(char):
     names = [row[0] for row in name_and_looks_table]
     char.name = choice(names)
     char.ancestry = char.ancestry + f" ({choice(species_table)})"
+    char.special_rules = (SpecialRule(*data) for data in special_rules_data)
