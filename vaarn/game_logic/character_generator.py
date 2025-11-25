@@ -19,6 +19,7 @@ from .neobloom import set_neobloom_name_and_details
 from .mycomorph import set_mycomorph_name_and_details
 from .faa_nomad import set_character_name_and_details_faa_nomad
 from .cacklemaw_exile import set_character_name_and_details_cacklemaw_exile
+from .planeyfolk import set_character_name_and_details_planeyfolk
 
 from random import randint, choice
 
@@ -55,6 +56,8 @@ class Character:
             set_character_name_and_details_faa_nomad(self)
         elif self.ancestry == ANCESTRIES[7]:  # cacklemaw exile
             set_character_name_and_details_cacklemaw_exile(self)
+        elif self.ancestry == ANCESTRIES[8]:  # planeyfolk
+            set_character_name_and_details_planeyfolk(self)
         elif self.ancestry == ANCESTRIES[9]:  # lithling
             self.hp += sum(randint(1, 8) for _ in range(9))
         for ability in ABILITIES:
