@@ -1,54 +1,59 @@
 {% extends "base.html" %}
-    {% block subbar %}
+{% block title %}Cloud Empress{% endblock title %}
+{% block subbar %}
 
-  <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <!--new nav here-->
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav mr-auto">
-       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Characters
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'cloudempress:create_character' %}">Create Character</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Land of the Cicadas
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'cloudempress:roll_encounter_land_of_cicadas' %}">Roll an Encounter</a>
-            <a class="dropdown-item" href="{% url 'cloudempress:roll_hunt_and_gather_land_of_cicadas' %}">Roll Hunt and Gather</a>
-          </div>
-        </li>
-
-
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Hidden City
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'cloudempress:create_byway' %}">Roll byways</a>
-            <a class="dropdown-item" href="{% url 'cloudempress:roll_cavern' %}">Roll cavern</a>
-            <a class="dropdown-item" href="{% url 'cloudempress:roll_settlement' %}">Roll settlement</a>
-            <a class="dropdown-item" href="{% url 'cloudempress:roll_guild' %}">Roll guild</a>
-            <a class="dropdown-item" href="{% url 'cloudempress:roll_mystling' %}">Roll Mystling</a>
-            <a class="dropdown-item" href="{% url 'cloudempress:roll_forgotten_mine' %}">Roll Forgotten Mine</a>
-            <a class="dropdown-item" href="{% url 'cloudempress:roll_exit' %}">Roll an Exit</a>
-            <a class="dropdown-item" href="{% url 'cloudempress:roll_encounter' %}">Roll an Encounter</a>
-            <a class="dropdown-item" href="{% url 'cloudempress:spells' %}">Spells</a>
-            <a class="dropdown-item" href="#">some other stuff</a>
-          </div>
-        </li>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!--new nav here-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Characters
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'cloudempress:create_character' %}">Create Character</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Land of the Cicadas
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'cloudempress:roll_encounter_land_of_cicadas' %}">Roll an Encounter</a>
+          <a class="dropdown-item" href="{% url 'cloudempress:roll_hunt_and_gather_land_of_cicadas' %}">Roll Hunt and
+            Gather</a>
+        </div>
+      </li>
 
 
-      </ul>
-    </div>
-  </nav>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Hidden City
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'cloudempress:create_byway' %}">Roll byways</a>
+          <a class="dropdown-item" href="{% url 'cloudempress:roll_cavern' %}">Roll cavern</a>
+          <a class="dropdown-item" href="{% url 'cloudempress:roll_settlement' %}">Roll settlement</a>
+          <a class="dropdown-item" href="{% url 'cloudempress:roll_guild' %}">Roll guild</a>
+          <a class="dropdown-item" href="{% url 'cloudempress:roll_mystling' %}">Roll Mystling</a>
+          <a class="dropdown-item" href="{% url 'cloudempress:roll_forgotten_mine' %}">Roll Forgotten Mine</a>
+          <a class="dropdown-item" href="{% url 'cloudempress:roll_exit' %}">Roll an Exit</a>
+          <a class="dropdown-item" href="{% url 'cloudempress:roll_encounter' %}">Roll an Encounter</a>
+          <a class="dropdown-item" href="{% url 'cloudempress:spells' %}">Spells</a>
+          <a class="dropdown-item" href="#">some other stuff</a>
+        </div>
+      </li>
+
+
+    </ul>
+  </div>
+</nav>
 
 {% endblock subbar %}

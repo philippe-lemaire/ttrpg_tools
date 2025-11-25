@@ -1,10 +1,11 @@
 {% extends "base.html" %}
+{% block title %}The One Ring 2e{% endblock title %}
 {% block subbar %}
 
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-  aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-  <span class="navbar-toggler-icon"></span>
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
   </button>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
@@ -15,17 +16,18 @@
         <a class="nav-link" href="{% url 'tor:treasure' %}">Treasure</a>
       </li>
       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Strider Mode
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'tor:strider_telling_table' %}">Telling Table</a>
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Strider Mode
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'tor:strider_telling_table' %}">Telling Table</a>
 
 
-            <a class="dropdown-item" href="{% url 'tor:strider_fortune_table' %}">Fortune Table</a>
-            <a class="dropdown-item" href="{% url 'tor:strider_solo_journey' %}">Journey Roll</a>
-            <a class="dropdown-item" href="{% url 'tor:strider_revelation_episode' %}">Revelation Episode</a>
-          </div>
+          <a class="dropdown-item" href="{% url 'tor:strider_fortune_table' %}">Fortune Table</a>
+          <a class="dropdown-item" href="{% url 'tor:strider_solo_journey' %}">Journey Roll</a>
+          <a class="dropdown-item" href="{% url 'tor:strider_revelation_episode' %}">Revelation Episode</a>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" href="{% url 'tor:nameless_thing' %}">Nameless Things</a>
@@ -34,4 +36,4 @@
   </div>
 </nav>
 
-    {% endblock subbar %}
+{% endblock subbar %}

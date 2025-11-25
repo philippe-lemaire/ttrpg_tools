@@ -1,45 +1,39 @@
 {% extends "base.html" %}
-    {% block subbar %}
+{% block title %}Cairn 2e{% endblock title %}
+{% block subbar %}
 
-    <nav class="navbar navbar-expand-lg navbar-light">
-      <!--new nav here-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav mr-auto">
-       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Characters
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'cairn:generate_character' %}">Randomize everything</a>
-            <a class="dropdown-item" href="{% url 'cairn:generate_with_background' %}">Choose background</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Procedures
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'cairn:dungeon_events' %}">Dungeon events</a>
-            <a class="dropdown-item" href="{% url 'cairn:wilderness_events' %}">Wilderness events</a>
-            <a class="dropdown-item" href="{% url 'cairn:reaction_roll' %}">Reaction Roll</a>
-          </div>
-        </li>
-        <!--
-        <li class="nav-item">
-          <a class="nav-link" href="#">Features</a>
-        </li>
-
-          <li class="nav-item">
-          <a class="nav-link" href="#">Pricing</a>
-        </li>-->
-
-      </ul>
-
+<nav class="navbar navbar-expand-lg navbar-light">
+  <!--new nav here-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Characters
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'cairn:generate_character' %}">Randomize everything</a>
+          <a class="dropdown-item" href="{% url 'cairn:generate_with_background' %}">Choose background</a>
         </div>
-    </nav>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Procedures
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'cairn:dungeon_events' %}">Dungeon events</a>
+          <a class="dropdown-item" href="{% url 'cairn:wilderness_events' %}">Wilderness events</a>
+          <a class="dropdown-item" href="{% url 'cairn:reaction_roll' %}">Reaction Roll</a>
+        </div>
+      </li>
+    </ul>
 
-    {% endblock subbar %}
+  </div>
+</nav>
+
+{% endblock subbar %}

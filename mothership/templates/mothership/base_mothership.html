@@ -1,52 +1,57 @@
 {% extends "base.html" %}
-    {% block subbar %}
+{% block title %}Mothership{% endblock title %}
+{% block subbar %}
 
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <!--new nav here-->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
-          aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-      </button>
-    <div class="collapse navbar-collapse" id="navbarNavDropdown">
-      <ul class="navbar-nav mr-auto">
-       <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Characters
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'mothership:create_character' %}">Create Character</a>
-            <a class="dropdown-item" href="#">Contractors</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Gradient Descent
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'gradientdescent:roll_encounters' %}">Encounters</a>
-            <a class="dropdown-item" href="{% url 'gradientdescent:monarchs' %}">Monarchs</a>
-            <a class="dropdown-item" href="{% url 'gradientdescent:d100_tables' "artifacts"  %}">Artifacts</a>
-            <a class="dropdown-item" href="{% url 'gradientdescent:d100_tables' "random_search"  %}">Random Search</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Wages of Sin
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'mothership:bounties' %}">Bounties Board</a>
-          </div>
-        </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Search Tables (per module)
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="{% url 'mothership:search_tables' %}">Search Tables</a>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!--new nav here-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Characters
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'mothership:create_character' %}">Create Character</a>
+          <a class="dropdown-item" href="#">Contractors</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Gradient Descent
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'gradientdescent:roll_encounters' %}">Encounters</a>
+          <a class="dropdown-item" href="{% url 'gradientdescent:monarchs' %}">Monarchs</a>
+          <a class="dropdown-item" href="{% url 'gradientdescent:d100_tables' " artifacts" %}">Artifacts</a>
+          <a class="dropdown-item" href="{% url 'gradientdescent:d100_tables' " random_search" %}">Random Search</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Wages of Sin
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'mothership:bounties' %}">Bounties Board</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
+          Search Tables (per module)
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'mothership:search_tables' %}">Search Tables</a>
 
-          </div>
-        </li>
-        <!--
+        </div>
+      </li>
+      <!--
         <li class="nav-item">
           <a class="nav-link" href="#">Features</a>
         </li>
@@ -55,9 +60,9 @@
           <a class="nav-link" href="#">Pricing</a>
         </li>-->
 
-      </ul>
+    </ul>
 
-        </div>
-    </nav>
+  </div>
+</nav>
 
-    {% endblock subbar %}
+{% endblock subbar %}
