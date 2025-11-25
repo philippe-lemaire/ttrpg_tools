@@ -17,6 +17,8 @@ from .synth import get_synth_looks, set_synth_details
 from .newbeast import get_newbeast_looks, set_newbeast_name_and_animal
 from .neobloom import set_neobloom_name_and_details
 from .mycomorph import set_mycomorph_name_and_details
+from .faa_nomad import set_character_name_and_details_faa_nomad
+from .cacklemaw_exile import set_character_name_and_details_cacklemaw_exile
 
 from random import randint, choice
 
@@ -49,6 +51,10 @@ class Character:
             set_neobloom_name_and_details(self)
         elif self.ancestry == ANCESTRIES[5]:  # mycomorph
             set_mycomorph_name_and_details(self)
+        elif self.ancestry == ANCESTRIES[6]:  # faa nomad
+            set_character_name_and_details_faa_nomad(self)
+        elif self.ancestry == ANCESTRIES[7]:  # cacklemaw exile
+            set_character_name_and_details_cacklemaw_exile(self)
         elif self.ancestry == ANCESTRIES[9]:  # lithling
             self.hp += sum(randint(1, 8) for _ in range(9))
         for ability in ABILITIES:
