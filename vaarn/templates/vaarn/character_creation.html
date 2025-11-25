@@ -58,18 +58,18 @@
           <th>Looks and other details</th>
         </tr>
         <tr>
-          <td>{{character.looks}}</td>
-        </tr>
-        <tr>
           <td>
-            {{character.details}}
+            <ul>
+              <li>{{character.looks}}</li>
+              {% if character.details %}
+              <li>{{character.details}}</li>
+              {% endif %}
+            </ul>
           </td>
-
         </tr>
       </table>
     </div>
     {% endif %}
-
     {% if character.mutations %}
     <div class="row">
       <table class="table">
@@ -83,7 +83,6 @@
         </tr>
         {% endfor %}
       </table>
-
     </div>
     {% endif %}
     {% if character.bloomboon %}
@@ -92,10 +91,8 @@
         <tr>
           <th colspan="2">Bloomboons</th>
         </tr>
-
         <tr>
           <td>{{character.bloomboon|safe}}</td>
-
         </tr>
       </table>
     </div>
