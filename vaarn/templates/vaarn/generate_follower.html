@@ -1,0 +1,36 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Vaarn - Follower Generator{% endblock title %}
+{% block content %}
+
+<h1>Follower Generator</h1>
+{% crispy form form.helper %}
+
+{% if follower %}
+<div class="card">
+  <div class="card-header">
+    <b>{{follower.name}}</b>, {{follower.description}}
+  </div>
+  <div class="card-body">
+
+    <table class="table">
+      <tr>
+        <th>Level</th>
+        <th>AV</th>
+        <th>Morale</th>
+        <th>Attack</th>
+      </tr>
+      <tr>
+        <td>{{follower.level|safe}}</td>
+        <td>{{follower.av}}</td>
+        <td>{{follower.morale}}</td>
+        <td>{{follower.attack}}</td>
+      </tr>
+    </table>
+
+  </div>
+</div>
+{% endif %}
+
+{% endblock content%}

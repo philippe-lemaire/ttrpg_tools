@@ -3,9 +3,10 @@ from django.views.generic import TemplateView
 from .game_logic.character_generator import Character
 from .game_logic.hypergeometry import gen_hypergeometry_mishap, gen_codex
 from .game_logic.mutations import get_mutations
-from .forms import AncestryForm
+from .forms import AncestryForm, FollowerForm
 from .game_logic.character_generator import Character
 from .game_logic.wounds import biological_wounds, synthetic_wounds
+from .game_logic.follower import gen_follower
 
 # Create your views here.
 
@@ -60,4 +61,15 @@ def vaarn_biological_wounds_view(request):
 def vaarn_synthetic_wounds_view(request):
     context = {"wounds": synthetic_wounds, "wound_table": "Synthetic"}
     template_name = "vaarn/wounds.html"
+    return render(request, template_name, context)
+
+
+def vaarn_generate_follower_view(request):
+    form = FollowerForm(request.POST or None)
+    context = {"form": form}
+    template_name = "vaarn/generate_follower.html"
+    if request.method == "POST":
+        if form.is_valid():
+            ego = form.cleaned_data["ego"]
+            context.update({"follower": gen_follower(ego=ego)})
     return render(request, template_name, context)

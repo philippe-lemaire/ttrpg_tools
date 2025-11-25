@@ -33,4 +33,9 @@ urlpatterns = [
         views.vaarn_synthetic_wounds_view,
         name="synthetic_wounds",
     ),
+    path(
+        "generate-follower",
+        views.vaarn_generate_follower_view,
+        name="generate_follower",
+    ),
 ]
