@@ -25,7 +25,13 @@ class AncestryForm(forms.Form):
 
 
 class FollowerForm(forms.Form):
-    ego = forms.IntegerField(max_value=10, min_value=1, required=True, initial=1)
+    ego = forms.IntegerField(
+        max_value=10,
+        min_value=1,
+        required=True,
+        initial=1,
+        label="EGO score of main PC",
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
