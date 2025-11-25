@@ -5,6 +5,7 @@ from .game_logic.hypergeometry import gen_hypergeometry_mishap, gen_codex
 from .game_logic.mutations import get_mutations
 from .forms import AncestryForm
 from .game_logic.character_generator import Character
+from .game_logic.wounds import biological_wounds, synthetic_wounds
 
 # Create your views here.
 
@@ -47,4 +48,16 @@ def vaarn_hypergeometry_mishap_view(request):
 def vaarn_get_mutation_view(request):
     context = {"mutation": get_mutations(1).pop()}
     template_name = "vaarn/mutations.html"
+    return render(request, template_name, context)
+
+
+def vaarn_biological_wounds_view(request):
+    context = {"wounds": biological_wounds, "wound_table": "Biological"}
+    template_name = "vaarn/wounds.html"
+    return render(request, template_name, context)
+
+
+def vaarn_synthetic_wounds_view(request):
+    context = {"wounds": synthetic_wounds, "wound_table": "Synthetic"}
+    template_name = "vaarn/wounds.html"
     return render(request, template_name, context)

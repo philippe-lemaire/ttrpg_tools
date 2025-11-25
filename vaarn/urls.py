@@ -23,4 +23,14 @@ urlpatterns = [
         name="roll_mishap",
     ),
     path("mutations", views.vaarn_get_mutation_view, name="roll_mutation"),
+    path(
+        "wounds/biological-wounds",
+        views.vaarn_biological_wounds_view,
+        name="biological_wounds",
+    ),
+    path(
+        "wounds/synthetic-wounds",
+        views.vaarn_synthetic_wounds_view,
+        name="synthetic_wounds",
+    ),
 ]

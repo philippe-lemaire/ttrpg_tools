@@ -1,0 +1,24 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% block title %}Vaarn - Wounds Tables{% endblock title %}
+{% block content %}
+
+<h1>{{wound_table}} Wounds</h1>
+
+<table class="table">
+  <tr>
+    <th>HP</th>
+    <th>Wound</th>
+    <th>Slots</th>
+    <th>Effect</th>
+  </tr>
+  {% for w in wounds %}
+  <tr>
+    <td>{{w.hp}}</td>
+    <td>{{w.name}}</td>
+    <td>{{w.slots}}</td>
+    <td>{{w.effect|safe}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock content%}
