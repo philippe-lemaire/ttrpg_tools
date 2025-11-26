@@ -414,3 +414,7 @@ class Mutation:
 def get_mutations(k):
     mutations = sample(mutation_data, k)
     return [Mutation(name, description) for name, description in mutations]
+
+
+def get_mutations_list():
+    return [Mutation(*data) for data in mutation_data]

@@ -53,4 +53,5 @@ urlpatterns = [
         views.vaarn_exotica,
         name="exotica",
     ),
+    path("bloomboons", views.vaarn_bloomboons, name="bloomboons"),
 ]

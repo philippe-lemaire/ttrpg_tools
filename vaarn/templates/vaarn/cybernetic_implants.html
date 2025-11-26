@@ -4,6 +4,8 @@
 
 <h1>Cybernetic Implants</h1>
 
+<p><em>highlighted row: randomly rolled entry</em></p>
+
 <table class="table">
   <tr>
     <th>D20</th>
@@ -12,7 +14,11 @@
     <th>Effect</th>
   </tr>
   {% for implant in implants %}
+  {% if r == forloop.counter %}
+  <tr class="table-primary">
+    {% else %}
   <tr>
+    {% endif %}
     <td>{{forloop.counter}}</td>
     <td>{{implant.name}}</td>
     <td>{{implant.ability}}</td>

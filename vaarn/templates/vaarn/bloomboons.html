@@ -1,28 +1,28 @@
 {% extends "vaarn/base_vaarn.html" %}
-{% block title %}Vaarn - Exotica{% endblock title %}
+{% block title %}Vaarn - Bloomboons{% endblock title %}
 {% block content %}
 
-<h1>Exotica</h1>
+<h1>Bloomboon</h1>
 
 <p><em>highlighted row: randomly rolled entry</em></p>
 
 <table class="table">
   <tr>
     <th>D20</th>
-    <th>Exotica</th>
+    <th>bloomboon</th>
 
     <th>Effect</th>
   </tr>
-  {% for exotica in exoticas %}
+  {% for bloomboon in bloomboons %}
   {% if r == forloop.counter %}
   <tr class="table-primary">
     {% else %}
   <tr>
     {% endif %}
     <td>{{forloop.counter}}</td>
-    <td>{{exotica.name}}</td>
+    <td>{{bloomboon.name}}</td>
 
-    <td>{{exotica.effect|safe}}</td>
+    <td>{{bloomboon.effect|safe}}</td>
   </tr>
   {% endfor %}
 </table>

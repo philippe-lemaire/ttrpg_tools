@@ -2,7 +2,7 @@ from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
 from .game_logic.character_generator import Character
 from .game_logic.hypergeometry import gen_hypergeometry_mishap, gen_codex
-from .game_logic.mutations import get_mutations
+from .game_logic.mutations import get_mutations_list
 from .forms import AncestryForm, FollowerForm
 from .game_logic.character_generator import Character
 from .game_logic.wounds import biological_wounds, synthetic_wounds
@@ -10,6 +10,8 @@ from .game_logic.follower import gen_follower
 from .game_logic.mercenary import gen_mercenary
 from .game_logic.cybernetics import get_cybernetic_implants_list
 from .game_logic.exotica import get_exotica_list
+from .game_logic.neobloom import get_bloomboons_list
+from random import randint
 
 # Create your views here.
 
@@ -49,12 +51,6 @@ def vaarn_hypergeometry_mishap_view(request):
     return render(request, template_name, context)
 
 
-def vaarn_get_mutation_view(request):
-    context = {"mutation": get_mutations(1).pop()}
-    template_name = "vaarn/mutations.html"
-    return render(request, template_name, context)
-
-
 def vaarn_biological_wounds_view(request):
     context = {"wounds": biological_wounds, "wound_table": "Biological"}
     template_name = "vaarn/wounds.html"
@@ -90,12 +86,25 @@ def vaarn_generate_mercenary_view(request):
 
 
 def vaarn_cybernetic_implants(request):
-    context = {"implants": get_cybernetic_implants_list()}
+    context = {"implants": get_cybernetic_implants_list(), "r": randint(1, 20)}
     template_name = "vaarn/cybernetic_implants.html"
     return render(request, template_name, context)
 
 
 def vaarn_exotica(request):
-    context = {"exoticas": get_exotica_list()}
+    context = {"exoticas": get_exotica_list(), "r": randint(1, 20)}
     template_name = "vaarn/exotica.html"
+    return render(request, template_name, context)
+
+
+def vaarn_bloomboons(request):
+    context = {"bloomboons": get_bloomboons_list(), "r": randint(1, 20)}
+
+    template_name = "vaarn/bloomboons.html"
+    return render(request, template_name, context)
+
+
+def vaarn_get_mutation_view(request):
+    context = {"mutations": get_mutations_list(), "r": randint(1, 100)}
+    template_name = "vaarn/mutations.html"
     return render(request, template_name, context)

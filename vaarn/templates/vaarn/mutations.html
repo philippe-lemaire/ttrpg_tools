@@ -1,12 +1,30 @@
 {% extends "vaarn/base_vaarn.html" %}
-
+{% block title %}Vaarn - Mutations{% endblock title %}
 {% block content %}
-<h1>Vaarn Mutation Generator</h1>
-{% load static %}
 
-<br><br>
+<h1>Mutations</h1>
 
-<h3>{{mutation.name}}</h3>
+<p><em>highlighted row: randomly rolled entry</em></p>
 
-<p>{{mutation.description}}</p>
-{% endblock %}
+<table class="table">
+  <tr>
+    <th>D100</th>
+    <th>mutation</th>
+
+    <th>Effect</th>
+  </tr>
+  {% for mutation in mutations %}
+  {% if r == forloop.counter %}
+  <tr class="table-primary">
+    {% else %}
+  <tr>
+    {% endif %}
+    <td>{{forloop.counter}}</td>
+    <td>{{mutation.name}}</td>
+
+    <td>{{mutation.description|safe}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock content%}

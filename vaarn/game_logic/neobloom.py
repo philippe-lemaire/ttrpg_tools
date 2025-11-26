@@ -396,3 +396,7 @@ def set_neobloom_name_and_details(char):
     char.looks = get_neobloom_looks()
     char.bloomboon = Bloomboon(*choice(bloomboons_data))
     char.special_rules = (SpecialRule(*data) for data in special_rules_data)
+
+
+def get_bloomboons_list():
+    return [Bloomboon(*data) for data in bloomboons_data]
