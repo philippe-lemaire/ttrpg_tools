@@ -7,6 +7,7 @@ from .forms import AncestryForm, FollowerForm
 from .game_logic.character_generator import Character
 from .game_logic.wounds import biological_wounds, synthetic_wounds
 from .game_logic.follower import gen_follower
+from .game_logic.mercenary import gen_mercenary
 
 # Create your views here.
 
@@ -66,10 +67,21 @@ def vaarn_synthetic_wounds_view(request):
 
 def vaarn_generate_follower_view(request):
     form = FollowerForm(request.POST or None)
-    context = {"form": form}
+    context = {"form": form, "retainer_type": "Follower"}
     template_name = "vaarn/generate_follower.html"
     if request.method == "POST":
         if form.is_valid():
             ego = form.cleaned_data["ego"]
             context.update({"follower": gen_follower(ego=ego)})
+    return render(request, template_name, context)
+
+
+def vaarn_generate_mercenary_view(request):
+    form = FollowerForm(request.POST or None)  # reuse the same form?
+    context = {"form": form, "retainer_type": "Mercenary"}
+    template_name = "vaarn/generate_follower.html"  # reuse the same template?
+    if request.method == "POST":
+        if form.is_valid():
+            ego = form.cleaned_data["ego"]
+            context.update({"follower": gen_mercenary(ego=ego)})
     return render(request, template_name, context)

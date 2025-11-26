@@ -38,4 +38,9 @@ urlpatterns = [
         views.vaarn_generate_follower_view,
         name="generate_follower",
     ),
+    path(
+        "generate-mercenary",
+        views.vaarn_generate_mercenary_view,
+        name="generate_mercenary",
+    ),
 ]

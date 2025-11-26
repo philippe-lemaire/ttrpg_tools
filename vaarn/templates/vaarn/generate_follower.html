@@ -1,10 +1,10 @@
 {% extends "vaarn/base_vaarn.html" %}
 {% load crispy_forms_tags %}
 {% load static %}
-{% block title %}Vaarn - Follower Generator{% endblock title %}
+{% block title %}Vaarn - {{retainer_type}} Generator{% endblock title %}
 {% block content %}
 
-<h1>Follower Generator</h1>
+<h1>{{retainer_type}} Generator</h1>
 {% crispy form form.helper %}
 
 {% if follower %}
