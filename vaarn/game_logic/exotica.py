@@ -97,3 +97,7 @@ class Exotica:
 
 def gen_exotica():
     return Exotica(*choice(exotica_data))
+
+
+def get_exotica_list():
+    return [Exotica(*data) for data in exotica_data]

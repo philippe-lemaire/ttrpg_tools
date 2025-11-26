@@ -1,0 +1,24 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% block title %}Vaarn - Exotica{% endblock title %}
+{% block content %}
+
+<h1>Exotica</h1>
+
+<table class="table">
+  <tr>
+    <th>D20</th>
+    <th>Exotica</th>
+
+    <th>Effect</th>
+  </tr>
+  {% for exotica in exoticas %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{exotica.name}}</td>
+
+    <td>{{exotica.effect|safe}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock content%}

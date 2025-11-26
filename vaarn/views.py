@@ -9,6 +9,7 @@ from .game_logic.wounds import biological_wounds, synthetic_wounds
 from .game_logic.follower import gen_follower
 from .game_logic.mercenary import gen_mercenary
 from .game_logic.cybernetics import get_cybernetic_implants_list
+from .game_logic.exotica import get_exotica_list
 
 # Create your views here.
 
@@ -91,4 +92,10 @@ def vaarn_generate_mercenary_view(request):
 def vaarn_cybernetic_implants(request):
     context = {"implants": get_cybernetic_implants_list()}
     template_name = "vaarn/cybernetic_implants.html"
+    return render(request, template_name, context)
+
+
+def vaarn_exotica(request):
+    context = {"exoticas": get_exotica_list()}
+    template_name = "vaarn/exotica.html"
     return render(request, template_name, context)

@@ -48,4 +48,9 @@ urlpatterns = [
         views.vaarn_cybernetic_implants,
         name="cybernetic_implants",
     ),
+    path(
+        "exotica",
+        views.vaarn_exotica,
+        name="exotica",
+    ),
 ]
