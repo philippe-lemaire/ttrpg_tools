@@ -394,9 +394,13 @@ def set_neobloom_name_and_details(char):
     char.name = choice(names)
     char.details = get_neobloom_details()
     char.looks = get_neobloom_looks()
-    char.bloomboon = Bloomboon(*choice(bloomboons_data))
+    bloomboon_name, bloomboon_effect = choice(bloomboons_data)
+    bloomboon_effect = bloomboon_effect.strip().capitalize()
+    char.bloomboon = Bloomboon(bloomboon_name, bloomboon_effect)
     char.special_rules = (SpecialRule(*data) for data in special_rules_data)
 
 
 def get_bloomboons_list():
-    return [Bloomboon(*data) for data in bloomboons_data]
+    return [
+        Bloomboon(name, effect.strip().capitalize()) for name, effect in bloomboons_data
+    ]
