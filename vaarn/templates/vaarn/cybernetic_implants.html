@@ -1,0 +1,24 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% block title %}Vaarn - Cybernetic Implants{% endblock title %}
+{% block content %}
+
+<h1>Cybernetic Implants</h1>
+
+<table class="table">
+  <tr>
+    <th>D20</th>
+    <th>Implant name</th>
+    <th>Ability Slot</th>
+    <th>Effect</th>
+  </tr>
+  {% for implant in implants %}
+  <tr>
+    <td>{{forloop.counter}}</td>
+    <td>{{implant.name}}</td>
+    <td>{{implant.ability}}</td>
+    <td>{{implant.effect|safe}}</td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock content%}

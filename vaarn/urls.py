@@ -43,4 +43,9 @@ urlpatterns = [
         views.vaarn_generate_mercenary_view,
         name="generate_mercenary",
     ),
+    path(
+        "cybernetic-implants",
+        views.vaarn_cybernetic_implants,
+        name="cybernetic_implants",
+    ),
 ]

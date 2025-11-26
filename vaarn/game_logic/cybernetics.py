@@ -115,3 +115,7 @@ class CyberneticImplant:
 
 def gen_cybernetic_implant():
     return CyberneticImplant(*choice(cybernetics))
+
+
+def get_cybernetic_implants_list():
+    return [CyberneticImplant(*data) for data in cybernetics]

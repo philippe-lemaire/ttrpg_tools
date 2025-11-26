@@ -8,6 +8,7 @@ from .game_logic.character_generator import Character
 from .game_logic.wounds import biological_wounds, synthetic_wounds
 from .game_logic.follower import gen_follower
 from .game_logic.mercenary import gen_mercenary
+from .game_logic.cybernetics import get_cybernetic_implants_list
 
 # Create your views here.
 
@@ -84,4 +85,10 @@ def vaarn_generate_mercenary_view(request):
         if form.is_valid():
             ego = form.cleaned_data["ego"]
             context.update({"follower": gen_mercenary(ego=ego)})
+    return render(request, template_name, context)
+
+
+def vaarn_cybernetic_implants(request):
+    context = {"implants": get_cybernetic_implants_list()}
+    template_name = "vaarn/cybernetic_implants.html"
     return render(request, template_name, context)
