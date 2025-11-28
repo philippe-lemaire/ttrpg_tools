@@ -59,7 +59,6 @@ class Character:
         elif self.ancestry == ANCESTRIES[8]:  # planeyfolk
             set_character_name_and_details_planeyfolk(self)
         elif self.ancestry == ANCESTRIES[9]:  # lithling
-            self.hp += sum(randint(1, 8) for _ in range(9))  # special hp rule
             set_character_name_and_details_lithling(self)
         for ability in ABILITIES:
             setattr(self, ability, roll_stat())

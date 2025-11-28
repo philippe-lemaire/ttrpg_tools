@@ -1,4 +1,4 @@
-from random import choice
+from random import choice, randint
 from dataclasses import dataclass
 from .special_rules import SpecialRule
 
@@ -287,6 +287,7 @@ def get_character_detail_lithling():
 
 def set_character_name_and_details_lithling(char):
     char.name = choice(names_manners_study_quirk)[0]
+    char.hp += sum(randint(1, 8) for _ in range(9))  # special hp rule
     char.details = get_character_detail_lithling()
     char.looks = gen_looks_lithling()
     char.special_rules = (SpecialRule(*data) for data in special_rules_data)
