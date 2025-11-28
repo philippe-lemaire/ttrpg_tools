@@ -58,7 +58,7 @@ INSTALLED_APPS = [
     "gradientdescent",
     "cloudempress",
     "liminal_horror",
-    "addg",
+    # "addg",
     "grimwild",
     "mythic_bastionland",
     "tor",
