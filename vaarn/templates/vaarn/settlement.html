@@ -78,8 +78,14 @@
   {% for building in settlement.buildings %}
   <div class="card m-2" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">{{building}}</h5>
-      <p class="card-text">TODO: One NPC attached to the building</p>
+      <h5 class="card-title">{{building.building_type}}</h5>
+      <h6 class="card-title">NPC: {{building.npc.name}}, {{building.npc.ancestry}} {{building.npc.career_name}}</h6>
+      <p class="card-text">{{building.npc.manner}} manner, {{building.npc.voice}} voice, driven by
+        {{building.npc.drive}}</p>
+      <p class="card-text">Their bond: {{building.npc.bond}} manner, their faith: {{building.npc.faith}}, faction
+        reputation: {{building.npc.faction_reputation}}
+      </p>
+      <p>Items: {{building.npc.items}}</p>
     </div>
   </div>
   {% endfor %}

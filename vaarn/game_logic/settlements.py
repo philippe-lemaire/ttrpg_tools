@@ -1,6 +1,6 @@
 from random import choice, randint
 from dataclasses import dataclass
-
+from .npc import gen_npc, NPC
 
 sizes = (
     "Hamlet",
@@ -506,6 +506,18 @@ def gen_problem():
 
 
 @dataclass
+class Building:
+    building_type: str
+    npc: NPC
+
+
+def gen_building():
+    building_type = choice(building_types)
+    npc = gen_npc()
+    return Building(building_type, npc)
+
+
+@dataclass
 class Settlement:
     size: str
     water_source: str
@@ -541,7 +553,7 @@ def gen_settlement():
     industry = choice(governmenta_governmentb_industry_dominantfaith)[2]
     dominant_faith = choice(governmenta_governmentb_industry_dominantfaith)[3]
     asset = gen_asset()
-    buildings = [choice(building_types) for _ in range(4)]
+    buildings = [gen_building() for _ in range(4)]
     problem = gen_problem()
 
     return Settlement(

@@ -1,0 +1,22 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% block title %}Vaarn - Random NPC{% endblock title %}
+{% block content %}
+
+<h1>A random Vaarn NPC</h1>
+
+<br><br>
+
+
+<h6 class="card-title">NPC: {{npc.name}}, {{npc.ancestry}} {{npc.career_name}}</h6>
+<p class="card-text">{{npc.manner}} manner, {{npc.voice}} voice, driven by
+  {{npc.drive}}</p>
+<p class="card-text">Their bond: {{npc.bond}} manner, their faith: {{npc.faith}}, faction
+  reputation: {{npc.faction_reputation}}
+</p>
+<p>Items: {{npc.items}}</p>
+</div>
+
+
+
+
+{% endblock content%}
