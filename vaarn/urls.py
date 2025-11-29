@@ -54,4 +54,5 @@ urlpatterns = [
         name="exotica",
     ),
     path("bloomboons", views.vaarn_bloomboons, name="bloomboons"),
+    path("random-settlement", views.vaarn_roll_settlement_view, name="roll_settlement"),
 ]

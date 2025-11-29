@@ -11,6 +11,7 @@ from .game_logic.mercenary import gen_mercenary
 from .game_logic.cybernetics import get_cybernetic_implants_list
 from .game_logic.exotica import get_exotica_list
 from .game_logic.neobloom import get_bloomboons_list
+from .game_logic.settlements import gen_settlement
 from random import randint
 
 # Create your views here.
@@ -107,4 +108,10 @@ def vaarn_bloomboons(request):
 def vaarn_get_mutation_view(request):
     context = {"mutations": get_mutations_list(), "r": randint(1, 100)}
     template_name = "vaarn/mutations.html"
+    return render(request, template_name, context)
+
+
+def vaarn_roll_settlement_view(request):
+    context = {"settlement": gen_settlement()}
+    template_name = "vaarn/settlement.html"
     return render(request, template_name, context)

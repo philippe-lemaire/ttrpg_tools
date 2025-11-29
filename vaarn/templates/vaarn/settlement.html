@@ -1,0 +1,54 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% block title %}Vaarn - Settlement{% endblock title %}
+{% block content %}
+
+<h1>A random Vaarn Settlement</h1>
+
+<br><br>
+<table class="table table-striped">
+
+  <tr>
+    <th>Size</th>
+    <td>{{settlement.size}}</td>
+  </tr>
+  <tr>
+    <th>Water Source</th>
+    <td>{{settlement.water_source}}, but {{settlement.water_source_complication}}</td>
+  </tr>
+  <tr>
+    <th>Majority Population</th>
+    <td>{{settlement.majority_population}}</td>
+  </tr>
+  <tr>
+    <th>Minority population</th>
+    <td>{{settlement.minority_population}}</td>
+  </tr>
+  <tr>
+    <th>Location</th>
+    <td>{{settlement.location}}</td>
+  </tr>
+  <tr>
+    <th>Houses</th>
+    <td>{{settlement.houses}}</td>
+  </tr>
+  <tr>
+    <th>Local Landmark</th>
+    <td>{{settlement.local_landmark}}</td>
+  </tr>
+  <tr>
+    <th>Government</th>
+    <td>{{settlement.gov1}} {{settlement.gov2}}<br><em>{{settlement.gov2}}: {{settlement.government_definition}}</em>
+    </td>
+  </tr>
+  <tr>
+    <th>Industry</th>
+    <td>{{settlement.industry}}</td>
+  </tr>
+  <tr>
+    <th>Dominant Faith</th>
+    <td>{{settlement.dominant_faith}}</td>
+  </tr>
+
+</table>
+<p></p>
+{% endblock content%}
