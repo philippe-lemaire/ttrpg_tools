@@ -403,6 +403,89 @@ assets_data = (
     ),
 )
 
+problems_data = (
+    (
+        "Power Struggle",
+        "The settlement’s political system is undergoing an upheaval. Roll again on the government types table (p.xx): the result is the insurgent political system that is trying to replace the dominant one. For every NPC generated in the settlement, roll a die: even numbers indicate that they are loyal to the old system of government, while odd numbers indicate they are openly or covertly supporters of the nascent system.",
+    ),
+    (
+        "Bigotry",
+        "The settlement is riven by deep-seated bigotry, expressed by the majority population type towards the minority. If the population is homogeneous, then the bigotry revolves around some even more petty and obscure difference.",
+    ),
+    (
+        "Virulent Disease",
+        "A disease (select one from p.xx) runs rampant through the settlement, thwarting all attempts to cure it. Those believed to be infected are shunned from fear, the dead buried in mass graves without normal rituals.",
+    ),
+    (
+        "Nanomachine Infection",
+        "A nanomachine infection (select one from p.xx) runs rampant through the settlement, thwarting all attempts to cure it. Those believed to be infected are shunned from fear.",
+    ),
+    (
+        "Unquiet Dead",
+        "Those who die within the bounds of the settlement do not stay dead. The cause is unclear, but all burials take place outside the walls.",
+    ),
+    (
+        "Rapacious Local Monsters",
+        "The settlement is harried by a nearby lair of monsters. Generate using the table on p.xx, creating the maximum population for the lair type.",
+    ),
+    (
+        "Banditry",
+        "The settlement is harried by a group of bandits, who make their camp (p.xx) somewhere nearby. The bandits are cutting off trade to the settlement, and may even make raids inside the walls to take what they please.",
+    ),
+    (
+        "Blood Feud",
+        "The settlement is riven by an internal feud between two family groups (for ancestries who do not have families, substitute with voluntary clubs or associations). All social and political life is concentrated on furthering this feud, to the detriment of all other goals.",
+    ),
+    (
+        "Looming Famine",
+        "The settlement’s food source is under threat or has already failed, and the stores of food are running perilously low. This may be public knowledge, or it may be concealed by the settlement’s rulers.",
+    ),
+    (
+        "Looming Drought",
+        "The settlement’s water source is under threat or has already dried up, and reserves of fresh water are running perilously low. This may be public knowledge, or it may be concealed by the settlement’s rulers.",
+    ),
+    (
+        "No Children",
+        "The settlement’s native population is ageing and cannot renew itself, with the normal reproductive processes of the ancestries in question having proven fruitless. The settlement has no children or immature examples of the ancestry. The only population growth comes from travellers or outsiders, who then also find they cannot produce offspring. The cause is unknown, although everyone has theories.",
+    ),
+    (
+        "Quantum Daemon Curse",
+        "The settlement is subject to a curse by an angry Quantum Daemon (p.xx), who has levied some improbable and poetic curse upon the citizens.",
+    ),
+    (
+        "Unicorn Infestation",
+        "The settlement is infested with Vaarnish Unicorns (p.xx). They breed quickly, eat everything that they can find, and leave piles of glittering dung everywhere. As fast as they can be exterminated they reappear. Everyone is thoroughly sick of them.",
+    ),
+    (
+        "Shared Nightmares",
+        "The inhabitants are troubled at night by a shared dream, which has been worsening as the days go by. They believe there is some psychic malevolence at work, but have been unable to discover the source. PCs who sleep in the settlement also begin to experience this nightmare.",
+    ),
+    (
+        "Cacklemaw Extortion",
+        "The settlement pays tribute to a Cacklemaw Clan, whose War Mama counts the inhabitants as her under creatures. Cacklemaw Clans are generally nomadic, but they show up to collect tribute at least once a year. A visit is looming, and the demands of the War Mama have ballooned beyond what the settlement can give.",
+    ),
+    (
+        "Witch Hunt",
+        "The inhabitants are consumed with obsessive searches for hidden internal enemies, violent social purges that seem to have little basis in reality. Those accused of subversion are given mock trials and ostracised or executed.",
+    ),
+    (
+        "Infiltrators",
+        "The settlement has been infiltrated by an outside group or power, and the interlopers are up to no good. Sabotage, impersonation, and paranoid are running rampant. There is suspicion that the seat of government itself has already been infiltrated.",
+    ),
+    (
+        "Religious Reformation",
+        "The dominant religion of the settlement is challenged by a newer upstart faith. Roll again on the dominant religion table (p.xx) to discover the nature of the new religion. For every NPC generated in the settlement, roll a die: even numbers indicate that they are believers in the dominant faith, while odd numbers indicate they are openly or covertly supporters of the new religion.",
+    ),
+    (
+        "Faa Vendetta",
+        "The settlement is subject to a vendetta by a local Faa Nomad Tribe (p.xx). The Faa nomads refuse to aid anyone connected with the settlement, and may be strangling trade or sabotaging water sources.",
+    ),
+    (
+        "Looming War",
+        "The settlement is preparing for open warfare with a neighbouring settlement (either choose one already existing on the map, or generate a more distant rival).",
+    ),
+)
+
 
 @dataclass
 class Asset:
@@ -410,8 +493,16 @@ class Asset:
     description: str
 
 
+class Problem(Asset):
+    pass
+
+
 def gen_asset():
     return Asset(*choice(assets_data))
+
+
+def gen_problem():
+    return Problem(*choice(problems_data))
 
 
 @dataclass
@@ -431,6 +522,7 @@ class Settlement:
     dominant_faith: str
     asset: Asset
     buildings: list
+    problem: Problem
 
 
 def gen_settlement():
@@ -450,6 +542,7 @@ def gen_settlement():
     dominant_faith = choice(governmenta_governmentb_industry_dominantfaith)[3]
     asset = gen_asset()
     buildings = [choice(building_types) for _ in range(4)]
+    problem = gen_problem()
 
     return Settlement(
         size,
@@ -467,6 +560,7 @@ def gen_settlement():
         dominant_faith,
         asset,
         buildings,
+        problem,
     )
 
 
