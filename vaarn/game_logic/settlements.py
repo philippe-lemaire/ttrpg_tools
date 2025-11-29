@@ -311,6 +311,108 @@ governemnt_definitions = {
     "Hive-Mind": "The settlement is ruled by a psychic gestalt mind. Most if not all of the residents are but appendages of a Hive-Mind. The Hive-Mind may be rational and benign or irrational and malignant, actively seeking new hosts to inhabit. In either case, no other source of authority can coexist with such an entity.",
 }
 
+building_types = (
+    "Disreputable or Abandoned building",
+    "Residential Building",
+    "Industrial Building or Workshop",
+    "Commercial Building",
+    "Religious Site",
+    "Minor Government Building",
+)
+
+assets_data = (
+    (
+        "Matter Fabricator",
+        "A wonder of the ancient world. Matter fabricators generate mass from thin air, working thousands of times faster than a mortal craftsman could. Most fabricators have but a single object in their repertoire of forms, although some exist that can create more than one thing. The settlement is overrun with the object the fabricator creates: the residents cannot even give them away.",
+    ),
+    (
+        "Beast Breeding Stables",
+        "The settlement is known for breeding pack beasts, whether they be burden birds, zorses, weeping lizards, or something even stranger. Healthy and well-trained examples of the animals are available for purchase in all markets and serrais. Races are held weekly, with much betting upon the outcome.",
+    ),
+    (
+        "Oracle’s Abode",
+        "The settlement is known as the residence of a Vaarnish Oracle, whose wisdom is unquestioned and whose eccentricites are tolerated. Generate using the table on p.xx.",
+    ),
+    (
+        "Notable Monastery",
+        "The settlement is home to a large monastery or temple, which exercises considerable influence over the politics and economy of the settlement. Assume that the monks worship the dominant faith of the settlement.",
+    ),
+    (
+        "Pilgrimage Site",
+        "The settlement is built around a notable Vaarnish holy site. It may be the grave of an Autarch, the final resting place of Solar Saint’s bones, or simply home to a fabled fountain or other holy object. Pilgrims descend on the settlement from all across Vaarn, travelling on foot or bearing their sick in litters.",
+    ),
+    (
+        "Famous Tavern",
+        "The settlement is home to a tavern that is famous throughout Vaarn, either for the quality of its beverages, the skill of its musicians and acrobats, or else the rudeness and slovenliness of its barkeep.",
+    ),
+    (
+        "Verdant Orchards",
+        "The settlement boasts proudly maintained orchards, a prize beyond measure in the arid climate of Vaarn. The water consumption per day is astronomical, but the trees and the fruit they bear is considered worth any price.",
+    ),
+    (
+        "Fighting Pit",
+        "The settlement contains a gladiatorial arena, in which professional fighters compete in bloody games of domination. Famed gladiators live luxuriously, while the losers lie ignominiously in sick beds or else are tossed into open graves.",
+    ),
+    (
+        "Hypergeometric Building",
+        "The settlement is famed for a hypergeometric building, the magnum opus of a long-perished hypergeometrician. Paradoxical architecture can take many forms, from innocuous looking-houses which are cavernously large on the inside, to aqueducts where water runs uphill or inverted ziggurats where gravity has no purchase. The building may be in active use, or it may be con- sidered dangerous or cursed, shunned by all right-thinking citizens.",
+    ),
+    (
+        "Ancient Spacecraft",
+        "The settlement is built around an ancient spacecraft, which either forms part of the infrastructure or is merely a whimsical decorative feature, a reminder of an age when humanity’s ambitions ranged much further than a day’s ride on zorseback. The craft can no longer fly, although the citizens may wish that it could.",
+    ),
+    (
+        "Vault Entrance",
+        "Adventurers do not have to travel beyond the settlement’s walls to find an ingress into the fabled vaults of Vaarn: the chrome caverns that honeycomb the Urth lie close to the surface here. The vault entrance may be almost forgotten, accessed by a set of cellar stairs that descend much further than one would expect, or else it may be a vast and imposing structure, equipped with enormous blast doors that open only at the command of the settlement’s rulers. The citizens know the vault lies beneath them, but none venture there. You seem like bolder types.",
+    ),
+    (
+        "Great Waste Pit",
+        "The settlement is home to a refuse pit of imperious depth and pungency, large enough to sustain its own ecosystem, a waste pit far exceeding the current day needs of the citizens. The olfactory onslaught is notable from a day’s travel away, and those not inured to the stench walk the streets with masks wrapped around their faces. A despised but vital social undercaste maintains the waste pit and beats back the fungal insurgencies that periodically emerge from it.",
+    ),
+    (
+        "Synth Repair Facility",
+        "The synths of Vaarn could once find repair facilities in innumerable places, and were never far from a library of spare parts. This is no longer the case in this last red age, and spare parts are more com- monly wrenched from the husks of recently dead synths. This settlement is one of few that still boasts a functional Synth Repair Facility, with fully operational ReadMe consoles and supercooled storage facilities filled with factory fresh parts. As such the settlement is overrun with damage synths, all clamouring for parts. The settlement’s rulers do not allow access for free.",
+    ),
+    (
+        "Mystic College",
+        "The settlement is home to a college for esoteric study. Those seeking to enlarge their minds flock here to study under fabled masters. The streets are filled with blindfolded acolytes trying to navigate using their third eye, and demonstrations of psionic power light up the night sky with unurthly colours. The mystics claim to be divorced from mundane concerns, yet many suspect they have some supernatural influence over the settlement’s government.",
+    ),
+    (
+        "House of Healing",
+        "The settlement is home to a great House of Healing, situated at an auspicious confluence of astral pathways or else built above a restorative hot spring. An ancient and venerable order of sur- geon-priests practise the accumulated medical knowledge of a thousand generations. The sick travel here from across Varna and beyond, seeking cures for the rarest and most virulent diseases. They are treated, for a price.",
+    ),
+    (
+        "Master Alchemist’s Workshop",
+        "The settlement is home to a Master Alchemist, who plies their trade from a large and well-defended workshop. Wondrous Elixirs (p.xx) of all kinds are brewed here, although the Master Alchemist is well-known for being capricious in their dealings. Those who come bearing rare alchemical components (p.xx) are more likely to be received as guests.",
+    ),
+    (
+        "Grand Theatre",
+        "The settlement plays host to a great and imposing theatre, and all citizens are avid thespians or audience members. Every night a play is staged: the tragic dramas of the Fallen Autarchy, experi- mental Neo-Neo-Relativist monologues, the delicate choral satires once beloved of the Lunan artisocracy. The settlement’s government is intertwined with the theatre in some way, perhaps drawing legitimacy from the themes of the plays.",
+    ),
+    (
+        "Pleasure Gardens",
+        "The settlement’s pride and joy is an expansive and verdant pleasure garden, planted with ornamental foliage from across Vaarn and beyond it. The settlement’s cultural life revolves around this pleasure garden, and the upkeep is of absolute importance. A vast quantify of water is invested in keeping the garden from withering.",
+    ),
+    (
+        "Stylite’s Pillar",
+        "One of the settlement’s residents is a stylite: a religious hermit who dwells atop a colossal pillar. The stylite is considered a tourist attraction, and is given rations via a system of pulleys. The stylite, almost certainly mad and traditionally naked, periodically emerges from their sky-scraping hovel to harangue the crowd below, cursing the settlement’s government and preaching of the end times. It is all good fun.",
+    ),
+    (
+        "Orbital Defence Cannon",
+        "The Autarchs in their wisdom erected a vast system of orbital defence cannons that once girdled the entire Urth, sentinels which guarded against incursions by the Lunan empire that lurked in the black gulf overhead. The Autarchs are long dead but a handful of their celestial sentries remain active, ceaselessly scanning the bejewelled firmament for invaders. The settlement is built around one of these cannons, which resembles a vast crowned Autarch head cast from tarnished gold. The cannon’s eyes track the movement of the stars overhead, and it occasionally belches forth clouds of micro-missiles which streak up into the sky in search of perceived invaders. The settlement is generally not approached by air.",
+    ),
+)
+
+
+@dataclass
+class Asset:
+    name: str
+    description: str
+
+
+def gen_asset():
+    return Asset(*choice(assets_data))
+
 
 @dataclass
 class Settlement:
@@ -327,6 +429,8 @@ class Settlement:
     government_definition: str
     industry: str
     dominant_faith: str
+    asset: Asset
+    buildings: list
 
 
 def gen_settlement():
@@ -344,6 +448,8 @@ def gen_settlement():
     government_definition = governemnt_definitions.get(gov2, "not found")
     industry = choice(governmenta_governmentb_industry_dominantfaith)[2]
     dominant_faith = choice(governmenta_governmentb_industry_dominantfaith)[3]
+    asset = gen_asset()
+    buildings = [choice(building_types) for _ in range(4)]
 
     return Settlement(
         size,
@@ -359,6 +465,8 @@ def gen_settlement():
         government_definition,
         industry,
         dominant_faith,
+        asset,
+        buildings,
     )
 
 

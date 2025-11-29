@@ -50,5 +50,31 @@
   </tr>
 
 </table>
-<p></p>
+
+<h3>Asset</h3>
+<div class="row mt-2 mb-2">
+  <div class="card">
+    <div class="card-body">
+      <h5 class="card-title">{{settlement.asset.name}}</h5>
+      <h6 class="card-subtitle mb-2 text-muted">Asset</h6>
+      <p class="card-text">{{settlement.asset.description}}</p>
+    </div>
+  </div>
+</div>
+
+<h3>Buildings</h3>
+<div class="row mt-2 mb-2">
+  {% for building in settlement.buildings %}
+  <div class="card m-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">{{building}}</h5>
+    </div>
+  </div>
+  {% endfor %}
+
+</div>
+
+
+
+
 {% endblock content%}
