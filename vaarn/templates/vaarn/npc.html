@@ -7,15 +7,21 @@
 <br><br>
 
 
-<h6 class="card-title">NPC: {{npc.name}}, {{npc.ancestry}} {{npc.career_name}}</h6>
-<p class="card-text">{{npc.manner}} manner, {{npc.voice}} voice, driven by
-  {{npc.drive}}</p>
-<p class="card-text">Their bond: {{npc.bond}} manner, their faith: {{npc.faith}}, faction
-  reputation: {{npc.faction_reputation}}
-</p>
-<p>Items: {{npc.items}}</p>
-</div>
+<div class="card">
+  <div class="card-body">
 
+    <h5 class="card-title">{{npc.name}}, {{npc.ancestry}} {{npc.career_name}}</h5>
+    <ul>
+      <li>{{npc.manner}} manner</li>
+      <li>Voice: {{npc.voice}}</li>
+      <li>Drive: {{npc.drive}}</li>
+      <li>Bond: {{npc.bond}}</li>
+      <li>Faith: {{npc.faith}}</li>
+      <li>Reputation: {{npc.faction_reputation}}</li>
+      <li>Items: {{npc.items}}</li>
+    </ul>
+  </div>
+</div>
 
 
 
