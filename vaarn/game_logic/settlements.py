@@ -553,7 +553,7 @@ def gen_settlement():
     industry = choice(governmenta_governmentb_industry_dominantfaith)[2]
     dominant_faith = choice(governmenta_governmentb_industry_dominantfaith)[3]
     asset = gen_asset()
-    buildings = [gen_building() for _ in range(4)]
+    buildings = [gen_building() for _ in range(6)]
     problem = gen_problem()
 
     return Settlement(

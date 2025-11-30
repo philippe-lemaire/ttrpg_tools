@@ -63,7 +63,7 @@
 </div>
 
 
-<div class="row mt-2 mb-2">
+<div class="row mt-2 mb-4">
   <div class="card">
     <div class="card-body">
       <h5 class="card-title">{{settlement.problem.name}}</h5>
@@ -76,16 +76,19 @@
 <h3>Buildings</h3>
 <div class="row mt-2 mb-2">
   {% for building in settlement.buildings %}
-  <div class="card m-2" style="width: 18rem;">
+  <div class="card m-2" style="width: 22em;">
     <div class="card-body">
       <h5 class="card-title">{{building.building_type}}</h5>
       <h6 class="card-title">NPC: {{building.npc.name}}, {{building.npc.ancestry}} {{building.npc.career_name}}</h6>
-      <p class="card-text">{{building.npc.manner}} manner, {{building.npc.voice}} voice, driven by
-        {{building.npc.drive}}</p>
-      <p class="card-text">Their bond: {{building.npc.bond}} manner, their faith: {{building.npc.faith}}, faction
-        reputation: {{building.npc.faction_reputation}}
-      </p>
-      <p>Items: {{building.npc.items}}</p>
+      <ul>
+        <li>{{building.npc.manner}} manner</li>
+        <li>Voice: {{building.npc.voice}}</li>
+        <li>Drive: {{building.npc.drive}}</li>
+        <li>Bond: {{building.npc.bond}}</li>
+        <li>Faith: {{building.npc.faith}}</li>
+        <li>Reputation: {{building.npc.faction_reputation}}</li>
+        <li>Items: {{building.npc.items}}</li>
+      </ul>
     </div>
   </div>
   {% endfor %}
