@@ -1,0 +1,23 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% load class_tag %}
+{% block title %}Vaarn - Region{% endblock title %}
+{% block content %}
+
+<h1>Vaarn Region</h1>
+
+<div class="row">
+  {% for location in region %}
+
+  <div class="card m-2" style="width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Location</h5>
+      <h6 class="card-subtitle mb-2 text-muted">{{location|get_class}}</h6>
+      <p class="card-text">{{location|safe}}</p>
+
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+{% endblock content %}

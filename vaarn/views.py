@@ -13,6 +13,7 @@ from .game_logic.exotica import get_exotica_list
 from .game_logic.neobloom import get_bloomboons_list
 from .game_logic.settlements import gen_settlement
 from .game_logic.npc import gen_npc
+from .game_logic.region import gen_region
 from random import randint
 
 # Create your views here.
@@ -121,4 +122,10 @@ def vaarn_roll_settlement_view(request):
 def vaarn_roll_npc_view(request):
     context = {"npc": gen_npc()}
     template_name = "vaarn/npc.html"
+    return render(request, template_name, context)
+
+
+def vaarn_roll_region_view(request):
+    context = {"region": gen_region(6)}
+    template_name = "vaarn/region.html"
     return render(request, template_name, context)

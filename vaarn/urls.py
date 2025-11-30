@@ -56,4 +56,5 @@ urlpatterns = [
     path("bloomboons", views.vaarn_bloomboons, name="bloomboons"),
     path("random-settlement", views.vaarn_roll_settlement_view, name="roll_settlement"),
     path("random-npc", views.vaarn_roll_npc_view, name="roll_npc"),
+    path("random-region", views.vaarn_roll_region_view, name="roll_region"),
 ]
