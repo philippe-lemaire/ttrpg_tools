@@ -5,6 +5,8 @@ from .arcology import gen_arcology
 from .bandit_camp import gen_bandit_camp
 from .bounty_hunters_camp import gen_bounty_hunter_camp
 from .cacklemaw_den import gen_cacklemaw_den
+from .faa_nomad_camp import gen_faa_nomad_camp
+
 
 locations_functions = {
     "Archive": gen_archive,
@@ -13,6 +15,7 @@ locations_functions = {
     "Bandit Camp": gen_bandit_camp,
     "Bounty Hunter's Camp": gen_bounty_hunter_camp,
     "Cacklemaw Den": gen_cacklemaw_den,
+    "Faa Nomad Camp": gen_faa_nomad_camp,
 }
 
 location_types = tuple(locations_functions.keys())
