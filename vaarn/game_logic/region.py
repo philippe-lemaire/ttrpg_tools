@@ -7,6 +7,7 @@ from .bounty_hunters_camp import gen_bounty_hunter_camp
 from .cacklemaw_den import gen_cacklemaw_den
 from .faa_nomad_camp import gen_faa_nomad_camp
 from .grave import gen_grave
+from .wreck import gen_wreck
 
 
 locations_functions = {
@@ -18,6 +19,7 @@ locations_functions = {
     "Cacklemaw Den": gen_cacklemaw_den,
     "Faa Nomad Camp": gen_faa_nomad_camp,
     "Grave": gen_grave,
+    "Wreck": gen_wreck,
 }
 
 location_types = tuple(locations_functions.keys())
