@@ -134,7 +134,7 @@ class Anomaly:
     secondary_effect: str
 
     def __repr__(self):
-        return f"{self.quality} {self.form}.<br>Primary effect {self.primary_effect}.<br>Secondary effect {self.secondary_effect}."
+        return f"{self.quality} {self.form}.<br>Primary effect: {self.primary_effect.lower()}.<br>Secondary effect: {self.secondary_effect.lower()}."
 
 
 def gen_anomaly():

@@ -9,6 +9,9 @@ from .faa_nomad_camp import gen_faa_nomad_camp
 from .grave import gen_grave
 from .hegemony_outpost import gen_hegemony_outpost
 from .wreck import gen_wreck
+from .holy_place import gen_holy_place
+from .lair import gen_lair
+from .landmark import gen_landmark
 
 
 locations_functions = {
@@ -21,6 +24,9 @@ locations_functions = {
     "Faa Nomad Camp": gen_faa_nomad_camp,
     "Grave": gen_grave,
     "Hegemony Outpost": gen_hegemony_outpost,
+    "Holy Place": gen_holy_place,
+    "Lair": gen_lair,
+    "Landmark": gen_landmark,
     "Wreck": gen_wreck,
 }
 

@@ -187,7 +187,7 @@ class BanditCamp:
     def __repr__(self):
         return f"""{self.the_bandits.capitalize()}, their leader is {self.their_leader.lower()}.<br>They fight with {self.weapons.lower()} and they want {self.they_want.lower()}.
     <br><br>
-    {self.npc_a} is in conflict with {self.npc_b} over {self.source_of_conflict}.
+    {self.npc_a.capitalize()} is in conflict with {self.npc_b.lower()} over {self.source_of_conflict.lower()}.
     """
 
 
