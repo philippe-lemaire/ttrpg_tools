@@ -13,6 +13,7 @@ from .holy_place import gen_holy_place
 from .lair import gen_lair
 from .landmark import gen_landmark
 from .oasis import gen_oasis
+from .ruin import gen_ruin
 
 
 locations_functions = {
@@ -29,6 +30,7 @@ locations_functions = {
     "Lair": gen_lair,
     "Landmark": gen_landmark,
     "Oasis": gen_oasis,
+    "Ruin": gen_ruin,
     "Wreck": gen_wreck,
 }
 
