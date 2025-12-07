@@ -15,6 +15,7 @@ from .landmark import gen_landmark
 from .oasis import gen_oasis
 from .ruin import gen_ruin
 from .science_mystics_abode import gen_science_mystics_abode
+from .trade_post import gen_trade_post
 
 
 locations_functions = {
@@ -33,6 +34,7 @@ locations_functions = {
     "Oasis": gen_oasis,
     "Ruin": gen_ruin,
     "Science Mystic’s Abode": gen_science_mystics_abode,
+    "Trade Post": gen_trade_post,
     "Wreck": gen_wreck,
 }
 
