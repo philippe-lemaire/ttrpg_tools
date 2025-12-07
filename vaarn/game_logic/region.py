@@ -12,6 +12,7 @@ from .wreck import gen_wreck
 from .holy_place import gen_holy_place
 from .lair import gen_lair
 from .landmark import gen_landmark
+from .oasis import gen_oasis
 
 
 locations_functions = {
@@ -27,6 +28,7 @@ locations_functions = {
     "Holy Place": gen_holy_place,
     "Lair": gen_lair,
     "Landmark": gen_landmark,
+    "Oasis": gen_oasis,
     "Wreck": gen_wreck,
 }
 
@@ -36,7 +38,3 @@ location_types = tuple(locations_functions.keys())
 def gen_region(size):
     locations = [choice(location_types) for _ in range(size)]
     return [(locations_functions[l](), l) for l in locations]
-
-
-if __name__ == "__main__":
-    print(gen_region(6))
