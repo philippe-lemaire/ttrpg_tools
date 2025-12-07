@@ -2,14 +2,19 @@
 {% block title %}Vaarn - Region{% endblock title %}
 {% block content %}
 
-<h1>Vaarn Region</h1>
+<h1>A random Vaarn Region with {{n}} locations</h1>
+<br>
+<h3>Landscape: {{region.landscape}}.</h3>
+<h3>The region is named for {{region.named_for}}.</h3>
+<br>
+<h3>Locations</h3>
 
 <div class="row">
-  {% for location in region %}
+  {% for location in region.locations %}
 
   <div class="card m-2" style="width: 18rem;">
     <div class="card-body">
-        <h5 class="card-title">{{location.1}}</h5>
+      <h5 class="card-title">{{location.1}}</h5>
       <p class="card-text">{{location.0|safe}}</p>
 
     </div>

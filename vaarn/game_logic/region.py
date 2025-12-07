@@ -1,4 +1,5 @@
 from random import choice, randint
+from dataclasses import dataclass
 from .archive import gen_archive
 from .anomaly import gen_anomaly
 from .arcology import gen_arcology
@@ -39,8 +40,56 @@ locations_functions = {
 }
 
 location_types = tuple(locations_functions.keys())
+landscapes = (
+    "Featureless Sands",
+    "Salt Pan",
+    "Hard Rocky Plain",
+    "Dried-up Lake",
+    "Dried-up River",
+    "Towering Monoliths",
+    "Mesas",
+    "Low Hills",
+    "Single Mountain",
+    "Toxic Lake",
+    "Toxic River",
+    "Fungal Forest",
+    "Crystal Growths",
+    "Windswept Plateau",
+    "Mountainous",
+    "Winding Canyons",
+    "Abandoned City",
+    "Cactus Fields",
+    "Riddled with Caves",
+    "Garbage-strewn Wastes",
+)
+
+name_origins = (
+    "Famous Resident",
+    "Local Wildlife",
+    "Natural Wonder",
+    "Natural Hazard",
+    "Famous Monster",
+    "Long-Dead Settlement",
+    "Forgotten Religion",
+    "Local Weather",
+    "Natural Resource",
+    "Name No Longer Understood",
+)
+
+
+@dataclass
+class Region:
+    locations: list
+    landscape: str
+    named_for: str
 
 
 def gen_region(size):
     locations = [choice(location_types) for _ in range(size)]
-    return [(locations_functions[l](), l) for l in locations]
+    landscape = choice(landscapes)
+    named_for = choice(name_origins)
+    return Region(
+        locations=[(locations_functions[l](), l) for l in locations],
+        landscape=landscape.lower(),
+        named_for=named_for.lower(),
+    )

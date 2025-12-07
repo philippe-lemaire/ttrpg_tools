@@ -126,6 +126,7 @@ def vaarn_roll_npc_view(request):
 
 
 def vaarn_roll_region_view(request):
-    context = {"region": gen_region(6)}
+    n = 6
+    context = {"region": gen_region(n), "n": n}
     template_name = "vaarn/region.html"
     return render(request, template_name, context)

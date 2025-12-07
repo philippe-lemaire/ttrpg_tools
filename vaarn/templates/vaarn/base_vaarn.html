@@ -55,9 +55,20 @@
           <a class="dropdown-item" href="{% url 'vaarn:roll_mutation' %}">Mutations</a>
         </div>
       </li>
-      <li><a class="nav-link" href="{% url 'vaarn:roll_settlement' %}">Random Settlement</a></li>
-      <li><a class="nav-link" href="{% url 'vaarn:roll_npc' %}">Random NPC</a></li>
-      <li><a class="nav-link" href="{% url 'vaarn:roll_region' %}">Random Region</a></li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Places and NPCs</a>
+        <div class="dropdown-menu">
+          <a class="nav-link" href="{% url 'vaarn:roll_npc' %}">Random NPC</a>
+          <a class="nav-link" href="{% url 'vaarn:roll_settlement' %}">Random Settlement</a>
+          <a class="nav-link" href="{% url 'vaarn:roll_region' %}">Random Region</a>
+        </div>
+      </li>
+
+
+
+
+
 
     </ul>
   </div>
