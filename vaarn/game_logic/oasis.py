@@ -1,4 +1,4 @@
-from random import choice
+from random import choice, sample
 from dataclasses import dataclass
 
 oasis_data = (
@@ -141,5 +141,10 @@ class Oasis:
 
 
 def gen_oasis():
-    data = [choice(oasis_data)[k] for k in range(4)]
-    return Oasis(*data)
+    the_water = choice(line[0] for line in oasis_data)
+    what = sample([line[1] for line in oasis_data], 2)
+    who = sample([line[2] for line in oasis_data], 2)
+    custom = choice(line[3] for line in oasis_data)
+    what = " and ".join(what)
+    who = " and ".join(who)
+    return Oasis(the_water=the_water, whats_there=what, whos_there=who, custom=custom)
