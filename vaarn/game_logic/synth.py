@@ -135,7 +135,7 @@ class SynthLooks:
     finish: str
 
     def __repr__(self):
-        return f"{self.size} sized Synth with the shape of a {self.form}. {self.head} head, {self.limbs} limbs, and {self.finish} finish."
+        return f"{self.size} sized Synth with the shape of a {self.form.lower()}. {self.head} head, {self.limbs.lower()} limbs, and {self.finish.lower()} finish."
 
 
 def get_synth_looks():
@@ -280,7 +280,7 @@ class SynthDetails:
     but_you_realised: str
 
     def __repr__(self):
-        return f"Powered by {self.power_source}, you were made for {self.you_were_made_for} but you realised that {self.but_you_realised}."
+        return f"Powered by {self.power_source.lower()}, you were made for {self.you_were_made_for.lower()} but you realised that {self.but_you_realised.lower()}."
 
 
 def set_synth_details(char):

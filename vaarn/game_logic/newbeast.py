@@ -133,7 +133,7 @@ class NewBeastLooks:
     quirk: str
 
     def __repr__(self):
-        return f"{self.hue} hue, {self.mask} mask. Quirk: {self.quirk}."
+        return f"{self.hue} hue, {self.mask.lower()} mask. Quirk: {self.quirk.lower()}."
 
 
 def get_newbeast_looks():

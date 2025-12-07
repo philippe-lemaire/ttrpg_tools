@@ -135,7 +135,7 @@ class PlaneyFolkLooks:
     attire: str
 
     def __repr__(self):
-        return f"{self.body.capitalize()} body. {self.head.capitalize()} head. {self.hair.capitalize()} hair. {self.attire}."
+        return f"{self.body.capitalize()} body, {self.head.lower()} head, {self.hair.lower()} hair, {self.attire.lower()} attire."
 
 
 def gen_looks_planeyfolk():
@@ -289,7 +289,7 @@ class CharacterDetailsPlaneyFolk:
     how_you_became_flat: str
 
     def __repr__(self):
-        return f"{self.manner.capitalize()} manner. {self.strange_geometry}. Became flat because {self.how_you_became_flat}."
+        return f"{self.manner.capitalize()} manner. {self.strange_geometry.capitalize()}. Became flat because {self.how_you_became_flat.lower()}."
 
 
 def get_character_detail_planeyfolk():

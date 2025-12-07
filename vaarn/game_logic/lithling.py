@@ -124,7 +124,7 @@ class LithlingLooks:
     hue: str
 
     def __repr__(self):
-        return f"{self.body.capitalize()} body, {self.size} size. {self.head.capitalize()} head carving. {self.hue.capitalize()} hue."
+        return f"{self.body.capitalize()} body, {self.size.lower()} size. {self.head.capitalize()} head carving. {self.hue.capitalize()} hue."
 
 
 def gen_looks_lithling():

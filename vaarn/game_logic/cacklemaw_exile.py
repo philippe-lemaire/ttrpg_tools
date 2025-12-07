@@ -128,13 +128,13 @@ looks_table = (
 
 @dataclass
 class CacklemawExileLooks:
-    blue: str
-    body: str
+    pelt: str
+    teeth: str
     face: str
     hair: str
 
     def __repr__(self):
-        return f"{self.body.capitalize()} body. {self.face.capitalize()} face. {self.hair.capitalize()} hair. {self.blue} blue skin."
+        return f"{self.teeth.capitalize()} teeth, {self.face.lower()} face, {self.hair.lower()} hair, {self.pelt.lower()} pelt."
 
 
 def gen_looks_cacklemaw_exile():
@@ -247,7 +247,7 @@ class CharacterDetailsCackleMawExile:
     makes_you_laugh: str
 
     def __repr__(self):
-        return f"{self.manner.capitalize()} manner. Exiled because {self.exile_reason}. {self.makes_you_laugh} makes them laugh."
+        return f"{self.manner.capitalize()} manner. Reason for exile: {self.exile_reason.lower()}. {self.makes_you_laugh} makes them laugh."
 
 
 def get_character_detail_caklemaw_exile():

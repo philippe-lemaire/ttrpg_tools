@@ -245,7 +245,7 @@ class CharacterDetailsFaaNomad:
     left: str
 
     def __repr__(self):
-        return f"{self.manner.capitalize()} manner. Left their clan because {self.left}. {self.quirk.capitalize()}."
+        return f"{self.manner.capitalize()} manner. Reason for leaving the clan: {self.left.lower()}. {self.quirk.capitalize()}."
 
 
 def get_character_detail_faa_nomad():

@@ -263,7 +263,7 @@ class MycomorphLooks:
     texture: str
 
     def __repr__(self):
-        return f"{self.body} body, {self.head} head, {self.colour} colour, {self.texture} texture."
+        return f"{self.body} body, {self.head.lower()} head, {self.colour.lower()} colour, {self.texture.lower()} texture."
 
 
 def get_mycomorph_looks():
@@ -277,7 +277,7 @@ class MycomorphDetails:
     corpse: str
 
     def __repr__(self):
-        return f"{self.manner} manner, born from a {self.corpse} corpse."
+        return f"{self.manner.capitalize()} manner, born from a {self.corpse.lower()} corpse."
 
 
 def get_mycomorph_details():

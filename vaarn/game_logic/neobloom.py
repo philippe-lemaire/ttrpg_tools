@@ -350,7 +350,7 @@ class NeobloomLooks:
     flowers: str
 
     def __repr__(self):
-        return f"{self.shape} shape, {self.leaves} leaves, {self.bark} bark, flowers {self.flowers}."
+        return f"{self.shape} shape, {self.leaves.lower()} leaves, {self.bark.lower()} bark, flowers {self.flowers.lower()}."
 
 
 def get_neobloom_looks():
@@ -365,7 +365,7 @@ class NeobloomDetails:
     quirk: str
 
     def __repr__(self):
-        return f"{self.manner} manner, {self.voxpod} Vox-Pod, quirk: {self.quirk}"
+        return f"{self.manner} manner, {self.voxpod.lower()} Vox-Pod, quirk: {self.quirk.lower()}."
 
 
 special_rules_data = (

@@ -134,7 +134,7 @@ class TrueKinLooks:
     attire: str
 
     def __repr__(self):
-        return f"{self.body.capitalize()} body. {self.face.capitalize()} face. {self.hair.capitalize()} hair. {self.attire}."
+        return f"{self.body.capitalize()} body, {self.face.lower()} face with {self.hair.lower()} hair, {self.attire.lower()}."
 
 
 def gen_looks_true_kin():
