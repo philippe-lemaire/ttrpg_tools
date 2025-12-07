@@ -28,14 +28,14 @@ oasis_data = (
     ),
     (
         "Still and Glassy",
-        "Faa Nomads",
         "Autarch Statue",
+        "Faa Nomads",
         "Ritual Combat",
     ),
     (
         "Black and Muddy",
-        "Faa Nomads",
         "Flowering Bushes",
+        "Faa Nomads",
         "Vow of Silence",
     ),
     (
@@ -107,7 +107,8 @@ oasis_data = (
     (
         "Healing Properties",
         "Wrecked Synths",
-        "Cacklemaw Exiles Drug Ritual",
+        "Cacklemaw Exiles",
+        "Drug Ritual",
     ),
     (
         "Sugary Sweet",
@@ -132,7 +133,7 @@ class Oasis:
     custom: str
 
     def __repr__(self):
-        return f"""The water is {self.the_water.capitalize()}, and there are {self.whats_there.lower()} here..
+        return f"""The water is {self.the_water.lower()}, and there are {self.whats_there.lower()} here.
         <br>
         {self.whos_there.capitalize()} are present.
         <br>
@@ -141,10 +142,10 @@ class Oasis:
 
 
 def gen_oasis():
-    the_water = choice(line[0] for line in oasis_data)
+    the_water = choice([line[0] for line in oasis_data])
     what = sample([line[1] for line in oasis_data], 2)
     who = sample([line[2] for line in oasis_data], 2)
-    custom = choice(line[3] for line in oasis_data)
+    custom = choice([line[3] for line in oasis_data])
     what = " and ".join(what)
     who = " and ".join(who)
     return Oasis(the_water=the_water, whats_there=what, whos_there=who, custom=custom)
