@@ -14,6 +14,7 @@ from .lair import gen_lair
 from .landmark import gen_landmark
 from .oasis import gen_oasis
 from .ruin import gen_ruin
+from .science_mystics_abode import gen_science_mystics_abode
 
 
 locations_functions = {
@@ -31,6 +32,7 @@ locations_functions = {
     "Landmark": gen_landmark,
     "Oasis": gen_oasis,
     "Ruin": gen_ruin,
+    "Science Mystic’s Abode": gen_science_mystics_abode,
     "Wreck": gen_wreck,
 }
 
