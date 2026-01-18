@@ -65,8 +65,9 @@ class Character:
 
         self.item_slots = 10 + self.CON
         self.boon = choice(BOONS)
-        r = 1 if self.boon == BOONS[0] else 0
-        self.inventory.append(weapon_generator(rarities[r]))
+        self.inventory.append(weapon_generator(rarities[0]))
+        if self.boon == BOONS[0]:
+            self.inventory.append(weapon_generator(rarities[1]))
         self.inventory.append(gen_armor())
         self.inventory.extend(gen_helmet_and_shield())
         self.inventory.extend(gen_gear())
