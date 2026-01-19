@@ -57,4 +57,10 @@ urlpatterns = [
     path("random-settlement", views.vaarn_roll_settlement_view, name="roll_settlement"),
     path("random-npc", views.vaarn_roll_npc_view, name="roll_npc"),
     path("random-region", views.vaarn_roll_region_view, name="roll_region"),
+    path("creatures/", views.VaarnBestiaryList.as_view(), name="vaarn_creature_index"),
+    path(
+        "creatures/<int:pk>",
+        views.VaarnBestiaryDetail.as_view(),
+        name="creature_detail",
+    ),
 ]

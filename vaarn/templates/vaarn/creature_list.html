@@ -1,0 +1,28 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% block title %}
+Vaarn Bestiary
+{% endblock %}
+{% block content %}
+<h1>Bestiary</h1>
+
+<table class="table table-striped">
+  <tr>
+    <th>Name</th>
+    <th>Creature Type</th>
+    <th>LVL</th>
+
+
+  </tr>
+
+  {% for creature in creature_list %}
+  <tr>
+    <td>
+      <a href="{% url 'vaarn:creature_detail' creature.pk %}">{{ creature.name }}</a>
+    </td>
+    <td>{{ creature.get_creature_type_display}}</td>
+    <td>{{ creature.LVL }}</td>
+  </tr>
+
+  {% endfor %}
+</table>
+{% endblock %}

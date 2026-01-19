@@ -1,0 +1,24 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% block title %}
+Vaarn Bestiary - {{ creature.name }}
+{% endblock %}
+{% block content %}
+<h1 class="bs-danger-text-emphasis">{{ creature.name }}</h1>
+
+
+<div class="card" style="width: 36rem;">
+  <div class="card-body">
+
+    <h6 class="card-subtitle mb-2 text-muted">{{creature.get_creature_type_display}}</h6>
+    <p class="card-text"><b>LVL {{creature.LVL}} ({{creature.HP}}) / AV {{creature.AV}} / ML {{creature.ML}} / ENC
+        {{creature.Encountered}}</b><br>
+      <b>ATK: {{creature.ATK}}</b>
+    </p>
+    <p class="card-text">{{creature.description}}
+    </p>
+
+  </div>
+</div>
+
+
+{% endblock %}

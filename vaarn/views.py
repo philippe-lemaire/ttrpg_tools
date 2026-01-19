@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView, DetailView
+from .models import Creature
 from .game_logic.character_generator import Character
 from .game_logic.hypergeometry import gen_hypergeometry_mishap, gen_codex
 from .game_logic.mutations import get_mutations_list
@@ -130,3 +131,11 @@ def vaarn_roll_region_view(request):
     context = {"region": gen_region(n), "n": n}
     template_name = "vaarn/region.html"
     return render(request, template_name, context)
+
+
+class VaarnBestiaryList(ListView):
+    model = Creature
+
+
+class VaarnBestiaryDetail(DetailView):
+    model = Creature
