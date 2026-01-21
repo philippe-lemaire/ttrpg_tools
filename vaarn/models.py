@@ -17,7 +17,7 @@ class Creature(models.Model):
     HP = models.IntegerField()
     AV = models.IntegerField()
     ML = models.IntegerField()
-    Encountered = models.IntegerField()
+    Encountered = models.CharField(max_length=100)
     ATK = models.CharField(blank=True, max_length=250)
     description = models.TextField(blank=True)
 
