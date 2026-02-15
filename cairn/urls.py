@@ -11,4 +11,5 @@ urlpatterns = [
     path("dungeon-events", views.dungeon_events_view, name="dungeon_events"),
     path("wilderness-events", views.wilderness_events_view, name="wilderness_events"),
     path("reaction-roll", views.reaction_roll_view, name="reaction_roll"),
+    path("npc", views.generate_cairn_npc_view, name="generate_npc"),
 ]
