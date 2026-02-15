@@ -12,4 +12,5 @@ urlpatterns = [
     path("wilderness-events", views.wilderness_events_view, name="wilderness_events"),
     path("reaction-roll", views.reaction_roll_view, name="reaction_roll"),
     path("npc", views.generate_cairn_npc_view, name="generate_npc"),
+    path("spellbooks", views.roll_spellbooks_view, name="spellbooks"),
 ]

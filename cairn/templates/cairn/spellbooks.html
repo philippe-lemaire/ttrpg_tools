@@ -1,0 +1,25 @@
+{% extends "cairn/base_cairn.html" %}{% load static %}
+{% block title %}
+Cairn 2e - Spell List
+{% endblock %}
+
+{% block content %}
+<h1>100 Spells</h1>
+
+<br><br>
+<p><em>highlighted row: randomly rolled entry</em></p>
+
+<table class="table table-hover">
+  {% for spell in spellbooks %}
+  {% if r == forloop.counter %}
+  <tr class="table-primary">
+    {% else %}
+  <tr>
+    {% endif %}
+    <td>{{forloop.counter}}</td>
+    <td>{{spell.name|safe}}</td>
+    <td>{{spell.description|safe}} </td>
+  </tr>
+  {% endfor %}
+</table>
+{% endblock %}
