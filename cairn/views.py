@@ -1,3 +1,4 @@
+import markdown
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .character import Character
@@ -5,6 +6,7 @@ from .forms import BackgroundForm
 from .events import dungeon_events, wilderness_events
 from .roll import roll
 from .npcs import gen_cairn_npc
+from .spellbooks import spellbooks
 
 
 # Create your views here.
@@ -56,4 +58,15 @@ def generate_cairn_npc_view(request):
     npc = gen_cairn_npc()
     context = {"npc": npc}
     template_name = "cairn/npc.html"
+    return render(request, template_name, context)
+
+
+def roll_spellbooks_view(request):
+    md = markdown.Markdown(extensions=["fenced_code"])
+    for spell in spellbooks:
+        spell.name = md.convert(spell.name)
+        spell.description = md.convert(spell.description)
+
+    context = {"spellbooks": spellbooks, "r": roll("1d100")}
+    template_name = "cairn/spellbooks.html"
     return render(request, template_name, context)
