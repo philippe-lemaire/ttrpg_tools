@@ -1,0 +1,22 @@
+{% extends "cairn/base_cairn.html" %}
+{% load static %}
+{% block title %}Cairn 2e - NPC Gen{% endblock title %}
+{% block content %}
+
+<h1>A random Cairn NPC</h1>
+
+<br><br>
+
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{npc.name}}, {{npc.background}}</h5>
+    <ul>
+      <li><b>Quirk:</b> {{npc.quirk}}</li>
+      <li><b>Goal:</b> {{npc.goal}}</li>
+      <li><b>Virtue:</b> {{npc.virtue}}</li>
+      <li><b>Vice:</b> {{npc.vice}}</li>
+    </ul>
+  </div>
+</div>
+
+{% endblock content%}
