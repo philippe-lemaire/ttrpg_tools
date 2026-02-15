@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .character import Character
 from .forms import BackgroundForm
-from .game_logic import dungeon_events, wilderness_events
+from .events import dungeon_events, wilderness_events
 from .roll import roll
 
 
