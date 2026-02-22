@@ -7,6 +7,7 @@ from .events import dungeon_events, wilderness_events
 from .roll import roll
 from .npcs import gen_cairn_npc
 from .spellbooks import spellbooks
+from .scars import scar_table
 
 
 # Create your views here.
@@ -69,4 +70,13 @@ def roll_spellbooks_view(request):
 
     context = {"spellbooks": spellbooks, "r": roll("1d100")}
     template_name = "cairn/spellbooks.html"
+    return render(request, template_name, context)
+
+
+def scars_view(request):
+    md = markdown.Markdown(extensions=["tables"])
+
+    table = md.convert(scar_table)
+    context = {"scars_table": table}
+    template_name = "cairn/scars.html"
     return render(request, template_name, context)

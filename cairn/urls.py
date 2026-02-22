@@ -13,4 +13,5 @@ urlpatterns = [
     path("reaction-roll", views.reaction_roll_view, name="reaction_roll"),
     path("npc", views.generate_cairn_npc_view, name="generate_npc"),
     path("spellbooks", views.roll_spellbooks_view, name="spellbooks"),
+    path("scars", views.scars_view, name="scars"),
 ]

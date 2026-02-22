@@ -1,0 +1,18 @@
+{% extends "cairn/base_cairn.html" %}{% load static %}
+{% block title %}
+Cairn 2e - Scars
+{% endblock %}
+
+{% block content %}
+<h1>Scars</h1>
+
+<br>
+
+<p>If damage to a PC would reduce their HP to exactly 0, look up the result on the
+  table below based on the amount of HP lost in the attack. For example, if a PC
+  went from 3 HP to 0 HP, they would look at entry #3 (Walloped).</p>
+
+
+{{scars_table|safe}}
+
+{% endblock %}
