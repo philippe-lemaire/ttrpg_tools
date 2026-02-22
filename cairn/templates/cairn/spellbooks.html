@@ -5,10 +5,11 @@ Cairn 2e - Spell List
 
 {% block content %}
 <h1>100 Spells</h1>
-
-<br><br>
-<p><em>highlighted row: randomly rolled entry</em></p>
-
+<br>
+<h3>Rolled spell</h3>
+<p>{{rolled_spellbook|safe}}</p>
+<br>
+<h3>Spell list</h3>
 <table class="table table-hover">
   {% for spell in spellbooks %}
   {% if r == forloop.counter %}

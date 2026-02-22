@@ -404,5 +404,11 @@ class Spellbook:
     name: str
     description: str
 
+    def __repr__(self):
+        display_name = self.name.replace("<p>", "").replace("</p>", "")
+        display_description = self.description.replace("<p>", "").replace("</p>", "")
+
+        return f"{display_name}: {display_description}."
+
 
 spellbooks = [Spellbook(name, description) for name, description in spellbook_data]

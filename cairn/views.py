@@ -67,8 +67,8 @@ def roll_spellbooks_view(request):
     for spell in spellbooks:
         spell.name = md.convert(spell.name)
         spell.description = md.convert(spell.description)
-
-    context = {"spellbooks": spellbooks, "r": roll("1d100")}
+    r = roll("1d100")
+    context = {"spellbooks": spellbooks, "r": r, "rolled_spellbook": spellbooks[r - 1]}
     template_name = "cairn/spellbooks.html"
     return render(request, template_name, context)
 
