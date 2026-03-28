@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block title %}Burning Wheel Roller{% endblock title %}
+{% block subbar %}
+
+<nav class="navbar navbar-expand-lg navbar-light">
+  <!--new nav here-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
+    aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="{% url 'burningwheel:index' %}">Burning Wheel</a>
+  <div class="collapse navbar-collapse" id="navbarNavDropdown">
+    <ul class="navbar-nav">
+
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'burningwheel:roll_dice' %}">Roll dice</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="{% url 'burningwheel:assess_difficulty' %}">Assess difficulty</a>
+      </li>
+
+
+    </ul>
+
+  </div>
+</nav>
+
+{% endblock subbar %}
