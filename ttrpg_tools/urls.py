@@ -46,4 +46,5 @@ urlpatterns = [
     path("break!!/", include("break.urls")),
     path("dolmenwood/", include("dolmenwood.urls")),
     path("vaults-of-vaarn/", include("vaarn.urls")),
+    path("burning-wheel/", include("burningwheel.urls")),
 ]

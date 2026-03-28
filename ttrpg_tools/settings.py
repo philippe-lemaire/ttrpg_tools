@@ -67,6 +67,7 @@ INSTALLED_APPS = [
     "break",
     "dolmenwood",
     "vaarn",
+    "burningwheel",
 ]
 
 MIDDLEWARE = [
