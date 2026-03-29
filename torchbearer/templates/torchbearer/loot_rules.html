@@ -1,0 +1,60 @@
+{% extends "torchbearer/base_torchbearer.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Torchbearer | Loot Rules{% endblock title %}
+{% block content %}
+<h1>Loot</h1>
+
+<h2>Let the Looting Commence</h2>
+
+The Adventure Design chapter gives guidelines for seeding your
+adventure locations with loot.
+<h3>Looting an Area</h3>
+<p>Players can search an area after they overcome the problems within it: defeating monsters, craftily stealing
+  something, bypassing traps and obstacles, etc. Loot laying in the open can be collected, but if something is secret or
+  hidden in the trash the adventurers have to search for it to discover it.</p>
+<p>These items would be seeded by the game master when constructing the adventure.</p>
+<h3>Loot from Traps</h3>
+<p>Trap locations can also hold ill-gotten gains. Roll once on Loot Table 2 for each trap. These are items that previous
+  unfortunate victims have left behind.</p>
+
+
+<h3>Loot from Foes</h3>
+<p>We all expect to go one-on-one with a barrow wight now and again, but what if there’s two barrow wights? Or a horde
+  of kobolds? Good sense says that the more monsters we defeat, the more we get paid. Use the following rubric for
+  generating loot for planned encounters with foes:</p>
+<ul>
+  <li><b>Might 1</b>: Roll once on Loot Table 2 for every three creatures.</li>
+  <li><b>Might 2</b>: Roll once on Loot Table 2 for every two creatures.</li>
+  <li><b>Might 3</b>: Roll once on Loot Table 3 for each creature.</li>
+  <li><b>Might 4</b>: Roll once on Loot Table 3 for each creature.</li>
+  <li><b>Might 5</b>: Roll once on Loot Table 4 for each creature.</li>
+  <li><b>Might 6</b>: Roll twice on Loot Table 4 for each creature.</li>
+  <li><b>Might 7</b>: Roll twice on Loot Table 5 for each creature.</li>
+  <li><b>Might 8</b>: Roll thrice on Loot Table 5 for each creature.</li>
+</ul>
+<p>Loot Tables 4 and 5 are found in the Richer Loot chapter of the Lore Master’s Manual.</p>
+
+<h4><em>Loot from Twist Encounters</em></h4>
+<p>When the characters are victorious in an encounter that was
+  generated as the result of a previous failed test, that resulted in a
+  twist, use this rubric to see what they find:
+</p>
+<ul>
+  <li><b>Loot Table</b> 1: Twist encounters with M1-2 creatures</li>
+  <li><b>Loot Table</b> 2: Twist encounters with M3-4 creatures</li>
+  <li><b>Loot Table</b> 3: Twist encounters with M5 creatures</li>
+</ul>
+
+<h4><em>Loot from Conflicts</em></h4>
+<p>Loot is available from conflicts if adventurers capture or kill
+  their opponent, or drive them away from their cache of treasure.
+  Otherwise, when they drive off their opponent or their opponent
+  flees, those bastards take their loot with them.</p>
+
+<h4><em>The Might 4 Quirk</em></h4>
+<p>Might 4 creatures are tough to contest with. If you’re digging into that chart, you’ll notice that they drop the same
+  loot as a M3 creature. This is manifestly unfair. At the game master’s discretion, they may make an additional roll on
+  the Treasure & Valuables 2 subtable for M4 creatures.</p>
+
+{% endblock content %}

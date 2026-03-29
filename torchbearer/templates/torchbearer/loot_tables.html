@@ -1,0 +1,33 @@
+{% extends "torchbearer/base_torchbearer.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Torchbearer | Loot Tables{% endblock title %}
+{% block content %}
+<h1>Loot Tables</h1>
+
+{% for table in tables %}
+<h3>{{table.title|title}}</h3>
+<p>{{table.description}}</p>
+
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">{{table.roll}}</th>
+      <th scope="col">{{table.title}}</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for k, v in table.content.items %}
+    <tr>
+      <th scope="row">{{k}}</th>
+      <td>{{v}}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+<br>
+
+
+
+{% endfor %}
+{% endblock content %}
