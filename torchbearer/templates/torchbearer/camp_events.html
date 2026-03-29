@@ -1,0 +1,16 @@
+{% extends "torchbearer/base_torchbearer.html" %}
+
+{% block title %}
+Torchbearer - Camp Events
+{% endblock %}
+
+{% block content %}
+<h1>Torchbearer - Camp Events</h1>
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+{% if event %}
+
+<p>{{event|safe}}</p>
+{% endif %}
+{% endblock content%}

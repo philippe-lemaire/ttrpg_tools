@@ -14,4 +14,5 @@ urlpatterns = [
         views.TorchbearerCampEventRules.as_view(),
         name="camp_event_rules",
     ),
+    path("camp-events", views.camp_events_view, name="camp_events"),
 ]

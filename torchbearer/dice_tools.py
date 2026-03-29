@@ -24,5 +24,6 @@ def get_closest_key(rolled_value, d):
     "Returns the closest value in a table based on a rolled value"
     for key in d.keys():
         if key >= rolled_value:
-            return d[key]
-    return None
+            return key
+    # if we get there, the roll + modifiers exceed the highest key in the table, so return the highest key
+    return max(list(d.keys()))
