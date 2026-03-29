@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import TemplateView
-from .loot_tables import loot_tables_list, loot_subtables
+from .loot_tables import loot_tables_list
+from .loot_subtables import loot_subtables
 
 # Create your views here.
 
