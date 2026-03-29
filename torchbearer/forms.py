@@ -15,7 +15,7 @@ danger_level_choices = [
 
 
 class CampEventForm(forms.Form):
-    table = forms.ChoiceField(choices=camp_type_choices)
+    table = forms.ChoiceField(label="Environmment", choices=camp_type_choices)
     survivalist_used_for_outdoor = forms.BooleanField(
         label="Survival skill used for outdoor camp", required=False
     )

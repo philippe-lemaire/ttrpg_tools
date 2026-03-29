@@ -49,7 +49,11 @@ def camp_events_view(request):
             ranger_present = form.cleaned_data["ranger_present_outdoor_camp"]
             outcast_present = form.cleaned_data["outcast_present"]
             set_watch = form.cleaned_data["set_watch"]
-            bonus = int(form.cleaned_data["bonus_from_past_event"])
+            bonus = (
+                int(form.cleaned_data["bonus_from_past_event"])
+                if form.cleaned_data["bonus_from_past_event"]
+                else 0
+            )
             danger_level = int(form.cleaned_data["danger_level"])
             modifiers = sum(
                 (
