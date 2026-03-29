@@ -17,8 +17,9 @@
           Loot
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Loot rules</a>
-
+          <a class="dropdown-item" href="{% url 'torchbearer:loot_rules' %}">Loot Rules</a>
+          <a class="dropdown-item" href="{% url 'torchbearer:loot_tables' %}">Loot Tables</a>
+          <a class="dropdown-item" href="{% url 'torchbearer:loot_subtables' %}">Loot Subtables</a>
         </div>
       </li>
 

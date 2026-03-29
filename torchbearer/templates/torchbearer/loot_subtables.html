@@ -1,0 +1,54 @@
+{% extends "torchbearer/base_torchbearer.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Torchbearer | Loot Subtables{% endblock title %}
+{% block content %}
+<h1>Loot Subtables</h1>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9">
+      {% for table in tables %}
+      <h3 id="{{table.anchor_name}}">{{table.title|title}}</h3>
+      <p>{{table.description}}</p>
+
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">{{table.roll}}</th>
+            <th scope="col">{{table.title}}</th>
+            {% for h in table.extraheaders %}
+            <th scope="col">{{h}}</th>
+            {% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          {% for k, v in table.content.items %}
+          <tr>
+            <th scope="row">{{k}}</th>
+            {% for s in v %}
+            <td>{{s|safe}}</td>
+            {% endfor %}
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+      <br>
+      {% endfor %}
+    </div>
+    <div class="col-sm-3">
+      <h2>Shortcuts</h2>
+      <ul class="list-group">
+        {% for table in tables %}
+        <li class="list-group-item"><a href="#{{table.anchor_name}}">{{table.title}}</a><br /></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+{% endblock content %}
