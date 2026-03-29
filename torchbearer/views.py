@@ -24,3 +24,7 @@ def loot_subtables_view(request):
 
 class TorchbearerLootRules(TemplateView):
     template_name = "torchbearer/loot_rules.html"
+
+
+class TorchbearerCampEventRules(TemplateView):
+    template_name = "torchbearer/camp_event_rules.html"
