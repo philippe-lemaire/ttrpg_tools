@@ -1,0 +1,58 @@
+{% extends "torchbearer/base_torchbearer.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Torchbearer | Camp Rules{% endblock title %}
+{% block content %}
+<h1>Camp Events</h1>
+<p>Camp events are sketches. They’re small, flavorful elements to
+  add to the game that are designed to give the world a dimension
+  that is larger than the needs and wants of the characters. Sometimes
+  these elements are cruel; sometimes they are kind.</p>
+<p>The game master should incorporate camp events with a critical
+  eye. Bend them, break them and bind them into the ongoing story.
+  Modify them to suit, but never let the adventurers off easy—and
+  never deny them a lucky break.</p>
+<p>Roll 3d6 on the appropriate table and add camp events bonuses and penalties to determine the result.</p>
+<h2>Camp Events Modifiers</h2>
+<h3>Camp Events Roll Bonuses</h3>
+<ul>
+  <li>Using the Survivalist skill to find or make shelter for an outdoor camp grants +1 to the camp events roll.</li>
+  <li>Using the Survivalist skill to find a site with concealment grants +1 to the camp events roll.</li>
+  <li>Having a ranger in the party in wilderness grants +1 to the camp events roll.</li>
+  <li>Having an outcast in the party while exploring dungeons or dwarven-made structures grants +1 to the camp events
+    roll.</li>
+  <li>Setting watch grants +1 to the camp events roll.</li>
+  <li>Some camp events add bonuses to future camp events rolls.</li>
+  <li>Water sources do not provide a bonus to camp events rolls.</li>
+</ul>
+
+<h3>Camp Events Danger Penalties</h3>
+<ul>
+  <li>Typical camps have no bonus or penalty.</li>
+  <li>Unsafe camps suffer -2 to the camp events roll.</li>
+  <li>Dangerous camps suffer -3 to the camp events roll.</li>
+</ul>
+<h4>Dark Camps</h4>
+<p>Adventurers may reduce the danger penalty by 1 if they refrain
+  from starting a fire—unsafe camps then suffer a -1 penalty and
+  dangerous camps -2.</p>
+<p>However in dark camps, adventurers cannot perform actions that
+  require a fire like boiling or cooking. In addition, all recovery tests
+  suffer a +1 Ob penalty.</p>
+
+<h3>Situational Camp Events Penalties</h3>
+<ul>
+  <li>A previous camp disaster in this area while on this adventure imposes a -1 penalty on further camp events rolls.
+    Each additional disaster imposes a cumulative penalty.
+    <ul>
+      <li>A disaster is any event that forces an early end to a camp phase, regardless if the watch averts it or not.
+      </li>
+    </ul>
+  </li>
+  <li>The game master can impose a -1 camp events penalty if they feel one is warranted due to natural phenomena (like
+    droughts, storms or earthquakes), if the adventurers have angered some terrible foe who hunts them or if they are
+    under the ban of some horrid curse.</li>
+</ul>
+
+
+{% endblock content %}
