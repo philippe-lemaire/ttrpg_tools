@@ -1,4 +1,10 @@
-camp_types = ("Ancient Ruins", "Dungeons", "Natural Caves", "Outside of or Near Town")
+camp_types = (
+    "Ancient Ruins",
+    "Dungeons",
+    "Natural Caves",
+    "Outside of or Near Town",
+    "Squatting in Town",
+)
 
 
 ancient_ruins_events = {
@@ -201,10 +207,92 @@ outside_of_or_near_town_events = {
     20: "<em>Shelter.</em> This place is comfortable, hidden and sheltered from weather and prying eyes. When you return to this place to camp, you are granted a +1 bonus to the Near Town Camp Events table in addition to other bonuses.",
 }
 
+squatting_in_town_events = {
+    1: "<em>Fire.</em> Someone or something sets fire to the place (it certainly was not your sputtering hobo fire). If you set watch, the watch may spend a check to douse the incipient inferno. Otherwise, remain in adventure phase as camp ends and this place is destroyed and may not be used further as a camp.",
+    2: """<em>Collapse.</em> This old structure can handle no more abuse. It comes down on your heads with a relieved moan. If you set watch, the watch may spend a check to drag you to safety. If no watch, remain in adventure phase as camp ends as your packs and gear are buried in the rubble. Either way the structure is destroyed and may not be used further as a camp. 3Late night lurker. Something sinister slinks into to the structure late at night. If you set watch, the watch may spend a check to make a test to drive off the interlopers. Otherwise, remain in adventure phase as camp ends and you find yourself in a sticky situation. Roll 1d6 to determine what lurks in ze night:
+<table class='table'>
+<tr>
+    <td>1-2</td>
+    <td>Ghouls (1d2+1)</td>
+    <td>5</td>
+    <td>Wererats (1d6)</td>
+</tr><tr>
+    <td>3-4</td>
+    <td>Strixes (2d6)</td>
+    <td>6</td>
+    <td>Sprikken (1d3)</td>
+</tr>
+</table>
+""",
+    4: "<em>Eviction.</em> The town watch comes to evict you (and also collect on any debts you might owe). The town watch sends three times as many thugs (see the Denizens chapter for stats) as squatters. If you set watch, the watch may spend a check to make a test to send away these irksome roustabouts. Otherwise, remain in adventure phase as camp ends and negotiations begin. How fun.",
+    5: "<em>Feculence.</em> Some cretin has defiled this place with a substantial pile of human waste. The party cannot recover from sickness in camp. If eating or drinking in camp, make an Ob 2 Health test. Suggested failure: sick condition or a twist that you can’t stomach the stench and vomit (and thus can’t recover from hungry and thirsty during this camp phase). The watch can’t help you here, only the Lords of Fevers and Plagues.",
+    6: "<em>Rats.</em> This place is infested with very bold rats. The party cannot recover from afraid or exhausted in camp. In addition, the rats steal the top-most item from one pack or satchel. If you set watch, they may spend a check to test to avert the theft. Otherwise, the rats return their spoils to their king, deep below the town.",
+    7: "<em>Decomposing human corpse.</em> Someone has died in here—or perhaps died elsewhere and been dumped here to rot in peace: +1 Ob to recover from afraid and sick while the corpse remains in this area. If the corpse is not removed, future camps in this area suffer a -1 penalty to the camp events roll in addition to other penalties.",
+    8: "<em>Drips.</em> The roof leaks or the room floods. Water seeps into your gear, ruining it. Roll 1d6: 1-3: torches (1d3), 4-6: rations (1d3).",
+    9: "<em>Mold.</em> The place is home to a wretched mold that causes crushing headaches. The group cannot recover from exhaustion, memorize spells or perform purification rituals while camped in this area.",
+    10: "<em>Stench.</em> The locals use this place as a garbage pit. The stench makes it impossible to keep anything down: You cannot alleviate the hungry and thirsty condition in camp, but you are granted +1D to all Scavenger tests.",
+    11: """<em>Dalliance.</em> Teenagers use this place for their trysts. If you set watch, the watch may spend a check to make a test to intimidate, persuade or manipulate the impressionable youth. If the group does not pay the check or the test is failed, the teenagers report the incident to their parents or friends in the guilds. Roll 1d6, two teenagers are here to:
+
+<table class='table'>
+    <tr>
+        <td>1-2</td>
+        <td>Consummate a passionate love</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>Dabble in magic</td>
+    </tr>
+    <tr>
+        <td>5-6</td>
+        <td>Play a cruel trick on a friend</td>
+    </tr>
+</table>
+""",
+    12: "<em>Safe camp.</em> You are undisturbed, and all is well.",
+    13: "<em>Midden.</em> You camp near a massive pile of garbage: +1D to Scavenger tests to find town items while camping in this area.",
+    14: "<em>Youth.</em> Children come to explore and play in this structure. You go unnoticed: +1D to recover from angry or afraid.",
+    15: """<em>Eavesdropping.</em> You overhear a whispered conversation outside. Roll 1d6 to discern its oddly relevant topic:
+<table class='table'>
+    <tr>
+        <td>1-2</td>
+        <td>A cult</td>
+        <td>5</td>
+        <td>A political matter</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>A local secret</td>
+        <td>6</td>
+        <td>One of the town’s guilds</td>
+    </tr>
+</table>
+""",
+    16: " <em>Allies.</em> You link up with another band of friendly squatters. They will give food, water or even wine if the group looks put out (they have 1d6 portions total per encounter). Otherwise, they offer to trade rumors. Roll on the Tavern Rumors table with a +1 bonus.",
+    17: "<em>Connection.</em> You discover a secret connection (tunnel, canal, catwalk or crawl space) to an adjoining, occupied building.",
+    18: "<em>Hidden loot.</em> There’s something buried beneath the floorboards or flagstones. Roll on the Treasure & Valuables 1 subtable.",
+    19: """<em>Disembodied eyes.</em> A house goblin is curious about you. Feed it (one fresh or preserved ration), and it will treat you kindly, granting +1D to all recovery tests during the camp phase to the one who feeds it. Once found, the house goblin will remain visible. Should you return to this camp site, you may again opt to feed the house goblin. However, if you fail to feed the house goblin, roll 1d6:
+<table class='table'>
+    <tr>
+        <td>1-4</td>
+        <td>The house goblin disturbs your sleep and you are +1 Ob to recover from exhausted, sick or injured</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Steals an object from you</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Revokes its friendship and disappears</td>
+    </tr>
+</table>""",
+    20: "<em>The room.</em> You discover a previously hidden but furnished room from another era that is eerily intact. This squat now counts as a free flophouse if used as accommodations during the town phase.",
+}
+
 events_dicts = (
     ancient_ruins_events,
     dungeons_events,
     natural_caves_events,
     outside_of_or_near_town_events,
+    squatting_in_town_events,
 )
 camp_events_table = {k: v for k, v in zip(camp_types, events_dicts)}
