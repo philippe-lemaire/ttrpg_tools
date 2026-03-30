@@ -4,6 +4,7 @@ camp_types = (
     "Natural Caves",
     "Outside of or Near Town",
     "Squatting in Town",
+    "Wilderness",
 )
 
 
@@ -287,6 +288,66 @@ squatting_in_town_events = {
 </table>""",
     20: "<em>The room.</em> You discover a previously hidden but furnished room from another era that is eerily intact. This squat now counts as a free flophouse if used as accommodations during the town phase.",
 }
+wilderness_events = {
+    0: "<em>Sinkhole.</em> The earth subsides and takes you with it. If you set watch, they may spend a check to make a test to get the group to safety. If you didn’t set watch, enjoy your new underground home, and remain in adventure phase as camp ends.",
+    1: "<em>Evil weather.</em> Lightning, wind, rain or snow destroys your shelter and douses your fire. If you set watch, they may spend a check to make a test to save your gear and animals. If no watch, each character loses their pack, an animal or a companion, and remain in adventure phase as camp ends.",
+    2: "<em>Falls in the woods.</em> A tree, rock or meteor falls onto your camp. One character must make an Ob 5 Health test. If you set watch, the watch may help the Health test. Suggested failures: injured condition or a twist that their pack is destroyed instead of their skull. Otherwise, remain in adventure phase as camp ends.",
+    3: "<em>Gnits.</em> Swarms of biting insects makes camping impossible. No watch can save you against the gnits. Remain in adventure phase as camp ends.",
+    4: "<em>Wildfire.</em> Run. This area is ravaged by wildfire. If you set watch, the watch may spend a check to make a test to save packs and gear. Otherwise, all packs and their contents burn, and remain in adventure phase as camp ends. This this area may not be used as a future camp.",
+    6: """<em>Wandering monsters.</em> Something wicked this way comes. If you set watch, the watch may spend a check to make a test or engage in a conflict to avert the attack. Otherwise, remain in adventure phase as camp ends with a stand off. Roll 1d6 for friends:
+<table class='table'>
+    <tr>
+        <td>1-2</td>
+        <td>Dire wolves (1d6)</td>
+        <td>5</td>
+        <td>Bugbears (1d6)</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>Gnolls (2d3)</td>
+        <td>6</td>
+        <td>Devil boars (1d3)</td>
+    </tr>
+</table>
+""",
+    7: "<em>Foul water.</em> No clean water source to be found. If you sought water as a camp amenity, the source is dry or foul.",
+    8: "<em>Lost.</em> Lose your bearings while you rest. You must make a Pathfinder or Cartographer test to get back on track. Add the site to your map to find it again.",
+    9: "<em>Vermin.</em> Mice or other vermin crawl all over your camp and spoil 2d3 rations.",
+    10: "<em>Wear and tear.</em> One character breaks a piece of equipment. Roll randomly for the player. Then roll to determine what is broken or worn out: 1d6 for backpack slot or 1d3 for satchel slot. Multislot items go if either slot is rolled.",
+    11: "<em> Safe camp.</em>",
+    12: "<em> Safe camp.</em>",
+    13: "<em>Lovely view.</em> The site has majestic views: +1D to your next Pathfinder or Cartographer test after camp.",
+    14: "<em>Verdant wilderness.</em> Birds, ungulates and fish abound: +1D to Hunter, Scavenger and Fisher tests in camp.",
+    15: "<em> Sweet water.</em> This site has a freshwater spring or stream.",
+    16: "<em>Game trail.</em> You find an easy trail and are granted +2D to your next Pathfinder or Scout test after breaking camp.",
+    17: "<em>Greens.</em> You find a patch of edible plants. If harvested, you collect 2d6 portions of forage.",
+    18: "<em> Out of the wind.</em> The site you pick is sheltered from the wind and weather: +1D to recover from angry and exhausted when camping in this area.",
+    19: """<em>Fellow traveler.</em> Meet a helpful fellow wanderer. Their level is two higher than the highest-level character. If the highest level is 9, then this is a retired adventurer. If treated with hospitality, the wanderer will share wine, information in the form of warnings, advice relevant to the adventurers’ current endeavor or they will leave a gift (roll on Loot Table 3). Roll 1d6 for class:
+
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Ranger</td>
+        <td>4</td>
+        <td>Warrior</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Outcast</td>
+        <td>5</td>
+        <td>Burglar</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Magician</td>
+        <td>6</td>
+        <td>Theurge</td>
+    </tr>
+
+
+</table>""",
+    20: "<em>Standing stones.</em> You find a circle of standing stones or faerie ring. Everyone automatically recovers from the angry and afraid conditions, no tests necessary. The circle remains and may be returned to. After each use, roll 1d6. On a roll of 1, the magic of the place is expended.",
+}
 
 events_dicts = (
     ancient_ruins_events,
@@ -294,5 +355,6 @@ events_dicts = (
     natural_caves_events,
     outside_of_or_near_town_events,
     squatting_in_town_events,
+    wilderness_events,
 )
 camp_events_table = {k: v for k, v in zip(camp_types, events_dicts)}
