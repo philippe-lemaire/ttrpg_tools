@@ -1,10 +1,13 @@
+from random import choice
+
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .loot_tables import loot_tables_list
 from .loot_subtables import loot_subtables
-from .forms import CampEventForm
+from .forms import CampEventForm, TwistForm
 from .camp_events import camp_events_table
 from .dice_tools import roll, get_closest_key
+from .twists import twists_data
 
 # Create your views here.
 
@@ -70,4 +73,16 @@ def camp_events_view(request):
             print(roll_result)
             context["event"] = table[get_closest_key(roll_result, table)]
 
+    return render(request, template_name, context)
+
+
+def twists_view(request):
+    form = TwistForm(request.POST or None)
+    template_name = "torchbearer/twists.html"
+    context = {"form": form}
+
+    if request.method == "POST":
+        if form.is_valid():
+            twist_type = form.cleaned_data["twist_type"]
+            context["twist"] = choice(twists_data.get(twist_type))
     return render(request, template_name, context)

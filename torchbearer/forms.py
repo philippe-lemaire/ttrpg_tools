@@ -3,6 +3,7 @@ from django.urls import reverse
 from crispy_forms.helper import FormHelper
 from .camp_events import camp_events_table
 from crispy_forms.layout import Submit
+from .twists import twists_data
 
 camp_type_choices = [
     (table_name, table_name) for table_name in camp_events_table.keys()
@@ -44,6 +45,27 @@ class CampEventForm(forms.Form):
             Submit(
                 "submit",
                 "Roll event",
+                css_class="m-1 btn-info",
+            )
+        )
+
+
+twist_type_choice = [(twist_type, twist_type) for twist_type in twists_data.keys()]
+
+
+class TwistForm(forms.Form):
+    twist_type = forms.ChoiceField(label="Twist Type", choices=twist_type_choice)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("torchbearer:twists")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Roll twist",
                 css_class="m-1 btn-info",
             )
         )
