@@ -1,4 +1,4 @@
-camp_types = ("Ancient Ruins", "Dungeons", "Natural Caves")
+camp_types = ("Ancient Ruins", "Dungeons", "Natural Caves", "Outside of or Near Town")
 
 
 ancient_ruins_events = {
@@ -164,6 +164,47 @@ natural_caves_events = {
     20: "<em>Basin.</em> You find a naturally occurring basin of water with healing properties: Each draught grants +2D to recover from sick or injured. There is enough water for three draughts. It may be stored in a container and carried away.",
 }
 
+outside_of_or_near_town_events = {
+    1: "Brushfire (or blizzard). Run. If you set watch, they may spend a check to make a test to sound the alarm to get the group to safety. Otherwise, remain in adventure phase as camp ends and all packs and animals are lost.",
+    2: "<em>Bad weather. Without shelter, you’re too exposed. If you have shelter and set a watch, the watch may spend a check to test to get everyone under cover (or hold down the shelter from blowing away). Otherwise, remain in adventure phase as camp ends and your possessions whirl away in the winds.",
+    3: """<em>Raiding beasts.</em> The raiders who claw at the walls of civilization stumble into your camp. If you set watch, the watch can spend a check to attempt to kill or drive off the raiders. If no watch, camp ends as a conflict erupts with the raiders attempting to capture the adventurers. Roll 1d6 to discover who your new friends are:
+<table class='table'>
+<tr>
+    <td>1-2</td>
+    <td>Dragefolk raiders (2d6)</td>
+    <td>5</td>
+    <td>Hobgoblins (2d6)</td>
+</tr>
+<tr>
+    <td>3-4</td>
+    <td>Gnolls (2d3)</td>
+    <td>6</td>
+    <td>Bugbears (2d3)</td>
+</tr>
+</table>""",
+    4: "<em>Bandits.</em> A group of 2d6 bandits surround the camp or attempt to ambush the group. If you set watch, the watch may spend a check to make a test or engage in a conflict to keep the peace. Otherwise, remain in adventure phase as camp ends as the bandits politely insist you donate food and coin to their cause.",
+    5: "<em>Trespassing.</em> You’re camping on someone’s land. The local authorities summon knights, warriors or huscarls to perform their duties and see you off (always twice the number of the adventurers). If you set watch, the watch may spend a check to test to see off these annoying busybodies. If not, remain in adventure phase as camp ends as you are forced to deal with this distraction.",
+    6: "<em>Traps.</em> You run afoul of some rather formidable animal traps laid in the area. If you set watch, the watch may spend a check to detect or disarm these snares. Otherwise, remain in adventure phase as camp ends as you’re ensnared and trapped.",
+    7: "<em>Fouled stream.</em> Local industry has fouled this stream, making it undrinkable. Any who drink it must make an Ob 3 Health test. Suggested condition: sick; or twist: you cannot hold down food and liquid until treated by a healer.",
+    8: "<em>Barren lands.</em> This area has been hunted and foraged clean. There’s nothing edible to be had for miles: you may not make Hunter or Scavenger tests when camping in this area.",
+    9: "<em>Hanged man.</em> There’s a corpse hanging from a tree nearby, full of ill omen. You cannot recover from the angry or afraid conditions while camping in this area.",
+    10: "<em>Burial mound.</em> This place is full of ghosts. Memorizing spells and purifying burden is impossible while camping in this area.",
+    11: "<em>Safe camp.</em>",
+    12: "<em>Safe camp.</em>",
+    13: "<em>Midden.</em> You camp near a massive pile of garbage: +1D to Scavenger tests to find wilderness and town items while camping in this area.",
+    14: "<em>Sympathetic children.</em> The local farm kids leave out portions of food and wine for you all.",
+    15: "<em>Fell off the wagon.</em> You find a useful item by the side of the road. Roll on the Gear subtable in the Loot chapter.",
+    16: "<em>Domesticated beasts.</em> There are herds and flocks in these precincts: +1D to Hunter tests during this camp phase. But don’t let the farmers catch you.",
+    17: "<em>Fruit-bearing trees.</em> If the Immortals didn’t want you to eat this fruit, they shouldn’t have planted these orchards here in nice neat rows. The group may collect 2d6 portions of forage.",
+    18: "<em>Abandoned structure.</em> You find an abandoned house or barn: +1D to all recovery tests when camping in this quaint structure.",
+    19: "<em>Friendly camp.</em> A like-minded group of adventurers have taken up residence here. They offer to share their fire and wine with you, and they’ll feed any who look put out. Once everyone is settled, they share a rumor from the Tavern Rumors table. The adventurers are equal to the party’s highest level plus one. Hopefully, you’ll return the favor some day.",
+    20: "<em>Shelter.</em> This place is comfortable, hidden and sheltered from weather and prying eyes. When you return to this place to camp, you are granted a +1 bonus to the Near Town Camp Events table in addition to other bonuses.",
+}
 
-events_dicts = (ancient_ruins_events, dungeons_events, natural_caves_events)
+events_dicts = (
+    ancient_ruins_events,
+    dungeons_events,
+    natural_caves_events,
+    outside_of_or_near_town_events,
+)
 camp_events_table = {k: v for k, v in zip(camp_types, events_dicts)}
