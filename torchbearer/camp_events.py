@@ -1,7 +1,4 @@
-camp_types = (
-    "Ancient Ruins",
-    "Dungeons",
-)
+camp_types = ("Ancient Ruins", "Dungeons", "Natural Caves")
 
 
 ancient_ruins_events = {
@@ -107,5 +104,66 @@ them away, remain in adventure phase. Roll 1d6 for creature:
     20: "<em>Death grip.</em> A skeleton lies in a heap in the corner. It’s clutching something. Roll on the Magic subtable in the Loot chapter.",
 }
 
-events_dicts = (ancient_ruins_events, dungeons_events)
+natural_caves_events = {
+    0: "<em>Cave-in.</em> The area you’re camping in is obliterated. If you set watch, they may spend a check to make a test to sound the alarm and get the group to safety. Otherwise, remain in the adventure phase as camp ends as you scramble to safety, and all packs and gear are destroyed in the chaos. Run!",
+    1: """<em>Lair.</em> This cave is the lair of something terrifying. If you set watch, they may spend a check to drive off the creature. Otherwise, remain in adventure phase as camp ends and you flee in terror. Roll 1d6 to determine whose lair it is:
+<table class="table">
+<tr>
+    <td>1</td>
+    <td>Red dragon</td>
+    <td>4</td>
+    <td>Owlbear</td>
+</tr>
+<tr>
+    <td>2</td>
+    <td>Black dragon</td>
+    <td>5</td>
+    <td>Linnorm</td>
+</tr>
+<tr>
+    <td>3</td>
+    <td>Manticore</td>
+    <td>6</td>
+    <td>Troll bear</td>
+</tr>
+</table>
+""",
+    2: "<em>Rock fall.</em> One of the passages leading to your camp site collapses in a shower of stone and dirt. If there was just one passage, you best have set a watch. If you set watch, the watch may spend a check to make a test to drag you to safety before the way is sealed. If no watch, remain in adventure phase: You’re trapped.",
+    3: "<em>Flood.</em> Torrential rain on the surface causes a flood below. If you set watch, they may spend a check to sound the alarm and get you to safety. Otherwise, remain in adventure phase as camp ends and your packs and gear float off in the torrent and the water continues to rise.",
+    4: "<em>Foul air.</em> The air here quickly goes stale and you all begin to asphyxiate. If you set watch, they may spend a check to vent the air or get the group to safety. Otherwise, remain in adventure phase as camp ends and your eyes bulge and tongue swells as you choke on fumes.",
+    5: """<em>Raid.</em> A bold group of subterranean denizens raids your camp seeking food or captives. If you set watch, the watch may spend a check to confront the raiders. Otherwise, remain in the adventure phase as camp ends and chaos erupts. Roll 1d6:
+<table class="table">
+<tr>
+    <td>1-2</td>
+    <td>Kobolds (2d6)</td>
+    <td>5</td>
+    <td>Troll Bats (3d6)</td>
+</tr>
+<tr>
+    <td>3-4</td>
+    <td>Goblins (2d6)</td>
+    <td>6</td>
+    <td>Orcs (2d6)</td>
+</tr>
+</table>
+""",
+    6: "<em>Bad temperature.</em> Extreme cold (or heat in hot caves) makes you uncomfortable: +1 Ob to all tests during this camp phase.",
+    7: "<em>Lost.</em> Lose your bearings while you rest. After breaking camp, you must test Cartographer or Dungeoneer to get back on track.",
+    8: "<em>Damp.</em> Cloying moisture soaks clothing and gear. You may not recover from the exhausted condition during this camp phase.",
+    9: "<em>Claustrophobia.</em> The tight space and the rock above starts to weigh on you. You suffer a +1 Ob penalty to recover from angry and afraid during this camp phase.",
+    10: "<em>Unlucky.</em> One character drops a carried a item and it either breaks or disappears down a crevasse. Game master chooses.",
+    11: "<em>Safe camp.</em>",
+    12: "<em>Safe camp.</em>",
+    13: "<em>Cache.</em> You stumble upon a cache of torches or rope left by previous explorers. Roll 1d6 to determine the number of items left behind.",
+    14: "<em>Fungus.</em> You find a patch of edible fungi here. Each stalk acts as a unit of forage or as supplies for Cook tests. There are 1d3 stalks.",
+    15: "<em>Creature comfort.</em> The site you pick is dry and comfortable: +1D to recover from exhausted during this camp phase.",
+    16: "<em>Dictionary.</em> This site has magnificent speleothems to look at (draperies, curtains, stalactites, stalagmites, cave crystals, etc.): +1D to recover from angry and afraid during this camp phase.",
+    17: "<em>Spring.</em> You find a clear, cold spring bubbling through a crack in the rocks. It can provide four draughts of water during each camp phase.",
+    18: "<em>Remains.</em> You find the remains of a less fortunate explorer clutching a bit of marked up leather between their finger bones. Roll on the Books & Maps subtable in the Loot chapter.",
+    19: "<em>Gem cluster.</em> You find a cluster of gems glinting among the rock formations. Roll on the Gems Loot subtable.",
+    20: "<em>Basin.</em> You find a naturally occurring basin of water with healing properties: Each draught grants +2D to recover from sick or injured. There is enough water for three draughts. It may be stored in a container and carried away.",
+}
+
+
+events_dicts = (ancient_ruins_events, dungeons_events, natural_caves_events)
 camp_events_table = {k: v for k, v in zip(camp_types, events_dicts)}
