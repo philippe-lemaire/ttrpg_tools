@@ -1,0 +1,16 @@
+{% extends "torchbearer/base_torchbearer.html" %}
+
+{% block title %}
+Torchbearer - Twists
+{% endblock %}
+
+{% block content %}
+<h1>Torchbearer - Twists</h1>
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+{% if twist %}
+<h2>Rolled Twist</h2>
+<p>{{twist|safe}}</p>
+{% endif %}
+{% endblock content%}
