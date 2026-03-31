@@ -102,7 +102,11 @@ def town_events_view(request):
                 )
             )
             # penalties
-            disaster_past_event = int(form.cleaned_data["disaster_past_event"])
+            disaster_past_event = int(
+                form.cleaned_data["disaster_past_event"]
+                if form.cleaned_data["disaster_past_event"]
+                else 0
+            )
             increate_theurge_opposed = form.cleaned_data["increate_theurge_opposed"]
             penalties = disaster_past_event + increate_theurge_opposed
             modifiers = bonus - penalties
