@@ -1,0 +1,16 @@
+{% extends "torchbearer/base_torchbearer.html" %}
+
+{% block title %}
+Torchbearer - Town Events
+{% endblock %}
+
+{% block content %}
+<h1>Torchbearer - Town Events</h1>
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+{% if event %}
+<h2>Rolled Town Event</h2>
+<p>{{event|safe}}</p>
+{% endif %}
+{% endblock content%}

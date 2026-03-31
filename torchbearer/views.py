@@ -4,10 +4,11 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from .loot_tables import loot_tables_list
 from .loot_subtables import loot_subtables
-from .forms import CampEventForm, TwistForm
+from .forms import CampEventForm, TwistForm, TownEventForm
 from .camp_events import camp_events_table
 from .dice_tools import roll, get_closest_key
 from .twists import twists_data
+from .town_events import town_events_table
 
 # Create your views here.
 
@@ -72,6 +73,43 @@ def camp_events_view(request):
             roll_result = roll("3d6") + modifiers
             print(roll_result)
             context["event"] = table[get_closest_key(roll_result, table)]
+
+    return render(request, template_name, context)
+
+
+def town_events_view(request):
+    form = TownEventForm(request.POST or None)
+    template_name = "torchbearer/town_events.html"
+    context = {"form": form}
+    if request.method == "POST":
+        if form.is_valid():
+            town_type = form.cleaned_data["town_type"]
+            town_events = town_events_table[town_type]
+            # compute the bonuses and penalties to the roll
+            # bonuses
+            hearthmistress_favor = form.cleaned_data["hearthmistress_favor"]
+            steward_skill_test_done = form.cleaned_data["steward_skill_test_done"]
+            skald_established_a_court_of_the_wise = form.cleaned_data[
+                "skald_established_a_court_of_the_wise"
+            ]
+            increate_theurge_allied = form.cleaned_data["increate_theurge_allied"]
+            bonus = sum(
+                (
+                    hearthmistress_favor,
+                    steward_skill_test_done,
+                    skald_established_a_court_of_the_wise,
+                    increate_theurge_allied,
+                )
+            )
+            # penalties
+            disaster_past_event = int(form.cleaned_data["disaster_past_event"])
+            increate_theurge_opposed = form.cleaned_data["increate_theurge_opposed"]
+            penalties = disaster_past_event + increate_theurge_opposed
+            modifiers = bonus - penalties
+
+            roll_result = roll("3d6") + modifiers
+            print(roll_result)
+            context["event"] = town_events[get_closest_key(roll_result, town_events)]
 
     return render(request, template_name, context)
 

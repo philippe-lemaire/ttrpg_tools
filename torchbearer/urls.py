@@ -15,5 +15,6 @@ urlpatterns = [
         name="camp_event_rules",
     ),
     path("camp-events", views.camp_events_view, name="camp_events"),
+    path("town-events", views.town_events_view, name="town_events"),
     path("twists", views.twists_view, name="twists"),
 ]
