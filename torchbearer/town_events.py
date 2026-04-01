@@ -694,7 +694,177 @@ remote village becomes a busy crossroads. Roll 1d6 for facility:
 </table>
 """,
 }
-wizard_tower_events = {}
+wizard_tower_events = {
+    2: "<em>Gone.</em> With a rumble of thunder and crash of lightning, the tower disappears along with all of its inhabitants. The entire settlement relocates to a new, unknown locale. The place is no longer here. Erase it from your map. Remain in the adventure phase until you find your way back from this mirror dimension.",
+    3: """<em>Magical catastrophe.</em> Remain in the adventure phase until the catastrophe abates or until you find a saner place to shelter. Roll 1d6 below to determine what madness grips this place:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>The laws of gravity are reversed.</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>All townsfolk become invisible but buildings remain visible, or all buildings become invisible but townsfolk remain visible.</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>Magic ceases to work. The master of the tower is very upset.</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>All flesh turns bright red upon entering town. People are unhappy.</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>The town leadership has been turned into fowl.</td>
+    </tr>
+</table>
+""",
+    4: """<em>Siege.</em> The master of the tower has angered their enemies. A small
+force blocks entrance to the place until their demands are met.
+Remain in the adventure phase. Roll 1d6 for the invading force:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Giants</td>
+        <td>4</td>
+        <td>Dragon</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Goblins</td>
+        <td>5</td>
+        <td>Elves</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Humans</td>
+        <td>6</td>
+        <td>Demons</td>
+    </tr>
+</table>
+""",
+    5: "<em>Dust to dust.</em> All food in the area has turned to colorful dust. Remain in adventure phase until you reach another settlement or until the magical famine is reversed.",
+    6: """<em>Shortage. Supplies are thin. Roll 1d6 to determine which com­
+modity is unavailable for purchase during this town phase:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Paper or ink (writing kits and spell books)</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Iron (weapons and chain and plate armors)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Food or wine</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Oil, tar and pitch (torches, lanterns and flasks of oil)</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Wood (shields, weapons, poles, tools and supplies)</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Leather (leather armor, satchels, backpacks and helmets)</td>
+    </tr>
+</table>
+""",
+    7: """<em>Fire.</em> One town location was badly damaged in a mysterious fire and
+is unavailable until it is rebuilt. Roll 1d6 for facility:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Stables</td>
+        <td>4</td>
+        <td>Shrine</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Inn</td>
+        <td>5</td>
+        <td>Hedge witch</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Homes</td>
+        <td>6</td>
+        <td>Tavern</td>
+    </tr>
+</table>
+""",
+    8: "<em>Weird phenomena.</em> Strange things happen, even when the sun is shining: lights in the sky, voices in empty chambers, children writhing down staircases. Make an Ob 3 Will test to stay sane. Suggested failure results: afraid condition or a twist in which each time you eat, maggots fall from your mouth in clots and clumps. You are unable to eat and remain so cursed until you seek the help of a theurge or magician with the ability to break such evil magics.",
+    9: "<em>Mentorship.</em> Your mentor is here and needs help with a powerful ritual or financial assistance in acquiring alchemical supplies.",
+    10: """<em>Grim tidings.</em> Natural death of a prominent figure. Roll 1d6 to determine their end:
+<table class='table'>
+    <tr>
+        <td>1-2</td>
+        <td>They die of old age, but maybe too old.</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>They die during childbirth, or the child is born bizarrely deformed and dies.</td>
+    </tr>
+    <tr>
+        <td>5-6</td>
+        <td>They die of a heretofore unseen illness.</td>
+    </tr>
+</table>
+""",
+    11: "<em>Greeted by silence.</em> No bird chirps, no dog barks, no child cries as you shuffle into the settlement around the tower.",
+    12: "<em>A funeral celebration.</em> Some old bastard is dead, and folks are celebrating in the streets. Someone offers you a cup of strange wine. Remove hungry and thirsty or if not hungry and thirsty, you wake up hungry and thirsty and hung over the next morning. In the latter case, you may remove angry or afraid if you have them.",
+    13: """<em>Pit fighting.</em> Enterprising adventurers have sold some wretched
+creatures to the wizard’s fighting pits. All may choose one of the
+following options:
+    <ul>
+    <li>Watch the fights and alleviate angry.</li>
+    <li>Watch the fights and take angry and recover one point of taxed Nature.</li>
+    <li>Gamble and bet 1D of coins and roll 1d6: 1-3: lose your bet, 4-6: double your money.</li>
+    </ul>
+""",
+    14: "<em>Black cat crosses your path.</em> A black cat with a broken tail scurries out from beneath a disabled wagon. She’s injured and sick and plainly tells you so. Scoop her up and treat her maladies, and she’ll remain your friend forever. She’ll travel with you, but she prefers to live in a base camp or a home.",
+    15: """<em>Unearthly aura.</em> Like a color out of space, items begin to vibrate.
+Close your eyes, roll 1d6 and choose a number from one to six:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Gems glow with an unearthly light equivalent to a candle until the next town phase.</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Your very bones shine with a ghostly white light. In the dark, you can see the glow faintly emanating from beneath the skin. Exposed bone acts as a torch until next town phase (except your teeth—keep your mouth shut, you’re letting the maggots out).</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Liquids glow with a weird, green light equivalent to a candle. You may make an Alchemist test to distill the effect.</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Metal sparks and crackles with a blue faerie fire until the next town phase. Carrying any metal renders sneaking, hiding or stalking impossible. Research with an Ob 3 Lore Master test to gain the knowledge to write a treatise on the effect.</td>
+    </tr>
+    <tr>
+        <td>5-6</td>
+        <td>Spirit simulacra. A ghostly doppelgänger appears at the shoulder of the youngest character, mimicking their movements. The doppelgänger will absorb one point of damage in a convince, abjure, trick or kill conflict. But if it does so, it dissipates with a shriek and shatters one random gear item possessed by the character. The game master decides which piece. </td>
+    </tr>
+</table>
+""",
+    16: "<em>The cat’s away.</em> The master of the tower is away on business. All are granted +1D to all Resources and Circles tests for this town phase.",
+    17: "<em>The master comes down.</em> The master descends to the town to hear the complaints of their servants. They will hear any injustice or complaint and seek to ameliorate it—short of casting a spell. Each adventurer may offer one complaint, but anything deemed frivolous will incite the master of the tower to enmity.",
+    18: """<em>Lucky star.</em> Your lucky star transits the heavens. Portents are good.
+Apply the following effects to each character as appropriate:
+<ul>
+<li>If your Nature is taxed, restore it to its maximum.</li>
+<li>If your Nature is untaxed, alleviate all conditions.</li>
+<li>If untaxed with no conditions, become fresh when you leave town.</li>
+<li>If current max Nature is 1, change one descriptor to Wandering, Seeing or Whispering.</li>
+</ul>
+""",
+    19: "<em>Lord of Whispers.</em> The Lord of Whispers visits the wizard’s tower to look into the well being of her students. She invites the people to challenge her with wit, knowledge or magic. Should the challenger win, she will grant a boon (of the game master’s choice). Should she win, she laughs and curses them, replacing a Nature descriptor with Whispering. The character may no longer speak above a whisper. If missing a Nature descriptor, she writes Whispering in the empty slot.",
+}
 
 events_dicts = (
     bustling_metropolis_events,
