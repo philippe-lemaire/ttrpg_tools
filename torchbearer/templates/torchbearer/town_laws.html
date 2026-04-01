@@ -1,0 +1,22 @@
+{% extends "torchbearer/base_torchbearer.html" %}
+
+{% block title %}
+Torchbearer - Town Laws
+{% endblock %}
+
+{% block content %}
+<h1>Torchbearer - Town Laws</h1>
+<p>{{generalities|safe}}</p>
+
+{% for law_type, laws in town_law_dict.items %}
+
+<h2>{{law_type}} Law</h2>
+<ul>
+  {% for law in laws %}
+  <li>{{law}}</li>
+  {% endfor %}
+</ul>
+{% endfor %}
+
+
+{% endblock content%}
