@@ -53,8 +53,7 @@ civil_laws = (
 )
 
 religious_laws = (
-    "Only priests may officiate funerals, weddings and births.",
-    "Punishable by a fine (Ob 3 Resources).",
+    "Only priests may officiate funerals, weddings and births. Punishable by a fine (Ob 3 Resources).",
     "Performing invocations is forbidden. Punishable by exile.",
     "All persons must observe a new holiday. The market and guild hall are closed. Failure to observe is punishable by flogging.",
     "Communicating with the excommunicated is forbidden. Punishable by stoning.",
