@@ -1,0 +1,878 @@
+town_types = (
+    "Bustling Metropolis",
+    "Busy Crossroad",
+    "Dwarven Hall",
+    "Elfhome",
+    "Religious Bastion",
+    "Remote Village",
+    "Wizard’s Tower",
+)
+
+bustling_metropolis_events = {
+    2: "<em>Black plague.</em> This place is a charnel house. Bodies lay piled in the streets. Mark this city as a ruin on your map, say your prayers to the Immortals and move on.",
+    3: "<em>Raging fire.</em> This town is in flames. There is no safe place to rest; no market open. Remain in the adventure phase until the fire is put out or dies down or until you move on to another town.",
+    4: "<em>Riots.</em> The citizens protest for their rights and the ruling class provokes them to riot. Remain in the adventure phase until the riots subside or until you journey to a new town.",
+    5: "<em>Civil war.</em> The populace of this town has split into factions or has taken up arms against its ostensibly allied neighbor. Remain in the adventure phase until the war subsides or until you reach a different town.",
+    6: "<em>Festival.</em> The streets are blocked by parades, and the market is closed.",
+    7: "<em>New fashion rampant.</em> A fashion craze grips the city. All suffer a +1 Ob penalty to Circles tests until they are wearing the latest fashion (usually finery or its equivalent).",
+    8: """<em>New law decreed.</em> Roll 1d6 to determine the type of law:
+<table class='table'>
+    <tr>
+        <td>1-2</td>
+        <td>Criminal law (choose one)</td>
+        <td>4-5</td>
+        <td>Civil law (choose one)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Sumptuary law (choose one)</td>
+        <td>6</td>
+        <td>Religious law (choose one)</td>
+    </tr>
+</table>
+""",
+    9: "<em>Labor strike.</em> The guild hall is closed. No services available.",
+    10: "<em>Fad.</em> The city has been taken by a harmless new custom or fad. Everyone in the drinking halls and taverns is complaining about it. The folks at the well gossip about it. Children all envy it.",
+    11: """<em>Foreign visitors.</em> Roll 1d6:
+<table class='table'>
+    <tr>
+        <td>1-2</td>
+        <td>The town is full of chatter in a new tongue</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>They are curious about the customs</td>
+    </tr>
+    <tr>
+        <td>5-6</td>
+        <td>They apologetically jostle you in the street</td>
+    </tr>
+""",
+    12: """<em>Natural death of a prominent figure.</em> Roll 1d6:
+<table class='table'>
+    <tr>
+        <td>1-2</td>
+        <td>They die of old age</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>They die during childbirth</td>
+    </tr>
+    <tr>
+        <td>5-6</td>
+        <td>They die of illness</td>
+    </tr>
+</table>
+""",
+    13: "<em>Public performance.</em> Jugglers, boxers and acrobats put on a comical show. The crowd roars with laughter. Make a free test to recover from angry or afraid.",
+    14: "<em>A polite request.</em> An impoverished, aging dowager mistakes you for someone else. She sends her ancient servant to politely inquire with you because she needs a gift for a young noble’s upcoming birthday. She can pay with gratitude. Will you create a fine gift for her? Succeed and add a new friend. If the widow is befriended and this result is rolled again, you encounter her and she invites you to stay with her while you are visiting this town.",
+    15: "<em>Actually.</em> On the street, you hear a fool prattling on to their lady friend about the nature of the moon and the stars. Tip your hat and correct them using Scholar vs their Scholar 4. Suggested twist: you make a new enemy. If you make an enemy and roll this event again, you encounter them while entering town. No debate necessary!",
+    16: """<em>Holy day.</em> The streets are packed with pilgrims and tourists.
+<ul>
+    <li>Any religious item may be sold for 1D of copper coins</li>
+    <li>All are granted +1D to all Orator, Criminal and Scavenger tests</li>
+    <li>Everyone may conduct one free bit of personal business without adding to lifestyle cost</li>
+</ul>""",
+    17: """<em>Jubilee.</em> The nobility celebrates the birth of a great leader. Everyone
+receives one boon in the following order:
+<ul>
+    <li>If you are hungry or thirsty, you are given alms in the form of one portion of fresh rations</li>
+    <li>If you are ill, a priest-healer treats you and removes the sick condition</li>
+    <li>If you are neither hungry or sick, they commute any sentence or ban against you or forgive your outstanding debts in this town</li>
+</ul>""",
+    18: """<em>Craze.</em> The city is going wild for something again. Roll 1d6 to discover what they’re on about:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td><em>Fine hats or shoes.</em> Sell them at the market for 4D of silver coins.</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td><em>Elves.</em> Elves are granted +1D to Resources and Circles tests.</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td><em>Dwarven-made items.</em> Any dwarven-made item can be sold for +1D (minimum value of 1D).</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td><em>Home-cooked meals.</em> All fresh, home-cooked meals can be sold for 1D of copper coins.</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td><em>Wizards.</em> A magician who casts a spell on a supplicant (or fakes it) can charge them 2D silver coin. This practice is considered highly illegal by the Magicians and Alchemists guild.</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td><em>Prophets.</em> Anyone who performs an invocation in public (or fakes it) is showered with 2d2 dice worth of silver coins. This practice will bring down the wrath of the temple priests and their acolytes.</td>
+    </tr>
+</table>
+""",
+    19: "<em>Investment opportunity.</em> Hey, you look like a smart customer. I have a golden opportunity for you. Just cherry. How would you like to get in on something that is really going to pay off? Your group may invest in a caravan, expedition or ship, or may purchase a business in the city. Reduce Precedence requirement by one for this once-in-a-lifetime offer. You may invest even if not in respite. See the Lore Master’s Manual for costs and payouts.",
+}
+
+
+busy_crossroad_events = {
+    2: "<em>Catastrophic fire.</em> The town burns to the ground with a rapidity that shocks even the cynical. Remain in the adventure phase. Mark the town as a ruin on your map.",
+    3: "<em>Plague.</em> Town closed. Remain in the adventure phase until you reach a new town or until the plague is miraculously cured.",
+    4: "<em>Famine.</em> There is no food available. Remain in the adventure phase until you reach a new town or until the famine is miraculously relieved.",
+    5: """<em>Infestation.</em> Town closed. Remain in adventure phase until infestation is driven out or until you arrive at another town.
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Weevils eat all clothing</td>
+        <td>3</td>
+        <td>Worms devour all leather</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Locusts blanket town</td>
+        <td>4-6</td>
+        <td>Tiny devils everywhere</td>
+    </tr>
+</table>
+""",
+    6: "<em>Robbery.</em> A thief attempts to rob one character. The game master chooses the target. They test Criminal vs Criminal 6. If the thief succeeds, they remove one belt or carried item from the victim.",
+    7: "<em>Hard luck.</em> One of your friends is in town and is at loose ends. They desperately need 2D of coin or two portions of food and wine.",
+    8: """<em>Fire.</em> One facility was badly damaged in a fire. Roll 2d6 for facility:
+<table class='table'>
+    <tr>
+        <td>2-3</td>
+        <td>Guild hall</td>
+        <td>8</td>
+        <td>Market</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Homes</td>
+        <td>9</td>
+        <td>Inn</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Stables</td>
+        <td>10</td>
+        <td>Flophouse</td>
+    </tr>
+    <tr>
+        <td>6-7</td>
+        <td>Tavern</td>
+        <td>11+</td>
+        <td>Shrine</td>
+    </tr>
+</table>
+""",
+    9: "<em>Enemy at the gates.</em> An enemy awaits (game master’s choice).",
+    10: "<em> Visiting nobility.</em> They smell nice, are polite and make no imposition.",
+    11: "<em>A bell tolls.</em> All is well.",
+    12: """<em>Small gifts.</em> A child emerges and presents you with:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>A flower</td>
+        <td>4</td>
+        <td>A key</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>An empty cup</td>
+        <td>5</td>
+        <td>A pair of wooden toy oxen</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>An icon of an Immortal</td>
+        <td>6</td>
+        <td>A tooth</td>
+    </tr>
+</table>
+""",
+    13: """<em>Market glut.</em> Reduce the Resources obstacle for affected goods by one. If an item is reduced to Ob 0, you may purchase two for the price of one instead. Roll 1d6 for affected commodity:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Wheat or millet (fresh rations)</td>
+        <td>4</td>
+        <td>Iron (weapons, heavy armor)</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Wine</td>
+        <td>5</td>
+        <td>Wool (clothing, cloaks)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Oil, tar, pitch (torches, lanterns)</td>
+        <td>6</td>
+        <td>Paper (writing kit, spell books)</td>
+    </tr>
+</table>
+""",
+    14: "<em>Wedding.</em> A wedding spills into the square. Dance a jig with the bride and groom and recover one point of taxed Nature.",
+    15: "<em>Right of way.</em> A noble desires to have the right of way. However, they want no trouble and toss down 1D of copper coins and urge you to step aside. What will you do? Any tests made add to your lifestyle cost.",
+    16: """<em>Exotic goods.</em> A caravan or ship arrives selling exotic goods. You
+have the opportunity to purchase at discount prices. Roll 1d6 for
+what they’re selling:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Elixirs (Ob 2): Calming Scalp Balm or a Vial of Purifying Heavy Water </td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Silks, lace and satin (Ob 4): 2d3 supplies for crafting finery</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Spices (Ob 1 per parcel): Roll 2d3 for parcels. Each parcel is worth 2D of treasure</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Weaponry: Roll twice on the Weapons loot subtable</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Oils and unctions (Ob 4): Roll once on the Potions subtable</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Religious amulets (Ob 1): +1D Maneuver weapon in spiritual conflicts (neck/worn)</td>
+    </tr>
+</table>
+""",
+    17: "<em>Stray dog.</em> A cheerful dog trots out of an alley and adopts one of you as her own. Feed her one portion of fresh or preserved rations to keep her. She’ll stick with you through thick and thin.",
+    18: """<em>Victory celebration.</em> The local overlord returns victorious from campaign and distributes gifts among the populace. Roll 1d6 to find what each character receives:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Captive: you must either marry or emancipate them</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>A small sack of silver coins worth 2D (pack 2)</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Livestock: a horse, pony, cow or ox</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>Fine silks and brocades: counts as finery (worn/torso 3 or pack 4)</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>A weapon won in battle (roll on the Weapons Loot Table)</td>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>A piece of jewelry (roll on the Jewelry subtable)</td>
+    </tr>
+</table>
+""",
+    19: "<em>Abandoned supply wagon.</em> A wagon sits on the road outside of town with no mules or drivers to be seen. Plunder it for 2d2 rolls on the Gear table or return it to the guild hall and be granted a reward of two small sacks of silver coins (2D, pack 2 each).",
+}
+
+
+dwarven_hall_events = {
+    2: "<em>Dug too deep.</em> In their greed, the miners and artificers have dug too deep and awoken something sinister and terrible. The halls are empty, the dwarves within slain, and something twisted and loathsome has taken their place. Mark these halls as a ruin on your map. Remain in the adventure phase.",
+    3: "<em>Struggle for power.</em> The dwarf princes plot against one another. The halls have split into factions. Remain in the adventure phase until the struggle subsides or until you reach a new town.",
+    4: "<em>Famine.</em> No food is available in the halls or the surrounding lands. Remain in adventure phase until you reach a new town or until the famine is miraculously relieved.",
+    5: "<em>Devastating flood.</em> The avenues are rivers, staircases waterfalls and towers islands. All is chaos. Remain in the adventure phase until you reach a new town.",
+    6: """<em>Under siege.</em> The dwarves are resisting a besieging army, but their halls are open to allies. Increase all Resources and Circles obstacles by 1, but sell kit and salvage at a +1D cash markup. Roll 1d6 to determine the besiegers:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Giants</td>
+        <td>4</td>
+        <td>Dwarves</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Goblins</td>
+        <td>5</td>
+        <td>Elves</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Humans</td>
+        <td>6</td>
+        <td>Orcs</td>
+    </tr>
+</table>
+""",
+    7: "<em>Surly watch.</em> The axe bearers on watch at the gates are particularly surly. To gain entry to the halls, ask permission of the Gate Master Sergeant. Test Persuader vs Persuader 4. Suggested failure: angry or a twist that you must offer a bribe to enter.",
+    8: "<em>Traffic.</em> The caravan line waiting to approach the dwarven halls is days long, and no one seems to be in charge. Make an Ob 3 Steward test to get your crew through before you die of old age. Suggested failure results: angry or a twist that entry requires a bribe valued at 2D of cash.",
+    9: "<em>Nogfest.</em> It’s Nogfest time at the dwarven halls! The taverns are packed full of merry, singing folk. Increase accommodations costs by 1, but haggling at the market is free.",
+    10: "<em> Dwarven penny.</em> You find a copper penny stamped with the face of a heroic dwarf sovereign; on the obverse sits a majestic rune.",
+    11: "<em> Jocular guards.</em> The axe bearers on watch gently tease you about your inferior blades as they happily point you to the tavern.",
+    12: """<em>Misplaced baggage.</em> A bundle falls from the wagon of a trader
+heading in the opposite direction. Will you hail them and return it?
+If opened, roll 1d6 to determine what it contains:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>An infant child</td>
+        <td>4</td>
+        <td>Charcoal</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>A pouch of silver worth 1D </td>
+        <td>5</td>
+        <td>A sack of flour</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>A large snake</td>
+        <td>6</td>
+        <td>A decapitated head</td>
+    </tr>
+</table>
+""",
+    13: "<em>Unattended till.</em> As you enter the halls, you see a dwarf vendor leave their till open and unattended while they fulfill a customer’s request. To snag the take, test Criminal test vs Beginner’s Luck Health 5. Success nets 2D of silver coins. Suggested failure: a twist in which they summon the axe bearers on watch to arrest you.",
+    14: "<em>Lucky duck.</em> Nothing goes better with nog than a throw of the dice. Sit. Play. I insist. Each character who can stake 1D of coins or loot must play a round of Wizard, Krazzik or a hand of Diamondback (as detailed in the Gambling chapter of the Lore Master’s Manual). If you win, take a satchel of silver coins. If you lose, you lose your stake.",
+    15: """<em>Artificer’s indulgence.</em> An eccentric local artificer is willing to part with some of their work for a price. Roll 1d6 once:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Dwarven helmet (Ob 3).</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Dwarven shield (Ob 4).</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Dwarven coat of plates (Ob 5): Coat of plates that wards off damage on a roll of 3-6.</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Dwarven belt and buckle (Ob 4): Increases belt inventory by one.</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Dwarven canteen (Ob 4): Two-slot liquid container (belt 1).</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Gold pendant set with ruby (Ob 5): This pendant is worth 10D in any other settlement (worn/neck).</td>
+    </tr>
+</table>
+""",
+    16: """<em>New hall opens.</em> The industrious dwarves open a new hall in their
+sprawling holding. They invite you to stay for free! What could go
+wrong? Roll 1d6 to see:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Due to unforeseen complications, the hall collapses as you enter. Your hosts offer you each 2D of gold as compensation, provided you never speak a word of it. Also, you must find new accommodations.</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Bare halls (equivalent to stables)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Spartan halls (equivalent to flophouse)</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Homey halls (equivalent to inn)</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Palatial hall (equivalent to hotel)</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>The dwarven proportions of this inn are uncomfortable for elves and humans. These guests suffer +1 Ob to recovery tests while staying at these accommodations, but they learn something: gain Dwarf-wise.</td>
+    </tr>
+</table>
+""",
+    17: "<em>You I like.</em> A friendly trader tips their hat as you enter the gates. If you successfully tell tales at the tavern, in addition to the standard results, add a new town friend in the dwarven halls. The game master determines their profession and name.",
+    18: "<em>Gold flows like wine.</em> In an ostentatious show, the dwarf artificers make gold flow through the halls in rivers. Each character may dip one container into the stream and fill it. Each inventory slot counts as 2D of gold coins (pack 1). They must have the container on their person at the start of the town phase (and the container is ruined).",
+    19: """<em>Immortal task.</em> An Immortal in need visits the dwarven halls in
+search of the skills of their artificers. The Immortal requires a
+special item created for a special task—a mighty hammer, a golden
+boar, golden hair, etc. The artificers work diligently and do not want
+to be disturbed. However, if the characters happen to be carrying
+the item in question, they can offer it to the Immortal. The Immortal
+will grant a boon for this service (restore a Nature descriptor, raise
+the recently deceased, gift a greater relic, etc.). However, striking
+this bargain makes an enemy of the Master Artificer of the dwarven
+halls. If the characters refrain from interfering, they may dig through
+the cast off from the artificers’ forges. Everyone is too focused on
+the artisanal task to notice. Roll 1d6 once to determine what is found:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Dwarven forge mask (see the Magical Items list in the Loot chapter).</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Dwarven helmet (Ob 3): Counts a reinforced helmet.</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Dwarven shield (Ob 4): Counts as a reinforced shield.</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Dragonslaying sword: The sword is Dragon-wise and grants +1 Might.</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Gold slag worth 8D (pack 4).</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Dwarven artificer tools (special tools for Smith and Jeweler that replace default skill tools and grant a +1D bonus to all crafting tests).</td>
+    </tr>
+</table>
+""",
+}
+
+elfhome_events = {
+    2: "<em>Pass on to the Shining Realm.</em> The elves here have decided this mortal world is no longer for them. They have, en masse, passed on to their eternal home. No trace remains. Erase this settlement from your map and remain in the adventure phase.",
+    3: "<em>Betrayal.</em> Spiteful elves have set to kinslaying. A war rages within, and no outsiders are permitted. Remain in the adventure phase until the bloodletting ceases or you find a new settlement to shelter in.",
+    4: """<em>Ancient war.</em> The greedy and the bloodthirsty seek to plunder the
+fabled riches of Elfhome. A war rages in the fields before the secret
+citadel. Remain in the adventure phase until the attackers are driven
+off, the elves are defeated or you skulk off to another settlement.
+
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Giants</td>
+        <td>4</td>
+        <td>Dwarves</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Orcs</td>
+        <td>5</td>
+        <td>Dragons</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Humans</td>
+        <td>6</td>
+        <td>Werewolves</td>
+    </tr>
+</table>
+""",
+    5: "<em>Immortal quarrel.</em> An Immortal visits Elfhome to quarrel with the dreamwalkers about troubling visions. The way is shut until this matter is settled. Remain in the adventure phase until you find another settlement in which to shelter.",
+    6: """<em>Dreamlands call.</em> Omens hang heavy in the air. Elves from all tribes have been called to enter the dreamlands to assess the portents.
+Roll to determine which services are closed:
+
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Tavern</td>
+        <td>3</td>
+        <td>Inn and Homes</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Stables</td>
+        <td>4-6</td>
+        <td>Market</td>
+    </tr>
+</table>
+""",
+    7: "<em>Lamentations.</em> The elves are singing laments to grieve for those elves who have died of pierced and broken hearts. The tavern is closed. Also, all who hear the lament must make an Ob 3 Will test. Success indicates they grieve for broken dreams and lost loves along with the elves. Suggested failure results: angry or a twist that the character falls into a state of wonderment and racks up +1 lifestyle cost as they sit for days and marvel at the elvish songs.",
+    8: """<em>Suspicion.</em> The elves are furious over some crime committed by
+outlanders in Elfhome. They search all pouches, pockets, sacks,
+satchels, packs and baggage for contraband. Roll 1d6 to see what
+they confiscate:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>All strange idols</td>
+        <td>4</td>
+        <td>A relic</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>A potion</td>
+        <td>5</td>
+        <td>A scroll</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>All knives and daggers</td>
+        <td>6</td>
+        <td>A dwarven or elven-made item</td>
+    </tr>
+</table>
+""",
+    9: "<em>Enraptured.</em> Your friend has found their way into Elfhome and now cannot bring themselves to leave this beautiful, peaceful place. Will you guide them on their journey home, or will you leave them to remain with the elves forever? The game master chooses which friend.",
+    10: "<em>It’s a bright, clear day.</em>",
+    11: "<em> Eye contact.</em> An elf smiles enigmatically at you as you enter Elfhome.",
+    12: "<em>Shafts of sunlight.</em> Trunks of ancient trees stretch to the sky; shafts of golden sunlight gently flow to the earth. All is well here.",
+    13: "<em>Omens.</em> A strange elf approaches. They touch your face and speak to you directly of your dreams—your deepest, unshared secrets. Test Lore Master (Ob 3) to interpret their omens. If successful, remove the angry, afraid or exhausted condition. Suggested failure results: afraid or a twist that you experience terrifying nightmares that cause +1 Ob to all recovery tests until the next town phase. The game master chooses the character approached.",
+    14: "<em>Song of merriment.</em> The elves are at feast. Join them and satisfy any hunger or thirst. Also, all are granted +1D to recover from angry, exhausted or sick. If you have no conditions, cadge some food or wine from the table (fresh rations or a bottle) for later.",
+    15: "<em>Wanderer’s gift.</em> An ancient elf matron approaches you with a gift of elven waybread. The waybread acts as preserved rations, but it is pack 1 for six portions. However, when used with Cook or Grace of the Lords of Plenty, each piece acts as fresh rations.",
+    16: "<em>Remembrance day.</em> The elves remember the Shining Lands and all that has befallen them since leaving. All elves recover all taxed Nature. If not taxed, mark a pass or fail for Nature. If one test would advance you, you must mark it. All others may rewrite their creed, even if this town phase is not a respite.",
+    17: "<em>Restful memory.</em> You carry with you the peace and tranquility of Elfhome, even after you leave this place. The memory suffuses you with a warm glow and grants +1D to all recovery tests until the next town phase.",
+    18: "<em>Doomsayer.</em> The elven etharch walks among their people, speaking to them of their travels and travails. The etharch automatically alleviates the most dire condition afflicting a character. If unafflicted, the etharch removes any curse carried by the character. If unafflicted and uncursed, the etharch passes on to others. However, if a character misbehaves in Elfhome during this town phase, the etharch summons them and reads their doom. The game master then changes the character’s belief or goal. It cannot be changed by the player until the next town phase.",
+    19: "<em>Enter the Dreamlands.</em> While you sleep, you dream too deeply and lose a bit of yourself to this place. Non-elf characters must replace one Nature descriptor with Singing, Remembering or Hiding. Elves may conduct all business in town in dream. Reduce their lifestyle cost for each activity by one (minimum 0—but market prices are unaffected). If an elf fails their Resources test to leave Elfhome, they must take the exhausted condition in addition to other effects.",
+}
+religious_bastion_events = {
+    2: "<em>Cast down.</em> The Immortals rage at the impertinence of this bastion. They cast the structure down and ruin it. Inhabitants flee in terror. Mark the bastion as a ruin on your map. Remain in the adventure phase until you reach a new settlement.",
+    3: """<em>Demonic catastrophe.</em> Remain in the adventure phase until the catastrophe is abated or until you hurry off to a safer settlement.
+Roll 1d6 for the type of catastrophe:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>The powers of the world are deaf to the prayers of this town: no invocations work, and demagogues preach the apocalypse.</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>A demon (N6, M5) springs forth from the forehead of a seventh son of a seventh son and claims the bastion in the name of its infernal master.</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Fire ceases to burn.</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Water ceases to quench.</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Everyone over the age of 17 has been turned to stone.</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>All language sounds like the bleating of sheep.</td>
+    </tr>
+</table>
+""",
+    4: """<em>Besieged.</em> The bastion is sealed tight against an invading force. Remain in the adventure phase until you reach another settlement
+or lift the siege. Roll 1d6 to determine the besieging force:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Giants</td>
+        <td>4</td>
+        <td>Dwarves</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Goblins</td>
+        <td>5</td>
+        <td>Undead</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Humans</td>
+        <td>6</td>
+        <td>Demons</td>
+    </tr>
+</table>
+
+""",
+    5: "<em>Proscription.</em> Trade and are travel forbidden. Remain in the adventure phase (waiting outside of the bastion) until the ban is lifted in 2d3 days. If attempting to leave, the religious authorities arrest you.",
+    6: """<em>New law decreed.</em> Roll 1d6 below:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Criminal law (choose one)</td>
+        <td>4</td>
+        <td>Civil law (choose one)</td>
+    </tr>
+    <tr>
+        <td>2-3</td>
+        <td>2-3 Sumptuary law (choose one)</td>
+        <td>5-6</td>
+        <td>5-6 Religious law (choose one)</td>
+    </tr>
+</table>
+""",
+    7: "<em>Currency debased.</em> The authorities of the bastion attempt to stamp out inflation by debasing their currency. In the bastion from this day forward: Copper coins are worthless, silver coins are 1D/pack 2 and gold coins are 1D/pack 1.",
+    8: "<em>Easy prey.</em> Missionaries demand you join their ranks. Either hand over your hirelings or a companion or pay an Ob 3 Resources fee.",
+    9: "<em>Festival to a forgotten Immortal.</em> The streets are blocked by parades. The market is closed, but everyone gets free sweet pancakes.",
+    10: "<em>Religious procession.</em> The procession is respectfully observed or mostly unattended—game master chooses.",
+    11: "<em>Execution.</em> A judicial murder is carried out with no fanfare or with a great sigh of relief from the townsfolk. Game master’s choice.",
+    12: "<em>Holy day of the Sower and the Reaper.</em> The hetairai and hetairoi have the bastion in an amorous mood. If you leave a 1D offering at their shrine, you may indulge in the company of another and automatically recover from exhausted. If not exhausted, take the exhausted condition but test to recover from angry and afraid.",
+    13: "<em>Ritual blessing.</em> The Immortals bestow their blessing on your labors: The eldest character is granted +1D to their next Peasant, Laborer or Steward test.",
+    14: "<em>Summa Theologica.</em> Two local theologians debate how many Immortals can dance in a wine cup. Join in the debate and test Theologian vs their Theologian 4. Success makes a friend; failure makes an enemy.",
+    15: "<em>Festival of the Lord of Victory.</em> The scholars and theologians are celebrating the Immortals (again). Each character must play a round of Wizard, Krazzik or a hand of Diamondback (as described in the Lore Master’s Manual). If you win, take 1D of copper coins.",
+    16: """<em>Cult uprising. A new sect rises up to claim the bastion. Members
+of the risen temple all count the bastion as their hometown going
+forward. All other temple memberships are voided as the priests are
+turned out. Roll for the Immortal cult that rises to the top:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Lords of Light and Darkness</td>
+        <td>4</td>
+        <td>Lords of Plenty and Want</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Lords of Life and Death</td>
+        <td>5</td>
+        <td>Lords of Valor and Terror</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Lords of Chaos and Law</td>
+        <td>6</td>
+        <td>Lords of Fate</td>
+    </tr>
+</table>
+""",
+    17: "<em>High holy day.</em> Make an offering at the temple worth 1D of cash and you may stay for free (accommodations equivalent to a flophouse). In addition, while you rest at the temple you may eat in the mess hall with the acolytes (free food and wine).",
+    18: """<em>Ascension. One of the bastion’s leaders ascends to the rank of high
+priest. To celebrate, they distribute gifts among the devout. Roll 1d6
+to determine what each character receives:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>A jug of holy wine (pack 3, contains 3 draughts)</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Vials of holy water (pack 1 for 3 vials)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Holy vestments (finery, worn/torso 3 or pack 4)</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Innocent creature: a lamb, a cat, a calf, a chick, etc.</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Holy vessel: 3D, pack 1 or roll on the Silver & Plate subtable of the Richer Loot chapter in the Lore Master’s Manual</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Soul: an orphaned child</td>
+    </tr>
+</table>""",
+    19: "<em>Favor of the Immortal.</em> The bastion’s Immortal patron reveals itself to the devout. All must mark one pass or fail Theologian advancement (your choice). In addition, any who have a creed related to the Immortal’s spheres of influence must replace a Nature descriptor with Worshipping, Praying or Believing. If you are missing a Nature descriptor, you must take one of these descriptors, regardless of your creed.",
+}
+remote_village_events = {
+    2: "<em>Emptied.</em> The village has been emptied of all inhabitants. The structures still stand, but the place has been picked clean by scavengers. Maybe you can find something if you dig around. Remain in the adventure phase. This place isn’t safe. Mark the village as a ruin on your map.",
+    3: "<em>Devastating flood.</em> The village is in ruins. There is no safe place to rest. Remain in the adventure phase and move on.",
+    4: "<em>Drought.</em> There is not a drop to drink in this village; all locations are closed. Remain in the adventure phase until you reach a new town or the drought abates.",
+    5: "<em>Civil war.</em> The residents of this fine village have split into factions or has set themselves against their ostensibly allied neighbor. Remain in the adventure phase until the war resolves or until you reach a new town.",
+    6: "<em>Bandits.</em> The village is beset with bandits (3d6 in number). Remain in the adventure phase until the bandits are driven off or until you arrive at a different settlement.",
+    7: "<em>Tax time.</em> The tax collector demands a head of livestock or a payment (Resources Ob 3). If you confront the tax collector over your precious pony, remain in the adventure phase.",
+    8: "<em>Billeted army.</em> The soldiers overwhelm the town. No room at the accommodations, they’re occupied by officers. No room at the tavern, they’re crowded with soldiers. No room at the stables, they’re crammed full of cavalry. All live and rolling stock is claimed by the army. You can sleep on the streets or, if you mess with the soldiers, remain in the adventure phase.",
+    9: "<em>Broken axle.</em> A friend of a friend (or cousin or enemy) is hauling a load of manure out of the village and their cart has thrown an axle. Will you help them repair it so they can be on their way? (Ob 3 Peasant test). Make this additional test in the adventure phase before entering town. Maybe make a new friend.",
+    10: "<em>Pleasant smells.</em> You scent wood smoke on the wind. The kitchen aromas remind you of a welcoming home.",
+    11: "<em>Halloo.</em> You receive a friendly Halloo! from your neighbors.",
+    12: "<em>Fair day.</em> Folks have come from all around to attend the fair. The village hosts a market and at least one relationship character (friend, parents, mentor) is present. The game master chooses which relationship.",
+    13: "<em>Stuck.</em> The tinker’s cart is stuck in the mud. Heave it out using Laborer (Ob 5). If successful, the tinker offers a small reward. Roll on the Gear subtable or decline the reward and add a new friend. If you befriend the tinker and roll this result again, the tinker invites you to stay at their shack (flophouse) on the outskirts of the village.",
+    14: "<em>Help.</em> The proprietor of your accommodations frantically asks you for help. One of their other patrons is violently ill. Make an Ob 4 Healer test to treat the mysterious traveler. If successful, they offer a small reward as recompense for your time. Roll on the Books & Maps subtable.",
+    15: "<em>Gambling fever.</em> Everyone in the village is gambling away their earnings. Each character may play a round of Wizard, Krazzik or a hand of Diamondback (as described in the Lore Master’s Manual). If you win, take 1D of copper coins.",
+    16: "<em>Bumper crop.</em> There’s a good harvest in (or last season’s harvest is being turned out). Take as many supplies for Cook as you can carry (pack 1 each).",
+    17: "<em>Festival for the Lord of Sowing and the Lady of Reaping.</em> Offer a prayer at the shrine and gain the blessing of the Immortals: +1D to Peasant and Steward tests until the next town phase.",
+    18: "<em>One of the family.</em> The village elders mistake you for one of the family and offer you a home in the village at a discount if you can afford it (Ob 6 Resources test). The offer stands until the end of the next town phase. Suggested failure: twist, they realize their error and accuse you of trying to swindle them.",
+    19: """<em>Prosperity.</em> The village’s struggles have borne fruit. Add a new
+facility to the village. If two new town facilities are added, this
+remote village becomes a busy crossroads. Roll 1d6 for facility:
+<table class='table'>
+    <tr>
+        <td>1-2</td>
+        <td>Tavern</td>
+        <td>5</td>
+        <td>Inn</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>Temple</td>
+        <td>6</td>
+        <td>Guild Hall</td>
+    </tr>
+</table>
+""",
+}
+wizard_tower_events = {
+    2: "<em>Gone.</em> With a rumble of thunder and crash of lightning, the tower disappears along with all of its inhabitants. The entire settlement relocates to a new, unknown locale. The place is no longer here. Erase it from your map. Remain in the adventure phase until you find your way back from this mirror dimension.",
+    3: """<em>Magical catastrophe.</em> Remain in the adventure phase until the catastrophe abates or until you find a saner place to shelter. Roll 1d6 below to determine what madness grips this place:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>The laws of gravity are reversed.</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>All townsfolk become invisible but buildings remain visible, or all buildings become invisible but townsfolk remain visible.</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>Magic ceases to work. The master of the tower is very upset.</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>All flesh turns bright red upon entering town. People are unhappy.</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>The town leadership has been turned into fowl.</td>
+    </tr>
+</table>
+""",
+    4: """<em>Siege.</em> The master of the tower has angered their enemies. A small
+force blocks entrance to the place until their demands are met.
+Remain in the adventure phase. Roll 1d6 for the invading force:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Giants</td>
+        <td>4</td>
+        <td>Dragon</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Goblins</td>
+        <td>5</td>
+        <td>Elves</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Humans</td>
+        <td>6</td>
+        <td>Demons</td>
+    </tr>
+</table>
+""",
+    5: "<em>Dust to dust.</em> All food in the area has turned to colorful dust. Remain in adventure phase until you reach another settlement or until the magical famine is reversed.",
+    6: """<em>Shortage. Supplies are thin. Roll 1d6 to determine which com­
+modity is unavailable for purchase during this town phase:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Paper or ink (writing kits and spell books)</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Iron (weapons and chain and plate armors)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Food or wine</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Oil, tar and pitch (torches, lanterns and flasks of oil)</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Wood (shields, weapons, poles, tools and supplies)</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Leather (leather armor, satchels, backpacks and helmets)</td>
+    </tr>
+</table>
+""",
+    7: """<em>Fire.</em> One town location was badly damaged in a mysterious fire and
+is unavailable until it is rebuilt. Roll 1d6 for facility:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Stables</td>
+        <td>4</td>
+        <td>Shrine</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Inn</td>
+        <td>5</td>
+        <td>Hedge witch</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Homes</td>
+        <td>6</td>
+        <td>Tavern</td>
+    </tr>
+</table>
+""",
+    8: "<em>Weird phenomena.</em> Strange things happen, even when the sun is shining: lights in the sky, voices in empty chambers, children writhing down staircases. Make an Ob 3 Will test to stay sane. Suggested failure results: afraid condition or a twist in which each time you eat, maggots fall from your mouth in clots and clumps. You are unable to eat and remain so cursed until you seek the help of a theurge or magician with the ability to break such evil magics.",
+    9: "<em>Mentorship.</em> Your mentor is here and needs help with a powerful ritual or financial assistance in acquiring alchemical supplies.",
+    10: """<em>Grim tidings.</em> Natural death of a prominent figure. Roll 1d6 to determine their end:
+<table class='table'>
+    <tr>
+        <td>1-2</td>
+        <td>They die of old age, but maybe too old.</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>They die during childbirth, or the child is born bizarrely deformed and dies.</td>
+    </tr>
+    <tr>
+        <td>5-6</td>
+        <td>They die of a heretofore unseen illness.</td>
+    </tr>
+</table>
+""",
+    11: "<em>Greeted by silence.</em> No bird chirps, no dog barks, no child cries as you shuffle into the settlement around the tower.",
+    12: "<em>A funeral celebration.</em> Some old bastard is dead, and folks are celebrating in the streets. Someone offers you a cup of strange wine. Remove hungry and thirsty or if not hungry and thirsty, you wake up hungry and thirsty and hung over the next morning. In the latter case, you may remove angry or afraid if you have them.",
+    13: """<em>Pit fighting.</em> Enterprising adventurers have sold some wretched
+creatures to the wizard’s fighting pits. All may choose one of the
+following options:
+    <ul>
+    <li>Watch the fights and alleviate angry.</li>
+    <li>Watch the fights and take angry and recover one point of taxed Nature.</li>
+    <li>Gamble and bet 1D of coins and roll 1d6: 1-3: lose your bet, 4-6: double your money.</li>
+    </ul>
+""",
+    14: "<em>Black cat crosses your path.</em> A black cat with a broken tail scurries out from beneath a disabled wagon. She’s injured and sick and plainly tells you so. Scoop her up and treat her maladies, and she’ll remain your friend forever. She’ll travel with you, but she prefers to live in a base camp or a home.",
+    15: """<em>Unearthly aura.</em> Like a color out of space, items begin to vibrate.
+Close your eyes, roll 1d6 and choose a number from one to six:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Gems glow with an unearthly light equivalent to a candle until the next town phase.</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Your very bones shine with a ghostly white light. In the dark, you can see the glow faintly emanating from beneath the skin. Exposed bone acts as a torch until next town phase (except your teeth—keep your mouth shut, you’re letting the maggots out).</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Liquids glow with a weird, green light equivalent to a candle. You may make an Alchemist test to distill the effect.</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Metal sparks and crackles with a blue faerie fire until the next town phase. Carrying any metal renders sneaking, hiding or stalking impossible. Research with an Ob 3 Lore Master test to gain the knowledge to write a treatise on the effect.</td>
+    </tr>
+    <tr>
+        <td>5-6</td>
+        <td>Spirit simulacra. A ghostly doppelgänger appears at the shoulder of the youngest character, mimicking their movements. The doppelgänger will absorb one point of damage in a convince, abjure, trick or kill conflict. But if it does so, it dissipates with a shriek and shatters one random gear item possessed by the character. The game master decides which piece. </td>
+    </tr>
+</table>
+""",
+    16: "<em>The cat’s away.</em> The master of the tower is away on business. All are granted +1D to all Resources and Circles tests for this town phase.",
+    17: "<em>The master comes down.</em> The master descends to the town to hear the complaints of their servants. They will hear any injustice or complaint and seek to ameliorate it—short of casting a spell. Each adventurer may offer one complaint, but anything deemed frivolous will incite the master of the tower to enmity.",
+    18: """<em>Lucky star.</em> Your lucky star transits the heavens. Portents are good.
+Apply the following effects to each character as appropriate:
+<ul>
+<li>If your Nature is taxed, restore it to its maximum.</li>
+<li>If your Nature is untaxed, alleviate all conditions.</li>
+<li>If untaxed with no conditions, become fresh when you leave town.</li>
+<li>If current max Nature is 1, change one descriptor to Wandering, Seeing or Whispering.</li>
+</ul>
+""",
+    19: "<em>Lord of Whispers.</em> The Lord of Whispers visits the wizard’s tower to look into the well being of her students. She invites the people to challenge her with wit, knowledge or magic. Should the challenger win, she will grant a boon (of the game master’s choice). Should she win, she laughs and curses them, replacing a Nature descriptor with Whispering. The character may no longer speak above a whisper. If missing a Nature descriptor, she writes Whispering in the empty slot.",
+}
+
+events_dicts = (
+    bustling_metropolis_events,
+    busy_crossroad_events,
+    dwarven_hall_events,
+    elfhome_events,
+    religious_bastion_events,
+    remote_village_events,
+    wizard_tower_events,
+)
+town_events_table = {k: v for k, v in zip(town_types, events_dicts)}
