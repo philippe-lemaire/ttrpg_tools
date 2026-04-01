@@ -519,8 +519,181 @@ they confiscate:
     18: "<em>Doomsayer.</em> The elven etharch walks among their people, speaking to them of their travels and travails. The etharch automatically alleviates the most dire condition afflicting a character. If unafflicted, the etharch removes any curse carried by the character. If unafflicted and uncursed, the etharch passes on to others. However, if a character misbehaves in Elfhome during this town phase, the etharch summons them and reads their doom. The game master then changes the character’s belief or goal. It cannot be changed by the player until the next town phase.",
     19: "<em>Enter the Dreamlands.</em> While you sleep, you dream too deeply and lose a bit of yourself to this place. Non-elf characters must replace one Nature descriptor with Singing, Remembering or Hiding. Elves may conduct all business in town in dream. Reduce their lifestyle cost for each activity by one (minimum 0—but market prices are unaffected). If an elf fails their Resources test to leave Elfhome, they must take the exhausted condition in addition to other effects.",
 }
-religious_bastion_events = {}
-remote_village_events = {}
+religious_bastion_events = {
+    2: "<em>Cast down.</em> The Immortals rage at the impertinence of this bastion. They cast the structure down and ruin it. Inhabitants flee in terror. Mark the bastion as a ruin on your map. Remain in the adventure phase until you reach a new settlement.",
+    3: """<em>Demonic catastrophe.</em> Remain in the adventure phase until the catastrophe is abated or until you hurry off to a safer settlement.
+Roll 1d6 for the type of catastrophe:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>The powers of the world are deaf to the prayers of this town: no invocations work, and demagogues preach the apocalypse.</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>A demon (N6, M5) springs forth from the forehead of a seventh son of a seventh son and claims the bastion in the name of its infernal master.</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Fire ceases to burn.</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Water ceases to quench.</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Everyone over the age of 17 has been turned to stone.</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>All language sounds like the bleating of sheep.</td>
+    </tr>
+</table>
+""",
+    4: """<em>Besieged.</em> The bastion is sealed tight against an invading force. Remain in the adventure phase until you reach another settlement
+or lift the siege. Roll 1d6 to determine the besieging force:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Giants</td>
+        <td>4</td>
+        <td>Dwarves</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Goblins</td>
+        <td>5</td>
+        <td>Undead</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Humans</td>
+        <td>6</td>
+        <td>Demons</td>
+    </tr>
+</table>
+
+""",
+    5: "<em>Proscription.</em> Trade and are travel forbidden. Remain in the adventure phase (waiting outside of the bastion) until the ban is lifted in 2d3 days. If attempting to leave, the religious authorities arrest you.",
+    6: """<em>New law decreed.</em> Roll 1d6 below:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Criminal law (choose one)</td>
+        <td>4</td>
+        <td>Civil law (choose one)</td>
+    </tr>
+    <tr>
+        <td>2-3</td>
+        <td>2-3 Sumptuary law (choose one)</td>
+        <td>5-6</td>
+        <td>5-6 Religious law (choose one)</td>
+    </tr>
+</table>
+""",
+    7: "<em>Currency debased.</em> The authorities of the bastion attempt to stamp out inflation by debasing their currency. In the bastion from this day forward: Copper coins are worthless, silver coins are 1D/pack 2 and gold coins are 1D/pack 1.",
+    8: "<em>Easy prey.</em> Missionaries demand you join their ranks. Either hand over your hirelings or a companion or pay an Ob 3 Resources fee.",
+    9: "<em>Festival to a forgotten Immortal.</em> The streets are blocked by parades. The market is closed, but everyone gets free sweet pancakes.",
+    10: "<em>Religious procession.</em> The procession is respectfully observed or mostly unattended—game master chooses.",
+    11: "<em>Execution.</em> A judicial murder is carried out with no fanfare or with a great sigh of relief from the townsfolk. Game master’s choice.",
+    12: "<em>Holy day of the Sower and the Reaper.</em> The hetairai and hetairoi have the bastion in an amorous mood. If you leave a 1D offering at their shrine, you may indulge in the company of another and automatically recover from exhausted. If not exhausted, take the exhausted condition but test to recover from angry and afraid.",
+    13: "<em>Ritual blessing.</em> The Immortals bestow their blessing on your labors: The eldest character is granted +1D to their next Peasant, Laborer or Steward test.",
+    14: "<em>Summa Theologica.</em> Two local theologians debate how many Immortals can dance in a wine cup. Join in the debate and test Theologian vs their Theologian 4. Success makes a friend; failure makes an enemy.",
+    15: "<em>Festival of the Lord of Victory.</em> The scholars and theologians are celebrating the Immortals (again). Each character must play a round of Wizard, Krazzik or a hand of Diamondback (as described in the Lore Master’s Manual). If you win, take 1D of copper coins.",
+    16: """<em>Cult uprising. A new sect rises up to claim the bastion. Members
+of the risen temple all count the bastion as their hometown going
+forward. All other temple memberships are voided as the priests are
+turned out. Roll for the Immortal cult that rises to the top:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Lords of Light and Darkness</td>
+        <td>4</td>
+        <td>Lords of Plenty and Want</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Lords of Life and Death</td>
+        <td>5</td>
+        <td>Lords of Valor and Terror</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Lords of Chaos and Law</td>
+        <td>6</td>
+        <td>Lords of Fate</td>
+    </tr>
+</table>
+""",
+    17: "<em>High holy day.</em> Make an offering at the temple worth 1D of cash and you may stay for free (accommodations equivalent to a flophouse). In addition, while you rest at the temple you may eat in the mess hall with the acolytes (free food and wine).",
+    18: """<em>Ascension. One of the bastion’s leaders ascends to the rank of high
+priest. To celebrate, they distribute gifts among the devout. Roll 1d6
+to determine what each character receives:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>A jug of holy wine (pack 3, contains 3 draughts)</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Vials of holy water (pack 1 for 3 vials)</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Holy vestments (finery, worn/torso 3 or pack 4)</td>
+    </tr>
+    <tr>
+        <td>4</td>
+        <td>Innocent creature: a lamb, a cat, a calf, a chick, etc.</td>
+    </tr>
+    <tr>
+        <td>5</td>
+        <td>Holy vessel: 3D, pack 1 or roll on the Silver & Plate subtable of the Richer Loot chapter in the Lore Master’s Manual</td>
+    </tr>
+    <tr>
+        <td>6</td>
+        <td>Soul: an orphaned child</td>
+    </tr>
+</table>""",
+    19: "<em>Favor of the Immortal.</em> The bastion’s Immortal patron reveals itself to the devout. All must mark one pass or fail Theologian advancement (your choice). In addition, any who have a creed related to the Immortal’s spheres of influence must replace a Nature descriptor with Worshipping, Praying or Believing. If you are missing a Nature descriptor, you must take one of these descriptors, regardless of your creed.",
+}
+remote_village_events = {
+    2: "<em>Emptied.</em> The village has been emptied of all inhabitants. The structures still stand, but the place has been picked clean by scavengers. Maybe you can find something if you dig around. Remain in the adventure phase. This place isn’t safe. Mark the village as a ruin on your map.",
+    3: "<em>Devastating flood.</em> The village is in ruins. There is no safe place to rest. Remain in the adventure phase and move on.",
+    4: "<em>Drought.</em> There is not a drop to drink in this village; all locations are closed. Remain in the adventure phase until you reach a new town or the drought abates.",
+    5: "<em>Civil war.</em> The residents of this fine village have split into factions or has set themselves against their ostensibly allied neighbor. Remain in the adventure phase until the war resolves or until you reach a new town.",
+    6: "<em>Bandits.</em> The village is beset with bandits (3d6 in number). Remain in the adventure phase until the bandits are driven off or until you arrive at a different settlement.",
+    7: "<em>Tax time.</em> The tax collector demands a head of livestock or a payment (Resources Ob 3). If you confront the tax collector over your precious pony, remain in the adventure phase.",
+    8: "<em>Billeted army.</em> The soldiers overwhelm the town. No room at the accommodations, they’re occupied by officers. No room at the tavern, they’re crowded with soldiers. No room at the stables, they’re crammed full of cavalry. All live and rolling stock is claimed by the army. You can sleep on the streets or, if you mess with the soldiers, remain in the adventure phase.",
+    9: "<em>Broken axle.</em> A friend of a friend (or cousin or enemy) is hauling a load of manure out of the village and their cart has thrown an axle. Will you help them repair it so they can be on their way? (Ob 3 Peasant test). Make this additional test in the adventure phase before entering town. Maybe make a new friend.",
+    10: "<em>Pleasant smells.</em> You scent wood smoke on the wind. The kitchen aromas remind you of a welcoming home.",
+    11: "<em>Halloo.</em> You receive a friendly Halloo! from your neighbors.",
+    12: "<em>Fair day.</em> Folks have come from all around to attend the fair. The village hosts a market and at least one relationship character (friend, parents, mentor) is present. The game master chooses which relationship.",
+    13: "<em>Stuck.</em> The tinker’s cart is stuck in the mud. Heave it out using Laborer (Ob 5). If successful, the tinker offers a small reward. Roll on the Gear subtable or decline the reward and add a new friend. If you befriend the tinker and roll this result again, the tinker invites you to stay at their shack (flophouse) on the outskirts of the village.",
+    14: "<em>Help.</em> The proprietor of your accommodations frantically asks you for help. One of their other patrons is violently ill. Make an Ob 4 Healer test to treat the mysterious traveler. If successful, they offer a small reward as recompense for your time. Roll on the Books & Maps subtable.",
+    15: "<em>Gambling fever.</em> Everyone in the village is gambling away their earnings. Each character may play a round of Wizard, Krazzik or a hand of Diamondback (as described in the Lore Master’s Manual). If you win, take 1D of copper coins.",
+    16: "<em>Bumper crop.</em> There’s a good harvest in (or last season’s harvest is being turned out). Take as many supplies for Cook as you can carry (pack 1 each).",
+    17: "<em>Festival for the Lord of Sowing and the Lady of Reaping.</em> Offer a prayer at the shrine and gain the blessing of the Immortals: +1D to Peasant and Steward tests until the next town phase.",
+    18: "<em>One of the family.</em> The village elders mistake you for one of the family and offer you a home in the village at a discount if you can afford it (Ob 6 Resources test). The offer stands until the end of the next town phase. Suggested failure: twist, they realize their error and accuse you of trying to swindle them.",
+    19: """<em>Prosperity.</em> The village’s struggles have borne fruit. Add a new
+facility to the village. If two new town facilities are added, this
+remote village becomes a busy crossroads. Roll 1d6 for facility:
+<table class='table'>
+    <tr>
+        <td>1-2</td>
+        <td>Tavern</td>
+        <td>5</td>
+        <td>Inn</td>
+    </tr>
+    <tr>
+        <td>3-4</td>
+        <td>Temple</td>
+        <td>6</td>
+        <td>Guild Hall</td>
+    </tr>
+</table>
+""",
+}
 wizard_tower_events = {}
 
 events_dicts = (
