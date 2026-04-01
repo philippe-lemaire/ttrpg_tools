@@ -433,7 +433,92 @@ the artisanal task to notice. Roll 1d6 once to determine what is found:
 """,
 }
 
-elfhome_events = {}
+elfhome_events = {
+    2: "<em>Pass on to the Shining Realm.</em> The elves here have decided this mortal world is no longer for them. They have, en masse, passed on to their eternal home. No trace remains. Erase this settlement from your map and remain in the adventure phase.",
+    3: "<em>Betrayal.</em> Spiteful elves have set to kinslaying. A war rages within, and no outsiders are permitted. Remain in the adventure phase until the bloodletting ceases or you find a new settlement to shelter in.",
+    4: """<em>Ancient war.</em> The greedy and the bloodthirsty seek to plunder the
+fabled riches of Elfhome. A war rages in the fields before the secret
+citadel. Remain in the adventure phase until the attackers are driven
+off, the elves are defeated or you skulk off to another settlement.
+
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Giants</td>
+        <td>4</td>
+        <td>Dwarves</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Orcs</td>
+        <td>5</td>
+        <td>Dragons</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>Humans</td>
+        <td>6</td>
+        <td>Werewolves</td>
+    </tr>
+</table>
+""",
+    5: "<em>Immortal quarrel.</em> An Immortal visits Elfhome to quarrel with the dreamwalkers about troubling visions. The way is shut until this matter is settled. Remain in the adventure phase until you find another settlement in which to shelter.",
+    6: """<em>Dreamlands call.</em> Omens hang heavy in the air. Elves from all tribes have been called to enter the dreamlands to assess the portents.
+Roll to determine which services are closed:
+
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>Tavern</td>
+        <td>3</td>
+        <td>Inn and Homes</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>Stables</td>
+        <td>4-6</td>
+        <td>Market</td>
+    </tr>
+</table>
+""",
+    7: "<em>Lamentations.</em> The elves are singing laments to grieve for those elves who have died of pierced and broken hearts. The tavern is closed. Also, all who hear the lament must make an Ob 3 Will test. Success indicates they grieve for broken dreams and lost loves along with the elves. Suggested failure results: angry or a twist that the character falls into a state of wonderment and racks up +1 lifestyle cost as they sit for days and marvel at the elvish songs.",
+    8: """<em>Suspicion.</em> The elves are furious over some crime committed by
+outlanders in Elfhome. They search all pouches, pockets, sacks,
+satchels, packs and baggage for contraband. Roll 1d6 to see what
+they confiscate:
+<table class='table'>
+    <tr>
+        <td>1</td>
+        <td>All strange idols</td>
+        <td>4</td>
+        <td>A relic</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>A potion</td>
+        <td>5</td>
+        <td>A scroll</td>
+    </tr>
+    <tr>
+        <td>3</td>
+        <td>All knives and daggers</td>
+        <td>6</td>
+        <td>A dwarven or elven-made item</td>
+    </tr>
+</table>
+""",
+    9: "<em>Enraptured.</em> Your friend has found their way into Elfhome and now cannot bring themselves to leave this beautiful, peaceful place. Will you guide them on their journey home, or will you leave them to remain with the elves forever? The game master chooses which friend.",
+    10: "<em>It’s a bright, clear day.</em>",
+    11: "<em> Eye contact.</em> An elf smiles enigmatically at you as you enter Elfhome.",
+    12: "<em>Shafts of sunlight.</em> Trunks of ancient trees stretch to the sky; shafts of golden sunlight gently flow to the earth. All is well here.",
+    13: "<em>Omens.</em> A strange elf approaches. They touch your face and speak to you directly of your dreams—your deepest, unshared secrets. Test Lore Master (Ob 3) to interpret their omens. If successful, remove the angry, afraid or exhausted condition. Suggested failure results: afraid or a twist that you experience terrifying nightmares that cause +1 Ob to all recovery tests until the next town phase. The game master chooses the character approached.",
+    14: "<em>Song of merriment.</em> The elves are at feast. Join them and satisfy any hunger or thirst. Also, all are granted +1D to recover from angry, exhausted or sick. If you have no conditions, cadge some food or wine from the table (fresh rations or a bottle) for later.",
+    15: "<em>Wanderer’s gift.</em> An ancient elf matron approaches you with a gift of elven waybread. The waybread acts as preserved rations, but it is pack 1 for six portions. However, when used with Cook or Grace of the Lords of Plenty, each piece acts as fresh rations.",
+    16: "<em>Remembrance day.</em> The elves remember the Shining Lands and all that has befallen them since leaving. All elves recover all taxed Nature. If not taxed, mark a pass or fail for Nature. If one test would advance you, you must mark it. All others may rewrite their creed, even if this town phase is not a respite.",
+    17: "<em>Restful memory.</em> You carry with you the peace and tranquility of Elfhome, even after you leave this place. The memory suffuses you with a warm glow and grants +1D to all recovery tests until the next town phase.",
+    18: "<em>Doomsayer.</em> The elven etharch walks among their people, speaking to them of their travels and travails. The etharch automatically alleviates the most dire condition afflicting a character. If unafflicted, the etharch removes any curse carried by the character. If unafflicted and uncursed, the etharch passes on to others. However, if a character misbehaves in Elfhome during this town phase, the etharch summons them and reads their doom. The game master then changes the character’s belief or goal. It cannot be changed by the player until the next town phase.",
+    19: "<em>Enter the Dreamlands.</em> While you sleep, you dream too deeply and lose a bit of yourself to this place. Non-elf characters must replace one Nature descriptor with Singing, Remembering or Hiding. Elves may conduct all business in town in dream. Reduce their lifestyle cost for each activity by one (minimum 0—but market prices are unaffected). If an elf fails their Resources test to leave Elfhome, they must take the exhausted condition in addition to other effects.",
+}
 religious_bastion_events = {}
 remote_village_events = {}
 wizard_tower_events = {}
