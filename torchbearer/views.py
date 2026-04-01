@@ -1,5 +1,5 @@
 from random import choice
-
+import markdown
 from django.shortcuts import render
 from django.views.generic import TemplateView
 from .loot_tables import loot_tables_list
@@ -9,6 +9,7 @@ from .camp_events import camp_events_table
 from .dice_tools import roll, get_closest_key
 from .twists import twists_data
 from .town_events import town_events_table
+from .town_laws import town_law_generalities, town_law_dict
 
 # Create your views here.
 
@@ -127,4 +128,14 @@ def twists_view(request):
         if form.is_valid():
             twist_type = form.cleaned_data["twist_type"]
             context["twist"] = choice(twists_data.get(twist_type))
+    return render(request, template_name, context)
+
+
+def law_list_view(request):
+    template_name = "torchbearer/town_laws.html"
+    md = markdown.Markdown(extensions=["fenced_code"])
+    context = {
+        "generalities": md.convert(town_law_generalities),
+        "town_law_dict": town_law_dict,
+    }
     return render(request, template_name, context)
