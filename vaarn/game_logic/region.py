@@ -17,7 +17,7 @@ from .oasis import gen_oasis
 from .ruin import gen_ruin
 from .science_mystics_abode import gen_science_mystics_abode
 from .trade_post import gen_trade_post
-
+from .oracle_sanctum import gen_oracle_sanctum
 
 locations_functions = {
     "Archive": gen_archive,
@@ -33,6 +33,7 @@ locations_functions = {
     "Lair": gen_lair,
     "Landmark": gen_landmark,
     "Oasis": gen_oasis,
+    "Oracle's Sanctum": gen_oracle_sanctum,
     "Ruin": gen_ruin,
     "Science Mystic’s Abode": gen_science_mystics_abode,
     "Trade Post": gen_trade_post,
