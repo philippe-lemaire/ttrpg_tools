@@ -15,7 +15,7 @@ from .game_logic.neobloom import get_bloomboons_list
 from .game_logic.settlements import gen_settlement
 from .game_logic.npc import gen_npc
 from .game_logic.region import gen_region
-from random import randint
+from random import randint, choice
 
 # Create your views here.
 
@@ -139,3 +139,20 @@ class VaarnBestiaryList(ListView):
 
 class VaarnBestiaryDetail(DetailView):
     model = Creature
+
+
+from .forms import ElixirMaxPotencyForm
+from .game_logic.elixir import gen_elixirs
+
+
+def elixir_view(request):
+    form = ElixirMaxPotencyForm(request.POST or None)
+    context = {"form": form}
+    template_name = "vaarn/elixir.html"
+    if request.method == "POST":
+        if form.is_valid():
+            max_potency = form.cleaned_data.get("max_potency")
+            elixirs = gen_elixirs(max_potency=max_potency)
+            context["elixir"] = choice(elixirs)
+
+    return render(request, template_name, context)

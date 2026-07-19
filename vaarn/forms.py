@@ -47,3 +47,28 @@ class FollowerForm(forms.Form):
                 css_class="m-1 btn-secondary",
             )
         )
+
+
+class ElixirMaxPotencyForm(forms.Form):
+    max_potency = forms.IntegerField(
+        max_value=5,
+        min_value=1,
+        required=True,
+        initial=1,
+        label="Max Potency of rolled Elixir",
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.form_method = "post"
+
+        self.helper.form_action = "vaarn:elixirs"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Generate",
+                css_class="m-1 btn-secondary",
+            )
+        )

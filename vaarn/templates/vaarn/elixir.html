@@ -1,0 +1,19 @@
+{% extends "vaarn/base_vaarn.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Vaarn - Elixir Gen{% endblock title %}
+{% block content %}
+
+<h1>Choose max potency</h1>
+{% crispy form form.helper %}
+
+{% if elixir %}
+
+<h2>Elixir</h2>
+
+<h3>{{ elixir.name}} </h3>
+<p><b>Component:</b> {{ elixir.component }}.</p>
+<p><b>Effect:</b> {{elixir.effect}}</p>
+<p><b>Potency {{elixir.potency}}</b></p>
+{% endif %}
+{% endblock content%}
