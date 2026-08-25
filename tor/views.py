@@ -7,6 +7,7 @@ from .forms import (
     FortuneTableForm,
     StriderJourneyEventsForm,
     RevelationEpisodeForm,
+    JourneyEventsForm,
 )
 from .tor_dice_roller import roller, eye, gandalf, SuccessDie, FeatDie
 from .magical_treasure import MagicalTreasure
@@ -14,6 +15,7 @@ from .fortune_tables import fortune_table, ill_fortune_table
 from .nameless_things import NamelessThing
 from .solo_journey import Event
 from .revelation_episodes_data import episodes
+from .event_resolution import JourneyEvent
 
 
 # Create your views here.
@@ -151,6 +153,37 @@ def strider_solo_journey_view(request):
                     "roll_done": True,
                     "event": event,
                     "dice": dice,
+                }
+            )
+    return render(request, template_name, context)
+
+
+def event_resolution_view(request):
+    form = JourneyEventsForm(request.POST or None)
+    template_name = "tor/journey-event-resolution.html"
+    context = {"form": form}
+    if request.method == "POST":
+        if form.is_valid():
+            land = form.cleaned_data["land"]
+            favoured = False
+            ill_favoured = False
+            if land == "1":
+                favoured = True
+            elif land == "3":
+                ill_favoured = True
+            _, _, _, dice, _ = roller(
+                rating=0, target_number=15, favoured=favoured, ill_favoured=ill_favoured
+            )
+            feat_die = dice[0]
+            success_die = SuccessDie()
+            event = JourneyEvent(success_die, feat_die)
+            context.update(
+                {
+                    "roll_done": True,
+                    "event": event,
+                    "dice": dice,
+                    "feat_die": feat_die,
+                    "success_die": success_die,
                 }
             )
     return render(request, template_name, context)

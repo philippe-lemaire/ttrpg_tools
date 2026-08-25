@@ -6,6 +6,11 @@ app_name = "tor"
 urlpatterns = [
     path("", views.TorIndexView.as_view(), name="index"),
     path("action-resolution", views.action_resolution_view, name="action_resolution"),
+    path(
+        "journey-event-resolution",
+        views.event_resolution_view,
+        name="journey_event_resolution",
+    ),
     path("treasure", views.treasure_hoard_view, name="treasure"),
     path(
         "strider-mode/telling-table",

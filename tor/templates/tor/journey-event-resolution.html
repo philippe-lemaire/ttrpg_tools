@@ -1,0 +1,65 @@
+{% extends "tor/base_tor.html" %}
+{% load crispy_forms_tags %}
+
+{% block title %}
+The One Ring - Journey Event Resolution Roll
+{% endblock %}
+
+{% block content %}
+<h1>The One Ring - Journey Event Resolution Roll</h1>
+
+<div class="container mt-5">
+  <div class="card mt-2">
+    <div class="card-body">
+      <h5 class="card-title">Set up your roll</h5>
+      <p class="card-text">{% crispy form form.helper %}</p>
+    </div>
+  </div>
+
+  {% if roll_done %}
+  <div class="card mt-2">
+    <div class="card-header">
+      Roll Result
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Event Target</h5>
+      <table class="table">
+        <tr>
+          <th style="width: 9rem;">Success Die</th>
+          <th style="width: 9rem;">Target</th>
+          <th style="width: 9rem;">Skill</th>
+        </tr>
+        <tr>
+          <td><button type="button" class="btn btn-primary">{{success_die}}</button>
+          </td>
+          <td>{{event.target}}</td>
+          <td>{{event.skill}}</td>
+        </tr>
+      </table>
+
+      <h5 class="card-title">Event</h5>
+      <table class="table">
+        <tr>
+          <th style="width: 9rem;">Feat Die</th>
+          <th style="width: 9rem;">Event</th>
+          <th style="width: 9rem;">Consequences of the skill roll</th>
+          <th style="width: 9rem;">Fatigue Points Gained</th>
+        </tr>
+        <tr>
+          <td><button type="button" class="btn btn-primary">{{dice.0}}</button>
+            {% if dice.1 %}
+            <button type="button" class="btn btn-secondary">{{dice.1}}</button>
+            {% endif %}
+          </td>
+          <td>{{event.name}}</td>
+          <td>{{event.description}}</td>
+          <td>{{event.fatigue_gained}}</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  {% endif %}
+</div><!-- div container-->
+
+{% endblock content%}

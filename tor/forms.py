@@ -122,6 +122,32 @@ class StriderJourneyEventsForm(forms.Form):
         )
 
 
+class JourneyEventsForm(forms.Form):
+    choices = [
+        (1, "Border Land (Favoured Roll)"),
+        (2, "Wild Land"),
+        (3, "Dark Land (Ill-favoured Roll)"),
+    ]
+    land = forms.ChoiceField(
+        choices=choices,
+        label="What type of Land is the Hex the event is taking place in?",
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("tor:journey_event_resolution")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Journey Event Roll",
+                css_class="btn btn-primary mt-3",
+            )
+        )
+
+
 class RevelationEpisodeForm(forms.Form):
 
     def __init__(self, *args, **kwargs):
