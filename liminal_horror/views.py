@@ -40,3 +40,7 @@ def fallout_view(request):
             context["module"] = module
 
     return render(request, template_name, context)
+
+
+class LiminalHorrorWoundsView(TemplateView):
+    template_name = "liminal_horror/wounds.html"

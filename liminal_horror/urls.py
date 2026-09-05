@@ -8,4 +8,5 @@ urlpatterns = [
     path("", views.LiminalHorrorIndexView.as_view(), name="index"),
     path("generate-character", views.generate_character, name="generate_character"),
     path("fallouts", views.fallout_view, name="fallout"),
+    path("wounds", views.LiminalHorrorWoundsView.as_view(), name="wounds"),
 ]
