@@ -19,7 +19,7 @@ class ModuleForm(forms.Form):
         self.helper.add_input(
             Submit(
                 "submit",
-                "Roll character",
+                "Roll",
                 css_class="mt-3 mb-3 btn-warning",
             )
         )
