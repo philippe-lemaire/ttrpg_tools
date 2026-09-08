@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse
 from django.views.generic import TemplateView
+from django.contrib.admin.views.decorators import staff_member_required
 from .character import Character
 from .fallout import Fallout, FALLOUT_PARAGRAPH_DATA
 from .forms import ModuleForm
@@ -22,7 +23,7 @@ def generate_character(request):
             context.update({"char": Character(module=module), "module": module})
     return render(request, template_name, context)
 
-
+@staff_member_required
 def fallout_view(request):
     form = ModuleForm(request.POST or None)
     # add the correct url to post to for the form
