@@ -4,6 +4,7 @@ from django.views.generic import TemplateView
 from .character import Character
 from .fallout import Fallout, FALLOUT_PARAGRAPH_DATA
 from .forms import ModuleForm
+from .character_details import gen_character_details
 
 # Create your views here.
 
@@ -21,6 +22,12 @@ def generate_character(request):
             module = form.cleaned_data["module"]
             context.update({"char": Character(module=module), "module": module})
     return render(request, template_name, context)
+
+
+def optional_character_details(request):
+    template_name = "liminal_horror/character_details.html"
+    context = {"character_details": gen_character_details()}
+    return render(request, template_name=template_name, context=context)
 
 
 def fallout_view(request):

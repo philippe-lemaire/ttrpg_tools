@@ -1,0 +1,29 @@
+{% extends "liminal_horror/base_liminal_horror.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Liminal Horror - Fallout{% endblock title %}
+{% block content %}
+<h1>A Liminal Horror Optional Character Details</h1>
+
+<h2>Style</h2>
+
+<p>{{character_details.style}}</p>
+
+<h2>What was your first encounter with the unknown?</h2>
+<p>
+  {{character_details.the_abyss_stare_back}}
+</p>
+<h2>Ideology and Beliefs</h2>
+<p>
+  {{character_details.ideology_and_beliefs}}
+</p>
+<h2>Traits</h2>
+<h3>Physical trait</h3>
+<p>
+  {{character_details.physical_trait}}
+</p>
+<h3>Mental Trait</h3>
+<p>
+  {{character_details.mental_trait}}
+</p>
+{% endblock content %}
