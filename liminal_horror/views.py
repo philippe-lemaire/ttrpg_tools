@@ -27,7 +27,7 @@ def generate_character(request):
 
 def optional_character_details(request):
     template_name = "liminal_horror/character_details.html"
-    context = {"optional_details": gen_character_details()}
+    context = {"character_details": gen_character_details()}
     return render(request, template_name, context)
 
 

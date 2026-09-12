@@ -7,8 +7,12 @@ class CharacterDetails:
     style: str
     the_abyss_stare_back: str
     ideology_and_beliefs: str
-    physical_trait: str
-    mental_trait: str
+    physique: str
+    face: str
+    speech: str
+    virtue: str
+    flaw: str
+    misfortune: str
 
 
 styles = (
@@ -59,69 +63,83 @@ ideologies = (
     "There are deep truths that others are not aware of. The answers are out there.",
     "You believe in the power of community.",
 )
-physical_traits = (
-    "Athletic ",
-    "Bony ",
+physiques = (
+    "Athletic",
+    "Muscular",
+    "Curvy",
+    "Lanky",
+    "Small",
+    "Rigid",
+    "Stout",
+    "Towering",
+    "Robust",
+    "Ample Body",
+)
+
+faces = (
+    "Boney",
+    "Broken",
+    "Chiseled",
+    "Elongated",
+    "Dimpled",
+    "Perfect",
+    "Round",
+    "Sharp",
+    "Memorable",
+    "Forgettable",
+)
+
+speeches = (
     "Blunt",
-    "Muscular ",
-    "Broken ",
     "Gravelly",
-    "Curvy ",
-    "Chiseled ",
     "Booming",
-    "Lanky ",
-    "Elongated ",
     "Precise",
-    "Small ",
-    "Dimpled ",
     "Cryptic",
-    "Rigid ",
-    "Perfect ",
     "Squeaky",
-    "Stout ",
-    "Round ",
     "Formal",
-    "Towering ",
-    "Sharp ",
     "Accented",
-    "Robust ",
-    "Memorable ",
     "Droning",
-    "Ample Body ",
-    "Forgettable ",
     "Choppy",
 )
 
-mental_traits = (
+
+virtues = (
     "Honest ",
-    "Quick to anger ",
-    "Abandoned",
     "Honorable ",
-    "Lazy ",
-    "Defrauded",
     "Cautious ",
-    "Pessimistic ",
-    "Addicted",
     "Humble ",
-    "Nervous ",
-    "Demoted",
     "Courageous ",
-    "Craven ",
-    "Blackmailed",
     "Merciful ",
-    "Rude ",
-    "Discredited",
     "Disciplined ",
-    "Deceitful ",
-    "Condemned",
     "Serene ",
-    "Vain ",
-    "Disowned",
     "Gregarious ",
-    "Greedy ",
-    "Cursed",
     "Tolerant ",
+)
+
+
+flaws = (
+    "Quick to anger ",
+    "Lazy ",
+    "Pessimistic ",
+    "Nervous ",
+    "Craven ",
+    "Rude ",
+    "Deceitful ",
+    "Vain ",
+    "Greedy ",
     "Vengeful ",
+)
+
+misfortunes = (
+    "Abandoned",
+    "Defrauded",
+    "Addicted",
+    "Demoted",
+    "Blackmailed",
+    "Discredited",
+    "Condemned",
+    "Disowned",
+    "Cursed",
     "Exiled",
 )
 
@@ -130,6 +148,12 @@ def gen_character_details():
     style = choice(styles)
     abyss = choice(abyss_answers)
     ideology = choice(ideologies)
-    physical = choice(physical_traits)
-    mental = choice(mental_traits)
-    return CharacterDetails(style, abyss, ideology, physical, mental)
+    physique = choice(physiques)
+    face = choice(faces)
+    speech = choice(speeches)
+    virtue = choice(virtues)
+    flaw = choice(flaws)
+    misfortune = choice(misfortunes)
+    return CharacterDetails(
+        style, abyss, ideology, physique, face, speech, virtue, flaw, misfortune
+    )

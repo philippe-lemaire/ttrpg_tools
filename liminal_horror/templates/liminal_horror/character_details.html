@@ -7,7 +7,7 @@
 
 <h2>Style</h2>
 
-<p>{{character_details.style}}</p>
+<p>{{character_details.style}}.</p>
 
 <h2>What was your first encounter with the unknown?</h2>
 <p>
@@ -18,12 +18,31 @@
   {{character_details.ideology_and_beliefs}}
 </p>
 <h2>Traits</h2>
-<h3>Physical trait</h3>
-<p>
-  {{character_details.physical_trait}}
-</p>
-<h3>Mental Trait</h3>
-<p>
-  {{character_details.mental_trait}}
-</p>
+<table class="table">
+  <tr>
+    <th>Physique</th>
+    <td>{{character_details.physique}}</td>
+  </tr>
+  <tr>
+    <th>Face</th>
+    <td>{{character_details.face}}</td>
+  </tr>
+  <tr>
+    <th>Speech</th>
+    <td>{{character_details.speech}}</td>
+  </tr>
+  <tr>
+    <th>Virtue</th>
+    <td>{{character_details.virtue}}</td>
+  </tr>
+  <tr>
+    <th>Flaw</th>
+    <td>{{character_details.flaw}}</td>
+  </tr>
+  <tr>
+    <th>Misfortune</th>
+    <td>{{character_details.misfortune}}</td>
+  </tr>
+</table>
+
 {% endblock content %}
