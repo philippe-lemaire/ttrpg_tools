@@ -27,7 +27,9 @@
           Procedures
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          {% if request.user.is_staff %}
           <a class="dropdown-item" href="{% url 'liminal_horror:fallout' %}">Fallouts</a>
+          {% endif %}
           <a class="dropdown-item" href="{% url 'liminal_horror:wounds' %}">Wounds</a>
         </div>
       </li>
