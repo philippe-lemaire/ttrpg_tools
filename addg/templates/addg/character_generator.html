@@ -1,0 +1,65 @@
+{% extends "addg/base_addg.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Assassins, Demons and Dying Gods{% endblock title %}
+{% block content %}
+<h1>Assassins, Demons and Dying Gods - Character Generator</h1>
+
+
+{% crispy form form.helper %}
+
+{% if character %}
+<br><br>
+<div class="card">
+  <div class="card-body">
+    <h5 class="card-title">{{character.first_name}} {{character.last_name}}, {{character.age}} years old.</h5>
+    <h6 class="card-subtitle mb-2 text-muted">{{character.occupation_name}}</h6>
+
+    <p class="card-text">{{character.occupation_description}}</p>
+
+    <table class="table table-sm">
+      <tr>
+        <th>STR</th>
+        <th>DEX</th>
+        <th>INT</th>
+        <th>Defense</th>
+
+
+      </tr>
+      <tr>
+        <td>{{character.STR}}</td>
+        <td>{{character.DEX}}</td>
+        <td>{{character.INT}}</td>
+        <td>{{character.defense}}</td>
+
+
+      </tr>
+    </table>
+
+    <p>Your weapon: {{character.weapon}}</p>
+    <h5>Your Truths</h5>
+    <table class="table table-sm table-borderless">
+
+      <tr>
+        <th>During the Winter Revolution</th>
+        <td>{{character.winter_revolution_answer}}</td>
+      </tr>
+      <tr>
+        <th>What almost killed you?</th>
+        <td>{{character.what_almost_killed_you_answer}}</td>
+      </tr>
+      <tr>
+        <th>Who taught you to read?</th>
+        <td>{{character.who_taught_you_to_read}}.</td>
+      </tr>
+      <tr>
+        <th>Where do you live?</th>
+        <td>{{character.living_area}}.</td>
+      </tr>
+    </table>
+  </div>
+</div>
+
+
+{% endif %}
+{% endblock %}
