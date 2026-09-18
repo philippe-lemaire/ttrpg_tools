@@ -24,6 +24,16 @@
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">
+          Locations
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+          <a class="dropdown-item" href="{% url 'addg:random_address' %}">Random Address</a>
+          <a class="dropdown-item" href="{% url 'addg:random_bar' %}">Random Bar</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
+          aria-haspopup="true" aria-expanded="false">
           Procedures
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
