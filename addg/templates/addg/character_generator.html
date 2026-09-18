@@ -12,7 +12,7 @@
 <br><br>
 <div class="card">
   <div class="card-body">
-    <h5 class="card-title">{{character.first_name}} {{character.last_name}}, {{character.age}} years old.</h5>
+    <h5 class="card-title">{{character.first_name}} {{character.last_name}}</h5>
     <h6 class="card-subtitle mb-2 text-muted">{{character.occupation_name}}</h6>
 
     <p class="card-text">{{character.occupation_description}}</p>
@@ -39,15 +39,15 @@
     <p>Your weapon: {{character.weapon}}</p>
     <h5>Your Truths</h5>
     <table class="table table-sm table-borderless">
-
+      <tr>
+        <th>Your age</th>
+        <td>{{character.age}}</td>
+      </tr>
       <tr>
         <th>During the Winter Revolution</th>
         <td>{{character.winter_revolution_answer}}</td>
       </tr>
-      <tr>
-        <th>What almost killed you?</th>
-        <td>{{character.what_almost_killed_you_answer}}</td>
-      </tr>
+
       <tr>
         <th>Who taught you to read?</th>
         <td>{{character.who_taught_you_to_read}}.</td>
@@ -55,6 +55,21 @@
       <tr>
         <th>Where do you live?</th>
         <td>{{character.living_area}}.</td>
+      </tr>
+      <tr>
+        <th>What almost killed you?</th>
+        <td>{{character.what_almost_killed_you_answer}}</td>
+      </tr>
+      <tr>
+        <th>Where do you wake up?</th>
+        <td>At the Malevskiy Hospital, located in the Fortress district.
+          It’s the only hospital in Ashengrad.</td>
+      </tr>
+      <tr>
+        <th>Who comes to see you at the hospital?
+        </th>
+        <td>One of the person tied to your occupation comes to see
+          how you’re doing.</td>
       </tr>
     </table>
   </div>
