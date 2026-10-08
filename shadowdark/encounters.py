@@ -4,19 +4,19 @@ from dataclasses import dataclass
 
 distances = {1: "Close", 4: "Near", 6: "Far"}
 activities = {
-    4: "Hunting",
-    6: "Eating",
-    8: "Building/nesting",
-    10: "Socializing/playing",
-    11: "Guarding",
-    12: "Sleeping",
+    4: "🏹 Hunting",
+    6: "🍗 Eating",
+    8: "🪹 Building/nesting",
+    10: "🫂 Socializing/playing",
+    11: "💂‍♂️ Guarding",
+    12: "😴 Sleeping",
 }
 reactions = {
-    6: "Hostile",
-    8: "Suspicious",
-    9: "Neutral",
-    11: "Curious",
-    12: "Friendly",
+    6: "😡 Hostile",
+    8: "🤨Suspicious",
+    9: "😐 Neutral",
+    11: "🤔 Curious",
+    12: "🤗 Friendly",
 }
 
 

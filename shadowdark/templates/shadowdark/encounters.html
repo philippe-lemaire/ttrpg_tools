@@ -2,17 +2,40 @@
 
 {% load crispy_forms_tags %}
 {% block title %}
-PC Stats
+Shadowdark | Encounters
 {% endblock %}
 {% block content %}
 
 
 
-<h2>Encounter</h2>
+<h1>Encounters</h1>
 {% crispy form form.helper %}
 
 {% if encounter %}
-{{encounter}}
+<h2>Rolled Encounter</h2>
+<table class="table-sm table-borderless">
+  <tr>
+    <th>Distance</th>
+    <td>{{encounter.distance}}</td>
+  </tr>
+  <tr>
+    <th>Activity</th>
+    <td>{{encounter.activity}}</td>
+  </tr>
+  <tr>
+    <th>Reaction</th>
+    <td>{{encounter.reaction}}</td>
+  </tr>
+  <tr>
+    <th>Treasure?</th>
+    {% if encounter.treasure %}
+    <td>🪎</td>
+    {% else %}
+    <td>🙅</td>
+    {% endif %}
+  </tr>
+</table>
+
 {% endif %}
 
 {% endblock %}

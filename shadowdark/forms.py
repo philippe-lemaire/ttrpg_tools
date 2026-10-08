@@ -51,7 +51,9 @@ class SpellCastingForm(forms.Form):
 
 
 class CharismaModForm(forms.Form):
-    bonus = forms.IntegerField(min_value=-5, max_value=10, label="Charisma MOD")
+    bonus = forms.IntegerField(
+        min_value=-5, max_value=10, label="Charisma MOD", initial=0
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
