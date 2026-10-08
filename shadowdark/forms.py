@@ -48,3 +48,21 @@ class SpellCastingForm(forms.Form):
                 css_class="mt-2 btn-warning",
             )
         )
+
+
+class CharismaModForm(forms.Form):
+    bonus = forms.IntegerField(min_value=-5, max_value=10, label="Charisma MOD")
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("shadowdark:encounter")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Roll Encounter!",
+                css_class="mt-2 btn-warning",
+            )
+        )

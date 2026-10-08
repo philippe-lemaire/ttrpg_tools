@@ -1,0 +1,18 @@
+{% extends "shadowdark/base_shadowdark.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+PC Stats
+{% endblock %}
+{% block content %}
+
+
+
+<h2>Encounter</h2>
+{% crispy form form.helper %}
+
+{% if encounter %}
+{{encounter}}
+{% endif %}
+
+{% endblock %}

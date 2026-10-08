@@ -32,4 +32,4 @@ def get_closest_key(rolled_value, d):
     for key in d.keys():
         if key >= rolled_value:
             return d[key]
-    return None
+    return d[max(list(d.keys()))]
