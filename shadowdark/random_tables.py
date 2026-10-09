@@ -1,3 +1,5 @@
+from itertools import product
+
 lost_citadel_oh_no_you_died_table = (
     "Your new character is… Trapped inside a cocoon of ettercap webs in a dark corner.",
     "Your new character is… Hanging by your backpack from a spur in the stone wall.",
@@ -22,4 +24,63 @@ lost_citadel_oh_no_you_died_table = (
 )
 
 
-TABLES = {"Lost Citadel You Died Table": lost_citadel_oh_no_you_died_table}
+durations = (
+    "1 round",
+    "1d4 rounds",
+    "1d4 rounds",
+    "2d8 rounds",
+    "2d8 rounds",
+    "1 day",
+    "1 day",
+    "1 day",
+    "1 week",
+    "1 week",
+    "2 weeks",
+    "1 month",
+)
+locations = (
+    "Where PCs are",
+    "Area 1",
+    "Area 2",
+    "Area 15",
+    "Area 16",
+    "Area 26",
+    "Area 21",
+    "Area 22",
+    "Area 22",
+    "Area 18",
+    "Area 18",
+    "Pool in Area 27",
+)
+changes = (
+    "Gains 1 greataxe attack",
+    "Gains 1d8 HP",
+    "Charge deals x3 damage",
+    "Is next random encounter",
+    "Wears plate mail (AC 15)",
+    "Gains 1d4 HP",
+    "Focuses on his prior killer",
+    "Loses 1d4 HP",
+    "Charge reduced to near",
+    "Has no armor (AC 11)",
+    "Loses 1d8 HP",
+    "Loses 1 greataxe attack",
+)
+
+
+def gen_minotaur_table():
+
+    return [
+        f"The Minotaur respawns in {duration}, in {location}, and {change}"
+        for duration, location, change in product(durations, locations, changes)
+    ]
+
+
+TABLES = {
+    "Lost Citadel You Died Table": lost_citadel_oh_no_you_died_table,
+    "Minotaur Respawns": gen_minotaur_table(),
+}
+
+
+if __name__ == "__main__":
+    print(len(gen_minotaur_table()))
