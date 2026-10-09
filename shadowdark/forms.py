@@ -1,6 +1,7 @@
 from django import forms
 from django.urls import reverse
 from .game_facts import classes, ancestries, backgrounds
+from .random_tables import TABLES
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
@@ -65,6 +66,24 @@ class CharismaModForm(forms.Form):
             Submit(
                 "submit",
                 "Roll Encounter!",
+                css_class="mt-2 btn-warning",
+            )
+        )
+
+
+class RandomTableSelection(forms.Form):
+    table = forms.ChoiceField(choices=((name, name) for name in TABLES))
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("shadowdark:roll_random_tables")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Roll on Table!",
                 css_class="mt-2 btn-warning",
             )
         )

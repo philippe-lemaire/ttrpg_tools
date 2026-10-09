@@ -1,12 +1,19 @@
 from django.shortcuts import render, redirect
 from django.views.generic import TemplateView
+from random import choice
 from .npc_names import gen_npc_name, gen_npc_name_by_syllables
 from .chargen import roll_stats
-from .forms import ClassChoiceForm, SpellCastingForm, CharismaModForm
+from .forms import (
+    ClassChoiceForm,
+    SpellCastingForm,
+    CharismaModForm,
+    RandomTableSelection,
+)
 from .chargen import PC_Character
 from .game_facts import talents_dict
 from .magic import cast_a_spell
 from .encounters import gen_encounter
+from .random_tables import TABLES
 
 # Create your views here.
 
@@ -135,4 +142,17 @@ def encounter_view(request):
         if form.is_valid():
             charisma_mod = int(form.cleaned_data["bonus"])
             context["encounter"] = gen_encounter(charisma_mod)
+    return render(request, template_name, context)
+
+
+def roll_random_table_view(request):
+    form = RandomTableSelection(request.POST or None)
+    template_name = "shadowdark/random_tables.html"
+    context = {"form": form}
+    if request.method == "POST":
+        if form.is_valid():
+            table_name = form.cleaned_data["table"]
+            table = TABLES.get(table_name)
+            result = choice(table)
+            context["result"] = result
     return render(request, template_name, context)

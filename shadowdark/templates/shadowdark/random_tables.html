@@ -1,0 +1,21 @@
+{% extends "shadowdark/base_shadowdark.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+Shadowdark | Roll on random tables
+{% endblock %}
+{% block content %}
+
+
+
+<h1>Tables</h1>
+{% crispy form form.helper %}
+
+{% if result %}
+<h2>Rolled result</h2>
+
+<p>{{result}}</p>
+
+{% endif %}
+
+{% endblock %}
