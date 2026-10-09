@@ -76,45 +76,86 @@ def gen_minotaur_table():
     ]
 
 
-names = (
-    "Rat / Gobbo ",
-    "Barto / Hule ",
-    "Egor / Ralk ",
-    "Nila / Bugg ",
-    "Dent / Borvin ",
-    "Tail / Ludo ",
-    "Skred / Billo ",
-    "Halda / Yarv ",
-    "Crag / Dorel ",
-    "Lorga / Mouse ",
-)
-appearances = (
-    "Patchy / Sickly ",
-    "Broken jaw or nose ",
-    "Scarred / Fat ",
-    "Stooped / Short ",
-    "Elderly / Stout ",
-    "Missing ear or tooth ",
-    "Braided hair / Bald ",
-    "White fur / Skinny ",
-    "Clean / Blank stare ",
-    "Wild eyes / Lanky ",
-)
-behaviors = (
-    "Glares / Lurks",
-    "Whispers / Burps",
-    "Scratches / Snorts",
-    "Picks nose / Growls",
-    "Creeps / Rushes",
-    "Yawns / Drools",
-    "Limps / Sulks",
-    "Paces / Chews nails",
-    "Polite / Complains",
-    "Curses / Silent",
-)
-
-
 def gen_beastman():
+    names = (
+        "Rat / Gobbo ",
+        "Barto / Hule ",
+        "Egor / Ralk ",
+        "Nila / Bugg ",
+        "Dent / Borvin ",
+        "Tail / Ludo ",
+        "Skred / Billo ",
+        "Halda / Yarv ",
+        "Crag / Dorel ",
+        "Lorga / Mouse ",
+    )
+    appearances = (
+        "Patchy / Sickly ",
+        "Broken jaw or nose ",
+        "Scarred / Fat ",
+        "Stooped / Short ",
+        "Elderly / Stout ",
+        "Missing ear or tooth ",
+        "Braided hair / Bald ",
+        "White fur / Skinny ",
+        "Clean / Blank stare ",
+        "Wild eyes / Lanky ",
+    )
+    behaviors = (
+        "Glares / Lurks",
+        "Whispers / Burps",
+        "Scratches / Snorts",
+        "Picks nose / Growls",
+        "Creeps / Rushes",
+        "Yawns / Drools",
+        "Limps / Sulks",
+        "Paces / Chews nails",
+        "Polite / Complains",
+        "Curses / Silent",
+    )
+    return [
+        f"Name: {name}, looks: {look}, behavior: {behavior}"
+        for name, look, behavior in product(names, appearances, behaviors)
+    ]
+
+
+def gen_ettercap():
+    names = (
+        "Kreel / Bisky ",
+        "Slivin / Slaask ",
+        "Tiri / Vilis ",
+        "Chiska / Liss ",
+        "Jarla / Miri ",
+        "Char / Squill ",
+        "Fisk / Yeek ",
+        "Chirr / Vim ",
+        "Rask / Miska ",
+    )
+    appearances = (
+        "Groomed / Rotund ",
+        "Skalt / Trisk ",
+        "Singed fur / Gangly ",
+        "Blue eyes / Spotted ",
+        "Pained / Hunched ",
+        "Springy / Withered ",
+        "Sickly / Molting ",
+        "Missing limb / Tall ",
+        "Scarred / Lumpish ",
+        "Filthy / Hulking ",
+        "Jewelry / Clothing ",
+    )
+    behaviors = (
+        "Preening / Haughty",
+        "Twitches / Cowers",
+        "Bossy / Skeptical",
+        "Delicate / Squeamish",
+        "Distracted / Mutters",
+        "Clicks claws / Hisses",
+        "Hasty / Alarmist",
+        "Nosy / Gossips",
+        "Critical / Sarcastic",
+        "Rude / Surly",
+    )
     return [
         f"Name: {name}, looks: {look}, behavior: {behavior}"
         for name, look, behavior in product(names, appearances, behaviors)
@@ -125,4 +166,5 @@ TABLES = {
     "Lost Citadel You Died Table": lost_citadel_oh_no_you_died_table,
     "Minotaur Respawns": gen_minotaur_table(),
     "Bestman": gen_beastman(),
+    "Ettercap": gen_ettercap(),
 }
