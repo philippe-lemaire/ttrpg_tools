@@ -162,7 +162,29 @@ def gen_ettercap():
     ]
 
 
+citadel_random_encounters = (
+    "The <b>Scarlet Minotaur</b> (Area 18) stalks into sight, bellowing challenges and pawing the stone",
+    "1d4 <b>ettercaps</b> and 1d8 <b>beastmen</b> clash in a bloody melee",
+    "A dry gust of wind extinguishes all torches and lamps",
+    "1d6 <b>ettercaps</b> creep along, searching for gold and gems",
+    "The <b>skeletons</b> of 1d6 dead adventurers or warrior-mages stagger into sight",
+    "2d4 <b>beastmen</b> argue in hushed whispers over who gets to eat the centipedes they just trapped in a bag",
+    "1d4 <b>darkmantles</b> swoop out, bobbing and spinning in a territorial warning dance",
+    "A <b>cave creeper</b> rushes along the ceiling toward light",
+)
+citadel_rumors = (
+    "Ancient kings who dwelt in the citadel possessed magical weapons that were feared far and wide.",
+    "A savage minotaur drenched in blood stalks the citadel's halls.",
+    "Piles of gems and gold lie about as if totally forgotten.",
+    "Beware when touching the body of a dead citadel dweller.",
+    "Opportunistic, gray-furred beastmen haunt the shadows.",
+    "The citadel is rife with secret rooms and passageways.",
+)
+
+
 TABLES = {
+    "Lost Citadel Rumors": citadel_rumors,
+    "Lost Citatel Encounters": citadel_random_encounters,
     "Lost Citadel You Died Table": lost_citadel_oh_no_you_died_table,
     "Minotaur Respawns": gen_minotaur_table(),
     "Bestman": gen_beastman(),
