@@ -159,7 +159,10 @@ def carousing_view(request):
         if form.is_valid():
             bonus = int(form.cleaned_data["bonus"])
             r = roll("1d8") + bonus
-            context["result"] = get_closest_key(r, carousing_outcomes)
+            if r > 14:
+                r = 14
+            context["roll"] = r
+            context["carousing_table"] = carousing_outcomes
     return render(request, template_name, context)
 
 

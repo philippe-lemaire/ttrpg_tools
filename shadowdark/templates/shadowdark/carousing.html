@@ -68,20 +68,28 @@ Shadowdark | Carousing
 
 {% crispy form form.helper %}
 
-{% if result %}
+{% if roll %}
 <br>
 <h2>Carousing Result</h2>
 
-
+<p><em>Highlighted row is the rolled result.</em></p>
 <table class="mt-2 table">
   <tr>
+    <th>d8</th>
     <th>Outcome</th>
     <th>Benefit</th>
   </tr>
+  {% for d, row in carousing_table.items %}
+  {% if roll == d %}
+  <tr class="table-warning">
+    {% else %}
   <tr>
-    <td>{{result.0}}</td>
-    <td>{{result.1}}</td>
+    {% endif %}
+    <td>{{d}}</td>
+    <td>{{row.0}}</td>
+    <td>{{row.1}}</td>
   </tr>
+  {% endfor %}
 </table>
 
 
