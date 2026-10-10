@@ -9,6 +9,7 @@ from .forms import (
     CharismaModForm,
     CarousingBonusForm,
     RandomTableSelection,
+    AncestryChoiceForm,
 )
 from .chargen import PC_Character
 from .game_facts import talents_dict
@@ -26,15 +27,20 @@ class IndexView(TemplateView):
 
 
 def npc_name(request):
-    gen_name = gen_npc_name_by_syllables()
-
-    ancestries = ["Dwarf", "Elf", "Goblin", "Halfling", "Half-Orc", "Human"]
-    name_per_ancestry = {anc: gen_npc_name(anc) for anc in ancestries}
+    form = AncestryChoiceForm(request.POST or None)
+    context = {
+        "form": form,
+    }
+    if request.method == "POST":
+        if form.is_valid():
+            ancestry = form.cleaned_data["ancestry"]
+            print(ancestry)
+            context["name"] = gen_npc_name(ancestry)
 
     return render(
         request,
         template_name="shadowdark/npc_names.html",
-        context={"gen_name": gen_name, "names_dict": name_per_ancestry},
+        context=context,
     )
 
 

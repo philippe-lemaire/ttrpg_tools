@@ -27,6 +27,25 @@ class ClassChoiceForm(forms.Form):
         self.helper.add_input(Submit("submit", "Create PC"))
 
 
+class AncestryChoiceForm(forms.Form):
+    ancestry_choice_field = [(a, a) for a in ancestries]
+    ancestry = forms.ChoiceField(choices=ancestry_choice_field, required=True)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("shadowdark:npc_name")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Cast!",
+                css_class="mt-2 btn-warning",
+            )
+        )
+
+
 class SpellCastingForm(forms.Form):
     bonus = forms.IntegerField(min_value=-5, max_value=10)
     spell_tier = forms.IntegerField(min_value=1, max_value=5)

@@ -1,6 +1,5 @@
 import random
 
-
 npc_names = {
     "Dwarf": [
         "Hera",
@@ -136,9 +135,28 @@ npc_names = {
     ],
 }
 
+identifiers = (
+    "The Gray",
+    "One-Eye",
+    "The Lesser",
+    "The Cunning",
+    "Silvertongue",
+    "The Outcast",
+    "Fasthands",
+    "The Bold",
+    "The Elder",
+    "The Charmer",
+    "The Exiled",
+    "The Wise",
+    "Tree-Speaker",
+    "The Craven",
+    "The Red",
+    "Six-Finger",
+)
+
 
 def gen_npc_name(ancestry):
-    return random.choice(npc_names.get(ancestry))
+    return f"{random.choice(npc_names.get(ancestry))}, {random.choice(identifiers)}."
 
 
 def gen_npc_name_by_syllables():
