@@ -7,6 +7,7 @@ from .forms import (
     ClassChoiceForm,
     SpellCastingForm,
     CharismaModForm,
+    CarousingBonusForm,
     RandomTableSelection,
 )
 from .chargen import PC_Character
@@ -14,6 +15,8 @@ from .game_facts import talents_dict
 from .magic import cast_a_spell
 from .encounters import gen_encounter
 from .random_tables import TABLES
+from .carousing import carousing_outcomes
+from .dice_tools import get_closest_key, roll
 
 # Create your views here.
 
@@ -142,6 +145,21 @@ def encounter_view(request):
         if form.is_valid():
             charisma_mod = int(form.cleaned_data["bonus"])
             context["encounter"] = gen_encounter(charisma_mod)
+    return render(request, template_name, context)
+
+
+def carousing_view(request):
+    form = CarousingBonusForm(request.POST or None)
+    context = {
+        "form": form,
+    }
+    template_name = "shadowdark/carousing.html"
+
+    if request.method == "POST":
+        if form.is_valid():
+            bonus = int(form.cleaned_data["bonus"])
+            r = roll("1d8") + bonus
+            context["result"] = get_closest_key(r, carousing_outcomes)
     return render(request, template_name, context)
 
 

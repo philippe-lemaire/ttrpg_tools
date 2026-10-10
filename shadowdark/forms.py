@@ -71,6 +71,26 @@ class CharismaModForm(forms.Form):
         )
 
 
+class CarousingBonusForm(forms.Form):
+    bonus = forms.IntegerField(
+        min_value=0, max_value=6, label="Carousing Bonus", initial=0
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("shadowdark:carousing")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Roll Carousing outcome!",
+                css_class="mt-2 btn-warning",
+            )
+        )
+
+
 class RandomTableSelection(forms.Form):
     table = forms.ChoiceField(choices=((name, name) for name in TABLES))
 

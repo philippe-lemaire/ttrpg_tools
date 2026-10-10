@@ -1,0 +1,90 @@
+{% extends "shadowdark/base_shadowdark.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+Shadowdark | Carousing
+{% endblock %}
+{% block content %}
+
+
+
+<h1>Carousing</h1>
+
+<h2>Carousing Event</h2>
+
+
+<table class="table">
+  <tr>
+    <th>Cost</th>
+    <th>Event</th>
+    <th>Bonus</th>
+  </tr>
+  <tr>
+    <td>30 gp</td>
+    <td>A worthy night of drinking and festivity</td>
+    <td>+0</td>
+  </tr>
+
+  <tr>
+    <td>100 gp</td>
+    <td>A full day and night of revelry, gambling, and recounting your exploits</td>
+    <td>+1</td>
+  </tr>
+
+  <tr>
+    <td>300 gp</td>
+    <td>Two days of crawling dozens of taverns to sing, buy rounds, and celebrate</td>
+    <td>+2</td>
+  </tr>
+
+  <tr>
+    <td>600 gp</td>
+    <td>A three-day voyage into the finest food, drink, and gambling you can find</td>
+    <td>+3</td>
+  </tr>
+
+  <tr>
+    <td>900 gp</td>
+    <td>A hazy, weeklong bender that runs multiple well-known taverns dry</td>
+    <td>+4</td>
+  </tr>
+
+  <tr>
+    <td>1,200 gp</td>
+    <td>A spirited fete lasting ten days that attracts hordes of revelers and takes over an entire town or a city
+      district</td>
+    <td>+5</td>
+  </tr>
+
+  <tr>
+    <td>1,800 gp</td>
+    <td>Two legendary weeks of drinking and debauchery widespread enough to take over a whole city. It attracts
+      countless celebrants, including famous nobles and bards; the streets run red with wine</td>
+    <td>+6</td>
+  </tr>
+
+</table>
+
+
+{% crispy form form.helper %}
+
+{% if result %}
+<br>
+<h2>Carousing Result</h2>
+
+
+<table class="mt-2 table">
+  <tr>
+    <th>Outcome</th>
+    <th>Benefit</th>
+  </tr>
+  <tr>
+    <td>{{result.0}}</td>
+    <td>{{result.1}}</td>
+  </tr>
+</table>
+
+
+{% endif %}
+
+{% endblock %}

@@ -13,4 +13,5 @@ urlpatterns = [
     path("cast-a-spell", views.cast_wizard_spell_view, name="cast_a_spell"),
     path("encounter", views.encounter_view, name="encounter"),
     path("roll-random-table", views.roll_random_table_view, name="roll_random_tables"),
+    path("carousing", views.carousing_view, name="carousing"),
 ]
