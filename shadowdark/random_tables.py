@@ -182,6 +182,68 @@ citadel_rumors = (
 )
 
 
+def gen_trap():
+
+    trap_types = (
+        "Crossbow",
+        "Hail of needles",
+        "Toxic gas",
+        "Barbed net",
+        "Rolling boulder",
+        "Slicing blade",
+        "Spiked pit",
+        "Javelin",
+        "Magical glyph",
+        "Blast of fire",
+        "Falling block",
+        "Cursed statue",
+    )
+
+    trap_triggers = (
+        "Tripwire",
+        "Pressure plate",
+        "Opening a door",
+        "Switch or button",
+        "False step on stairs",
+        "Closing a door",
+        "Breaking a light beam ",
+        "Pulling a lever",
+        "A word is spoken",
+        "Hook on a thread",
+        "Removing an object",
+        "Casting a spell",
+    )
+
+    trap_effects = (
+        "1d6",
+        "1d6/sleep",
+        "1d6/paralyze",
+        "1d6/blind",
+        "2d8",
+        "2d8/sleep",
+        "2d8/paralyze",
+        "2d8/confuse",
+        "3d10",
+        "3d10/paralyze",
+        "3d10/unconscious",
+        "3d10/petrify",
+    )
+
+    return [
+        f"""<table class='table table-sm'>
+<tr>
+<th>Trap</th>
+<th>Trigger</th>
+<th>Effect</th>
+</tr>
+<tr>
+<td>{trap}</td><td>{trigger}</td><td>{effect}</td>
+</tr>
+</table>"""
+        for trap, trigger, effect in product(trap_types, trap_triggers, trap_effects)
+    ]
+
+
 TABLES = {
     "Lost Citadel Rumors": citadel_rumors,
     "Lost Citatel Encounters": citadel_random_encounters,
@@ -189,4 +251,5 @@ TABLES = {
     "Minotaur Respawns": gen_minotaur_table(),
     "Bestman": gen_beastman(),
     "Ettercap": gen_ettercap(),
+    "Random trap": gen_trap(),
 }
