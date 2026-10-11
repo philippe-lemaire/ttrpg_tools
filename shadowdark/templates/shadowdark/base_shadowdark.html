@@ -12,10 +12,11 @@
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
       <li><a class="nav-link" href="{% url 'shadowdark:roll_random_tables' %}">Roll on a random table</a></li>
+      <li><a class="nav-link" href="{% url 'shadowdark:carousing' %}">Carousing</a></li>
       <li><a class="nav-link" href="{% url 'shadowdark:npc_name' %}">NPC Names</a></li>
       <li><a class="nav-link" href="{% url 'shadowdark:cast_a_spell' %}">Cast a Spell</a></li>
-      <li><a class="nav-link" href="{% url 'shadowdark:encounter' %}">Roll Encounter Distance and reaction</a></li>
-      <li><a class="nav-link" href="{% url 'shadowdark:carousing' %}">Carousing</a></li>
+
+
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
           aria-expanded="false">Encounters by Region</a>
@@ -24,7 +25,7 @@
             encounters</a>
         </div>
       </li>
-      <li></li>
+      <li><a class="nav-link" href="{% url 'shadowdark:encounter' %}">Roll Encounter Distance and reaction</a></li>
     </ul>
   </div>
 

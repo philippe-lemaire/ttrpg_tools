@@ -12,13 +12,22 @@ Shadowdark | {{region}} Random Encounters
 {% crispy form form.helper %}
 
 
-
-
 {% if encounter%}
 <h2>Encounter</h2>
-<p>Encounter Type: {{encounter_type}}</p>
-<p>{{encounter}}</p>
 
+<table class="table table-sm">
+  <tr>
+    <th>Type</th>
+    <th>Encounter</th>
+  </tr>
+  <tr>
+    <td>{{encounter_type}}</td>
+    <td>{{encounter}}</td>
+  </tr>
+</table>
+
+
+<p><em>*New monsters, pg. 283</em></p>
 {% endif %}
 
 {% endblock %}
