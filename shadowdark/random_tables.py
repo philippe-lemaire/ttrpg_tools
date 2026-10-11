@@ -435,6 +435,8 @@ something_happens_table = (
     "A radiant being appears to you with a message of warning",
 )
 
+encounters_kyzian_steppes = None
+
 
 TABLES = {
     "Something Happens!": something_happens_table,
@@ -448,4 +450,5 @@ TABLES = {
     "Rumors in the Reaches": rumors_reaches,
     "Rumors in the Kyzian Steppes": rumors_kyzian_steppes,
     "Points of Interest Kyzian Steppes": points_of_interest_kyzian_steppes,
+    "Random Encounters Kyzian Steppes": encounters_kyzian_steppes,
 }

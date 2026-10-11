@@ -4,6 +4,7 @@ from .game_facts import classes, ancestries, backgrounds
 from .random_tables import TABLES
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
+from .encounters import regions, zones_per_region
 
 
 class ClassChoiceForm(forms.Form):
@@ -126,3 +127,27 @@ class RandomTableSelection(forms.Form):
                 css_class="mt-2 btn-warning",
             )
         )
+
+
+def get_zone_form(region):
+    class ZoneTypeChoiceForm(forms.Form):
+        zone_choices = [(t, t) for t in zones_per_region.get(region).keys()]
+        zone = forms.ChoiceField(choices=zone_choices)
+
+        def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.helper = FormHelper(self)
+            self.helper.form_action = reverse(
+                "shadowdark:encounters_by_zone", args=[region]
+            )
+            self.helper.form_method = "post"
+
+            self.helper.add_input(
+                Submit(
+                    "submit",
+                    "Select zone",
+                    css_class="mt-2 btn-warning",
+                )
+            )
+
+    return ZoneTypeChoiceForm

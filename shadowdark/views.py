@@ -183,3 +183,28 @@ def roll_random_table_view(request):
             result = choice(table)
             context["result"] = result
     return render(request, template_name, context)
+
+
+from .forms import get_zone_form
+from .encounters import encounters_per_zone, zones_per_region
+
+
+def select_zone_type_view(request, region):
+
+    form = get_zone_form(region)(request.POST or None)
+
+    template_name = "shadowdark/select_zone.html"
+    context = {
+        "form": form,
+        "region": region,
+    }
+    if request.method == "POST":
+        if form.is_valid():
+            zone = form.cleaned_data["zone"]
+            encounter_types = zones_per_region.get(region).get(zone)
+            r = roll("1d8")
+            encounter_type = get_closest_key(r, encounter_types)
+            encounter = choice(encounters_per_zone.get(region)[encounter_type])
+            context["encounter_type"] = encounter_type
+            context["encounter"] = encounter
+    return render(request, template_name, context)

@@ -1,0 +1,24 @@
+{% extends "shadowdark/base_shadowdark.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+Shadowdark | {{region}} Random Encounters
+{% endblock %}
+{% block content %}
+
+
+
+<h2>Select Zone</h2>
+{% crispy form form.helper %}
+
+
+
+
+{% if encounter%}
+<h2>Encounter</h2>
+<p>Encounter Type: {{encounter_type}}</p>
+<p>{{encounter}}</p>
+
+{% endif %}
+
+{% endblock %}
