@@ -1,0 +1,56 @@
+{% extends "shadowdark/base_shadowdark.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+Shadowdark | Corre Book Encounters
+{% endblock %}
+{% block content %}
+
+
+
+<h1>Encounters</h1>
+{% crispy form form.helper %}
+
+
+
+
+{% if encounter %}
+<h2>Rolled Encounter</h2>
+
+
+
+<table class="table-sm table-borderless">
+  {% if encounter_detail %}
+  <tr>
+    <th>The Encounter</th>
+    <td>{{encounter_detail}}</td>
+  </tr>
+  {% endif %}
+  <tr>
+    <th>Distance</th>
+    <td>{{encounter.distance}}</td>
+  </tr>
+  <tr>
+    <th>Activity</th>
+    <td>{{encounter.activity}}</td>
+  </tr>
+  <tr>
+    <th>Reaction</th>
+    <td>{{encounter.reaction}}</td>
+  </tr>
+  <tr>
+    <th>Treasure?</th>
+    {% if encounter.treasure %}
+    <td>🪎</td>
+    {% else %}
+    <td>🙅</td>
+    {% endif %}
+  </tr>
+</table>
+
+
+
+
+{% endif %}
+
+{% endblock %}

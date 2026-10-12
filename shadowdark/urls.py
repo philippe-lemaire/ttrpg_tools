@@ -16,4 +16,7 @@ urlpatterns = [
         views.select_zone_type_view,
         name="encounters_by_zone",
     ),
+    path(
+        "core-book-encounters", views.core_book_encounters, name="core_encounter_tables"
+    ),
 ]

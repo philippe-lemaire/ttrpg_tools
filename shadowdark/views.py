@@ -143,3 +143,24 @@ def select_zone_type_view(request, region):
             context["encounter_type"] = encounter_type
             context["encounter"] = encounter
     return render(request, template_name, context)
+
+
+from .forms import AreaChoiceForm
+from .encounters import core_encounter_tables
+
+
+def core_book_encounters(request):
+    form = AreaChoiceForm(request.POST or None)
+    template_name = "shadowdark/core_book_encounters.html"
+    context = {"form": form}
+
+    if request.method == "POST":
+        if form.is_valid():
+            area = form.cleaned_data["area"]
+            charisma_mod = int(form.cleaned_data["bonus"])
+            context["encounter"] = gen_encounter(charisma_mod)
+            r = roll("1d100")
+            context["encounter_detail"] = get_closest_key(
+                r, core_encounter_tables.get(area)
+            )
+    return render(request, template_name, context)

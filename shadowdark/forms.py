@@ -151,3 +151,30 @@ def get_zone_form(region):
             )
 
     return ZoneTypeChoiceForm
+
+
+from .encounters import core_encounter_tables
+
+
+class AreaChoiceForm(forms.Form):
+    area_choices = [(a, a) for a in core_encounter_tables]
+    area = forms.ChoiceField(choices=area_choices, label="Where is the party?")
+    bonus = forms.IntegerField(
+        min_value=-5, max_value=10, label="Charisma MOD", initial=0
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse(
+            "shadowdark:core_encounter_tables",
+        )
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Select zone",
+                css_class="mt-2 btn-warning",
+            )
+        )
