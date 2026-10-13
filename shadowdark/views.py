@@ -164,3 +164,20 @@ def core_book_encounters(request):
                 r, core_encounter_tables.get(area)
             )
     return render(request, template_name, context)
+
+
+from .forms import TreasureLevelChoiceForm
+from .treasure import treasure_tables
+
+
+def roll_treasure_view(request):
+    template_name = "shadowdark/roll_treasure.html"
+    form = TreasureLevelChoiceForm(request.POST or None)
+    context = {"form": form}
+    if request.method == "POST":
+        if form.is_valid():
+            level = form.cleaned_data["level"]
+            r = roll("1d100")
+            treasure = get_closest_key(r, treasure_tables.get(level))
+            context["treasure"] = treasure
+    return render(request, template_name, context)

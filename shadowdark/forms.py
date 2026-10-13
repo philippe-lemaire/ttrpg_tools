@@ -178,3 +178,27 @@ class AreaChoiceForm(forms.Form):
                 css_class="mt-2 btn-warning",
             )
         )
+
+
+from .treasure import treasure_tables
+
+
+class TreasureLevelChoiceForm(forms.Form):
+    level_choices = [(l, l) for l in treasure_tables.keys()]
+    level = forms.ChoiceField(choices=level_choices, label="Monster or PC Level")
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse(
+            "shadowdark:roll_treasure",
+        )
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Select zone",
+                css_class="mt-2 btn-warning",
+            )
+        )

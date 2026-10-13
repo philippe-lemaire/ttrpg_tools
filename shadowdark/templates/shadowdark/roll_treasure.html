@@ -1,0 +1,23 @@
+{% extends "shadowdark/base_shadowdark.html" %}
+
+{% load crispy_forms_tags %}
+{% block title %}
+Shadowdark | Roll Treasure
+{% endblock %}
+{% block content %}
+
+
+
+<h1>Treasure</h1>
+{% crispy form form.helper %}
+
+
+{% if treasure %}
+<h2>Rolled Treasure</h2>
+
+
+<p>{{treasure}}</p>
+
+{% endif %}
+
+{% endblock %}
