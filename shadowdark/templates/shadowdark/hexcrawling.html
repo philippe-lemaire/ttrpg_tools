@@ -4,86 +4,259 @@ Shadowdark | Hex Crawling Rules
 {% endblock %}
 
 {% block content %}
-
 <h1>Hex Crawling Rules</h1>
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h2>TRAVEL PER DAY</h2>
 
-<h2>TRAVEL PER DAY</h2>
+      <p>Hexes are <b>6-miles</b> across. The
+        PCs can enter a number of hexes
+        per day based on travel method.</p>
 
-<p>Hexes are 6-miles across. The
-  PCs can enter a number of hexes
-  per day based on travel method.</p>
+      <h2>MOVEMENT</h2>
 
-<h2>MOVEMENT</h2>
+      <p>PCs move from hex to hex as a
+        group while traveling overland.
+        Shift into combat or crawling
+        rounds if an encounter occurs.
+      </p>
+      <p>Check for a <b>random encounter</b>
+        twice a day and twice overnight
+        with a 1:6 chance each time. Roll
+        a d12 to determine what time of
+        day the encounters happen.</p>
 
-<p>PCs move from hex to hex as a
-  group while traveling overland.
-  Shift into combat or crawling
-  rounds if an encounter occurs.
-</p>
-<p>Check for a random encounter
-  twice a day and twice overnight
-  with a 1:6 chance each time. Roll
-  a d12 to determine what time of
-  day the encounters happen.</p>
+      <h2>WEATHER</h2>
 
-<h2>WEATHER</h2>
+      <p>Check the weather each day by
+        rolling a d6.</p>
+      <p>On a 1, the weather is <b>stormy</b>.
+        Normal terrain becomes difficult
+        for one day. In a <b>harsh climate</b>,
+        (see pg. 42), terrain becomes
+        impassable for one day instead.</p>
 
-<p>Check the weather each day by
-  rolling a d6.</p>
-<p>On a 1, the weather is stormy.
-  Normal terrain becomes difficult
-  for one day. In a harsh climate,
-  (see pg. 42), terrain becomes
-  impassable for one day instead.</p>
+      <p>On a 6, the weather is excellent.
+        Roll the next weather with ADV.</p>
 
-<p>On a 6, the weather is excellent.
-  Roll the next weather with ADV.</p>
+      <h2>FOOD AND WATER</h2>
+      <p>PCs and mounts must each
+        consume one ration per day,
+        taking 1 CON damage (death at
+        0) if they do not. A PC can forage
+        for 1 ration a day during travel
+        with an INT check.</p>
+    </div>
+    <div class="col-sm">
+      <table class="table table-sm">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" colspan="3">ENTERING HEXES</th>
+          </tr>
+        </thead>
+        <tr>
+          <th>Travel Method</th>
+          <th>Hexes per Day</th>
+        </tr>
+        <tr>
+          <td>Walking</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Mounted</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Sailing</td>
+          <td>8*</td>
+        </tr>
+      </table>
+      <table class="table table-sm">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" colspan="3">
+              TERRAIN TYPES
+            </th>
+          </tr>
+        </thead>
+        <tr>
+          <th>Terrain</th>
+          <th>Hex cost to enter</th>
+        </tr>
+        <tr>
+          <td>Normal</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Difficult</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Impassable</td>
+          <td>Cannot enter</td>
+        </tr>
+      </table>
+      <h2>PUSHING</h2>
+      <p>At the start of the day, the PCs
+        can choose to push to multiply
+        their hexes per day by 1.5 times.
+        Increase the random encounter
+        chance by 1:6 that day. PCs can't
+        forage on a day they push.</p>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <h2>HEX VISIBILITY</h2>
+      <p>
+        The PCs can see the terrain and
+        points of interest in all adjacent
+        hexes. They can also see
+        major terrain features, such as
+        mountains, from any hex while
+        their visibility is not hindered.</p>
+      <p>
+        PCs can try to enter an adjacent
+        hex they can't see into, but they
+        bounce off it if they don't have
+        enough available movement.</p>
+      <p>Some conditions in the PCs'
+        current hex can affect the
+        visibility of surrounding hexes:</p>
+    </div>
+    <div class="col-sm">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col" colspan="3">HEX VISIBILITY</th>
+          </tr>
+        </thead>
+        <tr>
+          <th>Condition</th>
+          <th>Hexes</th>
+        </tr>
+        <tr>
+          <td>Darkness</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Stormy weather</td>
+          <td>-1</td>
+        </tr>
+        <tr>
+          <td>Excellent weather</td>
+          <td>+1</td>
+        </tr>
+        <tr>
+          <td>Slight elevation</td>
+          <td>+1</td>
+        </tr>
+        <tr>
+          <td>High elevation</td>
+          <td>+3</td>
+        </tr>
+      </table>
+    </div>
+
+  </div>
+</div>
 
 
-<h2>ENTERING HEXES</h2>
+
+
+
+
 <table class="table">
-  <tr>
-    <th>Travel Method</th>
-    <th>Hexes per Day</th>
-  </tr>
-  <tr>
-    <td>Walking</td>
-    <td>4</td>
-  </tr>
-  <tr>
-    <td>Mounted</td>
-    <td>6</td>
-  </tr>
-  <tr>
-    <td>Sailing</td>
-    <td>8*</td>
-  </tr>
-</table>
-
-
-
-<h2>TERRAIN TYPES</h2>
-<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col" colspan="3">TERRAIN IN THE REACHES</th>
+    </tr>
+  </thead>
   <tr>
     <th>Terrain</th>
-    <th>Hex cost to enter</th>
+    <th>Type</th>
+    <th>Hex Cost to Enter</th>
   </tr>
   <tr>
+    <td>Arctic sea</td>
+    <td>Impassable without boat</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Coast</td>
     <td>Normal</td>
     <td>1</td>
   </tr>
   <tr>
+    <td>Deep tunnels</td>
+    <td>Normal</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Desert</td>
+    <td>Normal</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Forest</td>
     <td>Difficult</td>
     <td>2</td>
   </tr>
   <tr>
+    <td>Grassland</td>
+    <td>Normal</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Jungle</td>
+    <td>Difficult</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Lake</td>
+    <td>Impassable without boat</td>
+    <td>1 with boat</td>
+  </tr>
+  <tr>
+    <td>Lava</td>
     <td>Impassable</td>
-    <td>Cannot enter</td>
+    <td>-</td>
+  </tr>
+  <tr>
+    <td>Mountain</td>
+    <td>Difficult</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Ocean</td>
+    <td>Impassable without boat</td>
+    <td>1 with boat</td>
+  </tr>
+  <tr>
+    <td>River</td>
+    <td>Difficult</td>
+    <td>2 (1 with boat)</td>
+  </tr>
+  <tr>
+    <td>Path</td>
+    <td>Normal</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Salt Flat</td>
+    <td>Normal</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Swamp</td>
+    <td>Difficult</td>
+    <td>2</td>
   </tr>
 </table>
-
-
-
 
 
 {% endblock content %}
