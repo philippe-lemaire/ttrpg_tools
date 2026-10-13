@@ -26,6 +26,10 @@ class IndexView(TemplateView):
     template_name = "shadowdark/index.html"
 
 
+class HexCrawlingView(TemplateView):
+    template_name = "shadowdark/hexcrawling.html"
+
+
 def npc_name(request):
     form = AncestryChoiceForm(request.POST or None)
     context = {

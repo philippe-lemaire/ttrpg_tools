@@ -1,0 +1,89 @@
+{% extends "shadowdark/base_shadowdark.html" %}
+{% block title %}
+Shadowdark | Hex Crawling Rules
+{% endblock %}
+
+{% block content %}
+
+<h1>Hex Crawling Rules</h1>
+
+<h2>TRAVEL PER DAY</h2>
+
+<p>Hexes are 6-miles across. The
+  PCs can enter a number of hexes
+  per day based on travel method.</p>
+
+<h2>MOVEMENT</h2>
+
+<p>PCs move from hex to hex as a
+  group while traveling overland.
+  Shift into combat or crawling
+  rounds if an encounter occurs.
+</p>
+<p>Check for a random encounter
+  twice a day and twice overnight
+  with a 1:6 chance each time. Roll
+  a d12 to determine what time of
+  day the encounters happen.</p>
+
+<h2>WEATHER</h2>
+
+<p>Check the weather each day by
+  rolling a d6.</p>
+<p>On a 1, the weather is stormy.
+  Normal terrain becomes difficult
+  for one day. In a harsh climate,
+  (see pg. 42), terrain becomes
+  impassable for one day instead.</p>
+
+<p>On a 6, the weather is excellent.
+  Roll the next weather with ADV.</p>
+
+
+<h2>ENTERING HEXES</h2>
+<table class="table">
+  <tr>
+    <th>Travel Method</th>
+    <th>Hexes per Day</th>
+  </tr>
+  <tr>
+    <td>Walking</td>
+    <td>4</td>
+  </tr>
+  <tr>
+    <td>Mounted</td>
+    <td>6</td>
+  </tr>
+  <tr>
+    <td>Sailing</td>
+    <td>8*</td>
+  </tr>
+</table>
+
+
+
+<h2>TERRAIN TYPES</h2>
+<table class="table">
+  <tr>
+    <th>Terrain</th>
+    <th>Hex cost to enter</th>
+  </tr>
+  <tr>
+    <td>Normal</td>
+    <td>1</td>
+  </tr>
+  <tr>
+    <td>Difficult</td>
+    <td>2</td>
+  </tr>
+  <tr>
+    <td>Impassable</td>
+    <td>Cannot enter</td>
+  </tr>
+</table>
+
+
+
+
+
+{% endblock content %}

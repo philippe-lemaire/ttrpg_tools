@@ -11,22 +11,39 @@
   <a class="navbar-brand" href="{% url 'shadowdark:index' %}">ShadowDark</a>
   <div class="collapse navbar-collapse" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li><a class="nav-link" href="{% url 'shadowdark:roll_random_tables' %}">Roll on a random table</a></li>
-      <li><a class="nav-link" href="{% url 'shadowdark:carousing' %}">Carousing</a></li>
-      <li><a class="nav-link" href="{% url 'shadowdark:npc_name' %}">NPC Names</a></li>
-      <li><a class="nav-link" href="{% url 'shadowdark:cast_a_spell' %}">Cast a Spell</a></li>
-
-      <li><a class="nav-link" href="{% url 'shadowdark:core_encounter_tables' %}">Core Book Encounters</a></li>
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
-          aria-expanded="false">Encounters by Region</a>
+          aria-expanded="false">Rules and Procedures</a>
         <div class="dropdown-menu">
+          <a class="dropdown-item" href="{% url 'shadowdark:hexcrawling' %}">Hexcrawling
+          </a>
+          <a class="dropdown-item" href="{% url 'shadowdark:carousing' %}">Carousing</a>
+          <a class="dropdown-item" href="{% url 'shadowdark:cast_a_spell' %}">Cast a Spell</a>
+        </div>
+      </li>
+
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Random Tables</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{% url 'shadowdark:roll_random_tables' %}">Roll on a random table</a>
+          <a class="dropdown-item" href="{% url 'shadowdark:npc_name' %}">NPC Names</a>
+          <a class="dropdown-item" href="{% url 'shadowdark:encounter' %}">Roll Encounter Distance and reaction</a>
+          <a class="dropdown-item" href="{% url 'shadowdark:roll_treasure' %}">Roll Treasure</a>
+        </div>
+      </li>
+
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true"
+          aria-expanded="false">Encounters</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="{% url 'shadowdark:core_encounter_tables' %}">Core Book Encounters</a>
           <a class="dropdown-item" href="{% url 'shadowdark:encounters_by_zone' 'Kyzian Steppes' %}">Roll Kyzian Steppes
             encounters</a>
         </div>
       </li>
-      <li><a class="nav-link" href="{% url 'shadowdark:encounter' %}">Roll Encounter Distance and reaction</a></li>
-      <li><a class="nav-link" href="{% url 'shadowdark:roll_treasure' %}">Roll Treasure</a></li>
+
 
     </ul>
   </div>

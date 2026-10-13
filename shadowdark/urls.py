@@ -6,6 +6,7 @@ app_name = "shadowdark"
 
 urlpatterns = [
     path("", views.IndexView.as_view(), name="index"),
+    path("hexcrawling", views.HexCrawlingView.as_view(), name="hexcrawling"),
     path("npc_names", views.npc_name, name="npc_name"),
     path("cast-a-spell", views.cast_wizard_spell_view, name="cast_a_spell"),
     path("encounter", views.encounter_view, name="encounter"),
