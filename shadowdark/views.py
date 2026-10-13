@@ -30,6 +30,10 @@ class HexCrawlingView(TemplateView):
     template_name = "shadowdark/hexcrawling.html"
 
 
+class TravelProcedureView(TemplateView):
+    template_name = "shadowdark/travel_procedure.html"
+
+
 def npc_name(request):
     form = AncestryChoiceForm(request.POST or None)
     context = {
