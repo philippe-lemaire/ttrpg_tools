@@ -39,24 +39,25 @@ def gen_encounter(charisma_mod=0):
 if __name__ == "__main__":
     print(gen_encounter())
 
-regions = ("Kyzian Steppes",)
-zones = ("Grass", "Path", "Water")
+regions = ("Kyzian Steppes", "Isles of Andrik")
+steppes_zones = ("Grass", "Path", "Water")
 
-grass_zone = {
+
+steppes_grass_zone = {
     1: "Beast",
     5: "Beast",
     6: "Elemental",
     8: "People",
 }
 
-path_zone = {
+steppes_path_zone = {
     1: "Beast",
     3: "Beast",
     4: "Elemental",
     8: "People",
 }
 
-water_zone = {
+steppes_water_zone = {
     1: "Aquatic",
     5: "Aquatic",
     6: "Beast",
@@ -65,7 +66,66 @@ water_zone = {
 }
 
 kyzian_steppes_zone_encounter_types = {
-    z: t for z, t in zip(zones, (grass_zone, path_zone, water_zone))
+    z: t
+    for z, t in zip(
+        steppes_zones, (steppes_grass_zone, steppes_path_zone, steppes_water_zone)
+    )
+}
+isles_zones = ("Forest", "Mountain", "Sea", "River")
+
+isles_forest_zone = {5: "Walker", 6: "Flier", 8: "People"}
+isles_mountain_zone = {4: "Flier", 7: "Walker", 8: "People"}
+isles_sea_zone = {5: "Aquatic", 7: "Flier", 8: "People"}
+isles_river_zone = {3: "Aquatic", 5: "Walker", 6: "Flier", 8: "People"}
+isles_of_andrik_zone_encounter_types = {
+    z: t
+    for z, t in zip(
+        isles_zones,
+        (isles_forest_zone, isles_forest_zone, isles_sea_zone, isles_river_zone),
+    )
+}
+
+isles_encounters = {
+    "Aquatic": (
+        "Storm Giant",
+        "Sea Serpent*",
+        "1d4 sharks",
+        "Hydra (LV10)",
+        "1d4 orcas*",
+        "Sea Hag",
+        "1d6 sea nymph*",
+        "2d6 merfolk",
+    ),
+    "Flier": (
+        "Greater Drake*",
+        "Lesser Drake*",
+        "Ghost",
+        "1d6 willowisps",
+        "2d4 stingbats",
+        "1d6 great bats",
+        "1d4 fairies",
+        "2d4 vultures",
+    ),
+    "People": (
+        "Raiders (3d6 nords in a longboat)",
+        "1d4 dverg*",
+        "1d4 elves",
+        "2d6 bandits",
+        "1d8 paesants",
+        "2d6 nords*",
+        "1d4 oracles*",
+        "Valkyrie*",
+    ),
+    "Walker": (
+        "Winter Wolf",
+        "2d4 wolves",
+        "1d4 draugr*",
+        "Weald hag",
+        "Troll",
+        "Brown bear",
+        "Treant",
+        "Dryad",
+    ),
 }
 
 steppe_encounters = {
@@ -111,8 +171,14 @@ steppe_encounters = {
     ),
 }
 
-zones_per_region = {"Kyzian Steppes": kyzian_steppes_zone_encounter_types}
-encounters_per_zone = {"Kyzian Steppes": steppe_encounters}
+zones_per_region = {
+    "Kyzian Steppes": kyzian_steppes_zone_encounter_types,
+    "Isles of Andrik": isles_of_andrik_zone_encounter_types,
+}
+encounters_per_zone = {
+    "Kyzian Steppes": steppe_encounters,
+    "Isles of Andrik": isles_encounters,
+}
 
 
 core_encounter_tables = {
