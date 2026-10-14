@@ -1,0 +1,23 @@
+{% extends "shadowdark/base_shadowdark.html" %}
+{% block title %}
+ShadowDark - Cast a Spell
+{% endblock %}
+{% block content %}
+<h1>Cast a Spell</h1>
+
+{% load crispy_forms_tags %}
+<div class="mt-5 w-50">
+  {% crispy form form.helper %}
+</div>
+{% if roll_done %}
+
+<div class="card mt-5 w-50">
+  <div class="card-body">
+    <h5 class="card-title">Result</h5>
+    <p class="card-text">{{mishap|safe}}</p>
+
+  </div>
+</div>
+
+{% endif %}
+{% endblock content %}

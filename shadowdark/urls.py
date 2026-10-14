@@ -12,6 +12,7 @@ urlpatterns = [
     ),
     path("npc_names", views.npc_name, name="npc_name"),
     path("cast-a-spell", views.cast_wizard_spell_view, name="cast_a_spell"),
+    path("roll-mishap", views.roll_mishap_view, name="roll_mishap"),
     path("encounter", views.encounter_view, name="encounter"),
     path("roll-random-table", views.roll_random_table_view, name="roll_random_tables"),
     path("carousing", views.carousing_view, name="carousing"),

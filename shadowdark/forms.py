@@ -53,7 +53,8 @@ class SpellCastingForm(forms.Form):
     advantage = forms.BooleanField(required=False, initial=False)
     disadvantage = forms.BooleanField(required=False, initial=False)
     class_ = forms.ChoiceField(
-        choices=[("wizard", "Wizard"), ("priest", "Priest")], label="Spell Caster Class"
+        choices=[("wizard", "Wizard"), ("priest", "Priest"), ("witch", "Witch")],
+        label="Spell Caster Class",
     )
 
     def __init__(self, *args, **kwargs):
@@ -66,6 +67,30 @@ class SpellCastingForm(forms.Form):
             Submit(
                 "submit",
                 "Cast!",
+                css_class="mt-2 btn-warning",
+            )
+        )
+
+
+class MishapForm(forms.Form):
+    # bonus = forms.IntegerField(min_value=-5, max_value=10)
+    spell_tier = forms.IntegerField(min_value=1, max_value=5)
+
+    class_ = forms.ChoiceField(
+        choices=[("wizard", "Wizard"), ("witch", "Witch")],
+        label="Spell Caster Class",
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("shadowdark:roll_mishap")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Roll Mishap",
                 css_class="mt-2 btn-warning",
             )
         )

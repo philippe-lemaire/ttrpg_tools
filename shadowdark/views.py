@@ -10,10 +10,11 @@ from .forms import (
     CarousingBonusForm,
     RandomTableSelection,
     AncestryChoiceForm,
+    MishapForm,
 )
 from .chargen import PC_Character
 from .game_facts import talents_dict
-from .magic import cast_a_spell
+from .magic import cast_a_spell, roll_mishap
 from .encounters import gen_encounter
 from .random_tables import TABLES
 from .carousing import carousing_outcomes
@@ -80,6 +81,26 @@ def cast_wizard_spell_view(request):
                 "disadvantage": disadvantage,
             }
         )
+    return render(request, template_name, context)
+
+
+def roll_mishap_view(request):
+    form = MishapForm(request.POST or None)
+    template_name = "shadowdark/roll_mishap.html"
+    context = {"form": form}
+    if request.method == "POST":
+        if form.is_valid():
+
+            spell_tier = form.cleaned_data["spell_tier"]
+            class_ = form.cleaned_data["class_"]
+
+            mishap = roll_mishap(spell_tier, class_)
+            context.update(
+                {
+                    "roll_done": True,
+                    "mishap": mishap,
+                }
+            )
     return render(request, template_name, context)
 
 

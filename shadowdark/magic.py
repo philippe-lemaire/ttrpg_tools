@@ -1,7 +1,7 @@
 from .dice_tools import roll
 from random import choice, sample
 
-mishaps = {
+wizard_mishaps = {
     2: (
         "<b>Explosion!</b> You take 1d8 damage",
         "<b>Refraction!</b> You target yourself with the spell",
@@ -43,18 +43,56 @@ mishaps = {
     ),
 }
 
+witch_mishaps = {
+    1: (
+        "<b>Wither!</b> You take 1d6 damage per spell tier",
+        "<b>Newt!</b> You turn into a tiny, 1 hit point newt for 3 rounds. You can't cast spells in this form",
+        "<b>Shune's baleful gaze!</b> You can't cast this spell and another random spell again for a week",
+        "<b>Thieving fairies!</b> You lose a random piece of gear",
+        "<b>Cobwebs!</b> Mental cobwebs cloud your mind; you can't cast this spell again for a week",
+        "<b>Cackles!</b> You fall to the ground in a fit of cackling, unable to do anything but laugh for the next 3 rounds",
+        "<b>Double trouble!</b> You lose the ability to cast a random spell until you complete a rest",
+        "<b>Swamp gas!</b> The air fills with sulfurous gas in a near-sized cube around you. All creatures who end their turn in it are blinded and take 1d6 damage. It lasts 3 rounds",
+        "<b>Bat!</b> An angry bat appears on your head, flapping and clinging to your face. You are blinded for 3 rounds or until you can toss the beastie away from you",
+        "<b>Salt!</b> You're surrounded by a ring of salt and can't touch it or pass through it until something breaks the ring",
+        "<b>Siphon!</b> You have disadvantage on casting spells of the same tier or lower for the next 10 rounds",
+    ),
+    2: (
+        "<b>Ruin!</b> You take 1d8 damage per spell tier",
+        "<b>Mind rot!</b> You permanently forget one random spell",
+        "<b>4The Willowman!</b> You summon The Willowman (who is angry with you) in a space near to you. He stays for 1d6 rounds before disappearing from whence he came",
+        "<b>Accursed imps!</b> Cackling imps from hell swarm you, stealing three pieces of random gear and flapping away",
+        "<b>Lightning blast!</b> You deal 3d6 damage to yourself and all creatures within near",
+        "<b>Cold iron!</b> Spikes of cold iron lance from the ethereal realm, piercing you. You take 2d6 damage and are paralyzed for 2 rounds",
+        "<b>Mother of Night!</b> You displease the Dark Mother and lose the ability to cast this spell until atoning to her",
+        "<b>Catatonia!</b> You stare blankly and can't take any actions for the next hour",
+        "<b>Tongue of dog!</b> Your tongue lolls every time you try to cast a spell of a random tier, ruining the magic. This persists until you complete a rest",
+        "<b>Fiddlesticks!</b> You have disadvantage on casting all spells for the next 10 rounds",
+        "<b>Nemesis!</b> Somewhere, a child is born who will grow up to become a mighty, sworn enemy to you",
+    ),
+}
 
-def roll_mishap(spell_tier):
+
+def roll_mishap(spell_tier, class_):
     r = roll("1d12")
-    if spell_tier in (1, 2):
-        table = 2
-    elif spell_tier in (3, 4):
-        table = 4
-    else:
-        table = 5
-    if r == 1:
-        return "<br/>".join(sample(mishaps.get(table), 2))
-    return choice(mishaps.get(table))
+    if class_ == "wizard":
+        if spell_tier in (1, 2):
+            table = 2
+        elif spell_tier in (3, 4):
+            table = 4
+        else:
+            table = 5
+        if r == 1:
+            return "<br/>".join(sample(wizard_mishaps.get(table), 2))
+        return choice(wizard_mishaps.get(table))
+    if class_ == "witch":
+        if spell_tier <= 3:
+            table = 1
+        else:
+            table = 2
+        if r == 1:
+            return "Diablerie!<br/>".join(sample(witch_mishaps[table], 2))
+        return choice(witch_mishaps.get(table))
 
 
 def cast_a_spell(bonus, spell_tier, class_, advantage=False, disadvantage=False):
@@ -79,8 +117,8 @@ def cast_a_spell(bonus, spell_tier, class_, advantage=False, disadvantage=False)
         success = False
     if crit:
         outcome = "<b>Critical Success!</b> Double one numeric value of the Spell."
-    elif mishap and class_ == "wizard":
-        outcome = "<b>Mishap!</b>" + "<br/>" + roll_mishap(spell_tier)
+    elif mishap and class_ in ("wizard", "witch"):
+        outcome = "<b>Mishap!</b>" + "<br/>" + roll_mishap(spell_tier, class_)
     elif mishap and class_ == "priest":
         outcome = """<b>Mishap!</b> Your deity is greatly displeased and revokes its power.
         You can’t cast that spell again until you complete ritualistic
