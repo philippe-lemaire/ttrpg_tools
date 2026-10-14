@@ -48,8 +48,8 @@ class AncestryChoiceForm(forms.Form):
 
 
 class SpellCastingForm(forms.Form):
-    bonus = forms.IntegerField(min_value=-5, max_value=10)
-    spell_tier = forms.IntegerField(min_value=1, max_value=5)
+    bonus = forms.IntegerField(min_value=-5, max_value=10, initial=0)
+    spell_tier = forms.IntegerField(min_value=1, max_value=5, initial=1)
     advantage = forms.BooleanField(required=False, initial=False)
     disadvantage = forms.BooleanField(required=False, initial=False)
     class_ = forms.ChoiceField(
@@ -74,7 +74,7 @@ class SpellCastingForm(forms.Form):
 
 class MishapForm(forms.Form):
     # bonus = forms.IntegerField(min_value=-5, max_value=10)
-    spell_tier = forms.IntegerField(min_value=1, max_value=5)
+    spell_tier = forms.IntegerField(min_value=1, max_value=5, initial=1)
 
     class_ = forms.ChoiceField(
         choices=[("wizard", "Wizard"), ("witch", "Witch")],
