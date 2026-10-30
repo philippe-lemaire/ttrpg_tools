@@ -69,4 +69,78 @@ details_part_three = (
 
 
 def gen_random_adventure():
-    return f"{choice(details_part_one)} {choice(details_part_two).lower()} {choice(details_part_three).lower()}."
+    return f"{choice(details_part_one)} {choice(details_part_two).lower()} {choice(details_part_three).lower()}"
+
+
+site_name_part_one = (
+    "Mines of the",
+    "Abbey of the",
+    "Tower of the",
+    "Barrow of the",
+    "Monastery of the",
+    "Ruin of the",
+    "Crypt of the",
+    "Caves of the",
+    "Warrens of the",
+    "Tunnels of the",
+    "Citadel of the",
+    "Tomb of the",
+    "Castle of the",
+    "Temple of the",
+    "Fortress of the",
+    "Isle of the",
+    "Keep of the",
+    "Dungeon of the",
+    "Necropolis of the",
+    "Shrine of the",
+)
+
+site_name_part_two = (
+    "Cursed",
+    "Whispering",
+    "Bleeding",
+    "Shrouded",
+    "Lost",
+    "Dead",
+    "Deepwood",
+    "Fallen",
+    "Revenant",
+    "Frozen",
+    "Shimmering",
+    "Chaos",
+    "Abandoned",
+    "Blighted",
+    "Forgotten",
+    "Slumbering",
+    "Savage",
+    "Unholy",
+    "Enchanted",
+    "Immortal",
+)
+
+site_name_part_three = (
+    "Flame",
+    "Ghost",
+    "Darkness",
+    "Peak",
+    "Borderlands",
+    "King",
+    "Twilight",
+    "Depths",
+    "Jewel",
+    "God",
+    "Lands",
+    "Storm",
+    "Swamp",
+    "Ravine",
+    "Valley",
+    "Horde",
+    "Skull",
+    "Queen",
+    "Wastes",
+    "Hero",
+)
+
+
+def gen_adventure_site_name():
+    return f"{choice(site_name_part_one)} {choice(site_name_part_two)} {choice(site_name_part_three)}"

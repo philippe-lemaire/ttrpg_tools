@@ -5,6 +5,14 @@ ShadowDark - Random Adventure
 {% block content %}
 <h1>Random Generated Adventure</h1>
 
-<p class="mt-5">{{adventure}}</p>
-
+<table class="table mt-5">
+  <tr>
+    <th>Adventure</th>
+    <th>Adventure Site</th>
+  </tr>
+  <tr>
+    <td>{{adventure}}</td>
+    <td>{{adventure_site}}</td>
+  </tr>
+</table>
 {% endblock content %}
