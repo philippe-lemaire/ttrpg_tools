@@ -19,6 +19,7 @@ from .encounters import gen_encounter
 from .random_tables import TABLES
 from .carousing import carousing_outcomes
 from .dice_tools import get_closest_key, roll
+from .adventures import gen_random_adventure
 
 # Create your views here.
 
@@ -209,4 +210,10 @@ def roll_treasure_view(request):
             r = roll("1d100")
             treasure = get_closest_key(r, treasure_tables.get(level))
             context["treasure"] = treasure
+    return render(request, template_name, context)
+
+
+def random_adventure_view(request):
+    template_name = "shadowdark/random_adventure.html"
+    context = {"adventure": gen_random_adventure()}
     return render(request, template_name, context)

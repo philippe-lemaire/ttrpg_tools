@@ -25,4 +25,5 @@ urlpatterns = [
         "core-book-encounters", views.core_book_encounters, name="core_encounter_tables"
     ),
     path("roll-treasure", views.roll_treasure_view, name="roll_treasure"),
+    path("random-adventure", views.random_adventure_view, name="random_adventure"),
 ]
