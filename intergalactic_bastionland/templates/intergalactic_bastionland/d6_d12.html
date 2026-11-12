@@ -1,0 +1,22 @@
+{% extends "intergalactic_bastionland/base_ib.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Intergalactic Bastionland{% endblock title %}
+{% block content %}
+<h1>d6 and d12 roll</h1>
+
+<table class="table mt-5">
+  <tr>
+    <th>d6</th>
+    <th>d12</th>
+    <th>Total</th>
+  </tr>
+  <tr>
+    <td>{{d6}}</td>
+    <td>{{d12}}</td>
+    <td>{{total}}</td>
+  </tr>
+</table>
+
+
+{% endblock content %}

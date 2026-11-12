@@ -69,6 +69,7 @@ INSTALLED_APPS = [
     "vaarn",
     "burningwheel",
     "torchbearer",
+    "intergalactic_bastionland",
 ]
 
 MIDDLEWARE = [
