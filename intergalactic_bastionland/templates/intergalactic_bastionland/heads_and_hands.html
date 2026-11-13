@@ -1,0 +1,29 @@
+{% extends "intergalactic_bastionland/base_ib.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Intergalactic Bastionland{% endblock title %}
+{% block content %}
+<h1>Heads and Hands</h1>
+<p><b>Section Heads</b> each have a specific responsibility, reporting directly to the officer of their Division.
+  Roll d6 and d12 on the table below for a random Section.</p>
+
+
+<table class="table mt-5">
+  {% for division, rows in heads_and_hands.items %}
+  <tr>
+    <th>{{forloop.counter}}. {{division}}</th>
+  </tr>
+  <tr>
+    <td>
+      <ol>
+        {% for i, row in rows.items %}
+        <li>{{row}}</li>
+        {% endfor %}
+      </ol>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+
+{% endblock content %}
