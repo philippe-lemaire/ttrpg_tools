@@ -1,0 +1,57 @@
+{% extends "intergalactic_bastionland/base_ib.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Intergalactic Bastionland - Character Creation{% endblock title %}
+{% block content %}
+<h1>Intergalactic Bastionland Character</h1>
+
+<div class="card mt-5">
+  <div class="card-body">
+    <h5 class="card-title">{{character.name}}</h5>
+    <h6 class="card-subtitle mb-2 text-muted"><b>Rank:</b> 3rd Head - Freehead</h6>
+    <table class="table">
+      <tr>
+        <th colspan="3">Skills</th>
+      </tr>
+      <tr>
+        {% for skill, rating in character.skills.items %}
+        <td>{{skill}} {{rating}}</td>
+        {% endfor %}
+      </tr>
+      <tr>
+
+        <td><b>Max GD:</b> {{character.guard}}</td>
+        <td><b>Current GD:</b> {{character.guard}}</td>
+        <td><b>Trauma:</b></td>
+      </tr>
+    </table>
+
+    <table class="table">
+      <tr>
+        <th colspan="3">Background</th>
+      </tr>
+      <tr>
+        <td><b>Born:</b> {{character.born.name}}</td>
+        <td><b>Made:</b> {{character.made.name}}</td>
+        <td><b>Broken:</b> {{character.broken.name}}</td>
+      </tr>
+    </table>
+
+
+    <table class="table">
+      <tr>
+        <th>Particulars</th>
+      </tr>
+      <tr>
+        <td><b>Inventory</b><br> {{character.equipment|safe}}</td>
+      </tr>
+      <tr>
+        <td><b>Special</b><br>{{character.special}}</td>
+      </tr>
+      <tr>
+        <td><b>Trust Credits</b><br>{{character.tees}}</td>
+      </tr>
+    </table>
+  </div>
+</div>
+{% endblock content %}

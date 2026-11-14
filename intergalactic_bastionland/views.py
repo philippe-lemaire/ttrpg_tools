@@ -4,6 +4,7 @@ from django.shortcuts import render
 from django.views.generic import TemplateView
 from into_the_odd.game_logic import roll
 from .heads_and_hands import heads_and_hands
+from .character_creation import Character
 
 app_name = "intergalactic_bastionland"
 
@@ -23,4 +24,10 @@ def roll_d12_d6_view(request):
 def heads_and_hands_view(request):
     context = {"heads_and_hands": heads_and_hands}
     template_name = f"{app_name}/heads_and_hands.html"
+    return render(request, template_name, context)
+
+
+def character_creation_view(request):
+    template_name = f"{app_name}/character_creation.html"
+    context = {"character": Character()}
     return render(request, template_name, context)
