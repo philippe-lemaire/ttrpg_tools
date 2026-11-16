@@ -11,4 +11,7 @@ urlpatterns = [
     path(
         "character-creation", views.character_creation_view, name="character_creation"
     ),
+    path(
+        "spark-tables/<str:table_name>", views.sparks_tables_view, name="spark_tables"
+    ),
 ]

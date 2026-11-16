@@ -1,0 +1,82 @@
+{% extends "intergalactic_bastionland/base_ib.html" %}
+{% load crispy_forms_tags %}
+{% load static %}
+{% block title %}Intergalactic Bastionland{% endblock title %}
+{% block content %}
+<h1>Intergalactic Bastionland Sparks Tables</h1>
+
+<h2 class="mt-2 mb-2">{{name}} Sparks</h2>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      {% for table in tables_1 %}
+      <div class="table-responsive-sm">
+        <table class="table table-sm">
+          <thead class="thead-dark">
+            <tr>
+              <th colspan="2">{{table.0}}</th>
+            </tr>
+          </thead>
+          <tr>
+            <td><b>{{table.1}}</b></td>
+            <td><b>{{table.2}}</b></td>
+          </tr>
+          <tr>
+            <td>{{table.3.0}}</td>
+            <td>{{table.3.1}}</td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      {% endfor %}
+    </div>
+    <div class="col-sm">
+      {% for table in tables_2 %}
+      <div class="table-responsive-sm">
+        <table class="table table-sm">
+          <thead class="thead-dark">
+            <tr>
+              <th colspan="2">{{table.0}}</th>
+            </tr>
+          </thead>
+          <tr>
+            <td><b>{{table.1}}</b></td>
+            <td><b>{{table.2}}</b></td>
+          </tr>
+          <tr>
+            <td>{{table.3.0}}</td>
+            <td>{{table.3.1}}</td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      {% endfor %}
+    </div>
+    <div class="col-sm">
+      {% for table in tables_3 %}
+      <div class="table-responsive-sm">
+        <table class="table table-sm">
+          <thead class="thead-dark">
+            <tr>
+              <th colspan="2">{{table.0}}</th>
+            </tr>
+          </thead>
+          <tr>
+            <td><b>{{table.1}}</b></td>
+            <td><b>{{table.2}}</b></td>
+          </tr>
+          <tr>
+            <td>{{table.3.0}}</td>
+            <td>{{table.3.1}}</td>
+          </tr>
+        </table>
+      </div>
+      <br>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+
+{% endblock content %}

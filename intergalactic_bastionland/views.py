@@ -5,6 +5,7 @@ from django.views.generic import TemplateView
 from into_the_odd.game_logic import roll
 from .heads_and_hands import heads_and_hands
 from .character_creation import Character
+from .sparks_tables import SPARK_TABLES
 
 app_name = "intergalactic_bastionland"
 
@@ -30,4 +31,24 @@ def heads_and_hands_view(request):
 def character_creation_view(request):
     template_name = f"{app_name}/character_creation.html"
     context = {"character": Character()}
+    return render(request, template_name, context)
+
+
+def sparks_tables_view(request, table_name):
+    template_name = f"{app_name}/sparks_tables.html"
+    tables = [
+        (
+            table.name,
+            table.table_1_name,
+            table.table_2_name,
+            table.get_spark(),
+        )
+        for table in SPARK_TABLES.get(table_name)
+    ]
+    context = {
+        "name": table_name.title(),
+        "tables_1": tables[:3],
+        "tables_2": tables[3:6],
+        "tables_3": tables[6:],
+    }
     return render(request, template_name, context)
