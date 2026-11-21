@@ -1,0 +1,34 @@
+{% extends "traveller/base_traveller.html" %}
+{% load static %}
+{% block title %}Traveller Skill Check{% endblock title %}
+{% block content %}
+<h1>Traveller Skill Check</h1>
+
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+{% if result %}
+
+<table class="table">
+  <tr>
+    <th>Dice</th>
+    <th>DM</th>
+    <th>Total</th>
+    <th>Difficulty</th>
+    <th>Result</th>
+    <th>Effect</th>
+  </tr>
+  <tr>
+    <td>{{dice}}</td>
+    <td>{{dm}}</td>
+    <td>{{total}}</td>
+    <td>{{difficulty}}</td>
+    <td>{{result}}</td>
+    <td>{{effect}}</td>
+  </tr>
+</table>
+
+
+
+{% endif %}
+{% endblock content%}

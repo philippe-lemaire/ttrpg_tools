@@ -49,4 +49,5 @@ urlpatterns = [
     path("burning-wheel/", include("burningwheel.urls")),
     path("torchbearer/", include("torchbearer.urls")),
     path("intergalactic-bastionland/", include("intergalactic_bastionland.urls")),
+    path("traveller/", include("traveller.urls")),
 ]
