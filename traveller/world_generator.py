@@ -161,14 +161,14 @@ class World:
         self.size = size_table.get(profile[1])
         self.diameter, self.gravity = self.size
         # atmosphere
-        self.atmosphere = atmosphere_table.get(profile[2])
+        self.atmosphere = atmosphere_table[profile[2]]
         (
             self.atmosphere_composition,
             self.atmosphere_pressure,
             self.atmosphere_survival_gear_required,
         ) = self.atmosphere
         # hydrographics
-        self.hydrographics = hydrographics_table.get(profile[3])
+        self.hydrographics = hydrographics_table[profile[3]]
         self.hydrographic_percentage, self.hydrographic_description = self.hydrographics
 
     def __repr__(self):
@@ -182,6 +182,9 @@ def gen_world():
     starport_quality_roll = "7"
     # atmosphere 2D -7 + Size
     atmosphere_roll = to_hex(traveller_roll() - 7 + from_hex(size_roll))
+    # fix negative atmosphere
+    if atmosphere_roll.startswith("X"):
+        atmosphere_roll = "0"
     # hydrographics roll
 
     if size_roll in "01":
@@ -192,7 +195,12 @@ def gen_world():
         )
     else:
         hydrographics_roll = to_hex(traveller_roll() - 7 + from_hex(atmosphere_roll))
-
+    # fix negative hydrographics roll
+    if hydrographics_roll.startswith("X"):
+        hydrographics_roll = "0"
+    # fix too high hydrographics roll
+    if from_hex(hydrographics_roll) > 10:
+        hydrographics_roll = "A"
     profile = f"{starport_quality_roll}{size_roll}{atmosphere_roll}{hydrographics_roll}"
     return World(profile)
 
