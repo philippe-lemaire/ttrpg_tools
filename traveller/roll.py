@@ -18,3 +18,7 @@ def get_key(n, d):
     while n not in d:
         n += 1
     return n
+
+
+def roll_d66():
+    return f"{randint(1,6)}{randint(1,6)}"
