@@ -245,6 +245,105 @@ population_table = {
     ),
 }
 
+government_table = {
+    "0": (
+        "None",
+        "No government structure. In many cases, family bonds predominate.",
+        "Family, clan, anarchy ",
+        "None",
+    ),
+    "1": (
+        "Company/Corporation",
+        "Ruling functions are assumed by a company managerial elite and most citizenry are company employees or dependants.",
+        "Corporate outpost, asteroid mine, feudal domain",
+        "Weapons, Drugs, Travellers",
+    ),
+    "2": (
+        "Participating Democracy",
+        "Ruling functions are reached by the advice  and consent of the citizenry directly.",
+        "Collective, tribal council, comm-linked consensus",
+        "Drugs",
+    ),
+    "3": (
+        "Self-Perpetuating Oligarchy",
+        "Ruling functions are performed by a restricted minority, with little or no input from the mass of citizenry.",
+        "Plutocracy, hereditary ruling caste",
+        "Technology, Weapons, Travellers",
+    ),
+    "4": (
+        "Representative Democracy",
+        "Ruling functions are performed by elected representatives.",
+        "Republic, democracy",
+        "Drugs, Weapons, Psionics",
+    ),
+    "5": (
+        "Feudal Technocracy",
+        "Ruling functions are performed by individuals for persons who agree to be ruled by them. Relationships are based the performance of technical activities that are mutually beneficial.",
+        "Those with access to advanced technology tend to have higher social status",
+        "Technology, Weapons, Computers",
+    ),
+    "6": (
+        "Captive Government",
+        "Ruling functions are performed by an imposed leadership answerable to an outside group.",
+        "A colony or conquered area",
+        "Weapons, Technology, Travellers",
+    ),
+    "7": (
+        "Balkanisation",
+        "No central authority exists; rival governments complete for control. Law level refers to the government nearest the starport.",
+        "Multiple governments, civil war",
+        "Varies",
+    ),
+    "8": (
+        "Civil Service Bureaucracy",
+        "Ruling functions are performed by government agencies employing individuals selected for their expertise.",
+        "Technocracy, Communism",
+        "Drugs, Weapons",
+    ),
+    "9": (
+        "Impersonal Bureaucracy",
+        "Ruling functions are performed by agencies that have become insulated from the governed citizens.",
+        "Entrenched castes of bureaucrats, decaying",
+        "Technology, Weapons, Drugs, Travellers, Psionics",
+    ),
+    "A": (
+        "Charismatic Dictator",
+        "Ruling functions are performed by a agencies directed by a single leader who enjoys the overwhelming confidence of the citizens.",
+        "Revolutionary leader, messiah, emperor",
+        "None",
+    ),
+    "B": (
+        "Non-Charismatic Leader",
+        "A previous charismatic dictator has been replaced by a leader through normal channels.",
+        "Military dictatorship, hereditary kingship",
+        "Weapons, Technology, Computers",
+    ),
+    "C": (
+        "Charismatic Oligarchy",
+        "Ruling functions are performed by a select group of members of an organisation or class that enjoys the overwhelming confidence of the citizenry.",
+        "Junta, revolutionary council",
+        "Weapons",
+    ),
+    "D": (
+        "Religious Dictatorship",
+        "Ruling functions are performed by a religious organisation without regard to the specific individual needs of the citizenry.",
+        "Cult, transcendent philosophy, psionic group mind",
+        "Varies",
+    ),
+    "E": (
+        "Religious Autocracy",
+        "Government by a single religious leader having absolute power over the citizenry.",
+        "Messiah",
+        "Varies",
+    ),
+    "F": (
+        "Totalitarian Oligarchy",
+        "Government by an all-powerful minority which maintains absolute control through widespread coercion and oppression.",
+        "World church, ruthless corporation",
+        "Varies",
+    ),
+}
+
 
 class World:
     def __init__(self, profile, temp_roll):
@@ -277,6 +376,8 @@ class World:
             self.population_range,
             self.population_description,
         ) = self.population
+        # government
+        self.government = government_table[profile[5]]
 
     def __repr__(self):
         return self.profile
@@ -350,7 +451,20 @@ def gen_world():
     # Population 2D-2
 
     population_roll = to_hex(traveller_roll() - 2)
-    profile = f"{starport_quality_roll}{size_roll}{atmosphere_roll}{hydrographics_roll}{population_roll}"
+
+    # Government 2D - 7 + population roll
+    if population_roll == "0":
+        government_roll = "0"
+    else:
+        government_roll = to_hex(traveller_roll() - 7 + from_hex(population_roll))
+    # Fix potential extreme government roll
+    if government_roll.startswith("X"):
+        government_roll = "0"
+    elif from_hex(government_roll) > 15:
+        government_roll = "F"
+    # final profile string
+    profile = f"{starport_quality_roll}{size_roll}{atmosphere_roll}{hydrographics_roll}{population_roll}{government_roll}"
+
     return World(profile, temp_roll)
 
 
@@ -361,3 +475,4 @@ if __name__ == "__main__":
     print(world.hydrographic_description, world.hydrographic_percentage)
     print(world.temperature)
     print(world.population)
+    print(world.government)
