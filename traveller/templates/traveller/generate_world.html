@@ -27,7 +27,10 @@
 
     <table class="table table-sm">
       <tr>
-        <th colspan="3">Atmosphere {{world.profile.2}}</th>
+        <th colspan="3">Atmosphere {{world.profile.2}} {% if world.minimal_tech_level %}
+          (Minimum Tech level: {{world.minimal_tech_level}})
+          {% endif %}
+        </th>
       </tr>
       <tr>
         <td>Composition</td>
@@ -103,6 +106,7 @@
     <p class="card-text"><b>Law Level:</b> {{world.law_level}}</p>
 
     <p class="card-text"><b>Tech level:</b> {{world.tech_level}}</p>
+
   </div>
 </div>
 

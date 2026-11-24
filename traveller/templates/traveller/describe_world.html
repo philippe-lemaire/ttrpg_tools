@@ -1,0 +1,15 @@
+{% extends "traveller/base_traveller.html" %}
+{% load static %}
+{% block title %}Traveller get World from Profile{% endblock title %}
+{% block content %}
+<h1>Traveller World from Profile</h1>
+
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
+{% if error %}
+<p>{{error}}</p>
+{% endif %}
+
+{% endblock content%}

@@ -42,3 +42,25 @@ def generate_world_view(request):
     context = {"world": gen_world()}
     template_name = "traveller/generate_world.html"
     return render(request, template_name, context)
+
+
+from .forms import TravellerWorldProfileForm
+from .world_generator import World
+
+
+def describe_world_view(request):
+    form = TravellerWorldProfileForm(request.POST or None)
+    context = {"form": form}
+    template_name = "traveller/describe_world.html"
+
+    if request.method == "POST":
+        if form.is_valid():
+
+            profile = form.cleaned_data["profile"].upper()
+            try:
+                context["world"] = World(profile)
+                template_name = "traveller/generate_world.html"
+            except:
+                context["error"] = "Invalid world profile string!"
+
+    return render(request, template_name, context)

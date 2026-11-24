@@ -393,6 +393,22 @@ starport_class_table = {
     11: "A",
 }
 
+minimal_tech_level_by_environment_table = {
+    "0": "8",
+    "1": "8",
+    "2": "5",
+    "3": "5",
+    "4": "3",
+    "7": "3",
+    "9": "3",
+    "A": "8",
+    "B": "9",
+    "C": "A",
+    "D": "5",
+    "E": "5",
+    "F": "8",
+}
+
 
 class World:
     def __init__(self, profile, temp_roll=9):
@@ -449,11 +465,14 @@ class World:
             self.cultural_difference = "\n".join([self.cultural_difference] + fused)
 
         # Law Level
-        self.law_level = profile[-2]
+        self.law_level = profile[-3]
         # starport
         self.star_port = profile[0]
         # tech_level
         self.tech_level = profile[-1]
+        self.minimal_tech_level = minimal_tech_level_by_environment_table.get(
+            profile[2]
+        )
 
     def __repr__(self):
         return self.profile
@@ -606,7 +625,7 @@ def gen_world():
     )
     tech_level_roll = to_hex(random.randint(1, 6) + tech_level_dm)
     # final profile string
-    profile = f"{star_port_rating}{size_roll}{atmosphere_roll}{hydrographics_roll}{population_roll}{government_roll}{law_level_roll}{tech_level_roll}"
+    profile = f"{star_port_rating}{size_roll}{atmosphere_roll}{hydrographics_roll}{population_roll}{government_roll}{law_level_roll}-{tech_level_roll}"
 
     return World(profile, temp_roll)
 

@@ -48,3 +48,25 @@ class TravellerRollForm(forms.Form):
                 css_class="m-1 btn-info",
             )
         )
+
+
+class TravellerWorldProfileForm(forms.Form):
+    profile = forms.CharField(
+        label="World Profile",
+        max_length=9,
+        widget=forms.TextInput(attrs={"placeholder": "D9A6777-4"}),
+    )
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper(self)
+        self.helper.form_action = reverse("traveller:describe_world")
+        self.helper.form_method = "post"
+
+        self.helper.add_input(
+            Submit(
+                "submit",
+                "Roll",
+                css_class="m-1 btn-info",
+            )
+        )
