@@ -378,6 +378,12 @@ class World:
         ) = self.population
         # government
         self.government = government_table[profile[5]]
+        (
+            self.government_type,
+            self.government_description,
+            self.government_example,
+            self.government_contraband_example,
+        ) = self.government
 
     def __repr__(self):
         return self.profile
