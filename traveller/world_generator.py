@@ -177,6 +177,74 @@ temperature_table = {
     12: ("Boiling", "81º+", "Boiling world. No more ice caps, little liquid water."),
 }
 
+population_table = {
+    "0": (
+        "None",
+        "0",
+        "—",
+    ),
+    "1": (
+        "Few",
+        "1+",
+        "A tiny farmstead or a single family",
+    ),
+    "2": (
+        "Hundreds",
+        "100+",
+        "A village",
+    ),
+    "3": (
+        "Thousands",
+        "1,000+",
+        "—",
+    ),
+    "4": (
+        "Tens of thousands",
+        "10,000+",
+        "Small town",
+    ),
+    "5": (
+        "Hundreds of thousands",
+        "100,000+",
+        "Average city",
+    ),
+    "6": (
+        "Millions",
+        "1,000,000+",
+        "—",
+    ),
+    "7": (
+        "Tens of millions",
+        "10,000,000+",
+        "Large city",
+    ),
+    "8": (
+        "Hundreds of millions",
+        "100,000,000+",
+        "—",
+    ),
+    "9": (
+        "Billions",
+        "1,000,000,000+",
+        "Present day Earth",
+    ),
+    "A": (
+        "Tens of billions",
+        "10,000,000,000+",
+        "—",
+    ),
+    "B": (
+        "Hundreds of billions",
+        "100,000,000,000+",
+        "Incredibly crowded world",
+    ),
+    "C": (
+        "Trillions",
+        "1,000,000,000,000+",
+        "World-city",
+    ),
+}
+
 
 class World:
     def __init__(self, profile, temp_roll):
@@ -202,6 +270,13 @@ class World:
         # hydrographics
         self.hydrographics = hydrographics_table[profile[3]]
         self.hydrographic_percentage, self.hydrographic_description = self.hydrographics
+        # population
+        self.population = population_table[profile[4]]
+        (
+            self.population_inhabitants,
+            self.population_range,
+            self.population_description,
+        ) = self.population
 
     def __repr__(self):
         return self.profile
@@ -271,7 +346,11 @@ def gen_world():
     # fix too high hydrographics roll
     if from_hex(hydrographics_roll) > 10:
         hydrographics_roll = "A"
-    profile = f"{starport_quality_roll}{size_roll}{atmosphere_roll}{hydrographics_roll}"
+
+    # Population 2D-2
+
+    population_roll = to_hex(traveller_roll() - 2)
+    profile = f"{starport_quality_roll}{size_roll}{atmosphere_roll}{hydrographics_roll}{population_roll}"
     return World(profile, temp_roll)
 
 
@@ -281,3 +360,4 @@ if __name__ == "__main__":
     print(world.atmosphere_composition)
     print(world.hydrographic_description, world.hydrographic_percentage)
     print(world.temperature)
+    print(world.population)
