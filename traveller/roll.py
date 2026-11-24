@@ -11,3 +11,10 @@ def traveller_roll(boon=False, bane=False):
     if bane:  # drop highest
         dice = dice[0:2]
     return sum(dice)
+
+
+def get_key(n, d):
+    """gets the nearest valid key in a dict with integer keys"""
+    while n not in d:
+        n += 1
+    return n

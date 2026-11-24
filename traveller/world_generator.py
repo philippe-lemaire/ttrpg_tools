@@ -1,4 +1,4 @@
-from roll import traveller_roll
+from roll import traveller_roll, get_key
 
 
 def to_hex(n):
@@ -153,9 +153,33 @@ hydrographics_table = {
     ),
 }
 
+temperature_table = {
+    2: (
+        "Frozen",
+        "-51º or less",
+        "Frozen world. No liquid water, very dry atmosphere.",
+    ),
+    4: (
+        "Cold",
+        "-51º to 0º",
+        "Icy world. Little liquid water, extensive ice caps, few clouds.",
+    ),
+    9: (
+        "Temperate",
+        "0º to 30º",
+        " Temperate world. Earth-like. Liquid & vaporised water are common, moderate ice caps.",
+    ),
+    11: (
+        "Hot",
+        " 31º to 80º",
+        "Hot world. Small or no ice caps, little liquid water. Most water in the form of clouds.",
+    ),
+    12: ("Boiling", "81º+", "Boiling world. No more ice caps, little liquid water."),
+}
+
 
 class World:
-    def __init__(self, profile):
+    def __init__(self, profile, temp_roll):
         self.profile = profile
         # size, 2nd letter in the profile
         self.size = size_table.get(profile[1])
@@ -167,6 +191,14 @@ class World:
             self.atmosphere_pressure,
             self.atmosphere_survival_gear_required,
         ) = self.atmosphere
+        # temperature
+        k = get_key(temp_roll, temperature_table)
+        self.temperature = temperature_table[k]
+        (
+            self.temperature_type,
+            self.temperature_average,
+            self.temperature_description,
+        ) = self.temperature
         # hydrographics
         self.hydrographics = hydrographics_table[profile[3]]
         self.hydrographic_percentage, self.hydrographic_description = self.hydrographics
@@ -185,16 +217,54 @@ def gen_world():
     # fix negative atmosphere
     if atmosphere_roll.startswith("X"):
         atmosphere_roll = "0"
-    # hydrographics roll
+    # temperature roll
+    # Atmosphere 0 or 1: No modifiers, but
+    # temperature swings from roasting during the day to frozen at night.
+    # Atmosphere 2 or 3:
+    # DM-2
+    # Atmosphere 4, 5 or E: DM-1
+    # Atmosphere 6 or 7:DM+0
+    # Atmosphere 8 or 9:DM+1
+    # Atmosphere A, D or F: DM+2
+    # Atmosphere B or C: DM+6
+    base_temp_roll = traveller_roll()
+    temperature_dm = 0
+    if atmosphere_roll in "23":
+        temperature_dm = -2
+    elif atmosphere_roll in "45E":
+        temperature_dm = -1
+    elif atmosphere_roll in "89":
+        temperature_dm = +1
+    elif atmosphere_roll in "ADF":
+        temperature_dm = +2
+    elif atmosphere_roll in "BC":
+        temperature_dm = +6
+    temp_roll = base_temp_roll + temperature_dm
+    # deal with extreme values
+    if temp_roll < 0:
+        temp_roll = 0
+    if temp_roll > 12:
+        temp_roll = 12
 
+    # hydrographics roll
+    # apply DM from temperature
+    hydrographics_roll_dm = 0
+    if atmosphere_roll not in "DF":
+        if temp_roll >= 10 and temp_roll <= 11:
+            hydrographics_roll_dm = -2
+        elif temp_roll >= 12:
+            hydrographics_roll_dm = -6
     if size_roll in "01":
         hydrographics_roll = "0"
     elif atmosphere_roll in "01ABCDEF":
         hydrographics_roll = to_hex(
-            traveller_roll() - 7 + from_hex(atmosphere_roll) - 4
+            traveller_roll() - 7 + from_hex(atmosphere_roll) - 4 + hydrographics_roll_dm
         )
     else:
-        hydrographics_roll = to_hex(traveller_roll() - 7 + from_hex(atmosphere_roll))
+        hydrographics_roll = to_hex(
+            traveller_roll() - 7 + from_hex(atmosphere_roll) + hydrographics_roll_dm
+        )
+
     # fix negative hydrographics roll
     if hydrographics_roll.startswith("X"):
         hydrographics_roll = "0"
@@ -202,7 +272,7 @@ def gen_world():
     if from_hex(hydrographics_roll) > 10:
         hydrographics_roll = "A"
     profile = f"{starport_quality_roll}{size_roll}{atmosphere_roll}{hydrographics_roll}"
-    return World(profile)
+    return World(profile, temp_roll)
 
 
 if __name__ == "__main__":
@@ -210,3 +280,4 @@ if __name__ == "__main__":
     print(world.diameter)
     print(world.atmosphere_composition)
     print(world.hydrographic_description, world.hydrographic_percentage)
+    print(world.temperature)
