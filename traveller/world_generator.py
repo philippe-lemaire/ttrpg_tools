@@ -448,8 +448,12 @@ class World:
             fused = [cultural_differences_d66_table.get(k) for k in keys]
             self.cultural_difference = "\n".join([self.cultural_difference] + fused)
 
+        # Law Level
+        self.law_level = profile[-2]
         # starport
-        self.star_port = profile[6]
+        self.star_port = profile[0]
+        # tech_level
+        self.tech_level = profile[-1]
 
     def __repr__(self):
         return self.profile
@@ -561,8 +565,48 @@ def gen_world():
     star_port_roll = traveller_roll() + star_port_dm
     star_port_key = get_key(star_port_roll, starport_class_table)
     star_port_rating = starport_class_table[star_port_key]
+
+    # tech level
+    star_port_influence_on_tech_level_table = {"A": 6, "B": 4, "C": 2, "X": -4}
+    star_port_influence_on_tech_level = star_port_influence_on_tech_level_table.get(
+        star_port_rating, 0
+    )
+    size_roll_influence_on_tech_level_table = {"0": 2, "1": 2, "2": 1, "3": 1, "4": 1}
+    size_roll_influence_on_tech_level = size_roll_influence_on_tech_level_table.get(
+        size_roll, 0
+    )
+    atmosphere_roll_influence_on_tech_level = (
+        1 if atmosphere_roll in "01234ABCDEF" else 0
+    )
+    hydrographics_influence_on_tech_level = 1 if hydrographics_roll in "09A" else 0
+    if hydrographics_roll == "A":
+        hydrographics_influence_on_tech_level += 1
+    population_influence_on_tech_level = 1 if population_roll in "1234589A" else 0
+    if population_roll == "9":
+        population_influence_on_tech_level += 1
+    if population_roll == "A":
+        population_influence_on_tech_level += 3
+    government_influence_on_tech_level_table = {
+        "0": 1,
+        "5": 1,
+        "7": 2,
+        "D": -2,
+        "E": -2,
+    }
+    government_influence_on_tech_level = government_influence_on_tech_level_table.get(
+        government_roll, 0
+    )
+    tech_level_dm = (
+        star_port_influence_on_tech_level
+        + size_roll_influence_on_tech_level
+        + atmosphere_roll_influence_on_tech_level
+        + hydrographics_influence_on_tech_level
+        + population_influence_on_tech_level
+        + government_influence_on_tech_level
+    )
+    tech_level_roll = to_hex(random.randint(1, 6) + tech_level_dm)
     # final profile string
-    profile = f"{starport_quality_roll}{size_roll}{atmosphere_roll}{hydrographics_roll}{population_roll}{government_roll}{law_level_roll}{star_port_rating}"
+    profile = f"{star_port_rating}{size_roll}{atmosphere_roll}{hydrographics_roll}{population_roll}{government_roll}{law_level_roll}{tech_level_roll}"
 
     return World(profile, temp_roll)
 

@@ -3,6 +3,7 @@ from django.views.generic import TemplateView
 from random import randint
 from .forms import TravellerRollForm
 from .roll import traveller_roll
+from .world_generator import gen_world
 
 # Create your views here.
 
@@ -34,4 +35,10 @@ def traveller_skill_check_view(request):
             context["difficulty"] = difficulty
             context["result"] = result
             context["effect"] = effect
+    return render(request, template_name, context)
+
+
+def generate_world_view(request):
+    context = {"world": gen_world()}
+    template_name = "traveller/generate_world.html"
     return render(request, template_name, context)
