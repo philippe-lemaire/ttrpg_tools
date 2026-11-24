@@ -1,0 +1,111 @@
+{% extends "traveller/base_traveller.html" %}
+{% load static %}
+{% block title %}Traveller Generate World{% endblock title %}
+{% block content %}
+<h1>Created World</h1>
+
+
+
+<div class="card mt-5">
+  <div class="card-body">
+    <h5 class="card-title">World </h5>
+    <h6 class="card-subtitle mb-2 text-muted">Profile {{world.profile}}</h6>
+    <p class="card-text"><b>Starport Rating:</b> {{world.star_port}}</p>
+    <table class="table table-sm">
+      <tr>
+        <th colspan="2">Size {{world.profile.1}}</th>
+      </tr>
+      <tr>
+        <td>Diameter</td>
+        <td>Gravity</td>
+      </tr>
+      <tr>
+        <td>{{world.diameter}}</td>
+        <td>{{world.gravity}}G</td>
+      </tr>
+    </table>
+
+    <table class="table table-sm">
+      <tr>
+        <th colspan="3">Atmosphere {{world.profile.2}}</th>
+      </tr>
+      <tr>
+        <td>Composition</td>
+        <td>Pressure</td>
+        <td>Survival Gear required</td>
+      </tr>
+      <tr>
+        <td>{{world.atmosphere_composition}}</td>
+        <td>{{world.atmosphere_pressure}}</td>
+        <td>{{world.atmosphere_survival_gear_required}}</td>
+      </tr>
+    </table>
+
+    <table class="table table-sm">
+      <tr>
+        <th colspan="3">Temperature</th>
+      </tr>
+      <tr>
+        <td>Type</td>
+        <td>Average</td>
+        <td>Description</td>
+      </tr>
+      <tr>
+        <td>{{world.temperature_type}}</td>
+        <td>{{world.temperature_average}}</td>
+        <td>{{world.temperature_description}}</td>
+      </tr>
+    </table>
+    <table class="table table-sm">
+      <tr>
+        <th colspan="2">Hydrographics {{world.profile.3}}</th>
+      </tr>
+      <tr>
+        <td>Hydrographic percentage</td>
+        <td>Description</td>
+      </tr>
+      <tr>
+        <td>{{world.hydrographic_percentage}}</td>
+        <td>{{world.hydrographic_description}}</td>
+      </tr>
+    </table>
+
+    <table class="table table-sm">
+      <tr>
+        <th colspan="2">Population {{world.profile.4}}</th>
+      </tr>
+      <tr>
+        <td>Inhabitants</td>
+        <td>Description</td>
+      </tr>
+      <tr>
+        <td>{{world.population_inhabitants}}</td>
+        <td>{{world.population_description}}</td>
+      </tr>
+    </table>
+
+    <table class="table table-sm">
+      <tr>
+        <th colspan="3">Government {{world.profile.5}}</th>
+      </tr>
+      <tr>
+        <td>Type</td>
+        <td>Description</td>
+        <td>Contraband example</td>
+      </tr>
+      <tr>
+        <td>{{world.government_type}}</td>
+        <td>{{world.government_description}}</td>
+        <td>{{world.government_contraband_example}}</td>
+      </tr>
+    </table>
+    <p class="card-text"><b>Cultural difference:</b> {{world.cultural_difference}}</p>
+    <p class="card-text"><b>Law Level:</b> {{world.law_level}}</p>
+
+    <p class="card-text"><b>Tech level:</b> {{world.tech_level}}</p>
+  </div>
+</div>
+
+
+
+{% endblock content%}
