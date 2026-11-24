@@ -1,4 +1,4 @@
-from roll import traveller_roll, get_key, roll_d66
+from .roll import traveller_roll, get_key, roll_d66
 import random
 
 
@@ -384,6 +384,15 @@ cultural_differences_d66_table = {
     "66": "Unusual Custom: Conspiracy – something strange is going on. The government is being subverted by another group or agency.",
 }
 
+starport_class_table = {
+    2: "X",
+    4: "E",
+    6: "D",
+    8: "C",
+    10: "B",
+    11: "A",
+}
+
 
 class World:
     def __init__(self, profile, temp_roll=9):
@@ -438,6 +447,9 @@ class World:
             keys = random.sample(set_of_valid_keys, 2)
             fused = [cultural_differences_d66_table.get(k) for k in keys]
             self.cultural_difference = "\n".join([self.cultural_difference] + fused)
+
+        # starport
+        self.star_port = profile[6]
 
     def __repr__(self):
         return self.profile
@@ -523,12 +535,39 @@ def gen_world():
     elif from_hex(government_roll) > 15:
         government_roll = "F"
 
+    # Law level Law Level is determined by rolling 2D–7 and adding the Government code.
+
+    law_level_roll = to_hex(traveller_roll() - 7 + from_hex(government_roll))
+    # fix extreme values
+    if law_level_roll.startswith("X"):
+        law_level_roll = "0"
+    elif from_hex(law_level_roll) > 15:
+        law_level_roll = "F"
+
+    # star port
+    # DM+1 if the planet’s Population is 8–9
+    # DM+2 if the planet’s Population is 10+
+    # DM–1 if the planet’s Population is 3–4
+    # DM–2 if the planet’s Population is 2–
+    star_port_dm = 0
+    if population_roll in "89":
+        star_port_dm = 1
+    elif population_roll in "ABCDEF":
+        star_port_dm = 2
+    elif population_roll in "34":
+        star_port_dm = -1
+    elif population_roll in "012":
+        star_port_dm = -1
+    star_port_roll = traveller_roll() + star_port_dm
+    star_port_key = get_key(star_port_roll, starport_class_table)
+    star_port_rating = starport_class_table[star_port_key]
     # final profile string
-    profile = f"{starport_quality_roll}{size_roll}{atmosphere_roll}{hydrographics_roll}{population_roll}{government_roll}"
+    profile = f"{starport_quality_roll}{size_roll}{atmosphere_roll}{hydrographics_roll}{population_roll}{government_roll}{law_level_roll}{star_port_rating}"
 
     return World(profile, temp_roll)
 
 
+"""
 if __name__ == "__main__":
     world = gen_world()
     print(world.diameter)
@@ -539,3 +578,4 @@ if __name__ == "__main__":
     print(world.government)
     print(world)
     print(world.cultural_difference)
+"""
