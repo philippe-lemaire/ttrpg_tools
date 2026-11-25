@@ -1,0 +1,37 @@
+{% extends "traveller/base_traveller.html" %}
+{% load static %}
+{% block title %}Traveller Random Content{% endblock title %}
+{% block content %}
+<h1 class="mb-5">Traveller Random content generator</h1>
+
+<h2 class="m-2">Ally or Ennemy</h2>
+
+<table class="table">
+  <tr>
+    <th>Character</th>
+    <th>Quirk</th>
+  </tr>
+  <tr>
+    <td>{{npc.npc_type}}</td>
+    <td>{{npc.quirk}}</td>
+  </tr>
+
+  <tr>
+    <th>Experience Level</th>
+    <th>Skills</th>
+  </tr>
+  <tr>
+    <td>{{npc.experience_level}}</td>
+    <td>{{npc.skills}}</td>
+  </tr>
+  <tr>
+    <th>Average Skill Levels</th>
+    <th>Characteristics</th>
+  </tr>
+  <tr>
+    <td>{{npc.average_skill_levels}}</td>
+    <td>{{npc.characteristics}}</td>
+  </tr>
+</table>
+
+{% endblock content%}

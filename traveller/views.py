@@ -4,6 +4,7 @@ from random import randint
 from .forms import TravellerRollForm
 from .roll import traveller_roll
 from .world_generator import gen_world
+from .npcs_and_missions import NPC
 
 # Create your views here.
 
@@ -63,4 +64,10 @@ def describe_world_view(request):
             except:
                 context["error"] = "Invalid world profile string!"
 
+    return render(request, template_name, context)
+
+
+def generate_random_content_view(request):
+    template_name = "traveller/random_content.html"
+    context = {"npc": NPC()}
     return render(request, template_name, context)
