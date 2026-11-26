@@ -1,0 +1,15 @@
+{% extends "traveller/base_traveller.html" %}
+{% load static %}
+{% block title %}Traveller get Encounter{% endblock title %}
+{% block content %}
+<h1>Traveller Encounter</h1>
+
+
+{% load crispy_forms_tags %}
+{% crispy form form.helper %}
+
+{% if encounter %}
+<p>{{encounter}}</p>
+{% endif %}
+
+{% endblock content%}

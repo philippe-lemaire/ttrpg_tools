@@ -70,3 +70,21 @@ class TravellerWorldProfileForm(forms.Form):
                 css_class="m-1 btn-info",
             )
         )
+
+from .encounters import encounter_tables
+class TravellerEncounterForm(forms.Form):
+    encounter_environment = forms.ChoiceField(choices = [(k,k) for k in encounter_tables], label="Environment of the encounter")
+
+    def __init__(self, *args, **kwargs):
+            super().__init__(*args, **kwargs)
+            self.helper = FormHelper(self)
+            self.helper.form_action = reverse("traveller:roll_encounter")
+            self.helper.form_method = "post"
+
+            self.helper.add_input(
+                Submit(
+                    "submit",
+                    "Roll",
+                    css_class="m-1 btn-info",
+                )
+            )

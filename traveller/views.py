@@ -71,3 +71,21 @@ def generate_random_content_view(request):
     template_name = "traveller/random_content.html"
     context = {"npc": NPC(), "mission": Mission()}
     return render(request, template_name, context)
+
+
+from .forms import TravellerEncounterForm
+from .roll import roll_d66
+from .encounters import encounter_tables
+
+def encounter_view(request):
+    form = TravellerEncounterForm(request.POST or None)
+    template_name = "traveller/encounter.html"
+    context = {"form": form}
+    if request.method == "POST":
+        if form.is_valid():
+            k = form.cleaned_data["encounter_environment"]
+            print(k)
+            encounter = encounter_tables.get(k).get(int(roll_d66()))
+            print(encounter)
+            context["encounter"] = encounter
+    return render(request, template_name, context)
